@@ -3,7 +3,7 @@ import localforage from 'localforage';
 import { FamilyMember, Report, Alert, Prediction } from './mockData';
 
 // Pointing to Django backend
-export const API_BASE = 'http://localhost:8000';
+export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 interface AuthState {
   token: string | null;

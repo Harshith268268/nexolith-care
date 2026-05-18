@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useFamily } from '../lib/FamilyContext';
+import { useFamily, API_BASE } from '../lib/FamilyContext';
 import { mockMembers } from '../lib/mockData';
 import {
   ArrowLeft,
@@ -32,7 +32,6 @@ export function ReportDetail() {
     : undefined;
   const [activeTab, setActiveTab] = useState<'summary' | 'values' | 'original' | 'notes'>('summary');
   const [isEditing, setIsEditing] = useState(false);
-  const API_BASE = 'http://localhost:8000';
 
   if (!report) return <div className="text-center py-12 text-slate-500">Report not found</div>;
 
