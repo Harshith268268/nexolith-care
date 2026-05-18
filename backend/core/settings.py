@@ -155,6 +155,11 @@ else:
     CORS_ALLOW_ALL_ORIGINS = False
     cors_origins = os.getenv("CORS_ALLOWED_ORIGINS", "https://*.vercel.app,http://localhost:5173").split(",")
     CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins if origin.strip()]
+    CORS_ALLOWED_ORIGINS.extend([
+        "https://localhost",
+        "http://localhost",
+        "capacitor://localhost",
+    ])
     CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^https://.*\.vercel\.app$",
     ]
@@ -162,6 +167,11 @@ else:
 # CSRF Trusted Origins
 csrf_origins = os.getenv("CSRF_TRUSTED_ORIGINS", "https://*.railway.app,https://*.vercel.app,http://localhost:5173").split(",")
 CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins if origin.strip()]
+CSRF_TRUSTED_ORIGINS.extend([
+    "https://localhost",
+    "http://localhost",
+    "capacitor://localhost",
+])
 
 # Django REST Framework
 REST_FRAMEWORK = {
