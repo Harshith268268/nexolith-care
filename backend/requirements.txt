@@ -17,7 +17,6 @@ pdf2image==1.17.0
 pdfminer.six==20251230
 asgiref==3.11.1
 cryptography==48.0.0
-g11==0.16.0
 requests==2.34.1
 urllib3==2.7.0
 tzdata==2026.2
