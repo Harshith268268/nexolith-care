@@ -1,0 +1,15 @@
+{
+  "name": "nexolith-care-selenium-e2e",
+  "version": "1.0.0",
+  "description": "End-to-End Selenium Testing Suite with Automated Excel Analysis Reporting for Nexolith Care",
+  "main": "run_e2e_tests.js",
+  "scripts": {
+    "test:e2e": "node run_e2e_tests.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "chromedriver": "^152.0.1",
+    "exceljs": "^4.4.0",
+    "selenium-webdriver": "^4.27.0"
+  }
+}
