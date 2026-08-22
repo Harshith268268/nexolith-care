@@ -120,6 +120,7 @@ export function Auth() {
               <input
                 type="text"
                 required
+                data-testid="username-input"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
                 className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 transition-all outline-none"
@@ -134,6 +135,7 @@ export function Auth() {
               <input
                 type="password"
                 required
+                data-testid="password-input"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 transition-all outline-none"
@@ -144,6 +146,7 @@ export function Auth() {
             <button
               type="submit"
               disabled={authLoading}
+              data-testid="auth-submit"
               className="w-full bg-primary-600 hover:bg-primary-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium py-2.5 rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2"
             >
               {authLoading && <Loader2 className="w-4 h-4 animate-spin" />}
@@ -156,6 +159,7 @@ export function Auth() {
               {isLogin ? "Don't have an account? " : 'Already have an account? '}
               <button
                 onClick={() => { setIsLogin(!isLogin); setUsername(''); setPassword(''); }}
+                data-testid="toggle-auth-mode"
                 className="text-primary-600 hover:text-primary-700 font-medium"
               >
                 {isLogin ? 'Sign up' : 'Sign in'}

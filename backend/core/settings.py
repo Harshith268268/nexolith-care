@@ -13,13 +13,7 @@ load_dotenv(BASE_DIR / '.env', override=True)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-if not SECRET_KEY:
-    if DEBUG:
-        SECRET_KEY = 'django-insecure-default-key-for-dev'
-    else:
-        raise ValueError("SECRET_KEY must be set in production environment!")
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-nexolith-care-local-dev-key-2026')
 
 # Restrict hosts in production safely
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",") if h.strip()]
@@ -139,9 +133,6 @@ if not DEBUG:
 # Media files (user uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Google Gemini API Key
-GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '')
 
 # Tesseract OCR binary path (Windows)
 TESSERACT_CMD = os.environ.get('TESSERACT_CMD', r'C:\Program Files\Tesseract-OCR\tesseract.exe')

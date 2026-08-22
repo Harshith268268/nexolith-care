@@ -1,250 +1,217 @@
 """
-Medical Analyzer Service
-Uses Google Gemini AI (Multimodal) and pdfplumber to parse medical reports.
-Direct vision + structured table extraction provides maximum accuracy.
+Local Medical Analyzer Service
+Replaces external Gemini LLM with a 100% offline local AI pipeline:
+PDF Table / OCR extraction → Local Medical Extractor → Trained ML Model → Medical Knowledge Engine.
+Requires ZERO API keys and ZERO external internet connections.
 """
-import json
-import logging
-import re
-import os
-from services.pdf_table_extractor import PDFTableExtractor
 
-logger = logging.getLogger(__name__)
-
-"""
-Medical Analyzer Service
-Uses Google Gemini AI (Multimodal) and pdfplumber to parse medical reports.
-Direct vision + structured table extraction provides maximum accuracy.
-"""
-import json
-import logging
-import re
 import os
+import sys
+import logging
 import traceback
-from dotenv import load_dotenv
+import pandas as pd
+import numpy as np
+from pathlib import Path
+from typing import Dict, Any, List
+
+# Django / Local imports
 from django.conf import settings
 from services.pdf_table_extractor import PDFTableExtractor
+from services.local_medical_extractor import LocalMedicalExtractor
+from services.medical_knowledge import MedicalKnowledgeEngine
 
 logger = logging.getLogger(__name__)
 
-EXTRACTION_PROMPT = """
-You are an expert medical data extraction and analysis AI. You will receive data from a medical lab report.
-The data may include an image, raw OCR text, or structured table data extracted from a PDF.
-
-Your CRITICAL tasks:
-1. Extract ALL medical lab parameters (e.g., Hemoglobin, WBC, Glucose, etc).
-2. For each parameter, find the EXACT:
-   - Result Value (numeric or text)
-   - Unit (e.g., g/dL, mg/dL, 10^3/uL)
-   - Normal/Reference Range (e.g., 13.5-17.5)
-3. Correctly classify each parameter's "Status":
-   - "Normal": Value is within the reference range.
-   - "Borderline": Value is slightly outside the reference range.
-   - "Critical": Value is significantly/dangerously outside the reference range.
-4. Provide a non-technical, simple "Explanation" for each parameter, telling the patient what it means in plain English (e.g., "A protein in red blood cells that carries oxygen. Low levels can cause fatigue.").
-5. Overall Status: Determine if the entire report is "Normal", "Borderline", or "Critical" based on the worst parameter result.
-6. Plain English Summary: Provide an overall AI health summary and simplification of findings in simple terms.
-
-Return ONLY valid JSON with this exact structure (no markdown, no code fences):
-{
-  "title": "string (e.g. 'Complete Blood Count')",
-  "type": "Blood",
-  "abnormality": "Normal",
-  "summary": "string (brief summary of findings and overall advice)",
-  "lab_values": [
-    {
-      "parameter": "Hemoglobin",
-      "value": "14.2",
-      "unit": "g/dL",
-      "range": "13.8-17.2",
-      "status": "Normal",
-      "explanation": "A protein in red blood cells that carries oxygen from your lungs to the rest of your body."
-    }
-  ]
-}
-
-If no parameters are found, return:
-{"title": "Medical Report", "type": "Discharge", "abnormality": "Normal", "summary": "No structured parameters could be extracted.", "lab_values": []}
-"""
 
 class MedicalAnalyzer:
     """
-    Parses medical reports using Gemini Multimodal Vision and pdfplumber
-    for structured table data extraction. Supports self-healing dual SDK configurations.
+    Local Medical Analyzer. Loads pre-trained scikit-learn model and preprocessing pipeline
+    from backend/ml_models/ to classify medical lab parameter statuses and generate
+    patient-friendly health insights.
     """
 
     def __init__(self):
-        self.client = None
-        self.ai_available = False
-        self.sdk_type = None  # 'modern' or 'legacy'
+        self.model = None
+        self.encoder = None
+        self.scaler = None
+        self.feature_cols = None
+        self.is_ml_loaded = False
         self.init_error = None
-        
+
+        self.kb_engine = MedicalKnowledgeEngine()
+        self.extractor = LocalMedicalExtractor()
+
+        self._load_local_ml_model()
+
+    def _load_local_ml_model(self):
+        """Loads pre-trained joblib model and scaler from disk."""
         try:
-            # Force reloading of .env using absolute path base directory from settings
-            dotenv_path = os.path.join(settings.BASE_DIR, '.env')
-            load_dotenv(dotenv_path, override=True)
-            
-            api_key = getattr(settings, 'GEMINI_API_KEY', '') or os.environ.get('GEMINI_API_KEY', '')
-            
-            # Print a safe, diagnostic log of the API key
-            if api_key:
-                masked_key = f"{api_key[:6]}...{api_key[-4:]}" if len(api_key) > 10 else "invalid-length"
-                logger.info(f"Loaded GEMINI_API_KEY from environment: {masked_key} (length: {len(api_key)})")
-            else:
-                logger.warning("GEMINI_API_KEY was not found during initialization.")
+            import joblib
+            ml_dir = Path(settings.BASE_DIR) / "ml_models"
+            model_path = ml_dir / "medical_status_model.joblib"
+            prep_path = ml_dir / "preprocessing.joblib"
 
-            if not api_key:
-                self.init_error = "GEMINI_API_KEY is completely missing from environment and settings."
-                logger.error(self.init_error)
-                return
-
-            # Try Modern google-genai Client
-            try:
-                from google import genai
-                self.client = genai.Client(api_key=api_key)
-                self.sdk_type = 'modern'
-                self.ai_available = True
-                logger.info("Modern Google GenAI client successfully initialized.")
-            except ImportError as e:
-                # Fallback to Legacy google-generativeai client
+            if not model_path.exists() or not prep_path.exists():
+                # Trigger quick training if model artifacts are missing
+                logger.warning(f"ML Model files missing at {model_path}. Auto-triggering training script...")
                 try:
-                    import google.generativeai as legacy_genai
-                    legacy_genai.configure(api_key=api_key)
-                    self.client = legacy_genai.GenerativeModel('gemini-1.5-flash')
-                    self.sdk_type = 'legacy'
-                    self.ai_available = True
-                    logger.info("Legacy google-generativeai client successfully initialized.")
-                except ImportError as e2:
-                    self.init_error = f"Neither google-genai (Error: {e}) nor google-generativeai (Error: {e2}) libraries are installed!"
-                    logger.error(self.init_error)
+                    from ml_models.train_model import run_training_pipeline
+                    run_training_pipeline()
+                except Exception as te:
+                    logger.error(f"Auto-training failed: {te}")
+
+            if model_path.exists() and prep_path.exists():
+                self.model = joblib.load(model_path)
+                prep_data = joblib.load(prep_path)
+                self.encoder = prep_data["encoder"]
+                self.scaler = prep_data["scaler"]
+                self.feature_cols = prep_data["feature_cols"]
+                self.is_ml_loaded = True
+                logger.info("Locally trained ML medical status model successfully loaded.")
+            else:
+                self.init_error = "Trained ML model joblib files could not be loaded."
+                logger.error(self.init_error)
+
         except Exception as e:
-            self.init_error = f"General failure during initialization: {str(e)}"
-            logger.error(f"Error initializing Gemini client: {e}\n{traceback.format_exc()}")
+            self.init_error = f"Error loading local ML model: {e}"
+            logger.error(f"{self.init_error}\n{traceback.format_exc()}")
 
-    def analyze_report(self, ocr_text: str = "", file_path: str = None) -> dict:
+    def analyze_report(self, ocr_text: str = "", file_path: str = None) -> Dict[str, Any]:
         """
-        Main entry point. Uses structured table extraction for PDFs,
-        and Multimodal Vision for images.
+        Main analysis entry point. Accepts OCR text and optional PDF/image file path,
+        extracts lab parameters, uses local ML model for status prediction, and generates
+        patient explanations.
         """
-        logger.info(f"analyze_report called. AI available: {self.ai_available} ({self.sdk_type}). File path: {file_path}")
-        
-        if not self.ai_available:
-            err_msg = self.init_error or "AI model client is not initialized."
-            return self._analyze_with_regex(ocr_text, f"AI initialization failed: {err_msg}")
+        logger.info(f"Local MedicalAnalyzer analyzing report. ML Model Loaded: {self.is_ml_loaded}. File: {file_path}")
 
-        structured_data = ""
-        is_pdf = file_path and file_path.lower().endswith('.pdf')
+        combined_text = ""
 
-        # Step 1: Try Structured Table Extraction for PDFs
-        if is_pdf:
-            logger.info("Extracting structured table data from PDF...")
+        # Step 1: Structured PDF Extraction
+        if file_path and file_path.lower().endswith('.pdf'):
             try:
                 table_extractor = PDFTableExtractor()
-                structured_data = table_extractor.extract_structured_data(file_path)
-                if structured_data:
-                    logger.info("Structured PDF data extracted.")
-            except Exception as e:
-                logger.error(f"Structured PDF extraction failed: {e}\n{traceback.format_exc()}")
+                pdf_text = table_extractor.extract_structured_data(file_path)
+                if pdf_text:
+                    combined_text += f"\n{pdf_text}"
+            except Exception as pe:
+                logger.error(f"PDF Table Extractor error: {pe}")
 
-        # Step 2: Run Gemini Analysis
-        try:
-            contents = [EXTRACTION_PROMPT]
-            
-            # Add structured text if we have it
-            if structured_data:
-                contents.append(f"STRUCTURED TABLE DATA:\n{structured_data}")
-            
-            # Add raw OCR text as fallback context
-            if ocr_text:
-                contents.append(f"RAW OCR TEXT:\n{ocr_text[:5000]}")
+        # Step 2: Append OCR Text
+        if ocr_text:
+            combined_text += f"\n{ocr_text}"
 
-            # Modern google-genai generation
-            if self.sdk_type == 'modern':
-                from google.genai import types
-                
-                # Add Image/PDF Vision Part
-                if file_path and os.path.exists(file_path):
-                    with open(file_path, 'rb') as f:
-                        file_bytes = f.read()
-                    
-                    ext = os.path.splitext(file_path)[1].lower()
-                    mime_type = "application/pdf" if ext == ".pdf" else f"image/{ext.replace('.', '')}"
-                    if mime_type == "image/jpg": mime_type = "image/jpeg"
-                    
-                    contents.append(types.Part.from_bytes(data=file_bytes, mime_type=mime_type))
+        # Step 3: Local Parameter Extraction
+        extracted_items = self.extractor.parse_document(combined_text)
 
-                logger.info("Dispatching generate_content request using modern google-genai SDK.")
-                response = self.client.models.generate_content(
-                    model='gemini-2.5-flash',
-                    contents=contents
-                )
-                raw_response = response.text
+        if not extracted_items:
+            logger.warning("LocalMedicalExtractor found no parameters. Returning fallback structure.")
+            return {
+                "title": "Medical Report",
+                "type": "Blood",
+                "abnormality": "Normal",
+                "summary": "No lab parameters could be extracted. Please check document scan quality.",
+                "lab_values": []
+            }
 
-            # Legacy google-generativeai generation
-            else:
-                # For legacy, we pass the image/pdf using PIL or direct bytes
-                if file_path and os.path.exists(file_path) and not is_pdf:
-                    from PIL import Image
-                    try:
-                        img = Image.open(file_path)
-                        contents.append(img)
-                    except Exception as e:
-                        logger.error(f"Failed to open image for legacy model: {e}")
+        # Step 4: Machine Learning Classification for each extracted parameter
+        processed_lab_values = []
+        for item in extracted_items:
+            param_name = item["parameter"]
+            val_num = item["numeric_value"]
+            val_str = item["value"]
+            unit = item["unit"]
+            range_str = item["range"]
+            lower_b = item["lower_bound"]
+            upper_b = item["upper_bound"]
 
-                logger.info("Dispatching generate_content request using legacy google-generativeai SDK.")
-                response = self.client.generate_content(contents)
-                raw_response = response.text
-            
-            result = self._parse_json_response(raw_response)
-            if result and result.get('lab_values'):
-                logger.info("Successfully received structured medical parameters from Gemini.")
-                return result
-            else:
-                logger.warning(f"Gemini responded, but output JSON was invalid or empty: {raw_response}")
-                return self._analyze_with_regex(ocr_text, "Gemini output JSON schema mismatch.")
-            
-        except Exception as e:
-            err_trace = traceback.format_exc()
-            logger.error(f"Gemini analysis request completely failed: {e}\n{err_trace}")
-            return self._analyze_with_regex(ocr_text, f"AI generation request failed: {str(e)}")
+            status = self._predict_status_with_ml(param_name, val_num, lower_b, upper_b)
+            explanation = self.kb_engine.get_explanation(param_name, status)
 
-    def _parse_json_response(self, raw_text: str) -> dict | None:
-        try:
-            raw = raw_text.strip()
-            raw = re.sub(r'^```(?:json)?\s*', '', raw)
-            raw = re.sub(r'\s*```$', '', raw)
-            return json.loads(raw)
-        except Exception as e:
-            logger.error(f"JSON Parse error: {e}")
-            return None
-
-    def _analyze_with_regex(self, ocr_text: str, failure_reason: str = "AI analysis failed") -> dict:
-        """Basic regex fallback if AI fails."""
-        lab_values = []
-        pattern = re.compile(
-            r'([A-Za-z][A-Za-z\s\-/()]{2,40}?)\s+[:.-]?\s*'
-            r'(\d+\.?\d*)\s*'
-            r'([A-Za-z/%μ]+(?:/[A-Za-z]+)?)\s*'
-            r'([\d.]+[-–][\d.]+)?',
-            re.MULTILINE
-        )
-        for match in pattern.finditer(ocr_text):
-            param, value, unit, ref_range = match.groups()
-            lab_values.append({
-                "parameter": param.strip(),
-                "value": value,
+            processed_lab_values.append({
+                "parameter": param_name,
+                "value": val_str,
                 "unit": unit,
-                "range": ref_range or "N/A",
-                "status": "Normal",
-                "explanation": "No explanation available (Fallback Regex Mode)."
+                "range": range_str,
+                "status": status,
+                "explanation": explanation
             })
 
+        # Step 5: Overall Summary & Abnormality determination
+        summary_info = self.kb_engine.generate_overall_summary(processed_lab_values)
+        report_title = self._determine_report_title(processed_lab_values)
+
         return {
-            "title": "Medical Report (Fallback)",
+            "title": report_title,
             "type": "Blood",
-            "abnormality": "Normal",
-            "summary": f"Extracted {len(lab_values)} parameters via basic OCR fallback. AI Failure Reason: {failure_reason}",
-            "lab_values": lab_values[:30]
+            "abnormality": summary_info["abnormality"],
+            "summary": summary_info["summary"],
+            "lab_values": processed_lab_values
         }
 
+    def _predict_status_with_ml(self, param_name: str, val: float, lower: float, upper: float) -> str:
+        """
+        Uses the loaded scikit-learn model to predict Normal / Borderline / Critical status.
+        Falls back gracefully to clinical bounds rule if ML model is unavailable.
+        """
+        if not self.is_ml_loaded or self.model is None:
+            return self._heuristic_status(val, lower, upper)
 
+        try:
+            span = max(upper - lower, 1e-5)
+            mid = (lower + upper) / 2.0
+
+            normalized_pos = (val - lower) / span
+            dev_lower = max(0.0, lower - val) / max(lower, 1e-5)
+            dev_upper = max(0.0, val - upper) / max(upper, 1e-5)
+            rel_mid_delta = abs(val - mid) / max(mid, 1e-5)
+            is_below_lower = 1.0 if val < lower else 0.0
+            is_above_upper = 1.0 if val > upper else 0.0
+
+            # Encode parameter name
+            known_classes = list(self.encoder.classes_)
+            param_code = self.encoder.transform([param_name])[0] if param_name in known_classes else 0
+
+            feature_dict = {
+                "normalized_pos": [normalized_pos],
+                "deviation_lower": [dev_lower],
+                "deviation_upper": [dev_upper],
+                "relative_mid_delta": [rel_mid_delta],
+                "is_below_lower": [is_below_lower],
+                "is_above_upper": [is_above_upper],
+                "param_code": [param_code]
+            }
+
+            df_feat = pd.DataFrame(feature_dict)[self.feature_cols]
+            X_scaled = self.scaler.transform(df_feat)
+
+            pred_status = self.model.predict(X_scaled)[0]
+            return str(pred_status)
+
+        except Exception as me:
+            logger.error(f"ML inference error for {param_name}: {me}. Using heuristic fallback.")
+            return self._heuristic_status(val, lower, upper)
+
+    def _heuristic_status(self, val: float, lower: float, upper: float) -> str:
+        """Deterministic clinical reference range fallback."""
+        span = upper - lower
+        if lower <= val <= upper:
+            return "Normal"
+        elif (lower - 0.20 * span) <= val < lower or upper < val <= (upper + 0.20 * span):
+            return "Borderline"
+        else:
+            return "Critical"
+
+    def _determine_report_title(self, lab_values: List[Dict[str, Any]]) -> str:
+        """Determines report title based on parameter contents."""
+        params = [item.get("parameter", "").lower() for item in lab_values]
+        if any("glucose" in p or "hba1c" in p for p in params):
+            return "Metabolic & Blood Glucose Panel"
+        elif any("cholesterol" in p or "triglyceride" in p for p in params):
+            return "Lipid Panel & Cardiovascular Report"
+        elif any("hemoglobin" in p or "wbc" in p or "platelet" in p for p in params):
+            return "Complete Blood Count (CBC)"
+        elif any("creatinine" in p or "bun" in p for p in params):
+            return "Renal Function Panel"
+        elif any("alt" in p or "ast" in p for p in params):
+            return "Liver Function Panel"
+        return "Comprehensive Lab Report"

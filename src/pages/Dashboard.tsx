@@ -114,7 +114,7 @@ export function Dashboard() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6" data-testid="dashboard-container">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
@@ -129,6 +129,7 @@ export function Dashboard() {
         </div>
         <Link
           to="/reports/upload"
+          data-testid="upload-report-link"
           className="inline-flex items-center justify-center px-4 py-2 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-colors shadow-sm animate-pulse">
           Upload Report
         </Link>

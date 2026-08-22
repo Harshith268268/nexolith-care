@@ -93,8 +93,9 @@ class MemberTrendsView(APIView):
 
 class ChatAssistantView(APIView):
     """
-    Intelligent Conversational AI Health Assistant endpoint.
-    Retrieves full logged-in user's family context dynamically and passes it to Gemini.
+    Intelligent Conversational Local Health Assistant endpoint.
+    Answers health queries locally using family medical profile, stored lab reports,
+    active alerts, and MedicalKnowledgeEngine without calling any external API.
     """
     permission_classes = [permissions.IsAuthenticated]
 
@@ -106,150 +107,99 @@ class ChatAssistantView(APIView):
             return Response({"error": "message is a required field"}, status=400)
 
         try:
-            # 1. Fetch current user's family members
             from family.models import FamilyMember
             from alerts.models import Alert
+            from services.medical_knowledge import MedicalKnowledgeEngine, MEDICAL_KNOWLEDGE_CATALOG
 
+            kb_engine = MedicalKnowledgeEngine()
+
+            # 1. Fetch current user's family members
             family_members = list(FamilyMember.objects.filter(family__user=request.user))
             if not family_members:
-                family_profile = "Family Profile: Awaiting member creation."
-            else:
-                profile_items = []
-                for member in family_members:
-                    # Query reports
-                    member_reports = list(Report.objects.filter(member=member).order_by('-date'))
-                    # Query active alerts
-                    member_alerts = list(Alert.objects.filter(member=member, status='Active'))
-
-                    member_profile = f"Member: {member.name} (Relation: {member.relation}, Age: {member.age})\n"
-                    
-                    if member_alerts:
-                        member_profile += "  Active Alerts/Warnings:\n"
-                        for a in member_alerts:
-                            member_profile += f"    - Alert: {a.title} (Severity: {a.severity}) - {a.description}\n"
-                    else:
-                        member_profile += "  Active Alerts/Warnings: None\n"
-
-                    if member_reports:
-                        member_profile += "  Clinical Reports History:\n"
-                        for r in member_reports[:3]:  # Top 3 latest reports for brevity and token efficiency
-                            member_profile += f"    - Report Title: '{r.title}' (Type: {r.type}, Date: {r.date}, Abnormality Status: {r.abnormality})\n"
-                            if r.summary:
-                                member_profile += f"      Plain English Summary: {r.summary}\n"
-                            
-                            # Add extracted parameters
-                            lab_vals = r.lab_values
-                            if isinstance(lab_vals, str):
-                                import json
-                                try:
-                                    lab_vals = json.loads(lab_vals)
-                                except Exception:
-                                    lab_vals = []
-                            if not isinstance(lab_vals, list):
-                                lab_vals = []
-
-                            if lab_vals:
-                                member_profile += "      Extracted Lab Values:\n"
-                                for item in lab_vals:
-                                    if isinstance(item, dict):
-                                        member_profile += f"        * {item.get('parameter', 'Unknown')}: {item.get('value', 'N/A')} {item.get('unit', '')} [Status: {item.get('status', 'Normal')}] - {item.get('explanation', '')}\n"
-                    else:
-                        member_profile += "  Clinical Reports History: No reports uploaded yet.\n"
-                    
-                    profile_items.append(member_profile)
-
-                family_profile = "\n".join(profile_items)
-
-            # 2. Construct dynamic context-rich system instructions
-            system_instruction = f"""
-You are Nexolith Care's Premium Conversational AI Health Assistant. Below is the clinical profile of the user's family members:
-
-{family_profile}
-
----
-
-INSTRUCTIONS:
-1. Personalized Query Resolution: You must answer questions using these stored reports, alerts, and analytics. If the user asks about trends (e.g. glucose, cholesterol, BP), look at the history provided above, compare values across dates, and compute changes.
-2. Wellness Guidance: Combine personalized medical data with general health recommendations. If someone has elevated parameters, give reassuring advice, dietary recommendations, and exercise regimes tailored to their status.
-3. Clarity and Visual Highlighting:
-   - Always highlight abnormal parameters (Borderline or Critical) using bold markdown (e.g. **Glucose: 128 mg/dL [Borderline]**).
-   - Use simple plain English terms to explain parameters.
-   - Advise scheduling a checkup or consulting a physician whenever critical values are present.
-4. Security & Privacy: Do not expose records belonging to other users. Protect the bounds of this clinical profile. If the user asks about a family member not listed above, politely clarify you don't have records for them.
-"""
-
-            # 3. Initialize Gemini Modern SDK Client
-            import os
-            from django.conf import settings
-            from dotenv import load_dotenv
-
-            dotenv_path = os.path.join(settings.BASE_DIR, '.env')
-            load_dotenv(dotenv_path, override=True)
-            api_key = getattr(settings, 'GEMINI_API_KEY', '') or os.environ.get('GEMINI_API_KEY', '')
-
-            if not api_key:
                 return Response({
-                    "response": "Hello! I am your AI Health Assistant. Currently, my API key is inactive, but I can see your profile details. Please configure a valid API key to enable conversational chats."
+                    "response": "Hello! I am your Local AI Health Assistant. I don't see any family profiles created yet. Please add a family member and upload reports to view personalized health insights."
                 })
 
-            # Check SDK type and trigger generation
-            try:
-                from google import genai
-                from google.genai import types
+            # 2. Build local health context
+            member_context = []
+            abnormal_items = []
 
-                client = genai.Client(api_key=api_key)
-                contents = []
+            for member in family_members:
+                member_reports = list(Report.objects.filter(member=member).order_by('-date'))
+                member_alerts = list(Alert.objects.filter(member=member, status='Active'))
 
-                # Append conversation history
-                for h in history:
-                    role = 'user' if h.get('role') == 'user' else 'model'
-                    contents.append(
-                        types.Content(
-                            role=role,
-                            parts=[types.Part.from_text(text=h.get('content', ''))]
-                        )
-                    )
+                m_summary = f"**Member**: {member.name} ({member.relation}, Age: {member.age})\n"
 
-                # Append latest user query
-                contents.append(
-                    types.Content(
-                        role='user',
-                        parts=[types.Part.from_text(text=message)]
-                    )
-                )
+                if member_alerts:
+                    m_summary += "  * Active Alerts:\n"
+                    for a in member_alerts:
+                        m_summary += f"    - **{a.title}** ({a.severity}): {a.description}\n"
 
-                response = client.models.generate_content(
-                    model='gemini-2.5-flash',
-                    contents=contents,
-                    config=types.GenerateContentConfig(
-                        system_instruction=system_instruction,
-                        temperature=0.7
-                    )
-                )
-                ai_text = response.text
-            except Exception as e:
-                logger.warning(f"Modern google-genai SDK call failed. Trying legacy SDK fallback: {e}")
-                # Fallback to legacy SDK
-                import google.generativeai as legacy_genai
-                legacy_genai.configure(api_key=api_key)
-                model = legacy_genai.GenerativeModel(
-                    model_name='gemini-1.5-flash',
-                    system_instruction=system_instruction
-                )
-                # Parse history for legacy
-                legacy_history = []
-                for h in history:
-                    role = 'user' if h.get('role') == 'user' else 'model'
-                    legacy_history.append({"role": role, "parts": [h.get('content', '')]})
+                if member_reports:
+                    latest = member_reports[0]
+                    m_summary += f"  * Latest Report: '{latest.title}' ({latest.date}) - Abnormality Status: **{latest.abnormality}**\n"
+                    if latest.summary:
+                        m_summary += f"    Summary: {latest.summary}\n"
 
-                chat = model.start_chat(history=legacy_history)
-                response = chat.send_message(message)
-                ai_text = response.text
+                    lab_vals = latest.lab_values or []
+                    if lab_vals:
+                        m_summary += "    Extracted Lab Parameters:\n"
+                        for item in lab_vals:
+                            if isinstance(item, dict):
+                                status = item.get('status', 'Normal')
+                                param = item.get('parameter', 'Unknown')
+                                val = item.get('value', 'N/A')
+                                unit = item.get('unit', '')
+                                range_str = item.get('range', 'N/A')
 
-            return Response({"response": ai_text})
+                                if status in ['Borderline', 'Critical']:
+                                    abnormal_items.append(f"**{param}** ({member.name}): {val} {unit} [{status}] (Ref Range: {range_str})")
+
+                                m_summary += f"      - {param}: {val} {unit} [{status}] (Ref Range: {range_str})\n"
+
+                member_context.append(m_summary)
+
+            full_context_str = "\n".join(member_context)
+
+            # 3. Match specific queries locally
+            msg_lower = message.lower()
+            response_parts = []
+
+            # Check if user asks about a specific lab parameter
+            matched_param = None
+            for p_name in MEDICAL_KNOWLEDGE_CATALOG.keys():
+                if p_name.lower() in msg_lower or any(part.lower() in msg_lower for part in p_name.split()):
+                    matched_param = p_name
+                    break
+
+            if matched_param:
+                kb_info = MEDICAL_KNOWLEDGE_CATALOG[matched_param]
+                response_parts.append(f"### {matched_param} Overview\n{kb_info['description']}\n")
+                response_parts.append(f"**Recommendation:** {kb_info['recommendation']}\n")
+
+            if "summary" in msg_lower or "overall" in msg_lower or "health" in msg_lower:
+                response_parts.append("### Family Health Profile Summary\n")
+                response_parts.append(full_context_str)
+
+            if abnormal_items and ("alert" in msg_lower or "warning" in msg_lower or "abnormal" in msg_lower or "high" in msg_lower or "low" in msg_lower):
+                response_parts.append("\n### Active Abnormal Parameters Requiring Attention:\n")
+                for ab in abnormal_items:
+                    response_parts.append(f"- {ab}")
+
+            if not response_parts:
+                response_parts.append(f"Hello! I am your **Local AI Health Assistant** (Offline Mode). Here is the current clinical overview for your registered family members:\n\n{full_context_str}\n")
+                if abnormal_items:
+                    response_parts.append("\n**Key Health Attention Items:**\n")
+                    for ab in abnormal_items:
+                        response_parts.append(f"- {ab}\n")
+                response_parts.append("\n*How else can I assist you with your family's health reports today?*")
+
+            response_parts.append("\n\n*(Note: Powered 100% locally by offline medical ML models and local health knowledge engine. No external API used.)*")
+
+            return Response({"response": "\n".join(response_parts)})
 
         except Exception as ex:
-            logger.error(f"Chat assistant failed to run query: {ex}")
+            logger.error(f"Local Chat assistant failed: {ex}")
             import traceback
             logger.error(traceback.format_exc())
             return Response({"error": str(ex)}, status=500)

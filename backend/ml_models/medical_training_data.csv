@@ -1,0 +1,4401 @@
+parameter,value,lower_bound,upper_bound,unit,status
+Hemoglobin,14.55,13.0,17.0,g/dL,Normal
+Hemoglobin,16.62,13.0,17.0,g/dL,Normal
+Hemoglobin,15.84,13.0,17.0,g/dL,Normal
+Hemoglobin,15.36,13.0,17.0,g/dL,Normal
+Hemoglobin,13.76,13.0,17.0,g/dL,Normal
+Hemoglobin,13.76,13.0,17.0,g/dL,Normal
+Hemoglobin,13.41,13.0,17.0,g/dL,Normal
+Hemoglobin,16.32,13.0,17.0,g/dL,Normal
+Hemoglobin,15.36,13.0,17.0,g/dL,Normal
+Hemoglobin,15.75,13.0,17.0,g/dL,Normal
+Hemoglobin,13.27,13.0,17.0,g/dL,Normal
+Hemoglobin,16.69,13.0,17.0,g/dL,Normal
+Hemoglobin,16.2,13.0,17.0,g/dL,Normal
+Hemoglobin,13.96,13.0,17.0,g/dL,Normal
+Hemoglobin,13.85,13.0,17.0,g/dL,Normal
+Hemoglobin,13.86,13.0,17.0,g/dL,Normal
+Hemoglobin,14.3,13.0,17.0,g/dL,Normal
+Hemoglobin,15.09,13.0,17.0,g/dL,Normal
+Hemoglobin,14.76,13.0,17.0,g/dL,Normal
+Hemoglobin,14.25,13.0,17.0,g/dL,Normal
+Hemoglobin,15.4,13.0,17.0,g/dL,Normal
+Hemoglobin,13.7,13.0,17.0,g/dL,Normal
+Hemoglobin,14.25,13.0,17.0,g/dL,Normal
+Hemoglobin,14.52,13.0,17.0,g/dL,Normal
+Hemoglobin,14.84,13.0,17.0,g/dL,Normal
+Hemoglobin,16.03,13.0,17.0,g/dL,Normal
+Hemoglobin,13.92,13.0,17.0,g/dL,Normal
+Hemoglobin,15.05,13.0,17.0,g/dL,Normal
+Hemoglobin,15.33,13.0,17.0,g/dL,Normal
+Hemoglobin,13.37,13.0,17.0,g/dL,Normal
+Hemoglobin,15.39,13.0,17.0,g/dL,Normal
+Hemoglobin,13.81,13.0,17.0,g/dL,Normal
+Hemoglobin,13.43,13.0,17.0,g/dL,Normal
+Hemoglobin,16.62,13.0,17.0,g/dL,Normal
+Hemoglobin,16.68,13.0,17.0,g/dL,Normal
+Hemoglobin,16.11,13.0,17.0,g/dL,Normal
+Hemoglobin,14.3,13.0,17.0,g/dL,Normal
+Hemoglobin,13.55,13.0,17.0,g/dL,Normal
+Hemoglobin,15.66,13.0,17.0,g/dL,Normal
+Hemoglobin,14.78,13.0,17.0,g/dL,Normal
+Hemoglobin,13.64,13.0,17.0,g/dL,Normal
+Hemoglobin,14.98,13.0,17.0,g/dL,Normal
+Hemoglobin,13.32,13.0,17.0,g/dL,Normal
+Hemoglobin,16.47,13.0,17.0,g/dL,Normal
+Hemoglobin,14.13,13.0,17.0,g/dL,Normal
+Hemoglobin,15.59,13.0,17.0,g/dL,Normal
+Hemoglobin,14.32,13.0,17.0,g/dL,Normal
+Hemoglobin,15.07,13.0,17.0,g/dL,Normal
+Hemoglobin,15.17,13.0,17.0,g/dL,Normal
+Hemoglobin,13.87,13.0,17.0,g/dL,Normal
+Hemoglobin,16.69,13.0,17.0,g/dL,Normal
+Hemoglobin,15.99,13.0,17.0,g/dL,Normal
+Hemoglobin,16.58,13.0,17.0,g/dL,Normal
+Hemoglobin,16.42,13.0,17.0,g/dL,Normal
+Hemoglobin,15.35,13.0,17.0,g/dL,Normal
+Hemoglobin,16.52,13.0,17.0,g/dL,Normal
+Hemoglobin,13.52,13.0,17.0,g/dL,Normal
+Hemoglobin,13.91,13.0,17.0,g/dL,Normal
+Hemoglobin,13.36,13.0,17.0,g/dL,Normal
+Hemoglobin,14.37,13.0,17.0,g/dL,Normal
+Hemoglobin,14.6,13.0,17.0,g/dL,Normal
+Hemoglobin,14.18,13.0,17.0,g/dL,Normal
+Hemoglobin,16.18,13.0,17.0,g/dL,Normal
+Hemoglobin,14.48,13.0,17.0,g/dL,Normal
+Hemoglobin,14.21,13.0,17.0,g/dL,Normal
+Hemoglobin,15.15,13.0,17.0,g/dL,Normal
+Hemoglobin,13.71,13.0,17.0,g/dL,Normal
+Hemoglobin,16.09,13.0,17.0,g/dL,Normal
+Hemoglobin,13.47,13.0,17.0,g/dL,Normal
+Hemoglobin,16.75,13.0,17.0,g/dL,Normal
+Hemoglobin,15.98,13.0,17.0,g/dL,Normal
+Hemoglobin,13.92,13.0,17.0,g/dL,Normal
+Hemoglobin,13.22,13.0,17.0,g/dL,Normal
+Hemoglobin,16.14,13.0,17.0,g/dL,Normal
+Hemoglobin,15.74,13.0,17.0,g/dL,Normal
+Hemoglobin,15.82,13.0,17.0,g/dL,Normal
+Hemoglobin,15.98,13.0,17.0,g/dL,Normal
+Hemoglobin,13.47,13.0,17.0,g/dL,Normal
+Hemoglobin,14.49,13.0,17.0,g/dL,Normal
+Hemoglobin,13.62,13.0,17.0,g/dL,Normal
+Hemoglobin,16.31,13.0,17.0,g/dL,Normal
+Hemoglobin,15.44,13.0,17.0,g/dL,Normal
+Hemoglobin,14.39,13.0,17.0,g/dL,Normal
+Hemoglobin,13.43,13.0,17.0,g/dL,Normal
+Hemoglobin,14.32,13.0,17.0,g/dL,Normal
+Hemoglobin,14.37,13.0,17.0,g/dL,Normal
+Hemoglobin,15.83,13.0,17.0,g/dL,Normal
+Hemoglobin,15.5,13.0,17.0,g/dL,Normal
+Hemoglobin,16.39,13.0,17.0,g/dL,Normal
+Hemoglobin,14.9,13.0,17.0,g/dL,Normal
+Hemoglobin,13.63,13.0,17.0,g/dL,Normal
+Hemoglobin,15.77,13.0,17.0,g/dL,Normal
+Hemoglobin,15.94,13.0,17.0,g/dL,Normal
+Hemoglobin,15.22,13.0,17.0,g/dL,Normal
+Hemoglobin,15.98,13.0,17.0,g/dL,Normal
+Hemoglobin,14.98,13.0,17.0,g/dL,Normal
+Hemoglobin,15.08,13.0,17.0,g/dL,Normal
+Hemoglobin,14.74,13.0,17.0,g/dL,Normal
+Hemoglobin,13.29,13.0,17.0,g/dL,Normal
+Hemoglobin,13.59,13.0,17.0,g/dL,Normal
+Hemoglobin,13.31,13.0,17.0,g/dL,Normal
+Hemoglobin,15.49,13.0,17.0,g/dL,Normal
+Hemoglobin,14.33,13.0,17.0,g/dL,Normal
+Hemoglobin,15.03,13.0,17.0,g/dL,Normal
+Hemoglobin,16.47,13.0,17.0,g/dL,Normal
+Hemoglobin,14.1,13.0,17.0,g/dL,Normal
+Hemoglobin,14.68,13.0,17.0,g/dL,Normal
+Hemoglobin,15.92,13.0,17.0,g/dL,Normal
+Hemoglobin,14.02,13.0,17.0,g/dL,Normal
+Hemoglobin,13.48,13.0,17.0,g/dL,Normal
+Hemoglobin,14.24,13.0,17.0,g/dL,Normal
+Hemoglobin,13.78,13.0,17.0,g/dL,Normal
+Hemoglobin,16.55,13.0,17.0,g/dL,Normal
+Hemoglobin,16.11,13.0,17.0,g/dL,Normal
+Hemoglobin,15.48,13.0,17.0,g/dL,Normal
+Hemoglobin,16.34,13.0,17.0,g/dL,Normal
+Hemoglobin,16.09,13.0,17.0,g/dL,Normal
+Hemoglobin,13.87,13.0,17.0,g/dL,Normal
+Hemoglobin,16.41,13.0,17.0,g/dL,Normal
+Hemoglobin,15.14,13.0,17.0,g/dL,Normal
+Hemoglobin,12.92,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.29,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.54,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.89,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.61,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.38,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.47,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.46,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.76,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.98,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.4,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.44,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.23,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.6,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.42,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.39,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.59,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.39,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.81,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.78,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.71,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.63,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.87,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.35,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.67,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.21,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.38,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.34,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.51,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.31,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.29,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.9,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.73,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.64,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.39,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.92,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.71,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.48,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.92,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.82,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.27,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.92,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.21,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.73,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.33,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.75,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.38,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.39,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.8,13.0,17.0,g/dL,Borderline
+Hemoglobin,12.88,13.0,17.0,g/dL,Borderline
+Hemoglobin,11.31,13.0,17.0,g/dL,Critical
+Hemoglobin,10.92,13.0,17.0,g/dL,Critical
+Hemoglobin,10.68,13.0,17.0,g/dL,Critical
+Hemoglobin,10.97,13.0,17.0,g/dL,Critical
+Hemoglobin,11.44,13.0,17.0,g/dL,Critical
+Hemoglobin,11.19,13.0,17.0,g/dL,Critical
+Hemoglobin,11.17,13.0,17.0,g/dL,Critical
+Hemoglobin,11.62,13.0,17.0,g/dL,Critical
+Hemoglobin,10.25,13.0,17.0,g/dL,Critical
+Hemoglobin,10.55,13.0,17.0,g/dL,Critical
+Hemoglobin,12.07,13.0,17.0,g/dL,Critical
+Hemoglobin,10.93,13.0,17.0,g/dL,Critical
+Hemoglobin,12.02,13.0,17.0,g/dL,Critical
+Hemoglobin,12.09,13.0,17.0,g/dL,Critical
+Hemoglobin,11.87,13.0,17.0,g/dL,Critical
+Hemoglobin,10.95,13.0,17.0,g/dL,Critical
+Hemoglobin,10.82,13.0,17.0,g/dL,Critical
+Hemoglobin,11.29,13.0,17.0,g/dL,Critical
+Hemoglobin,11.56,13.0,17.0,g/dL,Critical
+Hemoglobin,10.39,13.0,17.0,g/dL,Critical
+Hemoglobin,12.14,13.0,17.0,g/dL,Critical
+Hemoglobin,11.22,13.0,17.0,g/dL,Critical
+Hemoglobin,11.65,13.0,17.0,g/dL,Critical
+Hemoglobin,11.58,13.0,17.0,g/dL,Critical
+Hemoglobin,10.78,13.0,17.0,g/dL,Critical
+Hemoglobin,11.79,13.0,17.0,g/dL,Critical
+Hemoglobin,11.99,13.0,17.0,g/dL,Critical
+Hemoglobin,11.18,13.0,17.0,g/dL,Critical
+Hemoglobin,11.47,13.0,17.0,g/dL,Critical
+Hemoglobin,11.76,13.0,17.0,g/dL,Critical
+Fasting Glucose,94.68,70.0,99.0,mg/dL,Normal
+Fasting Glucose,80.27,70.0,99.0,mg/dL,Normal
+Fasting Glucose,81.25,70.0,99.0,mg/dL,Normal
+Fasting Glucose,73.9,70.0,99.0,mg/dL,Normal
+Fasting Glucose,86.54,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.39,70.0,99.0,mg/dL,Normal
+Fasting Glucose,83.6,70.0,99.0,mg/dL,Normal
+Fasting Glucose,85.61,70.0,99.0,mg/dL,Normal
+Fasting Glucose,78.93,70.0,99.0,mg/dL,Normal
+Fasting Glucose,86.87,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.25,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.42,70.0,99.0,mg/dL,Normal
+Fasting Glucose,92.92,70.0,99.0,mg/dL,Normal
+Fasting Glucose,80.85,70.0,99.0,mg/dL,Normal
+Fasting Glucose,74.77,70.0,99.0,mg/dL,Normal
+Fasting Glucose,85.08,70.0,99.0,mg/dL,Normal
+Fasting Glucose,91.55,70.0,99.0,mg/dL,Normal
+Fasting Glucose,77.08,70.0,99.0,mg/dL,Normal
+Fasting Glucose,87.71,70.0,99.0,mg/dL,Normal
+Fasting Glucose,73.68,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.8,70.0,99.0,mg/dL,Normal
+Fasting Glucose,85.32,70.0,99.0,mg/dL,Normal
+Fasting Glucose,85.56,70.0,99.0,mg/dL,Normal
+Fasting Glucose,88.09,70.0,99.0,mg/dL,Normal
+Fasting Glucose,90.4,70.0,99.0,mg/dL,Normal
+Fasting Glucose,96.92,70.0,99.0,mg/dL,Normal
+Fasting Glucose,84.93,70.0,99.0,mg/dL,Normal
+Fasting Glucose,79.88,70.0,99.0,mg/dL,Normal
+Fasting Glucose,92.2,70.0,99.0,mg/dL,Normal
+Fasting Glucose,78.52,70.0,99.0,mg/dL,Normal
+Fasting Glucose,82.91,70.0,99.0,mg/dL,Normal
+Fasting Glucose,73.5,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.11,70.0,99.0,mg/dL,Normal
+Fasting Glucose,96.58,70.0,99.0,mg/dL,Normal
+Fasting Glucose,93.27,70.0,99.0,mg/dL,Normal
+Fasting Glucose,89.61,70.0,99.0,mg/dL,Normal
+Fasting Glucose,82.12,70.0,99.0,mg/dL,Normal
+Fasting Glucose,75.97,70.0,99.0,mg/dL,Normal
+Fasting Glucose,75.53,70.0,99.0,mg/dL,Normal
+Fasting Glucose,77.98,70.0,99.0,mg/dL,Normal
+Fasting Glucose,85.78,70.0,99.0,mg/dL,Normal
+Fasting Glucose,90.1,70.0,99.0,mg/dL,Normal
+Fasting Glucose,88.68,70.0,99.0,mg/dL,Normal
+Fasting Glucose,78.76,70.0,99.0,mg/dL,Normal
+Fasting Glucose,96.37,70.0,99.0,mg/dL,Normal
+Fasting Glucose,90.71,70.0,99.0,mg/dL,Normal
+Fasting Glucose,85.92,70.0,99.0,mg/dL,Normal
+Fasting Glucose,87.42,70.0,99.0,mg/dL,Normal
+Fasting Glucose,82.4,70.0,99.0,mg/dL,Normal
+Fasting Glucose,77.92,70.0,99.0,mg/dL,Normal
+Fasting Glucose,80.74,70.0,99.0,mg/dL,Normal
+Fasting Glucose,91.23,70.0,99.0,mg/dL,Normal
+Fasting Glucose,71.83,70.0,99.0,mg/dL,Normal
+Fasting Glucose,74.48,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.65,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.51,70.0,99.0,mg/dL,Normal
+Fasting Glucose,93.78,70.0,99.0,mg/dL,Normal
+Fasting Glucose,89.82,70.0,99.0,mg/dL,Normal
+Fasting Glucose,83.83,70.0,99.0,mg/dL,Normal
+Fasting Glucose,74.0,70.0,99.0,mg/dL,Normal
+Fasting Glucose,84.28,70.0,99.0,mg/dL,Normal
+Fasting Glucose,83.81,70.0,99.0,mg/dL,Normal
+Fasting Glucose,75.97,70.0,99.0,mg/dL,Normal
+Fasting Glucose,82.77,70.0,99.0,mg/dL,Normal
+Fasting Glucose,81.85,70.0,99.0,mg/dL,Normal
+Fasting Glucose,87.52,70.0,99.0,mg/dL,Normal
+Fasting Glucose,88.03,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.63,70.0,99.0,mg/dL,Normal
+Fasting Glucose,81.23,70.0,99.0,mg/dL,Normal
+Fasting Glucose,87.78,70.0,99.0,mg/dL,Normal
+Fasting Glucose,84.58,70.0,99.0,mg/dL,Normal
+Fasting Glucose,93.8,70.0,99.0,mg/dL,Normal
+Fasting Glucose,88.64,70.0,99.0,mg/dL,Normal
+Fasting Glucose,75.7,70.0,99.0,mg/dL,Normal
+Fasting Glucose,73.29,70.0,99.0,mg/dL,Normal
+Fasting Glucose,88.22,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.14,70.0,99.0,mg/dL,Normal
+Fasting Glucose,86.74,70.0,99.0,mg/dL,Normal
+Fasting Glucose,95.99,70.0,99.0,mg/dL,Normal
+Fasting Glucose,86.47,70.0,99.0,mg/dL,Normal
+Fasting Glucose,81.58,70.0,99.0,mg/dL,Normal
+Fasting Glucose,88.24,70.0,99.0,mg/dL,Normal
+Fasting Glucose,83.41,70.0,99.0,mg/dL,Normal
+Fasting Glucose,85.69,70.0,99.0,mg/dL,Normal
+Fasting Glucose,96.02,70.0,99.0,mg/dL,Normal
+Fasting Glucose,81.53,70.0,99.0,mg/dL,Normal
+Fasting Glucose,96.54,70.0,99.0,mg/dL,Normal
+Fasting Glucose,95.08,70.0,99.0,mg/dL,Normal
+Fasting Glucose,76.56,70.0,99.0,mg/dL,Normal
+Fasting Glucose,73.26,70.0,99.0,mg/dL,Normal
+Fasting Glucose,74.08,70.0,99.0,mg/dL,Normal
+Fasting Glucose,71.93,70.0,99.0,mg/dL,Normal
+Fasting Glucose,73.91,70.0,99.0,mg/dL,Normal
+Fasting Glucose,89.28,70.0,99.0,mg/dL,Normal
+Fasting Glucose,73.31,70.0,99.0,mg/dL,Normal
+Fasting Glucose,79.78,70.0,99.0,mg/dL,Normal
+Fasting Glucose,93.5,70.0,99.0,mg/dL,Normal
+Fasting Glucose,72.06,70.0,99.0,mg/dL,Normal
+Fasting Glucose,92.71,70.0,99.0,mg/dL,Normal
+Fasting Glucose,78.81,70.0,99.0,mg/dL,Normal
+Fasting Glucose,74.53,70.0,99.0,mg/dL,Normal
+Fasting Glucose,89.63,70.0,99.0,mg/dL,Normal
+Fasting Glucose,87.87,70.0,99.0,mg/dL,Normal
+Fasting Glucose,94.35,70.0,99.0,mg/dL,Normal
+Fasting Glucose,90.64,70.0,99.0,mg/dL,Normal
+Fasting Glucose,92.42,70.0,99.0,mg/dL,Normal
+Fasting Glucose,78.81,70.0,99.0,mg/dL,Normal
+Fasting Glucose,76.08,70.0,99.0,mg/dL,Normal
+Fasting Glucose,91.04,70.0,99.0,mg/dL,Normal
+Fasting Glucose,92.51,70.0,99.0,mg/dL,Normal
+Fasting Glucose,97.3,70.0,99.0,mg/dL,Normal
+Fasting Glucose,82.22,70.0,99.0,mg/dL,Normal
+Fasting Glucose,81.16,70.0,99.0,mg/dL,Normal
+Fasting Glucose,91.71,70.0,99.0,mg/dL,Normal
+Fasting Glucose,80.34,70.0,99.0,mg/dL,Normal
+Fasting Glucose,95.74,70.0,99.0,mg/dL,Normal
+Fasting Glucose,93.85,70.0,99.0,mg/dL,Normal
+Fasting Glucose,82.65,70.0,99.0,mg/dL,Normal
+Fasting Glucose,91.05,70.0,99.0,mg/dL,Normal
+Fasting Glucose,91.14,70.0,99.0,mg/dL,Normal
+Fasting Glucose,69.43,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,103.79,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.39,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,64.26,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,99.53,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.71,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,102.33,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,101.6,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,66.11,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,103.36,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,103.58,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,67.07,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,67.39,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.35,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,64.88,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,68.62,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,99.59,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,68.27,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,68.97,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,99.47,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.92,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,66.35,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,104.49,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,103.37,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,64.68,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,102.24,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.46,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,67.06,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,66.92,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,64.89,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,67.97,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,102.38,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,101.17,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.24,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.79,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.83,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,69.37,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,104.76,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,67.41,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,102.03,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,103.04,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,67.84,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,104.23,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,65.83,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,104.16,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,67.8,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,65.29,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,66.25,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,99.45,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,104.72,70.0,99.0,mg/dL,Borderline
+Fasting Glucose,114.26,70.0,99.0,mg/dL,Critical
+Fasting Glucose,61.26,70.0,99.0,mg/dL,Critical
+Fasting Glucose,107.87,70.0,99.0,mg/dL,Critical
+Fasting Glucose,119.16,70.0,99.0,mg/dL,Critical
+Fasting Glucose,117.51,70.0,99.0,mg/dL,Critical
+Fasting Glucose,112.25,70.0,99.0,mg/dL,Critical
+Fasting Glucose,119.91,70.0,99.0,mg/dL,Critical
+Fasting Glucose,50.07,70.0,99.0,mg/dL,Critical
+Fasting Glucose,61.22,70.0,99.0,mg/dL,Critical
+Fasting Glucose,107.66,70.0,99.0,mg/dL,Critical
+Fasting Glucose,111.61,70.0,99.0,mg/dL,Critical
+Fasting Glucose,119.5,70.0,99.0,mg/dL,Critical
+Fasting Glucose,113.11,70.0,99.0,mg/dL,Critical
+Fasting Glucose,53.59,70.0,99.0,mg/dL,Critical
+Fasting Glucose,61.99,70.0,99.0,mg/dL,Critical
+Fasting Glucose,122.2,70.0,99.0,mg/dL,Critical
+Fasting Glucose,114.59,70.0,99.0,mg/dL,Critical
+Fasting Glucose,121.25,70.0,99.0,mg/dL,Critical
+Fasting Glucose,109.32,70.0,99.0,mg/dL,Critical
+Fasting Glucose,51.54,70.0,99.0,mg/dL,Critical
+Fasting Glucose,115.46,70.0,99.0,mg/dL,Critical
+Fasting Glucose,59.24,70.0,99.0,mg/dL,Critical
+Fasting Glucose,111.22,70.0,99.0,mg/dL,Critical
+Fasting Glucose,59.24,70.0,99.0,mg/dL,Critical
+Fasting Glucose,118.3,70.0,99.0,mg/dL,Critical
+Fasting Glucose,119.67,70.0,99.0,mg/dL,Critical
+Fasting Glucose,114.69,70.0,99.0,mg/dL,Critical
+Fasting Glucose,111.99,70.0,99.0,mg/dL,Critical
+Fasting Glucose,50.11,70.0,99.0,mg/dL,Critical
+Fasting Glucose,115.7,70.0,99.0,mg/dL,Critical
+HbA1c,5.09,4.0,5.6,%,Normal
+HbA1c,4.39,4.0,5.6,%,Normal
+HbA1c,4.28,4.0,5.6,%,Normal
+HbA1c,4.1,4.0,5.6,%,Normal
+HbA1c,4.58,4.0,5.6,%,Normal
+HbA1c,4.93,4.0,5.6,%,Normal
+HbA1c,4.64,4.0,5.6,%,Normal
+HbA1c,4.71,4.0,5.6,%,Normal
+HbA1c,5.38,4.0,5.6,%,Normal
+HbA1c,4.58,4.0,5.6,%,Normal
+HbA1c,4.82,4.0,5.6,%,Normal
+HbA1c,5.21,4.0,5.6,%,Normal
+HbA1c,4.65,4.0,5.6,%,Normal
+HbA1c,4.98,4.0,5.6,%,Normal
+HbA1c,5.32,4.0,5.6,%,Normal
+HbA1c,5.45,4.0,5.6,%,Normal
+HbA1c,4.29,4.0,5.6,%,Normal
+HbA1c,5.41,4.0,5.6,%,Normal
+HbA1c,4.79,4.0,5.6,%,Normal
+HbA1c,4.45,4.0,5.6,%,Normal
+HbA1c,4.74,4.0,5.6,%,Normal
+HbA1c,5.49,4.0,5.6,%,Normal
+HbA1c,4.79,4.0,5.6,%,Normal
+HbA1c,4.55,4.0,5.6,%,Normal
+HbA1c,4.99,4.0,5.6,%,Normal
+HbA1c,4.43,4.0,5.6,%,Normal
+HbA1c,4.19,4.0,5.6,%,Normal
+HbA1c,4.27,4.0,5.6,%,Normal
+HbA1c,4.26,4.0,5.6,%,Normal
+HbA1c,4.3,4.0,5.6,%,Normal
+HbA1c,4.28,4.0,5.6,%,Normal
+HbA1c,5.0,4.0,5.6,%,Normal
+HbA1c,4.34,4.0,5.6,%,Normal
+HbA1c,4.58,4.0,5.6,%,Normal
+HbA1c,5.37,4.0,5.6,%,Normal
+HbA1c,4.76,4.0,5.6,%,Normal
+HbA1c,5.04,4.0,5.6,%,Normal
+HbA1c,4.33,4.0,5.6,%,Normal
+HbA1c,4.36,4.0,5.6,%,Normal
+HbA1c,4.14,4.0,5.6,%,Normal
+HbA1c,4.32,4.0,5.6,%,Normal
+HbA1c,4.48,4.0,5.6,%,Normal
+HbA1c,4.33,4.0,5.6,%,Normal
+HbA1c,4.21,4.0,5.6,%,Normal
+HbA1c,4.25,4.0,5.6,%,Normal
+HbA1c,4.74,4.0,5.6,%,Normal
+HbA1c,4.38,4.0,5.6,%,Normal
+HbA1c,4.6,4.0,5.6,%,Normal
+HbA1c,4.8,4.0,5.6,%,Normal
+HbA1c,5.07,4.0,5.6,%,Normal
+HbA1c,4.14,4.0,5.6,%,Normal
+HbA1c,5.23,4.0,5.6,%,Normal
+HbA1c,4.98,4.0,5.6,%,Normal
+HbA1c,4.2,4.0,5.6,%,Normal
+HbA1c,5.34,4.0,5.6,%,Normal
+HbA1c,5.41,4.0,5.6,%,Normal
+HbA1c,4.17,4.0,5.6,%,Normal
+HbA1c,4.48,4.0,5.6,%,Normal
+HbA1c,5.24,4.0,5.6,%,Normal
+HbA1c,5.16,4.0,5.6,%,Normal
+HbA1c,4.35,4.0,5.6,%,Normal
+HbA1c,4.38,4.0,5.6,%,Normal
+HbA1c,4.61,4.0,5.6,%,Normal
+HbA1c,4.78,4.0,5.6,%,Normal
+HbA1c,4.97,4.0,5.6,%,Normal
+HbA1c,4.61,4.0,5.6,%,Normal
+HbA1c,4.75,4.0,5.6,%,Normal
+HbA1c,5.16,4.0,5.6,%,Normal
+HbA1c,4.13,4.0,5.6,%,Normal
+HbA1c,4.44,4.0,5.6,%,Normal
+HbA1c,5.11,4.0,5.6,%,Normal
+HbA1c,5.37,4.0,5.6,%,Normal
+HbA1c,4.82,4.0,5.6,%,Normal
+HbA1c,4.85,4.0,5.6,%,Normal
+HbA1c,4.23,4.0,5.6,%,Normal
+HbA1c,4.72,4.0,5.6,%,Normal
+HbA1c,4.85,4.0,5.6,%,Normal
+HbA1c,4.43,4.0,5.6,%,Normal
+HbA1c,4.47,4.0,5.6,%,Normal
+HbA1c,4.62,4.0,5.6,%,Normal
+HbA1c,4.11,4.0,5.6,%,Normal
+HbA1c,4.54,4.0,5.6,%,Normal
+HbA1c,4.38,4.0,5.6,%,Normal
+HbA1c,4.55,4.0,5.6,%,Normal
+HbA1c,4.25,4.0,5.6,%,Normal
+HbA1c,5.36,4.0,5.6,%,Normal
+HbA1c,4.93,4.0,5.6,%,Normal
+HbA1c,5.06,4.0,5.6,%,Normal
+HbA1c,5.22,4.0,5.6,%,Normal
+HbA1c,4.8,4.0,5.6,%,Normal
+HbA1c,4.21,4.0,5.6,%,Normal
+HbA1c,4.85,4.0,5.6,%,Normal
+HbA1c,4.93,4.0,5.6,%,Normal
+HbA1c,5.15,4.0,5.6,%,Normal
+HbA1c,4.7,4.0,5.6,%,Normal
+HbA1c,4.26,4.0,5.6,%,Normal
+HbA1c,4.49,4.0,5.6,%,Normal
+HbA1c,4.6,4.0,5.6,%,Normal
+HbA1c,5.01,4.0,5.6,%,Normal
+HbA1c,4.9,4.0,5.6,%,Normal
+HbA1c,4.59,4.0,5.6,%,Normal
+HbA1c,5.5,4.0,5.6,%,Normal
+HbA1c,4.95,4.0,5.6,%,Normal
+HbA1c,4.42,4.0,5.6,%,Normal
+HbA1c,4.23,4.0,5.6,%,Normal
+HbA1c,4.3,4.0,5.6,%,Normal
+HbA1c,4.43,4.0,5.6,%,Normal
+HbA1c,4.31,4.0,5.6,%,Normal
+HbA1c,4.35,4.0,5.6,%,Normal
+HbA1c,4.49,4.0,5.6,%,Normal
+HbA1c,4.33,4.0,5.6,%,Normal
+HbA1c,5.37,4.0,5.6,%,Normal
+HbA1c,4.2,4.0,5.6,%,Normal
+HbA1c,4.84,4.0,5.6,%,Normal
+HbA1c,4.67,4.0,5.6,%,Normal
+HbA1c,5.49,4.0,5.6,%,Normal
+HbA1c,4.24,4.0,5.6,%,Normal
+HbA1c,4.65,4.0,5.6,%,Normal
+HbA1c,5.48,4.0,5.6,%,Normal
+HbA1c,5.33,4.0,5.6,%,Normal
+HbA1c,5.68,4.0,5.6,%,Borderline
+HbA1c,3.89,4.0,5.6,%,Borderline
+HbA1c,5.78,4.0,5.6,%,Borderline
+HbA1c,5.69,4.0,5.6,%,Borderline
+HbA1c,5.66,4.0,5.6,%,Borderline
+HbA1c,3.82,4.0,5.6,%,Borderline
+HbA1c,5.68,4.0,5.6,%,Borderline
+HbA1c,3.88,4.0,5.6,%,Borderline
+HbA1c,3.87,4.0,5.6,%,Borderline
+HbA1c,3.83,4.0,5.6,%,Borderline
+HbA1c,5.62,4.0,5.6,%,Borderline
+HbA1c,3.72,4.0,5.6,%,Borderline
+HbA1c,4.0,4.0,5.6,%,Borderline
+HbA1c,3.94,4.0,5.6,%,Borderline
+HbA1c,3.9,4.0,5.6,%,Borderline
+HbA1c,5.79,4.0,5.6,%,Borderline
+HbA1c,3.81,4.0,5.6,%,Borderline
+HbA1c,3.98,4.0,5.6,%,Borderline
+HbA1c,5.91,4.0,5.6,%,Borderline
+HbA1c,3.91,4.0,5.6,%,Borderline
+HbA1c,5.66,4.0,5.6,%,Borderline
+HbA1c,3.92,4.0,5.6,%,Borderline
+HbA1c,5.87,4.0,5.6,%,Borderline
+HbA1c,3.93,4.0,5.6,%,Borderline
+HbA1c,3.73,4.0,5.6,%,Borderline
+HbA1c,3.94,4.0,5.6,%,Borderline
+HbA1c,5.77,4.0,5.6,%,Borderline
+HbA1c,3.96,4.0,5.6,%,Borderline
+HbA1c,3.94,4.0,5.6,%,Borderline
+HbA1c,3.8,4.0,5.6,%,Borderline
+HbA1c,3.78,4.0,5.6,%,Borderline
+HbA1c,5.76,4.0,5.6,%,Borderline
+HbA1c,3.97,4.0,5.6,%,Borderline
+HbA1c,3.85,4.0,5.6,%,Borderline
+HbA1c,5.8,4.0,5.6,%,Borderline
+HbA1c,3.98,4.0,5.6,%,Borderline
+HbA1c,5.71,4.0,5.6,%,Borderline
+HbA1c,3.93,4.0,5.6,%,Borderline
+HbA1c,5.77,4.0,5.6,%,Borderline
+HbA1c,5.85,4.0,5.6,%,Borderline
+HbA1c,3.78,4.0,5.6,%,Borderline
+HbA1c,3.92,4.0,5.6,%,Borderline
+HbA1c,3.86,4.0,5.6,%,Borderline
+HbA1c,5.88,4.0,5.6,%,Borderline
+HbA1c,3.94,4.0,5.6,%,Borderline
+HbA1c,3.95,4.0,5.6,%,Borderline
+HbA1c,3.81,4.0,5.6,%,Borderline
+HbA1c,5.65,4.0,5.6,%,Borderline
+HbA1c,3.91,4.0,5.6,%,Borderline
+HbA1c,5.81,4.0,5.6,%,Borderline
+HbA1c,6.45,4.0,5.6,%,Critical
+HbA1c,3.15,4.0,5.6,%,Critical
+HbA1c,3.59,4.0,5.6,%,Critical
+HbA1c,6.31,4.0,5.6,%,Critical
+HbA1c,3.62,4.0,5.6,%,Critical
+HbA1c,3.34,4.0,5.6,%,Critical
+HbA1c,6.51,4.0,5.6,%,Critical
+HbA1c,3.56,4.0,5.6,%,Critical
+HbA1c,6.47,4.0,5.6,%,Critical
+HbA1c,6.81,4.0,5.6,%,Critical
+HbA1c,6.08,4.0,5.6,%,Critical
+HbA1c,6.51,4.0,5.6,%,Critical
+HbA1c,3.46,4.0,5.6,%,Critical
+HbA1c,6.81,4.0,5.6,%,Critical
+HbA1c,2.97,4.0,5.6,%,Critical
+HbA1c,6.73,4.0,5.6,%,Critical
+HbA1c,3.6,4.0,5.6,%,Critical
+HbA1c,6.43,4.0,5.6,%,Critical
+HbA1c,6.31,4.0,5.6,%,Critical
+HbA1c,3.14,4.0,5.6,%,Critical
+HbA1c,5.94,4.0,5.6,%,Critical
+HbA1c,3.19,4.0,5.6,%,Critical
+HbA1c,6.8,4.0,5.6,%,Critical
+HbA1c,3.15,4.0,5.6,%,Critical
+HbA1c,6.36,4.0,5.6,%,Critical
+HbA1c,3.23,4.0,5.6,%,Critical
+HbA1c,3.02,4.0,5.6,%,Critical
+HbA1c,3.21,4.0,5.6,%,Critical
+HbA1c,6.28,4.0,5.6,%,Critical
+HbA1c,6.53,4.0,5.6,%,Critical
+Total Cholesterol,129.57,125.0,199.0,mg/dL,Normal
+Total Cholesterol,172.89,125.0,199.0,mg/dL,Normal
+Total Cholesterol,140.56,125.0,199.0,mg/dL,Normal
+Total Cholesterol,192.71,125.0,199.0,mg/dL,Normal
+Total Cholesterol,138.6,125.0,199.0,mg/dL,Normal
+Total Cholesterol,156.31,125.0,199.0,mg/dL,Normal
+Total Cholesterol,134.38,125.0,199.0,mg/dL,Normal
+Total Cholesterol,195.09,125.0,199.0,mg/dL,Normal
+Total Cholesterol,162.15,125.0,199.0,mg/dL,Normal
+Total Cholesterol,168.35,125.0,199.0,mg/dL,Normal
+Total Cholesterol,133.17,125.0,199.0,mg/dL,Normal
+Total Cholesterol,178.65,125.0,199.0,mg/dL,Normal
+Total Cholesterol,142.68,125.0,199.0,mg/dL,Normal
+Total Cholesterol,188.51,125.0,199.0,mg/dL,Normal
+Total Cholesterol,142.36,125.0,199.0,mg/dL,Normal
+Total Cholesterol,141.4,125.0,199.0,mg/dL,Normal
+Total Cholesterol,131.13,125.0,199.0,mg/dL,Normal
+Total Cholesterol,160.14,125.0,199.0,mg/dL,Normal
+Total Cholesterol,166.32,125.0,199.0,mg/dL,Normal
+Total Cholesterol,133.08,125.0,199.0,mg/dL,Normal
+Total Cholesterol,180.35,125.0,199.0,mg/dL,Normal
+Total Cholesterol,158.89,125.0,199.0,mg/dL,Normal
+Total Cholesterol,163.62,125.0,199.0,mg/dL,Normal
+Total Cholesterol,158.05,125.0,199.0,mg/dL,Normal
+Total Cholesterol,155.39,125.0,199.0,mg/dL,Normal
+Total Cholesterol,165.97,125.0,199.0,mg/dL,Normal
+Total Cholesterol,139.04,125.0,199.0,mg/dL,Normal
+Total Cholesterol,140.82,125.0,199.0,mg/dL,Normal
+Total Cholesterol,186.09,125.0,199.0,mg/dL,Normal
+Total Cholesterol,191.71,125.0,199.0,mg/dL,Normal
+Total Cholesterol,153.56,125.0,199.0,mg/dL,Normal
+Total Cholesterol,146.73,125.0,199.0,mg/dL,Normal
+Total Cholesterol,171.59,125.0,199.0,mg/dL,Normal
+Total Cholesterol,155.92,125.0,199.0,mg/dL,Normal
+Total Cholesterol,130.39,125.0,199.0,mg/dL,Normal
+Total Cholesterol,139.1,125.0,199.0,mg/dL,Normal
+Total Cholesterol,176.38,125.0,199.0,mg/dL,Normal
+Total Cholesterol,172.58,125.0,199.0,mg/dL,Normal
+Total Cholesterol,130.5,125.0,199.0,mg/dL,Normal
+Total Cholesterol,143.48,125.0,199.0,mg/dL,Normal
+Total Cholesterol,144.09,125.0,199.0,mg/dL,Normal
+Total Cholesterol,173.45,125.0,199.0,mg/dL,Normal
+Total Cholesterol,130.01,125.0,199.0,mg/dL,Normal
+Total Cholesterol,135.63,125.0,199.0,mg/dL,Normal
+Total Cholesterol,181.97,125.0,199.0,mg/dL,Normal
+Total Cholesterol,140.59,125.0,199.0,mg/dL,Normal
+Total Cholesterol,172.17,125.0,199.0,mg/dL,Normal
+Total Cholesterol,144.56,125.0,199.0,mg/dL,Normal
+Total Cholesterol,135.32,125.0,199.0,mg/dL,Normal
+Total Cholesterol,144.9,125.0,199.0,mg/dL,Normal
+Total Cholesterol,176.8,125.0,199.0,mg/dL,Normal
+Total Cholesterol,185.69,125.0,199.0,mg/dL,Normal
+Total Cholesterol,183.99,125.0,199.0,mg/dL,Normal
+Total Cholesterol,155.15,125.0,199.0,mg/dL,Normal
+Total Cholesterol,173.19,125.0,199.0,mg/dL,Normal
+Total Cholesterol,142.35,125.0,199.0,mg/dL,Normal
+Total Cholesterol,148.22,125.0,199.0,mg/dL,Normal
+Total Cholesterol,188.4,125.0,199.0,mg/dL,Normal
+Total Cholesterol,129.57,125.0,199.0,mg/dL,Normal
+Total Cholesterol,134.39,125.0,199.0,mg/dL,Normal
+Total Cholesterol,142.55,125.0,199.0,mg/dL,Normal
+Total Cholesterol,130.47,125.0,199.0,mg/dL,Normal
+Total Cholesterol,140.78,125.0,199.0,mg/dL,Normal
+Total Cholesterol,167.53,125.0,199.0,mg/dL,Normal
+Total Cholesterol,156.77,125.0,199.0,mg/dL,Normal
+Total Cholesterol,188.15,125.0,199.0,mg/dL,Normal
+Total Cholesterol,183.14,125.0,199.0,mg/dL,Normal
+Total Cholesterol,151.47,125.0,199.0,mg/dL,Normal
+Total Cholesterol,145.98,125.0,199.0,mg/dL,Normal
+Total Cholesterol,153.99,125.0,199.0,mg/dL,Normal
+Total Cholesterol,168.01,125.0,199.0,mg/dL,Normal
+Total Cholesterol,146.55,125.0,199.0,mg/dL,Normal
+Total Cholesterol,170.27,125.0,199.0,mg/dL,Normal
+Total Cholesterol,155.97,125.0,199.0,mg/dL,Normal
+Total Cholesterol,165.47,125.0,199.0,mg/dL,Normal
+Total Cholesterol,157.75,125.0,199.0,mg/dL,Normal
+Total Cholesterol,148.31,125.0,199.0,mg/dL,Normal
+Total Cholesterol,191.87,125.0,199.0,mg/dL,Normal
+Total Cholesterol,179.56,125.0,199.0,mg/dL,Normal
+Total Cholesterol,138.03,125.0,199.0,mg/dL,Normal
+Total Cholesterol,186.54,125.0,199.0,mg/dL,Normal
+Total Cholesterol,161.16,125.0,199.0,mg/dL,Normal
+Total Cholesterol,188.28,125.0,199.0,mg/dL,Normal
+Total Cholesterol,181.97,125.0,199.0,mg/dL,Normal
+Total Cholesterol,157.02,125.0,199.0,mg/dL,Normal
+Total Cholesterol,130.2,125.0,199.0,mg/dL,Normal
+Total Cholesterol,146.59,125.0,199.0,mg/dL,Normal
+Total Cholesterol,164.77,125.0,199.0,mg/dL,Normal
+Total Cholesterol,170.89,125.0,199.0,mg/dL,Normal
+Total Cholesterol,145.88,125.0,199.0,mg/dL,Normal
+Total Cholesterol,137.98,125.0,199.0,mg/dL,Normal
+Total Cholesterol,184.31,125.0,199.0,mg/dL,Normal
+Total Cholesterol,194.26,125.0,199.0,mg/dL,Normal
+Total Cholesterol,163.71,125.0,199.0,mg/dL,Normal
+Total Cholesterol,140.13,125.0,199.0,mg/dL,Normal
+Total Cholesterol,146.84,125.0,199.0,mg/dL,Normal
+Total Cholesterol,129.92,125.0,199.0,mg/dL,Normal
+Total Cholesterol,189.59,125.0,199.0,mg/dL,Normal
+Total Cholesterol,136.54,125.0,199.0,mg/dL,Normal
+Total Cholesterol,167.1,125.0,199.0,mg/dL,Normal
+Total Cholesterol,146.95,125.0,199.0,mg/dL,Normal
+Total Cholesterol,165.61,125.0,199.0,mg/dL,Normal
+Total Cholesterol,172.08,125.0,199.0,mg/dL,Normal
+Total Cholesterol,183.96,125.0,199.0,mg/dL,Normal
+Total Cholesterol,142.45,125.0,199.0,mg/dL,Normal
+Total Cholesterol,129.43,125.0,199.0,mg/dL,Normal
+Total Cholesterol,137.82,125.0,199.0,mg/dL,Normal
+Total Cholesterol,188.64,125.0,199.0,mg/dL,Normal
+Total Cholesterol,186.9,125.0,199.0,mg/dL,Normal
+Total Cholesterol,168.49,125.0,199.0,mg/dL,Normal
+Total Cholesterol,168.69,125.0,199.0,mg/dL,Normal
+Total Cholesterol,172.99,125.0,199.0,mg/dL,Normal
+Total Cholesterol,140.38,125.0,199.0,mg/dL,Normal
+Total Cholesterol,189.6,125.0,199.0,mg/dL,Normal
+Total Cholesterol,156.59,125.0,199.0,mg/dL,Normal
+Total Cholesterol,154.22,125.0,199.0,mg/dL,Normal
+Total Cholesterol,163.26,125.0,199.0,mg/dL,Normal
+Total Cholesterol,131.83,125.0,199.0,mg/dL,Normal
+Total Cholesterol,139.77,125.0,199.0,mg/dL,Normal
+Total Cholesterol,177.85,125.0,199.0,mg/dL,Normal
+Total Cholesterol,119.13,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,115.96,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,115.46,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,203.4,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,206.05,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,212.87,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,202.18,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,114.08,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,199.76,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,119.03,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,121.61,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,111.31,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,206.33,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,205.44,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,122.32,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,209.28,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,118.94,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,111.56,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,201.02,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,205.6,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,118.22,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,209.84,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,208.75,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,211.57,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,117.44,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,124.82,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,199.58,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,212.69,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,118.61,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,199.5,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,203.4,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,213.37,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,206.02,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,211.5,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,122.47,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,119.02,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,111.98,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,120.51,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,120.93,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,114.87,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,210.7,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,119.46,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,208.11,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,110.56,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,199.31,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,206.83,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,210.82,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,204.19,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,204.95,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,119.49,125.0,199.0,mg/dL,Borderline
+Total Cholesterol,257.51,125.0,199.0,mg/dL,Critical
+Total Cholesterol,232.78,125.0,199.0,mg/dL,Critical
+Total Cholesterol,99.94,125.0,199.0,mg/dL,Critical
+Total Cholesterol,77.21,125.0,199.0,mg/dL,Critical
+Total Cholesterol,83.62,125.0,199.0,mg/dL,Critical
+Total Cholesterol,81.67,125.0,199.0,mg/dL,Critical
+Total Cholesterol,73.85,125.0,199.0,mg/dL,Critical
+Total Cholesterol,233.22,125.0,199.0,mg/dL,Critical
+Total Cholesterol,97.84,125.0,199.0,mg/dL,Critical
+Total Cholesterol,107.65,125.0,199.0,mg/dL,Critical
+Total Cholesterol,218.44,125.0,199.0,mg/dL,Critical
+Total Cholesterol,105.08,125.0,199.0,mg/dL,Critical
+Total Cholesterol,234.95,125.0,199.0,mg/dL,Critical
+Total Cholesterol,221.83,125.0,199.0,mg/dL,Critical
+Total Cholesterol,224.65,125.0,199.0,mg/dL,Critical
+Total Cholesterol,242.9,125.0,199.0,mg/dL,Critical
+Total Cholesterol,236.92,125.0,199.0,mg/dL,Critical
+Total Cholesterol,79.6,125.0,199.0,mg/dL,Critical
+Total Cholesterol,79.96,125.0,199.0,mg/dL,Critical
+Total Cholesterol,229.83,125.0,199.0,mg/dL,Critical
+Total Cholesterol,108.34,125.0,199.0,mg/dL,Critical
+Total Cholesterol,255.05,125.0,199.0,mg/dL,Critical
+Total Cholesterol,222.13,125.0,199.0,mg/dL,Critical
+Total Cholesterol,100.69,125.0,199.0,mg/dL,Critical
+Total Cholesterol,221.26,125.0,199.0,mg/dL,Critical
+Total Cholesterol,224.34,125.0,199.0,mg/dL,Critical
+Total Cholesterol,92.67,125.0,199.0,mg/dL,Critical
+Total Cholesterol,239.87,125.0,199.0,mg/dL,Critical
+Total Cholesterol,105.02,125.0,199.0,mg/dL,Critical
+Total Cholesterol,77.9,125.0,199.0,mg/dL,Critical
+LDL Cholesterol,91.64,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,94.59,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,90.47,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,88.15,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,81.35,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,76.74,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,56.29,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,70.46,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,68.89,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,63.91,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,84.35,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,74.32,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,56.02,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,62.16,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,82.58,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,55.81,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,89.99,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,74.29,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,73.64,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,78.58,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,88.82,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,67.79,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,82.35,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,77.4,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,64.23,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,91.2,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,87.62,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,81.49,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,89.96,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,90.7,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,83.69,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,89.36,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,83.21,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,82.44,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,79.73,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,85.64,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,59.44,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,91.3,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,90.9,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,53.74,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,88.87,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,58.13,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,67.23,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,85.24,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,59.54,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,88.52,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,89.15,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,74.83,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,52.73,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,65.11,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,79.66,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,95.72,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,80.31,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,63.91,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,80.41,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,76.26,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,86.84,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,57.17,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,86.01,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,76.32,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,94.92,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,67.53,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,80.35,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,93.55,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,56.97,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,93.78,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,82.79,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,55.44,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,65.72,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,83.68,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,55.42,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,78.12,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,67.7,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,79.83,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,54.47,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,90.88,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,95.38,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,95.18,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,85.51,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,58.19,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,85.89,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,53.53,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,53.43,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,66.72,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,74.0,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,86.42,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,82.58,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,72.11,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,64.52,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,96.42,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,71.24,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,72.36,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,59.67,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,87.5,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,83.04,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,62.19,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,56.08,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,82.46,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,81.31,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,64.5,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,94.38,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,59.11,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,71.52,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,94.06,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,70.96,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,80.61,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,69.98,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,64.54,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,95.84,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,70.5,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,91.88,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,62.59,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,61.85,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,53.82,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,81.19,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,68.7,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,90.57,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,73.32,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,95.15,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,60.63,50.0,99.0,mg/dL,Normal
+LDL Cholesterol,106.61,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,107.28,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,105.14,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,40.52,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,105.04,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,103.72,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,41.43,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,103.22,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,45.02,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,45.9,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,48.02,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,44.66,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,40.91,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,44.9,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,101.86,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,107.43,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,99.39,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,41.23,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,49.87,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,45.09,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,105.88,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,99.1,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,45.27,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,43.64,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,40.97,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,41.5,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,105.76,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,100.96,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,41.22,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,105.92,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,49.37,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,45.5,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,107.54,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,106.86,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,48.19,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,48.97,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,107.01,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,46.51,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,106.17,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,40.79,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,41.76,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,101.15,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,102.3,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,47.94,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,103.88,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,106.05,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,49.96,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,105.37,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,46.87,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,40.5,50.0,99.0,mg/dL,Borderline
+LDL Cholesterol,26.81,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,130.31,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,121.59,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,24.61,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,110.45,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,126.02,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,33.11,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,36.67,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,121.48,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,29.92,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,115.38,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,127.55,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,113.09,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,135.57,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,21.4,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,114.52,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,123.52,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,36.61,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,28.06,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,29.94,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,25.09,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,116.75,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,118.69,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,113.07,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,122.41,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,17.46,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,28.18,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,35.6,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,21.67,50.0,99.0,mg/dL,Critical
+LDL Cholesterol,129.72,50.0,99.0,mg/dL,Critical
+HDL Cholesterol,47.01,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,47.03,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,42.91,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,64.95,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.66,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,56.7,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,68.34,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,67.13,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,60.19,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,69.1,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,48.23,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,45.28,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,50.25,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,43.55,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,58.48,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,71.25,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,42.99,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,45.6,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,55.99,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,71.17,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,51.71,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,57.73,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,43.06,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,46.42,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,72.83,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,72.15,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,41.91,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,71.73,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,61.88,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,69.09,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,56.07,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,57.99,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,57.15,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.76,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,46.15,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,42.69,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,51.45,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,63.95,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,48.11,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.96,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,72.3,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,44.71,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.94,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,55.73,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,69.1,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,47.33,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,63.57,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,68.15,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,71.51,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,63.27,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,57.41,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,61.21,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,69.12,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,59.72,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,42.71,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,71.07,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,63.47,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,63.06,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,48.54,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.5,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,54.16,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.26,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,45.11,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.47,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,73.23,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,43.27,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,72.53,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,54.57,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,69.18,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,66.4,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,59.61,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,65.01,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,69.42,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,54.48,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,52.05,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.78,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,67.2,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,65.76,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,66.88,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,55.47,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,67.51,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,45.54,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,58.9,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,41.93,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,51.97,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,53.29,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,54.23,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,63.66,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,53.99,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,55.88,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,49.23,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,53.51,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,48.91,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,44.06,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,60.76,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.8,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,61.26,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,56.35,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,53.71,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,68.95,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,58.1,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,56.84,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,42.56,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,52.5,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,53.73,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,54.31,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,60.03,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,58.56,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,60.9,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,65.84,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,67.36,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,64.37,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,71.85,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,42.32,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,47.92,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,41.99,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,62.15,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,70.04,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,49.42,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,70.95,40.0,75.0,mg/dL,Normal
+HDL Cholesterol,39.54,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.71,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,34.8,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.15,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.77,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.27,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,34.91,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.85,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.77,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.68,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.75,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,34.8,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.38,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.85,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.43,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.21,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,39.19,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,34.48,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.88,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,39.3,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,34.66,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,34.92,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.97,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.67,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.16,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,34.18,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,39.04,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.67,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.49,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.83,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.74,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.48,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.96,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.83,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,38.02,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,39.94,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.73,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.05,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,33.56,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,39.26,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.26,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.48,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.63,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,38.6,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,36.78,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.56,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,35.27,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.69,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,37.63,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,38.11,40.0,75.0,mg/dL,Borderline
+HDL Cholesterol,16.53,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,31.92,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,27.33,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,24.69,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,23.22,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,21.46,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,29.14,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,19.52,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,18.11,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,31.4,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,29.94,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,26.19,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,28.45,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,29.67,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,27.65,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,20.7,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,21.68,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,31.57,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,20.74,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,23.17,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,24.34,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,24.02,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,30.1,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,31.46,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,29.52,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,30.56,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,29.32,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,20.73,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,22.41,40.0,75.0,mg/dL,Critical
+HDL Cholesterol,27.42,40.0,75.0,mg/dL,Critical
+Triglycerides,85.79,50.0,149.0,mg/dL,Normal
+Triglycerides,141.88,50.0,149.0,mg/dL,Normal
+Triglycerides,112.06,50.0,149.0,mg/dL,Normal
+Triglycerides,128.23,50.0,149.0,mg/dL,Normal
+Triglycerides,66.76,50.0,149.0,mg/dL,Normal
+Triglycerides,131.76,50.0,149.0,mg/dL,Normal
+Triglycerides,137.17,50.0,149.0,mg/dL,Normal
+Triglycerides,98.35,50.0,149.0,mg/dL,Normal
+Triglycerides,108.97,50.0,149.0,mg/dL,Normal
+Triglycerides,123.09,50.0,149.0,mg/dL,Normal
+Triglycerides,70.53,50.0,149.0,mg/dL,Normal
+Triglycerides,99.73,50.0,149.0,mg/dL,Normal
+Triglycerides,90.47,50.0,149.0,mg/dL,Normal
+Triglycerides,67.99,50.0,149.0,mg/dL,Normal
+Triglycerides,87.7,50.0,149.0,mg/dL,Normal
+Triglycerides,61.02,50.0,149.0,mg/dL,Normal
+Triglycerides,57.25,50.0,149.0,mg/dL,Normal
+Triglycerides,66.99,50.0,149.0,mg/dL,Normal
+Triglycerides,140.76,50.0,149.0,mg/dL,Normal
+Triglycerides,103.91,50.0,149.0,mg/dL,Normal
+Triglycerides,141.0,50.0,149.0,mg/dL,Normal
+Triglycerides,93.49,50.0,149.0,mg/dL,Normal
+Triglycerides,82.73,50.0,149.0,mg/dL,Normal
+Triglycerides,100.05,50.0,149.0,mg/dL,Normal
+Triglycerides,94.11,50.0,149.0,mg/dL,Normal
+Triglycerides,64.36,50.0,149.0,mg/dL,Normal
+Triglycerides,112.05,50.0,149.0,mg/dL,Normal
+Triglycerides,74.2,50.0,149.0,mg/dL,Normal
+Triglycerides,110.16,50.0,149.0,mg/dL,Normal
+Triglycerides,112.88,50.0,149.0,mg/dL,Normal
+Triglycerides,68.5,50.0,149.0,mg/dL,Normal
+Triglycerides,60.42,50.0,149.0,mg/dL,Normal
+Triglycerides,124.52,50.0,149.0,mg/dL,Normal
+Triglycerides,95.92,50.0,149.0,mg/dL,Normal
+Triglycerides,60.13,50.0,149.0,mg/dL,Normal
+Triglycerides,143.59,50.0,149.0,mg/dL,Normal
+Triglycerides,60.1,50.0,149.0,mg/dL,Normal
+Triglycerides,116.88,50.0,149.0,mg/dL,Normal
+Triglycerides,142.6,50.0,149.0,mg/dL,Normal
+Triglycerides,76.26,50.0,149.0,mg/dL,Normal
+Triglycerides,67.62,50.0,149.0,mg/dL,Normal
+Triglycerides,65.77,50.0,149.0,mg/dL,Normal
+Triglycerides,81.97,50.0,149.0,mg/dL,Normal
+Triglycerides,63.95,50.0,149.0,mg/dL,Normal
+Triglycerides,116.62,50.0,149.0,mg/dL,Normal
+Triglycerides,60.5,50.0,149.0,mg/dL,Normal
+Triglycerides,100.34,50.0,149.0,mg/dL,Normal
+Triglycerides,143.76,50.0,149.0,mg/dL,Normal
+Triglycerides,127.47,50.0,149.0,mg/dL,Normal
+Triglycerides,109.77,50.0,149.0,mg/dL,Normal
+Triglycerides,82.24,50.0,149.0,mg/dL,Normal
+Triglycerides,110.54,50.0,149.0,mg/dL,Normal
+Triglycerides,101.91,50.0,149.0,mg/dL,Normal
+Triglycerides,92.91,50.0,149.0,mg/dL,Normal
+Triglycerides,66.6,50.0,149.0,mg/dL,Normal
+Triglycerides,133.95,50.0,149.0,mg/dL,Normal
+Triglycerides,95.03,50.0,149.0,mg/dL,Normal
+Triglycerides,72.29,50.0,149.0,mg/dL,Normal
+Triglycerides,87.72,50.0,149.0,mg/dL,Normal
+Triglycerides,91.85,50.0,149.0,mg/dL,Normal
+Triglycerides,128.68,50.0,149.0,mg/dL,Normal
+Triglycerides,120.32,50.0,149.0,mg/dL,Normal
+Triglycerides,123.5,50.0,149.0,mg/dL,Normal
+Triglycerides,55.93,50.0,149.0,mg/dL,Normal
+Triglycerides,92.03,50.0,149.0,mg/dL,Normal
+Triglycerides,97.84,50.0,149.0,mg/dL,Normal
+Triglycerides,56.66,50.0,149.0,mg/dL,Normal
+Triglycerides,78.1,50.0,149.0,mg/dL,Normal
+Triglycerides,122.69,50.0,149.0,mg/dL,Normal
+Triglycerides,67.17,50.0,149.0,mg/dL,Normal
+Triglycerides,102.65,50.0,149.0,mg/dL,Normal
+Triglycerides,74.12,50.0,149.0,mg/dL,Normal
+Triglycerides,56.03,50.0,149.0,mg/dL,Normal
+Triglycerides,76.44,50.0,149.0,mg/dL,Normal
+Triglycerides,141.9,50.0,149.0,mg/dL,Normal
+Triglycerides,126.37,50.0,149.0,mg/dL,Normal
+Triglycerides,140.45,50.0,149.0,mg/dL,Normal
+Triglycerides,98.42,50.0,149.0,mg/dL,Normal
+Triglycerides,64.73,50.0,149.0,mg/dL,Normal
+Triglycerides,103.77,50.0,149.0,mg/dL,Normal
+Triglycerides,95.44,50.0,149.0,mg/dL,Normal
+Triglycerides,130.18,50.0,149.0,mg/dL,Normal
+Triglycerides,63.69,50.0,149.0,mg/dL,Normal
+Triglycerides,98.45,50.0,149.0,mg/dL,Normal
+Triglycerides,68.32,50.0,149.0,mg/dL,Normal
+Triglycerides,83.88,50.0,149.0,mg/dL,Normal
+Triglycerides,120.65,50.0,149.0,mg/dL,Normal
+Triglycerides,97.36,50.0,149.0,mg/dL,Normal
+Triglycerides,88.44,50.0,149.0,mg/dL,Normal
+Triglycerides,90.1,50.0,149.0,mg/dL,Normal
+Triglycerides,95.89,50.0,149.0,mg/dL,Normal
+Triglycerides,124.89,50.0,149.0,mg/dL,Normal
+Triglycerides,134.43,50.0,149.0,mg/dL,Normal
+Triglycerides,140.07,50.0,149.0,mg/dL,Normal
+Triglycerides,125.06,50.0,149.0,mg/dL,Normal
+Triglycerides,83.05,50.0,149.0,mg/dL,Normal
+Triglycerides,116.26,50.0,149.0,mg/dL,Normal
+Triglycerides,93.94,50.0,149.0,mg/dL,Normal
+Triglycerides,77.64,50.0,149.0,mg/dL,Normal
+Triglycerides,129.87,50.0,149.0,mg/dL,Normal
+Triglycerides,58.37,50.0,149.0,mg/dL,Normal
+Triglycerides,135.3,50.0,149.0,mg/dL,Normal
+Triglycerides,96.07,50.0,149.0,mg/dL,Normal
+Triglycerides,111.72,50.0,149.0,mg/dL,Normal
+Triglycerides,113.7,50.0,149.0,mg/dL,Normal
+Triglycerides,134.7,50.0,149.0,mg/dL,Normal
+Triglycerides,111.68,50.0,149.0,mg/dL,Normal
+Triglycerides,109.65,50.0,149.0,mg/dL,Normal
+Triglycerides,60.89,50.0,149.0,mg/dL,Normal
+Triglycerides,101.14,50.0,149.0,mg/dL,Normal
+Triglycerides,68.33,50.0,149.0,mg/dL,Normal
+Triglycerides,120.66,50.0,149.0,mg/dL,Normal
+Triglycerides,100.59,50.0,149.0,mg/dL,Normal
+Triglycerides,115.56,50.0,149.0,mg/dL,Normal
+Triglycerides,58.66,50.0,149.0,mg/dL,Normal
+Triglycerides,62.5,50.0,149.0,mg/dL,Normal
+Triglycerides,118.77,50.0,149.0,mg/dL,Normal
+Triglycerides,61.37,50.0,149.0,mg/dL,Normal
+Triglycerides,61.3,50.0,149.0,mg/dL,Normal
+Triglycerides,56.03,50.0,149.0,mg/dL,Normal
+Triglycerides,163.6,50.0,149.0,mg/dL,Borderline
+Triglycerides,36.07,50.0,149.0,mg/dL,Borderline
+Triglycerides,45.54,50.0,149.0,mg/dL,Borderline
+Triglycerides,152.67,50.0,149.0,mg/dL,Borderline
+Triglycerides,32.15,50.0,149.0,mg/dL,Borderline
+Triglycerides,164.13,50.0,149.0,mg/dL,Borderline
+Triglycerides,30.61,50.0,149.0,mg/dL,Borderline
+Triglycerides,49.36,50.0,149.0,mg/dL,Borderline
+Triglycerides,45.43,50.0,149.0,mg/dL,Borderline
+Triglycerides,156.56,50.0,149.0,mg/dL,Borderline
+Triglycerides,32.6,50.0,149.0,mg/dL,Borderline
+Triglycerides,164.34,50.0,149.0,mg/dL,Borderline
+Triglycerides,159.5,50.0,149.0,mg/dL,Borderline
+Triglycerides,49.38,50.0,149.0,mg/dL,Borderline
+Triglycerides,154.8,50.0,149.0,mg/dL,Borderline
+Triglycerides,160.92,50.0,149.0,mg/dL,Borderline
+Triglycerides,163.81,50.0,149.0,mg/dL,Borderline
+Triglycerides,162.0,50.0,149.0,mg/dL,Borderline
+Triglycerides,36.9,50.0,149.0,mg/dL,Borderline
+Triglycerides,153.45,50.0,149.0,mg/dL,Borderline
+Triglycerides,38.76,50.0,149.0,mg/dL,Borderline
+Triglycerides,42.34,50.0,149.0,mg/dL,Borderline
+Triglycerides,153.77,50.0,149.0,mg/dL,Borderline
+Triglycerides,34.11,50.0,149.0,mg/dL,Borderline
+Triglycerides,161.79,50.0,149.0,mg/dL,Borderline
+Triglycerides,46.36,50.0,149.0,mg/dL,Borderline
+Triglycerides,165.76,50.0,149.0,mg/dL,Borderline
+Triglycerides,153.99,50.0,149.0,mg/dL,Borderline
+Triglycerides,158.12,50.0,149.0,mg/dL,Borderline
+Triglycerides,163.42,50.0,149.0,mg/dL,Borderline
+Triglycerides,161.99,50.0,149.0,mg/dL,Borderline
+Triglycerides,40.99,50.0,149.0,mg/dL,Borderline
+Triglycerides,167.56,50.0,149.0,mg/dL,Borderline
+Triglycerides,33.46,50.0,149.0,mg/dL,Borderline
+Triglycerides,44.57,50.0,149.0,mg/dL,Borderline
+Triglycerides,153.23,50.0,149.0,mg/dL,Borderline
+Triglycerides,165.65,50.0,149.0,mg/dL,Borderline
+Triglycerides,159.74,50.0,149.0,mg/dL,Borderline
+Triglycerides,159.07,50.0,149.0,mg/dL,Borderline
+Triglycerides,41.39,50.0,149.0,mg/dL,Borderline
+Triglycerides,166.29,50.0,149.0,mg/dL,Borderline
+Triglycerides,164.07,50.0,149.0,mg/dL,Borderline
+Triglycerides,39.34,50.0,149.0,mg/dL,Borderline
+Triglycerides,35.08,50.0,149.0,mg/dL,Borderline
+Triglycerides,168.64,50.0,149.0,mg/dL,Borderline
+Triglycerides,38.15,50.0,149.0,mg/dL,Borderline
+Triglycerides,153.04,50.0,149.0,mg/dL,Borderline
+Triglycerides,163.51,50.0,149.0,mg/dL,Borderline
+Triglycerides,152.72,50.0,149.0,mg/dL,Borderline
+Triglycerides,45.72,50.0,149.0,mg/dL,Borderline
+Triglycerides,170.1,50.0,149.0,mg/dL,Critical
+Triglycerides,171.85,50.0,149.0,mg/dL,Critical
+Triglycerides,181.62,50.0,149.0,mg/dL,Critical
+Triglycerides,191.28,50.0,149.0,mg/dL,Critical
+Triglycerides,4.35,50.0,149.0,mg/dL,Critical
+Triglycerides,25.61,50.0,149.0,mg/dL,Critical
+Triglycerides,191.3,50.0,149.0,mg/dL,Critical
+Triglycerides,21.09,50.0,149.0,mg/dL,Critical
+Triglycerides,204.43,50.0,149.0,mg/dL,Critical
+Triglycerides,12.05,50.0,149.0,mg/dL,Critical
+Triglycerides,169.98,50.0,149.0,mg/dL,Critical
+Triglycerides,190.55,50.0,149.0,mg/dL,Critical
+Triglycerides,175.22,50.0,149.0,mg/dL,Critical
+Triglycerides,197.88,50.0,149.0,mg/dL,Critical
+Triglycerides,173.58,50.0,149.0,mg/dL,Critical
+Triglycerides,202.59,50.0,149.0,mg/dL,Critical
+Triglycerides,205.04,50.0,149.0,mg/dL,Critical
+Triglycerides,216.81,50.0,149.0,mg/dL,Critical
+Triglycerides,24.1,50.0,149.0,mg/dL,Critical
+Triglycerides,2.25,50.0,149.0,mg/dL,Critical
+Triglycerides,9.76,50.0,149.0,mg/dL,Critical
+Triglycerides,211.13,50.0,149.0,mg/dL,Critical
+Triglycerides,200.0,50.0,149.0,mg/dL,Critical
+Triglycerides,4.31,50.0,149.0,mg/dL,Critical
+Triglycerides,12.68,50.0,149.0,mg/dL,Critical
+Triglycerides,6.44,50.0,149.0,mg/dL,Critical
+Triglycerides,212.76,50.0,149.0,mg/dL,Critical
+Triglycerides,224.29,50.0,149.0,mg/dL,Critical
+Triglycerides,194.4,50.0,149.0,mg/dL,Critical
+Triglycerides,215.68,50.0,149.0,mg/dL,Critical
+WBC Count,5.52,4.5,11.0,10^3/uL,Normal
+WBC Count,7.22,4.5,11.0,10^3/uL,Normal
+WBC Count,9.74,4.5,11.0,10^3/uL,Normal
+WBC Count,7.07,4.5,11.0,10^3/uL,Normal
+WBC Count,8.17,4.5,11.0,10^3/uL,Normal
+WBC Count,8.26,4.5,11.0,10^3/uL,Normal
+WBC Count,5.9,4.5,11.0,10^3/uL,Normal
+WBC Count,6.94,4.5,11.0,10^3/uL,Normal
+WBC Count,6.78,4.5,11.0,10^3/uL,Normal
+WBC Count,4.98,4.5,11.0,10^3/uL,Normal
+WBC Count,4.97,4.5,11.0,10^3/uL,Normal
+WBC Count,9.69,4.5,11.0,10^3/uL,Normal
+WBC Count,6.42,4.5,11.0,10^3/uL,Normal
+WBC Count,7.86,4.5,11.0,10^3/uL,Normal
+WBC Count,6.57,4.5,11.0,10^3/uL,Normal
+WBC Count,10.33,4.5,11.0,10^3/uL,Normal
+WBC Count,6.34,4.5,11.0,10^3/uL,Normal
+WBC Count,7.34,4.5,11.0,10^3/uL,Normal
+WBC Count,9.93,4.5,11.0,10^3/uL,Normal
+WBC Count,9.75,4.5,11.0,10^3/uL,Normal
+WBC Count,5.91,4.5,11.0,10^3/uL,Normal
+WBC Count,9.52,4.5,11.0,10^3/uL,Normal
+WBC Count,7.51,4.5,11.0,10^3/uL,Normal
+WBC Count,7.65,4.5,11.0,10^3/uL,Normal
+WBC Count,5.61,4.5,11.0,10^3/uL,Normal
+WBC Count,5.3,4.5,11.0,10^3/uL,Normal
+WBC Count,9.08,4.5,11.0,10^3/uL,Normal
+WBC Count,7.73,4.5,11.0,10^3/uL,Normal
+WBC Count,7.38,4.5,11.0,10^3/uL,Normal
+WBC Count,9.09,4.5,11.0,10^3/uL,Normal
+WBC Count,9.3,4.5,11.0,10^3/uL,Normal
+WBC Count,5.75,4.5,11.0,10^3/uL,Normal
+WBC Count,8.39,4.5,11.0,10^3/uL,Normal
+WBC Count,5.62,4.5,11.0,10^3/uL,Normal
+WBC Count,9.22,4.5,11.0,10^3/uL,Normal
+WBC Count,8.67,4.5,11.0,10^3/uL,Normal
+WBC Count,10.42,4.5,11.0,10^3/uL,Normal
+WBC Count,5.23,4.5,11.0,10^3/uL,Normal
+WBC Count,5.16,4.5,11.0,10^3/uL,Normal
+WBC Count,6.48,4.5,11.0,10^3/uL,Normal
+WBC Count,6.36,4.5,11.0,10^3/uL,Normal
+WBC Count,6.27,4.5,11.0,10^3/uL,Normal
+WBC Count,10.13,4.5,11.0,10^3/uL,Normal
+WBC Count,6.28,4.5,11.0,10^3/uL,Normal
+WBC Count,6.42,4.5,11.0,10^3/uL,Normal
+WBC Count,9.27,4.5,11.0,10^3/uL,Normal
+WBC Count,7.46,4.5,11.0,10^3/uL,Normal
+WBC Count,9.37,4.5,11.0,10^3/uL,Normal
+WBC Count,5.21,4.5,11.0,10^3/uL,Normal
+WBC Count,7.68,4.5,11.0,10^3/uL,Normal
+WBC Count,5.02,4.5,11.0,10^3/uL,Normal
+WBC Count,5.19,4.5,11.0,10^3/uL,Normal
+WBC Count,10.13,4.5,11.0,10^3/uL,Normal
+WBC Count,5.64,4.5,11.0,10^3/uL,Normal
+WBC Count,7.94,4.5,11.0,10^3/uL,Normal
+WBC Count,7.23,4.5,11.0,10^3/uL,Normal
+WBC Count,6.86,4.5,11.0,10^3/uL,Normal
+WBC Count,10.09,4.5,11.0,10^3/uL,Normal
+WBC Count,4.95,4.5,11.0,10^3/uL,Normal
+WBC Count,8.71,4.5,11.0,10^3/uL,Normal
+WBC Count,10.46,4.5,11.0,10^3/uL,Normal
+WBC Count,8.1,4.5,11.0,10^3/uL,Normal
+WBC Count,10.31,4.5,11.0,10^3/uL,Normal
+WBC Count,5.13,4.5,11.0,10^3/uL,Normal
+WBC Count,7.27,4.5,11.0,10^3/uL,Normal
+WBC Count,6.35,4.5,11.0,10^3/uL,Normal
+WBC Count,9.1,4.5,11.0,10^3/uL,Normal
+WBC Count,10.57,4.5,11.0,10^3/uL,Normal
+WBC Count,6.33,4.5,11.0,10^3/uL,Normal
+WBC Count,8.65,4.5,11.0,10^3/uL,Normal
+WBC Count,5.98,4.5,11.0,10^3/uL,Normal
+WBC Count,8.13,4.5,11.0,10^3/uL,Normal
+WBC Count,7.54,4.5,11.0,10^3/uL,Normal
+WBC Count,10.51,4.5,11.0,10^3/uL,Normal
+WBC Count,8.38,4.5,11.0,10^3/uL,Normal
+WBC Count,6.87,4.5,11.0,10^3/uL,Normal
+WBC Count,5.49,4.5,11.0,10^3/uL,Normal
+WBC Count,5.71,4.5,11.0,10^3/uL,Normal
+WBC Count,6.14,4.5,11.0,10^3/uL,Normal
+WBC Count,6.29,4.5,11.0,10^3/uL,Normal
+WBC Count,9.8,4.5,11.0,10^3/uL,Normal
+WBC Count,8.11,4.5,11.0,10^3/uL,Normal
+WBC Count,7.89,4.5,11.0,10^3/uL,Normal
+WBC Count,5.5,4.5,11.0,10^3/uL,Normal
+WBC Count,9.86,4.5,11.0,10^3/uL,Normal
+WBC Count,9.05,4.5,11.0,10^3/uL,Normal
+WBC Count,5.22,4.5,11.0,10^3/uL,Normal
+WBC Count,8.97,4.5,11.0,10^3/uL,Normal
+WBC Count,8.0,4.5,11.0,10^3/uL,Normal
+WBC Count,5.3,4.5,11.0,10^3/uL,Normal
+WBC Count,7.51,4.5,11.0,10^3/uL,Normal
+WBC Count,7.66,4.5,11.0,10^3/uL,Normal
+WBC Count,5.79,4.5,11.0,10^3/uL,Normal
+WBC Count,10.36,4.5,11.0,10^3/uL,Normal
+WBC Count,9.8,4.5,11.0,10^3/uL,Normal
+WBC Count,8.74,4.5,11.0,10^3/uL,Normal
+WBC Count,7.53,4.5,11.0,10^3/uL,Normal
+WBC Count,7.23,4.5,11.0,10^3/uL,Normal
+WBC Count,8.63,4.5,11.0,10^3/uL,Normal
+WBC Count,8.02,4.5,11.0,10^3/uL,Normal
+WBC Count,5.19,4.5,11.0,10^3/uL,Normal
+WBC Count,7.82,4.5,11.0,10^3/uL,Normal
+WBC Count,9.54,4.5,11.0,10^3/uL,Normal
+WBC Count,7.51,4.5,11.0,10^3/uL,Normal
+WBC Count,5.13,4.5,11.0,10^3/uL,Normal
+WBC Count,9.42,4.5,11.0,10^3/uL,Normal
+WBC Count,6.0,4.5,11.0,10^3/uL,Normal
+WBC Count,6.34,4.5,11.0,10^3/uL,Normal
+WBC Count,5.79,4.5,11.0,10^3/uL,Normal
+WBC Count,6.76,4.5,11.0,10^3/uL,Normal
+WBC Count,9.25,4.5,11.0,10^3/uL,Normal
+WBC Count,7.86,4.5,11.0,10^3/uL,Normal
+WBC Count,6.02,4.5,11.0,10^3/uL,Normal
+WBC Count,9.96,4.5,11.0,10^3/uL,Normal
+WBC Count,9.97,4.5,11.0,10^3/uL,Normal
+WBC Count,9.92,4.5,11.0,10^3/uL,Normal
+WBC Count,6.22,4.5,11.0,10^3/uL,Normal
+WBC Count,7.46,4.5,11.0,10^3/uL,Normal
+WBC Count,10.59,4.5,11.0,10^3/uL,Normal
+WBC Count,9.34,4.5,11.0,10^3/uL,Normal
+WBC Count,3.28,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.38,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.65,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.05,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.49,4.5,11.0,10^3/uL,Borderline
+WBC Count,12.25,4.5,11.0,10^3/uL,Borderline
+WBC Count,3.88,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.23,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.82,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.51,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.69,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.1,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.41,4.5,11.0,10^3/uL,Borderline
+WBC Count,12.18,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.48,4.5,11.0,10^3/uL,Borderline
+WBC Count,3.46,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.36,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.2,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.0,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.35,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.66,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.54,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.87,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.22,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.56,4.5,11.0,10^3/uL,Borderline
+WBC Count,3.22,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.69,4.5,11.0,10^3/uL,Borderline
+WBC Count,12.16,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.15,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.32,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.7,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.41,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.27,4.5,11.0,10^3/uL,Borderline
+WBC Count,3.67,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.28,4.5,11.0,10^3/uL,Borderline
+WBC Count,3.43,4.5,11.0,10^3/uL,Borderline
+WBC Count,12.07,4.5,11.0,10^3/uL,Borderline
+WBC Count,3.51,4.5,11.0,10^3/uL,Borderline
+WBC Count,3.65,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.17,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.81,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.29,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.47,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.16,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.42,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.09,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.31,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.29,4.5,11.0,10^3/uL,Borderline
+WBC Count,4.04,4.5,11.0,10^3/uL,Borderline
+WBC Count,11.67,4.5,11.0,10^3/uL,Borderline
+WBC Count,0.67,4.5,11.0,10^3/uL,Critical
+WBC Count,0.95,4.5,11.0,10^3/uL,Critical
+WBC Count,15.96,4.5,11.0,10^3/uL,Critical
+WBC Count,15.3,4.5,11.0,10^3/uL,Critical
+WBC Count,14.92,4.5,11.0,10^3/uL,Critical
+WBC Count,2.84,4.5,11.0,10^3/uL,Critical
+WBC Count,14.51,4.5,11.0,10^3/uL,Critical
+WBC Count,1.4,4.5,11.0,10^3/uL,Critical
+WBC Count,2.71,4.5,11.0,10^3/uL,Critical
+WBC Count,13.82,4.5,11.0,10^3/uL,Critical
+WBC Count,12.79,4.5,11.0,10^3/uL,Critical
+WBC Count,0.13,4.5,11.0,10^3/uL,Critical
+WBC Count,15.89,4.5,11.0,10^3/uL,Critical
+WBC Count,2.69,4.5,11.0,10^3/uL,Critical
+WBC Count,2.86,4.5,11.0,10^3/uL,Critical
+WBC Count,15.45,4.5,11.0,10^3/uL,Critical
+WBC Count,3.02,4.5,11.0,10^3/uL,Critical
+WBC Count,13.53,4.5,11.0,10^3/uL,Critical
+WBC Count,13.44,4.5,11.0,10^3/uL,Critical
+WBC Count,12.8,4.5,11.0,10^3/uL,Critical
+WBC Count,14.44,4.5,11.0,10^3/uL,Critical
+WBC Count,0.76,4.5,11.0,10^3/uL,Critical
+WBC Count,1.47,4.5,11.0,10^3/uL,Critical
+WBC Count,1.88,4.5,11.0,10^3/uL,Critical
+WBC Count,0.94,4.5,11.0,10^3/uL,Critical
+WBC Count,12.55,4.5,11.0,10^3/uL,Critical
+WBC Count,15.63,4.5,11.0,10^3/uL,Critical
+WBC Count,14.64,4.5,11.0,10^3/uL,Critical
+WBC Count,13.08,4.5,11.0,10^3/uL,Critical
+WBC Count,0.75,4.5,11.0,10^3/uL,Critical
+Platelets,379.54,150.0,450.0,10^3/uL,Normal
+Platelets,174.36,150.0,450.0,10^3/uL,Normal
+Platelets,322.36,150.0,450.0,10^3/uL,Normal
+Platelets,433.77,150.0,450.0,10^3/uL,Normal
+Platelets,396.04,150.0,450.0,10^3/uL,Normal
+Platelets,305.79,150.0,450.0,10^3/uL,Normal
+Platelets,182.18,150.0,450.0,10^3/uL,Normal
+Platelets,389.47,150.0,450.0,10^3/uL,Normal
+Platelets,326.72,150.0,450.0,10^3/uL,Normal
+Platelets,196.03,150.0,450.0,10^3/uL,Normal
+Platelets,190.34,150.0,450.0,10^3/uL,Normal
+Platelets,410.6,150.0,450.0,10^3/uL,Normal
+Platelets,345.68,150.0,450.0,10^3/uL,Normal
+Platelets,388.91,150.0,450.0,10^3/uL,Normal
+Platelets,402.32,150.0,450.0,10^3/uL,Normal
+Platelets,319.38,150.0,450.0,10^3/uL,Normal
+Platelets,304.71,150.0,450.0,10^3/uL,Normal
+Platelets,281.22,150.0,450.0,10^3/uL,Normal
+Platelets,250.58,150.0,450.0,10^3/uL,Normal
+Platelets,282.34,150.0,450.0,10^3/uL,Normal
+Platelets,373.95,150.0,450.0,10^3/uL,Normal
+Platelets,327.52,150.0,450.0,10^3/uL,Normal
+Platelets,405.98,150.0,450.0,10^3/uL,Normal
+Platelets,284.71,150.0,450.0,10^3/uL,Normal
+Platelets,328.91,150.0,450.0,10^3/uL,Normal
+Platelets,335.45,150.0,450.0,10^3/uL,Normal
+Platelets,324.76,150.0,450.0,10^3/uL,Normal
+Platelets,354.71,150.0,450.0,10^3/uL,Normal
+Platelets,229.11,150.0,450.0,10^3/uL,Normal
+Platelets,303.34,150.0,450.0,10^3/uL,Normal
+Platelets,193.14,150.0,450.0,10^3/uL,Normal
+Platelets,268.82,150.0,450.0,10^3/uL,Normal
+Platelets,296.67,150.0,450.0,10^3/uL,Normal
+Platelets,341.1,150.0,450.0,10^3/uL,Normal
+Platelets,421.64,150.0,450.0,10^3/uL,Normal
+Platelets,327.18,150.0,450.0,10^3/uL,Normal
+Platelets,365.77,150.0,450.0,10^3/uL,Normal
+Platelets,301.69,150.0,450.0,10^3/uL,Normal
+Platelets,336.21,150.0,450.0,10^3/uL,Normal
+Platelets,184.15,150.0,450.0,10^3/uL,Normal
+Platelets,233.69,150.0,450.0,10^3/uL,Normal
+Platelets,262.7,150.0,450.0,10^3/uL,Normal
+Platelets,292.57,150.0,450.0,10^3/uL,Normal
+Platelets,177.33,150.0,450.0,10^3/uL,Normal
+Platelets,202.81,150.0,450.0,10^3/uL,Normal
+Platelets,239.74,150.0,450.0,10^3/uL,Normal
+Platelets,427.31,150.0,450.0,10^3/uL,Normal
+Platelets,254.46,150.0,450.0,10^3/uL,Normal
+Platelets,295.15,150.0,450.0,10^3/uL,Normal
+Platelets,217.95,150.0,450.0,10^3/uL,Normal
+Platelets,329.91,150.0,450.0,10^3/uL,Normal
+Platelets,240.78,150.0,450.0,10^3/uL,Normal
+Platelets,220.89,150.0,450.0,10^3/uL,Normal
+Platelets,304.47,150.0,450.0,10^3/uL,Normal
+Platelets,166.49,150.0,450.0,10^3/uL,Normal
+Platelets,167.07,150.0,450.0,10^3/uL,Normal
+Platelets,224.15,150.0,450.0,10^3/uL,Normal
+Platelets,174.91,150.0,450.0,10^3/uL,Normal
+Platelets,194.17,150.0,450.0,10^3/uL,Normal
+Platelets,256.49,150.0,450.0,10^3/uL,Normal
+Platelets,381.7,150.0,450.0,10^3/uL,Normal
+Platelets,319.45,150.0,450.0,10^3/uL,Normal
+Platelets,303.42,150.0,450.0,10^3/uL,Normal
+Platelets,244.24,150.0,450.0,10^3/uL,Normal
+Platelets,416.57,150.0,450.0,10^3/uL,Normal
+Platelets,272.19,150.0,450.0,10^3/uL,Normal
+Platelets,188.52,150.0,450.0,10^3/uL,Normal
+Platelets,331.61,150.0,450.0,10^3/uL,Normal
+Platelets,195.74,150.0,450.0,10^3/uL,Normal
+Platelets,258.21,150.0,450.0,10^3/uL,Normal
+Platelets,302.0,150.0,450.0,10^3/uL,Normal
+Platelets,401.04,150.0,450.0,10^3/uL,Normal
+Platelets,298.26,150.0,450.0,10^3/uL,Normal
+Platelets,354.61,150.0,450.0,10^3/uL,Normal
+Platelets,433.06,150.0,450.0,10^3/uL,Normal
+Platelets,200.5,150.0,450.0,10^3/uL,Normal
+Platelets,239.18,150.0,450.0,10^3/uL,Normal
+Platelets,271.54,150.0,450.0,10^3/uL,Normal
+Platelets,278.89,150.0,450.0,10^3/uL,Normal
+Platelets,275.98,150.0,450.0,10^3/uL,Normal
+Platelets,410.05,150.0,450.0,10^3/uL,Normal
+Platelets,357.79,150.0,450.0,10^3/uL,Normal
+Platelets,329.13,150.0,450.0,10^3/uL,Normal
+Platelets,248.53,150.0,450.0,10^3/uL,Normal
+Platelets,387.42,150.0,450.0,10^3/uL,Normal
+Platelets,422.87,150.0,450.0,10^3/uL,Normal
+Platelets,386.72,150.0,450.0,10^3/uL,Normal
+Platelets,165.42,150.0,450.0,10^3/uL,Normal
+Platelets,336.83,150.0,450.0,10^3/uL,Normal
+Platelets,178.81,150.0,450.0,10^3/uL,Normal
+Platelets,234.55,150.0,450.0,10^3/uL,Normal
+Platelets,181.07,150.0,450.0,10^3/uL,Normal
+Platelets,328.02,150.0,450.0,10^3/uL,Normal
+Platelets,350.38,150.0,450.0,10^3/uL,Normal
+Platelets,195.91,150.0,450.0,10^3/uL,Normal
+Platelets,268.64,150.0,450.0,10^3/uL,Normal
+Platelets,288.18,150.0,450.0,10^3/uL,Normal
+Platelets,264.64,150.0,450.0,10^3/uL,Normal
+Platelets,197.68,150.0,450.0,10^3/uL,Normal
+Platelets,278.12,150.0,450.0,10^3/uL,Normal
+Platelets,367.82,150.0,450.0,10^3/uL,Normal
+Platelets,184.17,150.0,450.0,10^3/uL,Normal
+Platelets,186.65,150.0,450.0,10^3/uL,Normal
+Platelets,260.79,150.0,450.0,10^3/uL,Normal
+Platelets,419.27,150.0,450.0,10^3/uL,Normal
+Platelets,345.51,150.0,450.0,10^3/uL,Normal
+Platelets,348.24,150.0,450.0,10^3/uL,Normal
+Platelets,262.72,150.0,450.0,10^3/uL,Normal
+Platelets,325.29,150.0,450.0,10^3/uL,Normal
+Platelets,167.74,150.0,450.0,10^3/uL,Normal
+Platelets,336.75,150.0,450.0,10^3/uL,Normal
+Platelets,411.59,150.0,450.0,10^3/uL,Normal
+Platelets,330.39,150.0,450.0,10^3/uL,Normal
+Platelets,400.9,150.0,450.0,10^3/uL,Normal
+Platelets,360.47,150.0,450.0,10^3/uL,Normal
+Platelets,197.55,150.0,450.0,10^3/uL,Normal
+Platelets,408.66,150.0,450.0,10^3/uL,Normal
+Platelets,182.94,150.0,450.0,10^3/uL,Normal
+Platelets,309.17,150.0,450.0,10^3/uL,Normal
+Platelets,203.38,150.0,450.0,10^3/uL,Normal
+Platelets,115.32,150.0,450.0,10^3/uL,Borderline
+Platelets,119.16,150.0,450.0,10^3/uL,Borderline
+Platelets,452.62,150.0,450.0,10^3/uL,Borderline
+Platelets,123.52,150.0,450.0,10^3/uL,Borderline
+Platelets,133.75,150.0,450.0,10^3/uL,Borderline
+Platelets,500.74,150.0,450.0,10^3/uL,Borderline
+Platelets,475.8,150.0,450.0,10^3/uL,Borderline
+Platelets,466.52,150.0,450.0,10^3/uL,Borderline
+Platelets,137.34,150.0,450.0,10^3/uL,Borderline
+Platelets,137.9,150.0,450.0,10^3/uL,Borderline
+Platelets,501.45,150.0,450.0,10^3/uL,Borderline
+Platelets,475.86,150.0,450.0,10^3/uL,Borderline
+Platelets,124.93,150.0,450.0,10^3/uL,Borderline
+Platelets,126.06,150.0,450.0,10^3/uL,Borderline
+Platelets,491.3,150.0,450.0,10^3/uL,Borderline
+Platelets,100.01,150.0,450.0,10^3/uL,Borderline
+Platelets,98.56,150.0,450.0,10^3/uL,Borderline
+Platelets,470.75,150.0,450.0,10^3/uL,Borderline
+Platelets,91.53,150.0,450.0,10^3/uL,Borderline
+Platelets,488.21,150.0,450.0,10^3/uL,Borderline
+Platelets,94.3,150.0,450.0,10^3/uL,Borderline
+Platelets,108.67,150.0,450.0,10^3/uL,Borderline
+Platelets,486.35,150.0,450.0,10^3/uL,Borderline
+Platelets,103.07,150.0,450.0,10^3/uL,Borderline
+Platelets,477.24,150.0,450.0,10^3/uL,Borderline
+Platelets,458.43,150.0,450.0,10^3/uL,Borderline
+Platelets,91.65,150.0,450.0,10^3/uL,Borderline
+Platelets,507.84,150.0,450.0,10^3/uL,Borderline
+Platelets,92.34,150.0,450.0,10^3/uL,Borderline
+Platelets,113.28,150.0,450.0,10^3/uL,Borderline
+Platelets,91.4,150.0,450.0,10^3/uL,Borderline
+Platelets,477.51,150.0,450.0,10^3/uL,Borderline
+Platelets,144.0,150.0,450.0,10^3/uL,Borderline
+Platelets,147.36,150.0,450.0,10^3/uL,Borderline
+Platelets,143.3,150.0,450.0,10^3/uL,Borderline
+Platelets,499.6,150.0,450.0,10^3/uL,Borderline
+Platelets,467.3,150.0,450.0,10^3/uL,Borderline
+Platelets,473.37,150.0,450.0,10^3/uL,Borderline
+Platelets,110.42,150.0,450.0,10^3/uL,Borderline
+Platelets,459.25,150.0,450.0,10^3/uL,Borderline
+Platelets,482.5,150.0,450.0,10^3/uL,Borderline
+Platelets,500.02,150.0,450.0,10^3/uL,Borderline
+Platelets,108.14,150.0,450.0,10^3/uL,Borderline
+Platelets,101.68,150.0,450.0,10^3/uL,Borderline
+Platelets,110.55,150.0,450.0,10^3/uL,Borderline
+Platelets,147.99,150.0,450.0,10^3/uL,Borderline
+Platelets,470.84,150.0,450.0,10^3/uL,Borderline
+Platelets,458.35,150.0,450.0,10^3/uL,Borderline
+Platelets,127.57,150.0,450.0,10^3/uL,Borderline
+Platelets,114.11,150.0,450.0,10^3/uL,Borderline
+Platelets,668.82,150.0,450.0,10^3/uL,Critical
+Platelets,613.78,150.0,450.0,10^3/uL,Critical
+Platelets,548.63,150.0,450.0,10^3/uL,Critical
+Platelets,3.43,150.0,450.0,10^3/uL,Critical
+Platelets,47.24,150.0,450.0,10^3/uL,Critical
+Platelets,83.87,150.0,450.0,10^3/uL,Critical
+Platelets,640.82,150.0,450.0,10^3/uL,Critical
+Platelets,666.98,150.0,450.0,10^3/uL,Critical
+Platelets,68.77,150.0,450.0,10^3/uL,Critical
+Platelets,69.1,150.0,450.0,10^3/uL,Critical
+Platelets,76.31,150.0,450.0,10^3/uL,Critical
+Platelets,539.34,150.0,450.0,10^3/uL,Critical
+Platelets,85.35,150.0,450.0,10^3/uL,Critical
+Platelets,75.13,150.0,450.0,10^3/uL,Critical
+Platelets,579.43,150.0,450.0,10^3/uL,Critical
+Platelets,17.68,150.0,450.0,10^3/uL,Critical
+Platelets,581.42,150.0,450.0,10^3/uL,Critical
+Platelets,600.14,150.0,450.0,10^3/uL,Critical
+Platelets,666.21,150.0,450.0,10^3/uL,Critical
+Platelets,585.14,150.0,450.0,10^3/uL,Critical
+Platelets,648.32,150.0,450.0,10^3/uL,Critical
+Platelets,682.22,150.0,450.0,10^3/uL,Critical
+Platelets,9.51,150.0,450.0,10^3/uL,Critical
+Platelets,590.73,150.0,450.0,10^3/uL,Critical
+Platelets,671.08,150.0,450.0,10^3/uL,Critical
+Platelets,76.86,150.0,450.0,10^3/uL,Critical
+Platelets,44.41,150.0,450.0,10^3/uL,Critical
+Platelets,676.97,150.0,450.0,10^3/uL,Critical
+Platelets,41.49,150.0,450.0,10^3/uL,Critical
+Platelets,640.92,150.0,450.0,10^3/uL,Critical
+RBC Count,5.28,4.2,5.8,10^6/uL,Normal
+RBC Count,4.47,4.2,5.8,10^6/uL,Normal
+RBC Count,4.71,4.2,5.8,10^6/uL,Normal
+RBC Count,4.8,4.2,5.8,10^6/uL,Normal
+RBC Count,5.44,4.2,5.8,10^6/uL,Normal
+RBC Count,4.68,4.2,5.8,10^6/uL,Normal
+RBC Count,4.58,4.2,5.8,10^6/uL,Normal
+RBC Count,5.66,4.2,5.8,10^6/uL,Normal
+RBC Count,4.29,4.2,5.8,10^6/uL,Normal
+RBC Count,5.72,4.2,5.8,10^6/uL,Normal
+RBC Count,5.25,4.2,5.8,10^6/uL,Normal
+RBC Count,5.47,4.2,5.8,10^6/uL,Normal
+RBC Count,4.7,4.2,5.8,10^6/uL,Normal
+RBC Count,4.3,4.2,5.8,10^6/uL,Normal
+RBC Count,5.34,4.2,5.8,10^6/uL,Normal
+RBC Count,5.48,4.2,5.8,10^6/uL,Normal
+RBC Count,5.35,4.2,5.8,10^6/uL,Normal
+RBC Count,4.49,4.2,5.8,10^6/uL,Normal
+RBC Count,5.36,4.2,5.8,10^6/uL,Normal
+RBC Count,5.39,4.2,5.8,10^6/uL,Normal
+RBC Count,5.23,4.2,5.8,10^6/uL,Normal
+RBC Count,5.38,4.2,5.8,10^6/uL,Normal
+RBC Count,5.5,4.2,5.8,10^6/uL,Normal
+RBC Count,5.16,4.2,5.8,10^6/uL,Normal
+RBC Count,4.41,4.2,5.8,10^6/uL,Normal
+RBC Count,4.98,4.2,5.8,10^6/uL,Normal
+RBC Count,4.39,4.2,5.8,10^6/uL,Normal
+RBC Count,4.87,4.2,5.8,10^6/uL,Normal
+RBC Count,4.87,4.2,5.8,10^6/uL,Normal
+RBC Count,4.38,4.2,5.8,10^6/uL,Normal
+RBC Count,4.78,4.2,5.8,10^6/uL,Normal
+RBC Count,4.44,4.2,5.8,10^6/uL,Normal
+RBC Count,5.44,4.2,5.8,10^6/uL,Normal
+RBC Count,5.64,4.2,5.8,10^6/uL,Normal
+RBC Count,4.38,4.2,5.8,10^6/uL,Normal
+RBC Count,5.66,4.2,5.8,10^6/uL,Normal
+RBC Count,5.03,4.2,5.8,10^6/uL,Normal
+RBC Count,4.71,4.2,5.8,10^6/uL,Normal
+RBC Count,4.39,4.2,5.8,10^6/uL,Normal
+RBC Count,5.0,4.2,5.8,10^6/uL,Normal
+RBC Count,5.42,4.2,5.8,10^6/uL,Normal
+RBC Count,5.3,4.2,5.8,10^6/uL,Normal
+RBC Count,4.35,4.2,5.8,10^6/uL,Normal
+RBC Count,4.38,4.2,5.8,10^6/uL,Normal
+RBC Count,4.86,4.2,5.8,10^6/uL,Normal
+RBC Count,4.71,4.2,5.8,10^6/uL,Normal
+RBC Count,4.61,4.2,5.8,10^6/uL,Normal
+RBC Count,4.68,4.2,5.8,10^6/uL,Normal
+RBC Count,5.44,4.2,5.8,10^6/uL,Normal
+RBC Count,5.62,4.2,5.8,10^6/uL,Normal
+RBC Count,4.86,4.2,5.8,10^6/uL,Normal
+RBC Count,5.58,4.2,5.8,10^6/uL,Normal
+RBC Count,4.74,4.2,5.8,10^6/uL,Normal
+RBC Count,4.97,4.2,5.8,10^6/uL,Normal
+RBC Count,4.61,4.2,5.8,10^6/uL,Normal
+RBC Count,5.2,4.2,5.8,10^6/uL,Normal
+RBC Count,5.69,4.2,5.8,10^6/uL,Normal
+RBC Count,5.15,4.2,5.8,10^6/uL,Normal
+RBC Count,4.8,4.2,5.8,10^6/uL,Normal
+RBC Count,5.21,4.2,5.8,10^6/uL,Normal
+RBC Count,4.46,4.2,5.8,10^6/uL,Normal
+RBC Count,5.56,4.2,5.8,10^6/uL,Normal
+RBC Count,5.0,4.2,5.8,10^6/uL,Normal
+RBC Count,4.93,4.2,5.8,10^6/uL,Normal
+RBC Count,5.12,4.2,5.8,10^6/uL,Normal
+RBC Count,5.18,4.2,5.8,10^6/uL,Normal
+RBC Count,4.38,4.2,5.8,10^6/uL,Normal
+RBC Count,5.26,4.2,5.8,10^6/uL,Normal
+RBC Count,4.63,4.2,5.8,10^6/uL,Normal
+RBC Count,5.31,4.2,5.8,10^6/uL,Normal
+RBC Count,5.46,4.2,5.8,10^6/uL,Normal
+RBC Count,5.44,4.2,5.8,10^6/uL,Normal
+RBC Count,5.08,4.2,5.8,10^6/uL,Normal
+RBC Count,5.03,4.2,5.8,10^6/uL,Normal
+RBC Count,4.49,4.2,5.8,10^6/uL,Normal
+RBC Count,5.4,4.2,5.8,10^6/uL,Normal
+RBC Count,4.67,4.2,5.8,10^6/uL,Normal
+RBC Count,5.0,4.2,5.8,10^6/uL,Normal
+RBC Count,4.69,4.2,5.8,10^6/uL,Normal
+RBC Count,4.47,4.2,5.8,10^6/uL,Normal
+RBC Count,5.19,4.2,5.8,10^6/uL,Normal
+RBC Count,4.36,4.2,5.8,10^6/uL,Normal
+RBC Count,5.36,4.2,5.8,10^6/uL,Normal
+RBC Count,4.74,4.2,5.8,10^6/uL,Normal
+RBC Count,4.28,4.2,5.8,10^6/uL,Normal
+RBC Count,5.02,4.2,5.8,10^6/uL,Normal
+RBC Count,4.35,4.2,5.8,10^6/uL,Normal
+RBC Count,4.68,4.2,5.8,10^6/uL,Normal
+RBC Count,5.3,4.2,5.8,10^6/uL,Normal
+RBC Count,4.37,4.2,5.8,10^6/uL,Normal
+RBC Count,5.49,4.2,5.8,10^6/uL,Normal
+RBC Count,4.29,4.2,5.8,10^6/uL,Normal
+RBC Count,4.64,4.2,5.8,10^6/uL,Normal
+RBC Count,5.35,4.2,5.8,10^6/uL,Normal
+RBC Count,4.74,4.2,5.8,10^6/uL,Normal
+RBC Count,4.43,4.2,5.8,10^6/uL,Normal
+RBC Count,4.8,4.2,5.8,10^6/uL,Normal
+RBC Count,4.67,4.2,5.8,10^6/uL,Normal
+RBC Count,5.49,4.2,5.8,10^6/uL,Normal
+RBC Count,4.73,4.2,5.8,10^6/uL,Normal
+RBC Count,5.42,4.2,5.8,10^6/uL,Normal
+RBC Count,5.56,4.2,5.8,10^6/uL,Normal
+RBC Count,4.9,4.2,5.8,10^6/uL,Normal
+RBC Count,5.59,4.2,5.8,10^6/uL,Normal
+RBC Count,4.82,4.2,5.8,10^6/uL,Normal
+RBC Count,5.67,4.2,5.8,10^6/uL,Normal
+RBC Count,4.41,4.2,5.8,10^6/uL,Normal
+RBC Count,5.27,4.2,5.8,10^6/uL,Normal
+RBC Count,4.99,4.2,5.8,10^6/uL,Normal
+RBC Count,4.84,4.2,5.8,10^6/uL,Normal
+RBC Count,5.19,4.2,5.8,10^6/uL,Normal
+RBC Count,5.29,4.2,5.8,10^6/uL,Normal
+RBC Count,4.29,4.2,5.8,10^6/uL,Normal
+RBC Count,4.52,4.2,5.8,10^6/uL,Normal
+RBC Count,5.31,4.2,5.8,10^6/uL,Normal
+RBC Count,5.24,4.2,5.8,10^6/uL,Normal
+RBC Count,5.67,4.2,5.8,10^6/uL,Normal
+RBC Count,5.38,4.2,5.8,10^6/uL,Normal
+RBC Count,5.65,4.2,5.8,10^6/uL,Normal
+RBC Count,5.29,4.2,5.8,10^6/uL,Normal
+RBC Count,3.91,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.09,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.0,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.04,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.03,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.0,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.9,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.01,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.15,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.09,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.16,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.1,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.97,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.09,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.98,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.01,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.94,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.97,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.9,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.05,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.15,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.0,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.89,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.01,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.01,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.07,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.03,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.05,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.98,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.13,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.19,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.89,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.14,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.96,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.97,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.05,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.0,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.98,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.19,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.89,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.13,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.03,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.98,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.95,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.03,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.03,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.19,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.13,4.2,5.8,10^6/uL,Borderline
+RBC Count,4.05,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.9,4.2,5.8,10^6/uL,Borderline
+RBC Count,3.26,4.2,5.8,10^6/uL,Critical
+RBC Count,3.19,4.2,5.8,10^6/uL,Critical
+RBC Count,3.69,4.2,5.8,10^6/uL,Critical
+RBC Count,3.2,4.2,5.8,10^6/uL,Critical
+RBC Count,3.58,4.2,5.8,10^6/uL,Critical
+RBC Count,3.61,4.2,5.8,10^6/uL,Critical
+RBC Count,3.35,4.2,5.8,10^6/uL,Critical
+RBC Count,3.31,4.2,5.8,10^6/uL,Critical
+RBC Count,3.78,4.2,5.8,10^6/uL,Critical
+RBC Count,3.13,4.2,5.8,10^6/uL,Critical
+RBC Count,3.09,4.2,5.8,10^6/uL,Critical
+RBC Count,3.43,4.2,5.8,10^6/uL,Critical
+RBC Count,3.83,4.2,5.8,10^6/uL,Critical
+RBC Count,3.27,4.2,5.8,10^6/uL,Critical
+RBC Count,3.61,4.2,5.8,10^6/uL,Critical
+RBC Count,3.3,4.2,5.8,10^6/uL,Critical
+RBC Count,3.44,4.2,5.8,10^6/uL,Critical
+RBC Count,3.42,4.2,5.8,10^6/uL,Critical
+RBC Count,3.21,4.2,5.8,10^6/uL,Critical
+RBC Count,3.24,4.2,5.8,10^6/uL,Critical
+RBC Count,3.74,4.2,5.8,10^6/uL,Critical
+RBC Count,3.7,4.2,5.8,10^6/uL,Critical
+RBC Count,3.27,4.2,5.8,10^6/uL,Critical
+RBC Count,3.23,4.2,5.8,10^6/uL,Critical
+RBC Count,3.86,4.2,5.8,10^6/uL,Critical
+RBC Count,3.85,4.2,5.8,10^6/uL,Critical
+RBC Count,3.28,4.2,5.8,10^6/uL,Critical
+RBC Count,3.55,4.2,5.8,10^6/uL,Critical
+RBC Count,3.57,4.2,5.8,10^6/uL,Critical
+RBC Count,3.23,4.2,5.8,10^6/uL,Critical
+Creatinine,1.06,0.6,1.2,mg/dL,Normal
+Creatinine,1.12,0.6,1.2,mg/dL,Normal
+Creatinine,1.14,0.6,1.2,mg/dL,Normal
+Creatinine,1.15,0.6,1.2,mg/dL,Normal
+Creatinine,0.91,0.6,1.2,mg/dL,Normal
+Creatinine,1.16,0.6,1.2,mg/dL,Normal
+Creatinine,1.04,0.6,1.2,mg/dL,Normal
+Creatinine,0.72,0.6,1.2,mg/dL,Normal
+Creatinine,0.89,0.6,1.2,mg/dL,Normal
+Creatinine,1.02,0.6,1.2,mg/dL,Normal
+Creatinine,0.76,0.6,1.2,mg/dL,Normal
+Creatinine,0.98,0.6,1.2,mg/dL,Normal
+Creatinine,0.99,0.6,1.2,mg/dL,Normal
+Creatinine,0.72,0.6,1.2,mg/dL,Normal
+Creatinine,0.94,0.6,1.2,mg/dL,Normal
+Creatinine,1.05,0.6,1.2,mg/dL,Normal
+Creatinine,0.9,0.6,1.2,mg/dL,Normal
+Creatinine,0.64,0.6,1.2,mg/dL,Normal
+Creatinine,0.63,0.6,1.2,mg/dL,Normal
+Creatinine,0.82,0.6,1.2,mg/dL,Normal
+Creatinine,1.13,0.6,1.2,mg/dL,Normal
+Creatinine,0.75,0.6,1.2,mg/dL,Normal
+Creatinine,0.97,0.6,1.2,mg/dL,Normal
+Creatinine,0.75,0.6,1.2,mg/dL,Normal
+Creatinine,0.8,0.6,1.2,mg/dL,Normal
+Creatinine,1.09,0.6,1.2,mg/dL,Normal
+Creatinine,1.02,0.6,1.2,mg/dL,Normal
+Creatinine,0.68,0.6,1.2,mg/dL,Normal
+Creatinine,0.86,0.6,1.2,mg/dL,Normal
+Creatinine,0.65,0.6,1.2,mg/dL,Normal
+Creatinine,0.89,0.6,1.2,mg/dL,Normal
+Creatinine,0.99,0.6,1.2,mg/dL,Normal
+Creatinine,0.69,0.6,1.2,mg/dL,Normal
+Creatinine,0.79,0.6,1.2,mg/dL,Normal
+Creatinine,0.84,0.6,1.2,mg/dL,Normal
+Creatinine,1.13,0.6,1.2,mg/dL,Normal
+Creatinine,1.17,0.6,1.2,mg/dL,Normal
+Creatinine,0.65,0.6,1.2,mg/dL,Normal
+Creatinine,1.04,0.6,1.2,mg/dL,Normal
+Creatinine,0.83,0.6,1.2,mg/dL,Normal
+Creatinine,0.84,0.6,1.2,mg/dL,Normal
+Creatinine,1.04,0.6,1.2,mg/dL,Normal
+Creatinine,1.13,0.6,1.2,mg/dL,Normal
+Creatinine,1.14,0.6,1.2,mg/dL,Normal
+Creatinine,0.94,0.6,1.2,mg/dL,Normal
+Creatinine,0.82,0.6,1.2,mg/dL,Normal
+Creatinine,1.06,0.6,1.2,mg/dL,Normal
+Creatinine,0.77,0.6,1.2,mg/dL,Normal
+Creatinine,0.93,0.6,1.2,mg/dL,Normal
+Creatinine,0.82,0.6,1.2,mg/dL,Normal
+Creatinine,0.98,0.6,1.2,mg/dL,Normal
+Creatinine,0.76,0.6,1.2,mg/dL,Normal
+Creatinine,0.73,0.6,1.2,mg/dL,Normal
+Creatinine,1.13,0.6,1.2,mg/dL,Normal
+Creatinine,0.68,0.6,1.2,mg/dL,Normal
+Creatinine,0.9,0.6,1.2,mg/dL,Normal
+Creatinine,0.75,0.6,1.2,mg/dL,Normal
+Creatinine,0.65,0.6,1.2,mg/dL,Normal
+Creatinine,0.65,0.6,1.2,mg/dL,Normal
+Creatinine,0.72,0.6,1.2,mg/dL,Normal
+Creatinine,1.1,0.6,1.2,mg/dL,Normal
+Creatinine,0.78,0.6,1.2,mg/dL,Normal
+Creatinine,1.14,0.6,1.2,mg/dL,Normal
+Creatinine,0.94,0.6,1.2,mg/dL,Normal
+Creatinine,0.87,0.6,1.2,mg/dL,Normal
+Creatinine,0.94,0.6,1.2,mg/dL,Normal
+Creatinine,0.91,0.6,1.2,mg/dL,Normal
+Creatinine,1.04,0.6,1.2,mg/dL,Normal
+Creatinine,0.78,0.6,1.2,mg/dL,Normal
+Creatinine,0.82,0.6,1.2,mg/dL,Normal
+Creatinine,1.11,0.6,1.2,mg/dL,Normal
+Creatinine,1.14,0.6,1.2,mg/dL,Normal
+Creatinine,1.11,0.6,1.2,mg/dL,Normal
+Creatinine,0.86,0.6,1.2,mg/dL,Normal
+Creatinine,1.05,0.6,1.2,mg/dL,Normal
+Creatinine,0.89,0.6,1.2,mg/dL,Normal
+Creatinine,0.9,0.6,1.2,mg/dL,Normal
+Creatinine,0.74,0.6,1.2,mg/dL,Normal
+Creatinine,0.95,0.6,1.2,mg/dL,Normal
+Creatinine,0.73,0.6,1.2,mg/dL,Normal
+Creatinine,0.81,0.6,1.2,mg/dL,Normal
+Creatinine,1.09,0.6,1.2,mg/dL,Normal
+Creatinine,0.74,0.6,1.2,mg/dL,Normal
+Creatinine,0.67,0.6,1.2,mg/dL,Normal
+Creatinine,0.67,0.6,1.2,mg/dL,Normal
+Creatinine,1.14,0.6,1.2,mg/dL,Normal
+Creatinine,0.9,0.6,1.2,mg/dL,Normal
+Creatinine,0.85,0.6,1.2,mg/dL,Normal
+Creatinine,1.07,0.6,1.2,mg/dL,Normal
+Creatinine,1.08,0.6,1.2,mg/dL,Normal
+Creatinine,0.81,0.6,1.2,mg/dL,Normal
+Creatinine,1.0,0.6,1.2,mg/dL,Normal
+Creatinine,1.05,0.6,1.2,mg/dL,Normal
+Creatinine,0.98,0.6,1.2,mg/dL,Normal
+Creatinine,0.71,0.6,1.2,mg/dL,Normal
+Creatinine,1.1,0.6,1.2,mg/dL,Normal
+Creatinine,0.92,0.6,1.2,mg/dL,Normal
+Creatinine,0.78,0.6,1.2,mg/dL,Normal
+Creatinine,0.86,0.6,1.2,mg/dL,Normal
+Creatinine,0.65,0.6,1.2,mg/dL,Normal
+Creatinine,0.7,0.6,1.2,mg/dL,Normal
+Creatinine,1.04,0.6,1.2,mg/dL,Normal
+Creatinine,0.63,0.6,1.2,mg/dL,Normal
+Creatinine,0.85,0.6,1.2,mg/dL,Normal
+Creatinine,0.91,0.6,1.2,mg/dL,Normal
+Creatinine,0.66,0.6,1.2,mg/dL,Normal
+Creatinine,1.16,0.6,1.2,mg/dL,Normal
+Creatinine,0.75,0.6,1.2,mg/dL,Normal
+Creatinine,0.79,0.6,1.2,mg/dL,Normal
+Creatinine,0.79,0.6,1.2,mg/dL,Normal
+Creatinine,0.75,0.6,1.2,mg/dL,Normal
+Creatinine,0.63,0.6,1.2,mg/dL,Normal
+Creatinine,1.02,0.6,1.2,mg/dL,Normal
+Creatinine,1.15,0.6,1.2,mg/dL,Normal
+Creatinine,0.75,0.6,1.2,mg/dL,Normal
+Creatinine,0.99,0.6,1.2,mg/dL,Normal
+Creatinine,1.03,0.6,1.2,mg/dL,Normal
+Creatinine,1.09,0.6,1.2,mg/dL,Normal
+Creatinine,0.86,0.6,1.2,mg/dL,Normal
+Creatinine,0.79,0.6,1.2,mg/dL,Normal
+Creatinine,0.57,0.6,1.2,mg/dL,Borderline
+Creatinine,1.22,0.6,1.2,mg/dL,Borderline
+Creatinine,0.59,0.6,1.2,mg/dL,Borderline
+Creatinine,1.32,0.6,1.2,mg/dL,Borderline
+Creatinine,1.25,0.6,1.2,mg/dL,Borderline
+Creatinine,1.28,0.6,1.2,mg/dL,Borderline
+Creatinine,0.55,0.6,1.2,mg/dL,Borderline
+Creatinine,1.22,0.6,1.2,mg/dL,Borderline
+Creatinine,1.27,0.6,1.2,mg/dL,Borderline
+Creatinine,1.21,0.6,1.2,mg/dL,Borderline
+Creatinine,0.55,0.6,1.2,mg/dL,Borderline
+Creatinine,0.57,0.6,1.2,mg/dL,Borderline
+Creatinine,1.21,0.6,1.2,mg/dL,Borderline
+Creatinine,1.26,0.6,1.2,mg/dL,Borderline
+Creatinine,0.59,0.6,1.2,mg/dL,Borderline
+Creatinine,1.28,0.6,1.2,mg/dL,Borderline
+Creatinine,1.26,0.6,1.2,mg/dL,Borderline
+Creatinine,1.28,0.6,1.2,mg/dL,Borderline
+Creatinine,1.3,0.6,1.2,mg/dL,Borderline
+Creatinine,0.58,0.6,1.2,mg/dL,Borderline
+Creatinine,0.52,0.6,1.2,mg/dL,Borderline
+Creatinine,0.6,0.6,1.2,mg/dL,Borderline
+Creatinine,1.28,0.6,1.2,mg/dL,Borderline
+Creatinine,1.27,0.6,1.2,mg/dL,Borderline
+Creatinine,1.26,0.6,1.2,mg/dL,Borderline
+Creatinine,0.5,0.6,1.2,mg/dL,Borderline
+Creatinine,1.29,0.6,1.2,mg/dL,Borderline
+Creatinine,0.48,0.6,1.2,mg/dL,Borderline
+Creatinine,1.2,0.6,1.2,mg/dL,Borderline
+Creatinine,1.32,0.6,1.2,mg/dL,Borderline
+Creatinine,0.51,0.6,1.2,mg/dL,Borderline
+Creatinine,1.3,0.6,1.2,mg/dL,Borderline
+Creatinine,1.32,0.6,1.2,mg/dL,Borderline
+Creatinine,0.54,0.6,1.2,mg/dL,Borderline
+Creatinine,1.3,0.6,1.2,mg/dL,Borderline
+Creatinine,0.58,0.6,1.2,mg/dL,Borderline
+Creatinine,1.25,0.6,1.2,mg/dL,Borderline
+Creatinine,0.58,0.6,1.2,mg/dL,Borderline
+Creatinine,0.52,0.6,1.2,mg/dL,Borderline
+Creatinine,0.58,0.6,1.2,mg/dL,Borderline
+Creatinine,1.3,0.6,1.2,mg/dL,Borderline
+Creatinine,0.55,0.6,1.2,mg/dL,Borderline
+Creatinine,1.3,0.6,1.2,mg/dL,Borderline
+Creatinine,1.2,0.6,1.2,mg/dL,Borderline
+Creatinine,1.21,0.6,1.2,mg/dL,Borderline
+Creatinine,1.23,0.6,1.2,mg/dL,Borderline
+Creatinine,0.52,0.6,1.2,mg/dL,Borderline
+Creatinine,1.24,0.6,1.2,mg/dL,Borderline
+Creatinine,1.25,0.6,1.2,mg/dL,Borderline
+Creatinine,0.57,0.6,1.2,mg/dL,Borderline
+Creatinine,0.31,0.6,1.2,mg/dL,Critical
+Creatinine,1.44,0.6,1.2,mg/dL,Critical
+Creatinine,0.29,0.6,1.2,mg/dL,Critical
+Creatinine,1.55,0.6,1.2,mg/dL,Critical
+Creatinine,1.55,0.6,1.2,mg/dL,Critical
+Creatinine,0.3,0.6,1.2,mg/dL,Critical
+Creatinine,1.36,0.6,1.2,mg/dL,Critical
+Creatinine,0.26,0.6,1.2,mg/dL,Critical
+Creatinine,0.47,0.6,1.2,mg/dL,Critical
+Creatinine,0.33,0.6,1.2,mg/dL,Critical
+Creatinine,0.47,0.6,1.2,mg/dL,Critical
+Creatinine,0.3,0.6,1.2,mg/dL,Critical
+Creatinine,1.58,0.6,1.2,mg/dL,Critical
+Creatinine,0.28,0.6,1.2,mg/dL,Critical
+Creatinine,0.26,0.6,1.2,mg/dL,Critical
+Creatinine,0.32,0.6,1.2,mg/dL,Critical
+Creatinine,0.26,0.6,1.2,mg/dL,Critical
+Creatinine,1.67,0.6,1.2,mg/dL,Critical
+Creatinine,1.35,0.6,1.2,mg/dL,Critical
+Creatinine,0.46,0.6,1.2,mg/dL,Critical
+Creatinine,0.21,0.6,1.2,mg/dL,Critical
+Creatinine,1.55,0.6,1.2,mg/dL,Critical
+Creatinine,1.42,0.6,1.2,mg/dL,Critical
+Creatinine,0.46,0.6,1.2,mg/dL,Critical
+Creatinine,0.38,0.6,1.2,mg/dL,Critical
+Creatinine,1.54,0.6,1.2,mg/dL,Critical
+Creatinine,0.26,0.6,1.2,mg/dL,Critical
+Creatinine,1.63,0.6,1.2,mg/dL,Critical
+Creatinine,1.36,0.6,1.2,mg/dL,Critical
+Creatinine,0.46,0.6,1.2,mg/dL,Critical
+BUN,16.27,7.0,20.0,mg/dL,Normal
+BUN,17.98,7.0,20.0,mg/dL,Normal
+BUN,10.02,7.0,20.0,mg/dL,Normal
+BUN,14.52,7.0,20.0,mg/dL,Normal
+BUN,15.85,7.0,20.0,mg/dL,Normal
+BUN,15.61,7.0,20.0,mg/dL,Normal
+BUN,12.43,7.0,20.0,mg/dL,Normal
+BUN,7.83,7.0,20.0,mg/dL,Normal
+BUN,14.47,7.0,20.0,mg/dL,Normal
+BUN,10.61,7.0,20.0,mg/dL,Normal
+BUN,12.92,7.0,20.0,mg/dL,Normal
+BUN,18.85,7.0,20.0,mg/dL,Normal
+BUN,12.32,7.0,20.0,mg/dL,Normal
+BUN,17.48,7.0,20.0,mg/dL,Normal
+BUN,9.86,7.0,20.0,mg/dL,Normal
+BUN,15.52,7.0,20.0,mg/dL,Normal
+BUN,19.08,7.0,20.0,mg/dL,Normal
+BUN,8.84,7.0,20.0,mg/dL,Normal
+BUN,7.75,7.0,20.0,mg/dL,Normal
+BUN,12.72,7.0,20.0,mg/dL,Normal
+BUN,8.73,7.0,20.0,mg/dL,Normal
+BUN,16.41,7.0,20.0,mg/dL,Normal
+BUN,18.35,7.0,20.0,mg/dL,Normal
+BUN,12.73,7.0,20.0,mg/dL,Normal
+BUN,10.68,7.0,20.0,mg/dL,Normal
+BUN,12.73,7.0,20.0,mg/dL,Normal
+BUN,16.11,7.0,20.0,mg/dL,Normal
+BUN,7.76,7.0,20.0,mg/dL,Normal
+BUN,14.55,7.0,20.0,mg/dL,Normal
+BUN,14.83,7.0,20.0,mg/dL,Normal
+BUN,15.11,7.0,20.0,mg/dL,Normal
+BUN,10.48,7.0,20.0,mg/dL,Normal
+BUN,16.0,7.0,20.0,mg/dL,Normal
+BUN,8.72,7.0,20.0,mg/dL,Normal
+BUN,9.98,7.0,20.0,mg/dL,Normal
+BUN,17.92,7.0,20.0,mg/dL,Normal
+BUN,16.29,7.0,20.0,mg/dL,Normal
+BUN,7.81,7.0,20.0,mg/dL,Normal
+BUN,10.56,7.0,20.0,mg/dL,Normal
+BUN,10.16,7.0,20.0,mg/dL,Normal
+BUN,10.82,7.0,20.0,mg/dL,Normal
+BUN,10.55,7.0,20.0,mg/dL,Normal
+BUN,8.38,7.0,20.0,mg/dL,Normal
+BUN,13.02,7.0,20.0,mg/dL,Normal
+BUN,16.22,7.0,20.0,mg/dL,Normal
+BUN,14.75,7.0,20.0,mg/dL,Normal
+BUN,15.52,7.0,20.0,mg/dL,Normal
+BUN,8.6,7.0,20.0,mg/dL,Normal
+BUN,18.78,7.0,20.0,mg/dL,Normal
+BUN,17.46,7.0,20.0,mg/dL,Normal
+BUN,17.07,7.0,20.0,mg/dL,Normal
+BUN,17.28,7.0,20.0,mg/dL,Normal
+BUN,18.56,7.0,20.0,mg/dL,Normal
+BUN,14.02,7.0,20.0,mg/dL,Normal
+BUN,9.99,7.0,20.0,mg/dL,Normal
+BUN,14.87,7.0,20.0,mg/dL,Normal
+BUN,16.34,7.0,20.0,mg/dL,Normal
+BUN,16.28,7.0,20.0,mg/dL,Normal
+BUN,13.75,7.0,20.0,mg/dL,Normal
+BUN,8.45,7.0,20.0,mg/dL,Normal
+BUN,11.99,7.0,20.0,mg/dL,Normal
+BUN,18.42,7.0,20.0,mg/dL,Normal
+BUN,14.49,7.0,20.0,mg/dL,Normal
+BUN,13.95,7.0,20.0,mg/dL,Normal
+BUN,10.8,7.0,20.0,mg/dL,Normal
+BUN,11.96,7.0,20.0,mg/dL,Normal
+BUN,18.13,7.0,20.0,mg/dL,Normal
+BUN,15.45,7.0,20.0,mg/dL,Normal
+BUN,16.86,7.0,20.0,mg/dL,Normal
+BUN,12.97,7.0,20.0,mg/dL,Normal
+BUN,15.02,7.0,20.0,mg/dL,Normal
+BUN,10.56,7.0,20.0,mg/dL,Normal
+BUN,15.9,7.0,20.0,mg/dL,Normal
+BUN,12.65,7.0,20.0,mg/dL,Normal
+BUN,12.83,7.0,20.0,mg/dL,Normal
+BUN,15.25,7.0,20.0,mg/dL,Normal
+BUN,18.6,7.0,20.0,mg/dL,Normal
+BUN,8.4,7.0,20.0,mg/dL,Normal
+BUN,17.3,7.0,20.0,mg/dL,Normal
+BUN,11.07,7.0,20.0,mg/dL,Normal
+BUN,12.84,7.0,20.0,mg/dL,Normal
+BUN,7.91,7.0,20.0,mg/dL,Normal
+BUN,11.17,7.0,20.0,mg/dL,Normal
+BUN,13.53,7.0,20.0,mg/dL,Normal
+BUN,8.31,7.0,20.0,mg/dL,Normal
+BUN,13.4,7.0,20.0,mg/dL,Normal
+BUN,18.5,7.0,20.0,mg/dL,Normal
+BUN,8.88,7.0,20.0,mg/dL,Normal
+BUN,16.59,7.0,20.0,mg/dL,Normal
+BUN,12.44,7.0,20.0,mg/dL,Normal
+BUN,15.32,7.0,20.0,mg/dL,Normal
+BUN,10.69,7.0,20.0,mg/dL,Normal
+BUN,9.52,7.0,20.0,mg/dL,Normal
+BUN,9.53,7.0,20.0,mg/dL,Normal
+BUN,8.47,7.0,20.0,mg/dL,Normal
+BUN,9.82,7.0,20.0,mg/dL,Normal
+BUN,15.42,7.0,20.0,mg/dL,Normal
+BUN,17.97,7.0,20.0,mg/dL,Normal
+BUN,17.18,7.0,20.0,mg/dL,Normal
+BUN,15.67,7.0,20.0,mg/dL,Normal
+BUN,8.94,7.0,20.0,mg/dL,Normal
+BUN,11.03,7.0,20.0,mg/dL,Normal
+BUN,11.27,7.0,20.0,mg/dL,Normal
+BUN,10.57,7.0,20.0,mg/dL,Normal
+BUN,13.68,7.0,20.0,mg/dL,Normal
+BUN,13.92,7.0,20.0,mg/dL,Normal
+BUN,11.83,7.0,20.0,mg/dL,Normal
+BUN,11.79,7.0,20.0,mg/dL,Normal
+BUN,17.34,7.0,20.0,mg/dL,Normal
+BUN,16.88,7.0,20.0,mg/dL,Normal
+BUN,11.25,7.0,20.0,mg/dL,Normal
+BUN,18.34,7.0,20.0,mg/dL,Normal
+BUN,18.8,7.0,20.0,mg/dL,Normal
+BUN,11.47,7.0,20.0,mg/dL,Normal
+BUN,11.8,7.0,20.0,mg/dL,Normal
+BUN,13.57,7.0,20.0,mg/dL,Normal
+BUN,18.66,7.0,20.0,mg/dL,Normal
+BUN,17.9,7.0,20.0,mg/dL,Normal
+BUN,8.85,7.0,20.0,mg/dL,Normal
+BUN,12.24,7.0,20.0,mg/dL,Normal
+BUN,21.31,7.0,20.0,mg/dL,Borderline
+BUN,6.63,7.0,20.0,mg/dL,Borderline
+BUN,22.18,7.0,20.0,mg/dL,Borderline
+BUN,21.95,7.0,20.0,mg/dL,Borderline
+BUN,5.99,7.0,20.0,mg/dL,Borderline
+BUN,6.15,7.0,20.0,mg/dL,Borderline
+BUN,6.2,7.0,20.0,mg/dL,Borderline
+BUN,4.71,7.0,20.0,mg/dL,Borderline
+BUN,4.41,7.0,20.0,mg/dL,Borderline
+BUN,21.9,7.0,20.0,mg/dL,Borderline
+BUN,20.42,7.0,20.0,mg/dL,Borderline
+BUN,4.45,7.0,20.0,mg/dL,Borderline
+BUN,6.72,7.0,20.0,mg/dL,Borderline
+BUN,5.32,7.0,20.0,mg/dL,Borderline
+BUN,4.98,7.0,20.0,mg/dL,Borderline
+BUN,21.58,7.0,20.0,mg/dL,Borderline
+BUN,4.55,7.0,20.0,mg/dL,Borderline
+BUN,5.01,7.0,20.0,mg/dL,Borderline
+BUN,6.9,7.0,20.0,mg/dL,Borderline
+BUN,21.45,7.0,20.0,mg/dL,Borderline
+BUN,5.52,7.0,20.0,mg/dL,Borderline
+BUN,21.81,7.0,20.0,mg/dL,Borderline
+BUN,20.45,7.0,20.0,mg/dL,Borderline
+BUN,21.07,7.0,20.0,mg/dL,Borderline
+BUN,21.64,7.0,20.0,mg/dL,Borderline
+BUN,20.3,7.0,20.0,mg/dL,Borderline
+BUN,20.3,7.0,20.0,mg/dL,Borderline
+BUN,4.77,7.0,20.0,mg/dL,Borderline
+BUN,20.54,7.0,20.0,mg/dL,Borderline
+BUN,6.73,7.0,20.0,mg/dL,Borderline
+BUN,5.72,7.0,20.0,mg/dL,Borderline
+BUN,4.45,7.0,20.0,mg/dL,Borderline
+BUN,20.18,7.0,20.0,mg/dL,Borderline
+BUN,5.86,7.0,20.0,mg/dL,Borderline
+BUN,21.79,7.0,20.0,mg/dL,Borderline
+BUN,4.43,7.0,20.0,mg/dL,Borderline
+BUN,21.39,7.0,20.0,mg/dL,Borderline
+BUN,22.14,7.0,20.0,mg/dL,Borderline
+BUN,21.26,7.0,20.0,mg/dL,Borderline
+BUN,6.46,7.0,20.0,mg/dL,Borderline
+BUN,4.88,7.0,20.0,mg/dL,Borderline
+BUN,22.29,7.0,20.0,mg/dL,Borderline
+BUN,4.6,7.0,20.0,mg/dL,Borderline
+BUN,6.49,7.0,20.0,mg/dL,Borderline
+BUN,20.53,7.0,20.0,mg/dL,Borderline
+BUN,6.68,7.0,20.0,mg/dL,Borderline
+BUN,5.81,7.0,20.0,mg/dL,Borderline
+BUN,20.17,7.0,20.0,mg/dL,Borderline
+BUN,20.19,7.0,20.0,mg/dL,Borderline
+BUN,6.49,7.0,20.0,mg/dL,Borderline
+BUN,4.26,7.0,20.0,mg/dL,Critical
+BUN,25.19,7.0,20.0,mg/dL,Critical
+BUN,1.5,7.0,20.0,mg/dL,Critical
+BUN,0.29,7.0,20.0,mg/dL,Critical
+BUN,1.98,7.0,20.0,mg/dL,Critical
+BUN,27.77,7.0,20.0,mg/dL,Critical
+BUN,22.79,7.0,20.0,mg/dL,Critical
+BUN,2.83,7.0,20.0,mg/dL,Critical
+BUN,0.02,7.0,20.0,mg/dL,Critical
+BUN,28.66,7.0,20.0,mg/dL,Critical
+BUN,23.24,7.0,20.0,mg/dL,Critical
+BUN,27.21,7.0,20.0,mg/dL,Critical
+BUN,28.5,7.0,20.0,mg/dL,Critical
+BUN,26.7,7.0,20.0,mg/dL,Critical
+BUN,2.87,7.0,20.0,mg/dL,Critical
+BUN,28.42,7.0,20.0,mg/dL,Critical
+BUN,0.83,7.0,20.0,mg/dL,Critical
+BUN,28.48,7.0,20.0,mg/dL,Critical
+BUN,28.55,7.0,20.0,mg/dL,Critical
+BUN,27.75,7.0,20.0,mg/dL,Critical
+BUN,27.17,7.0,20.0,mg/dL,Critical
+BUN,23.93,7.0,20.0,mg/dL,Critical
+BUN,3.06,7.0,20.0,mg/dL,Critical
+BUN,0.86,7.0,20.0,mg/dL,Critical
+BUN,1.03,7.0,20.0,mg/dL,Critical
+BUN,1.81,7.0,20.0,mg/dL,Critical
+BUN,26.62,7.0,20.0,mg/dL,Critical
+BUN,0.33,7.0,20.0,mg/dL,Critical
+BUN,25.67,7.0,20.0,mg/dL,Critical
+BUN,27.79,7.0,20.0,mg/dL,Critical
+ALT (SGPT),36.13,7.0,45.0,U/L,Normal
+ALT (SGPT),18.2,7.0,45.0,U/L,Normal
+ALT (SGPT),32.58,7.0,45.0,U/L,Normal
+ALT (SGPT),17.93,7.0,45.0,U/L,Normal
+ALT (SGPT),41.02,7.0,45.0,U/L,Normal
+ALT (SGPT),30.66,7.0,45.0,U/L,Normal
+ALT (SGPT),20.0,7.0,45.0,U/L,Normal
+ALT (SGPT),18.12,7.0,45.0,U/L,Normal
+ALT (SGPT),15.43,7.0,45.0,U/L,Normal
+ALT (SGPT),32.66,7.0,45.0,U/L,Normal
+ALT (SGPT),16.38,7.0,45.0,U/L,Normal
+ALT (SGPT),29.26,7.0,45.0,U/L,Normal
+ALT (SGPT),17.95,7.0,45.0,U/L,Normal
+ALT (SGPT),31.54,7.0,45.0,U/L,Normal
+ALT (SGPT),36.77,7.0,45.0,U/L,Normal
+ALT (SGPT),35.51,7.0,45.0,U/L,Normal
+ALT (SGPT),34.92,7.0,45.0,U/L,Normal
+ALT (SGPT),15.32,7.0,45.0,U/L,Normal
+ALT (SGPT),11.92,7.0,45.0,U/L,Normal
+ALT (SGPT),32.8,7.0,45.0,U/L,Normal
+ALT (SGPT),21.5,7.0,45.0,U/L,Normal
+ALT (SGPT),23.69,7.0,45.0,U/L,Normal
+ALT (SGPT),9.97,7.0,45.0,U/L,Normal
+ALT (SGPT),17.78,7.0,45.0,U/L,Normal
+ALT (SGPT),10.05,7.0,45.0,U/L,Normal
+ALT (SGPT),38.97,7.0,45.0,U/L,Normal
+ALT (SGPT),17.22,7.0,45.0,U/L,Normal
+ALT (SGPT),27.96,7.0,45.0,U/L,Normal
+ALT (SGPT),10.23,7.0,45.0,U/L,Normal
+ALT (SGPT),31.71,7.0,45.0,U/L,Normal
+ALT (SGPT),19.95,7.0,45.0,U/L,Normal
+ALT (SGPT),39.61,7.0,45.0,U/L,Normal
+ALT (SGPT),39.27,7.0,45.0,U/L,Normal
+ALT (SGPT),20.02,7.0,45.0,U/L,Normal
+ALT (SGPT),39.71,7.0,45.0,U/L,Normal
+ALT (SGPT),42.97,7.0,45.0,U/L,Normal
+ALT (SGPT),37.13,7.0,45.0,U/L,Normal
+ALT (SGPT),37.79,7.0,45.0,U/L,Normal
+ALT (SGPT),17.42,7.0,45.0,U/L,Normal
+ALT (SGPT),28.62,7.0,45.0,U/L,Normal
+ALT (SGPT),11.2,7.0,45.0,U/L,Normal
+ALT (SGPT),12.15,7.0,45.0,U/L,Normal
+ALT (SGPT),43.06,7.0,45.0,U/L,Normal
+ALT (SGPT),20.07,7.0,45.0,U/L,Normal
+ALT (SGPT),34.49,7.0,45.0,U/L,Normal
+ALT (SGPT),36.49,7.0,45.0,U/L,Normal
+ALT (SGPT),38.24,7.0,45.0,U/L,Normal
+ALT (SGPT),43.02,7.0,45.0,U/L,Normal
+ALT (SGPT),17.16,7.0,45.0,U/L,Normal
+ALT (SGPT),10.28,7.0,45.0,U/L,Normal
+ALT (SGPT),22.96,7.0,45.0,U/L,Normal
+ALT (SGPT),13.35,7.0,45.0,U/L,Normal
+ALT (SGPT),9.67,7.0,45.0,U/L,Normal
+ALT (SGPT),21.23,7.0,45.0,U/L,Normal
+ALT (SGPT),35.7,7.0,45.0,U/L,Normal
+ALT (SGPT),28.26,7.0,45.0,U/L,Normal
+ALT (SGPT),19.6,7.0,45.0,U/L,Normal
+ALT (SGPT),31.28,7.0,45.0,U/L,Normal
+ALT (SGPT),16.84,7.0,45.0,U/L,Normal
+ALT (SGPT),9.39,7.0,45.0,U/L,Normal
+ALT (SGPT),35.04,7.0,45.0,U/L,Normal
+ALT (SGPT),30.23,7.0,45.0,U/L,Normal
+ALT (SGPT),34.97,7.0,45.0,U/L,Normal
+ALT (SGPT),10.23,7.0,45.0,U/L,Normal
+ALT (SGPT),37.53,7.0,45.0,U/L,Normal
+ALT (SGPT),30.09,7.0,45.0,U/L,Normal
+ALT (SGPT),28.17,7.0,45.0,U/L,Normal
+ALT (SGPT),30.26,7.0,45.0,U/L,Normal
+ALT (SGPT),38.46,7.0,45.0,U/L,Normal
+ALT (SGPT),28.97,7.0,45.0,U/L,Normal
+ALT (SGPT),28.77,7.0,45.0,U/L,Normal
+ALT (SGPT),42.78,7.0,45.0,U/L,Normal
+ALT (SGPT),34.78,7.0,45.0,U/L,Normal
+ALT (SGPT),24.03,7.0,45.0,U/L,Normal
+ALT (SGPT),33.09,7.0,45.0,U/L,Normal
+ALT (SGPT),22.21,7.0,45.0,U/L,Normal
+ALT (SGPT),16.73,7.0,45.0,U/L,Normal
+ALT (SGPT),29.31,7.0,45.0,U/L,Normal
+ALT (SGPT),40.64,7.0,45.0,U/L,Normal
+ALT (SGPT),40.68,7.0,45.0,U/L,Normal
+ALT (SGPT),20.59,7.0,45.0,U/L,Normal
+ALT (SGPT),26.95,7.0,45.0,U/L,Normal
+ALT (SGPT),16.14,7.0,45.0,U/L,Normal
+ALT (SGPT),42.95,7.0,45.0,U/L,Normal
+ALT (SGPT),42.45,7.0,45.0,U/L,Normal
+ALT (SGPT),31.11,7.0,45.0,U/L,Normal
+ALT (SGPT),36.41,7.0,45.0,U/L,Normal
+ALT (SGPT),33.36,7.0,45.0,U/L,Normal
+ALT (SGPT),29.19,7.0,45.0,U/L,Normal
+ALT (SGPT),10.72,7.0,45.0,U/L,Normal
+ALT (SGPT),24.45,7.0,45.0,U/L,Normal
+ALT (SGPT),31.98,7.0,45.0,U/L,Normal
+ALT (SGPT),32.07,7.0,45.0,U/L,Normal
+ALT (SGPT),21.66,7.0,45.0,U/L,Normal
+ALT (SGPT),41.11,7.0,45.0,U/L,Normal
+ALT (SGPT),14.62,7.0,45.0,U/L,Normal
+ALT (SGPT),26.01,7.0,45.0,U/L,Normal
+ALT (SGPT),32.53,7.0,45.0,U/L,Normal
+ALT (SGPT),32.74,7.0,45.0,U/L,Normal
+ALT (SGPT),31.08,7.0,45.0,U/L,Normal
+ALT (SGPT),18.31,7.0,45.0,U/L,Normal
+ALT (SGPT),14.24,7.0,45.0,U/L,Normal
+ALT (SGPT),30.65,7.0,45.0,U/L,Normal
+ALT (SGPT),29.4,7.0,45.0,U/L,Normal
+ALT (SGPT),15.03,7.0,45.0,U/L,Normal
+ALT (SGPT),33.02,7.0,45.0,U/L,Normal
+ALT (SGPT),24.47,7.0,45.0,U/L,Normal
+ALT (SGPT),31.74,7.0,45.0,U/L,Normal
+ALT (SGPT),37.54,7.0,45.0,U/L,Normal
+ALT (SGPT),14.7,7.0,45.0,U/L,Normal
+ALT (SGPT),9.55,7.0,45.0,U/L,Normal
+ALT (SGPT),35.55,7.0,45.0,U/L,Normal
+ALT (SGPT),29.75,7.0,45.0,U/L,Normal
+ALT (SGPT),32.83,7.0,45.0,U/L,Normal
+ALT (SGPT),37.56,7.0,45.0,U/L,Normal
+ALT (SGPT),36.36,7.0,45.0,U/L,Normal
+ALT (SGPT),41.76,7.0,45.0,U/L,Normal
+ALT (SGPT),27.23,7.0,45.0,U/L,Normal
+ALT (SGPT),25.61,7.0,45.0,U/L,Normal
+ALT (SGPT),22.64,7.0,45.0,U/L,Normal
+ALT (SGPT),4.01,7.0,45.0,U/L,Borderline
+ALT (SGPT),6.45,7.0,45.0,U/L,Borderline
+ALT (SGPT),49.51,7.0,45.0,U/L,Borderline
+ALT (SGPT),0.36,7.0,45.0,U/L,Borderline
+ALT (SGPT),2.96,7.0,45.0,U/L,Borderline
+ALT (SGPT),4.25,7.0,45.0,U/L,Borderline
+ALT (SGPT),51.71,7.0,45.0,U/L,Borderline
+ALT (SGPT),46.61,7.0,45.0,U/L,Borderline
+ALT (SGPT),51.73,7.0,45.0,U/L,Borderline
+ALT (SGPT),5.16,7.0,45.0,U/L,Borderline
+ALT (SGPT),5.62,7.0,45.0,U/L,Borderline
+ALT (SGPT),45.23,7.0,45.0,U/L,Borderline
+ALT (SGPT),49.73,7.0,45.0,U/L,Borderline
+ALT (SGPT),48.53,7.0,45.0,U/L,Borderline
+ALT (SGPT),45.47,7.0,45.0,U/L,Borderline
+ALT (SGPT),0.47,7.0,45.0,U/L,Borderline
+ALT (SGPT),51.21,7.0,45.0,U/L,Borderline
+ALT (SGPT),52.13,7.0,45.0,U/L,Borderline
+ALT (SGPT),2.7,7.0,45.0,U/L,Borderline
+ALT (SGPT),1.48,7.0,45.0,U/L,Borderline
+ALT (SGPT),3.28,7.0,45.0,U/L,Borderline
+ALT (SGPT),0.71,7.0,45.0,U/L,Borderline
+ALT (SGPT),1.03,7.0,45.0,U/L,Borderline
+ALT (SGPT),50.77,7.0,45.0,U/L,Borderline
+ALT (SGPT),48.34,7.0,45.0,U/L,Borderline
+ALT (SGPT),5.59,7.0,45.0,U/L,Borderline
+ALT (SGPT),2.1,7.0,45.0,U/L,Borderline
+ALT (SGPT),0.91,7.0,45.0,U/L,Borderline
+ALT (SGPT),2.49,7.0,45.0,U/L,Borderline
+ALT (SGPT),45.48,7.0,45.0,U/L,Borderline
+ALT (SGPT),5.66,7.0,45.0,U/L,Borderline
+ALT (SGPT),2.4,7.0,45.0,U/L,Borderline
+ALT (SGPT),46.18,7.0,45.0,U/L,Borderline
+ALT (SGPT),3.39,7.0,45.0,U/L,Borderline
+ALT (SGPT),3.94,7.0,45.0,U/L,Borderline
+ALT (SGPT),46.04,7.0,45.0,U/L,Borderline
+ALT (SGPT),48.84,7.0,45.0,U/L,Borderline
+ALT (SGPT),4.37,7.0,45.0,U/L,Borderline
+ALT (SGPT),3.41,7.0,45.0,U/L,Borderline
+ALT (SGPT),3.22,7.0,45.0,U/L,Borderline
+ALT (SGPT),5.76,7.0,45.0,U/L,Borderline
+ALT (SGPT),2.93,7.0,45.0,U/L,Borderline
+ALT (SGPT),5.08,7.0,45.0,U/L,Borderline
+ALT (SGPT),50.07,7.0,45.0,U/L,Borderline
+ALT (SGPT),51.55,7.0,45.0,U/L,Borderline
+ALT (SGPT),3.77,7.0,45.0,U/L,Borderline
+ALT (SGPT),52.52,7.0,45.0,U/L,Borderline
+ALT (SGPT),47.82,7.0,45.0,U/L,Borderline
+ALT (SGPT),3.43,7.0,45.0,U/L,Borderline
+ALT (SGPT),48.74,7.0,45.0,U/L,Borderline
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),56.91,7.0,45.0,U/L,Critical
+ALT (SGPT),65.97,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),59.39,7.0,45.0,U/L,Critical
+ALT (SGPT),74.73,7.0,45.0,U/L,Critical
+ALT (SGPT),56.19,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),71.93,7.0,45.0,U/L,Critical
+ALT (SGPT),56.91,7.0,45.0,U/L,Critical
+ALT (SGPT),57.92,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),67.04,7.0,45.0,U/L,Critical
+ALT (SGPT),56.39,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+ALT (SGPT),53.88,7.0,45.0,U/L,Critical
+ALT (SGPT),0.0,7.0,45.0,U/L,Critical
+AST (SGOT),16.46,8.0,40.0,U/L,Normal
+AST (SGOT),35.76,8.0,40.0,U/L,Normal
+AST (SGOT),23.08,8.0,40.0,U/L,Normal
+AST (SGOT),23.03,8.0,40.0,U/L,Normal
+AST (SGOT),31.5,8.0,40.0,U/L,Normal
+AST (SGOT),14.05,8.0,40.0,U/L,Normal
+AST (SGOT),23.63,8.0,40.0,U/L,Normal
+AST (SGOT),21.98,8.0,40.0,U/L,Normal
+AST (SGOT),26.79,8.0,40.0,U/L,Normal
+AST (SGOT),38.39,8.0,40.0,U/L,Normal
+AST (SGOT),31.76,8.0,40.0,U/L,Normal
+AST (SGOT),21.06,8.0,40.0,U/L,Normal
+AST (SGOT),33.43,8.0,40.0,U/L,Normal
+AST (SGOT),14.52,8.0,40.0,U/L,Normal
+AST (SGOT),10.48,8.0,40.0,U/L,Normal
+AST (SGOT),15.49,8.0,40.0,U/L,Normal
+AST (SGOT),19.4,8.0,40.0,U/L,Normal
+AST (SGOT),24.3,8.0,40.0,U/L,Normal
+AST (SGOT),27.32,8.0,40.0,U/L,Normal
+AST (SGOT),35.83,8.0,40.0,U/L,Normal
+AST (SGOT),24.28,8.0,40.0,U/L,Normal
+AST (SGOT),24.04,8.0,40.0,U/L,Normal
+AST (SGOT),11.05,8.0,40.0,U/L,Normal
+AST (SGOT),10.61,8.0,40.0,U/L,Normal
+AST (SGOT),25.47,8.0,40.0,U/L,Normal
+AST (SGOT),22.22,8.0,40.0,U/L,Normal
+AST (SGOT),33.77,8.0,40.0,U/L,Normal
+AST (SGOT),14.23,8.0,40.0,U/L,Normal
+AST (SGOT),10.32,8.0,40.0,U/L,Normal
+AST (SGOT),22.53,8.0,40.0,U/L,Normal
+AST (SGOT),16.44,8.0,40.0,U/L,Normal
+AST (SGOT),11.03,8.0,40.0,U/L,Normal
+AST (SGOT),30.47,8.0,40.0,U/L,Normal
+AST (SGOT),12.81,8.0,40.0,U/L,Normal
+AST (SGOT),27.12,8.0,40.0,U/L,Normal
+AST (SGOT),17.69,8.0,40.0,U/L,Normal
+AST (SGOT),14.6,8.0,40.0,U/L,Normal
+AST (SGOT),20.54,8.0,40.0,U/L,Normal
+AST (SGOT),32.68,8.0,40.0,U/L,Normal
+AST (SGOT),20.89,8.0,40.0,U/L,Normal
+AST (SGOT),31.22,8.0,40.0,U/L,Normal
+AST (SGOT),13.21,8.0,40.0,U/L,Normal
+AST (SGOT),31.86,8.0,40.0,U/L,Normal
+AST (SGOT),16.42,8.0,40.0,U/L,Normal
+AST (SGOT),29.11,8.0,40.0,U/L,Normal
+AST (SGOT),25.89,8.0,40.0,U/L,Normal
+AST (SGOT),36.36,8.0,40.0,U/L,Normal
+AST (SGOT),20.75,8.0,40.0,U/L,Normal
+AST (SGOT),11.51,8.0,40.0,U/L,Normal
+AST (SGOT),10.15,8.0,40.0,U/L,Normal
+AST (SGOT),33.41,8.0,40.0,U/L,Normal
+AST (SGOT),24.71,8.0,40.0,U/L,Normal
+AST (SGOT),31.93,8.0,40.0,U/L,Normal
+AST (SGOT),16.35,8.0,40.0,U/L,Normal
+AST (SGOT),19.54,8.0,40.0,U/L,Normal
+AST (SGOT),10.47,8.0,40.0,U/L,Normal
+AST (SGOT),37.29,8.0,40.0,U/L,Normal
+AST (SGOT),28.83,8.0,40.0,U/L,Normal
+AST (SGOT),36.48,8.0,40.0,U/L,Normal
+AST (SGOT),17.25,8.0,40.0,U/L,Normal
+AST (SGOT),27.21,8.0,40.0,U/L,Normal
+AST (SGOT),29.14,8.0,40.0,U/L,Normal
+AST (SGOT),18.75,8.0,40.0,U/L,Normal
+AST (SGOT),34.03,8.0,40.0,U/L,Normal
+AST (SGOT),36.88,8.0,40.0,U/L,Normal
+AST (SGOT),35.08,8.0,40.0,U/L,Normal
+AST (SGOT),30.89,8.0,40.0,U/L,Normal
+AST (SGOT),17.59,8.0,40.0,U/L,Normal
+AST (SGOT),17.71,8.0,40.0,U/L,Normal
+AST (SGOT),37.34,8.0,40.0,U/L,Normal
+AST (SGOT),9.9,8.0,40.0,U/L,Normal
+AST (SGOT),30.22,8.0,40.0,U/L,Normal
+AST (SGOT),29.94,8.0,40.0,U/L,Normal
+AST (SGOT),27.53,8.0,40.0,U/L,Normal
+AST (SGOT),38.12,8.0,40.0,U/L,Normal
+AST (SGOT),18.58,8.0,40.0,U/L,Normal
+AST (SGOT),19.39,8.0,40.0,U/L,Normal
+AST (SGOT),11.87,8.0,40.0,U/L,Normal
+AST (SGOT),22.35,8.0,40.0,U/L,Normal
+AST (SGOT),17.12,8.0,40.0,U/L,Normal
+AST (SGOT),19.49,8.0,40.0,U/L,Normal
+AST (SGOT),33.64,8.0,40.0,U/L,Normal
+AST (SGOT),36.54,8.0,40.0,U/L,Normal
+AST (SGOT),14.95,8.0,40.0,U/L,Normal
+AST (SGOT),20.33,8.0,40.0,U/L,Normal
+AST (SGOT),36.34,8.0,40.0,U/L,Normal
+AST (SGOT),11.38,8.0,40.0,U/L,Normal
+AST (SGOT),12.26,8.0,40.0,U/L,Normal
+AST (SGOT),14.29,8.0,40.0,U/L,Normal
+AST (SGOT),26.74,8.0,40.0,U/L,Normal
+AST (SGOT),13.93,8.0,40.0,U/L,Normal
+AST (SGOT),37.48,8.0,40.0,U/L,Normal
+AST (SGOT),22.47,8.0,40.0,U/L,Normal
+AST (SGOT),24.04,8.0,40.0,U/L,Normal
+AST (SGOT),16.7,8.0,40.0,U/L,Normal
+AST (SGOT),23.16,8.0,40.0,U/L,Normal
+AST (SGOT),28.66,8.0,40.0,U/L,Normal
+AST (SGOT),31.23,8.0,40.0,U/L,Normal
+AST (SGOT),31.31,8.0,40.0,U/L,Normal
+AST (SGOT),26.24,8.0,40.0,U/L,Normal
+AST (SGOT),35.65,8.0,40.0,U/L,Normal
+AST (SGOT),33.14,8.0,40.0,U/L,Normal
+AST (SGOT),31.4,8.0,40.0,U/L,Normal
+AST (SGOT),11.2,8.0,40.0,U/L,Normal
+AST (SGOT),9.8,8.0,40.0,U/L,Normal
+AST (SGOT),15.72,8.0,40.0,U/L,Normal
+AST (SGOT),28.71,8.0,40.0,U/L,Normal
+AST (SGOT),21.44,8.0,40.0,U/L,Normal
+AST (SGOT),21.19,8.0,40.0,U/L,Normal
+AST (SGOT),35.08,8.0,40.0,U/L,Normal
+AST (SGOT),35.39,8.0,40.0,U/L,Normal
+AST (SGOT),35.78,8.0,40.0,U/L,Normal
+AST (SGOT),18.64,8.0,40.0,U/L,Normal
+AST (SGOT),29.5,8.0,40.0,U/L,Normal
+AST (SGOT),17.42,8.0,40.0,U/L,Normal
+AST (SGOT),15.09,8.0,40.0,U/L,Normal
+AST (SGOT),14.92,8.0,40.0,U/L,Normal
+AST (SGOT),19.45,8.0,40.0,U/L,Normal
+AST (SGOT),21.98,8.0,40.0,U/L,Normal
+AST (SGOT),33.53,8.0,40.0,U/L,Normal
+AST (SGOT),6.3,8.0,40.0,U/L,Borderline
+AST (SGOT),41.84,8.0,40.0,U/L,Borderline
+AST (SGOT),3.52,8.0,40.0,U/L,Borderline
+AST (SGOT),42.78,8.0,40.0,U/L,Borderline
+AST (SGOT),2.35,8.0,40.0,U/L,Borderline
+AST (SGOT),45.78,8.0,40.0,U/L,Borderline
+AST (SGOT),6.29,8.0,40.0,U/L,Borderline
+AST (SGOT),45.96,8.0,40.0,U/L,Borderline
+AST (SGOT),43.63,8.0,40.0,U/L,Borderline
+AST (SGOT),45.75,8.0,40.0,U/L,Borderline
+AST (SGOT),3.69,8.0,40.0,U/L,Borderline
+AST (SGOT),6.89,8.0,40.0,U/L,Borderline
+AST (SGOT),40.67,8.0,40.0,U/L,Borderline
+AST (SGOT),42.97,8.0,40.0,U/L,Borderline
+AST (SGOT),7.88,8.0,40.0,U/L,Borderline
+AST (SGOT),2.03,8.0,40.0,U/L,Borderline
+AST (SGOT),44.73,8.0,40.0,U/L,Borderline
+AST (SGOT),5.82,8.0,40.0,U/L,Borderline
+AST (SGOT),40.66,8.0,40.0,U/L,Borderline
+AST (SGOT),5.24,8.0,40.0,U/L,Borderline
+AST (SGOT),7.61,8.0,40.0,U/L,Borderline
+AST (SGOT),46.29,8.0,40.0,U/L,Borderline
+AST (SGOT),7.81,8.0,40.0,U/L,Borderline
+AST (SGOT),3.82,8.0,40.0,U/L,Borderline
+AST (SGOT),1.94,8.0,40.0,U/L,Borderline
+AST (SGOT),42.93,8.0,40.0,U/L,Borderline
+AST (SGOT),5.53,8.0,40.0,U/L,Borderline
+AST (SGOT),5.3,8.0,40.0,U/L,Borderline
+AST (SGOT),6.87,8.0,40.0,U/L,Borderline
+AST (SGOT),43.06,8.0,40.0,U/L,Borderline
+AST (SGOT),3.92,8.0,40.0,U/L,Borderline
+AST (SGOT),42.1,8.0,40.0,U/L,Borderline
+AST (SGOT),2.14,8.0,40.0,U/L,Borderline
+AST (SGOT),4.69,8.0,40.0,U/L,Borderline
+AST (SGOT),41.42,8.0,40.0,U/L,Borderline
+AST (SGOT),6.77,8.0,40.0,U/L,Borderline
+AST (SGOT),42.46,8.0,40.0,U/L,Borderline
+AST (SGOT),3.54,8.0,40.0,U/L,Borderline
+AST (SGOT),40.76,8.0,40.0,U/L,Borderline
+AST (SGOT),44.38,8.0,40.0,U/L,Borderline
+AST (SGOT),40.21,8.0,40.0,U/L,Borderline
+AST (SGOT),4.21,8.0,40.0,U/L,Borderline
+AST (SGOT),5.8,8.0,40.0,U/L,Borderline
+AST (SGOT),43.6,8.0,40.0,U/L,Borderline
+AST (SGOT),40.44,8.0,40.0,U/L,Borderline
+AST (SGOT),2.34,8.0,40.0,U/L,Borderline
+AST (SGOT),46.01,8.0,40.0,U/L,Borderline
+AST (SGOT),40.49,8.0,40.0,U/L,Borderline
+AST (SGOT),5.12,8.0,40.0,U/L,Borderline
+AST (SGOT),6.94,8.0,40.0,U/L,Borderline
+AST (SGOT),58.27,8.0,40.0,U/L,Critical
+AST (SGOT),0.33,8.0,40.0,U/L,Critical
+AST (SGOT),0.45,8.0,40.0,U/L,Critical
+AST (SGOT),0.87,8.0,40.0,U/L,Critical
+AST (SGOT),48.04,8.0,40.0,U/L,Critical
+AST (SGOT),0.23,8.0,40.0,U/L,Critical
+AST (SGOT),1.06,8.0,40.0,U/L,Critical
+AST (SGOT),0.54,8.0,40.0,U/L,Critical
+AST (SGOT),1.13,8.0,40.0,U/L,Critical
+AST (SGOT),51.09,8.0,40.0,U/L,Critical
+AST (SGOT),60.53,8.0,40.0,U/L,Critical
+AST (SGOT),50.88,8.0,40.0,U/L,Critical
+AST (SGOT),64.36,8.0,40.0,U/L,Critical
+AST (SGOT),58.72,8.0,40.0,U/L,Critical
+AST (SGOT),54.33,8.0,40.0,U/L,Critical
+AST (SGOT),56.75,8.0,40.0,U/L,Critical
+AST (SGOT),54.81,8.0,40.0,U/L,Critical
+AST (SGOT),62.29,8.0,40.0,U/L,Critical
+AST (SGOT),1.07,8.0,40.0,U/L,Critical
+AST (SGOT),62.67,8.0,40.0,U/L,Critical
+AST (SGOT),0.49,8.0,40.0,U/L,Critical
+AST (SGOT),51.46,8.0,40.0,U/L,Critical
+AST (SGOT),55.86,8.0,40.0,U/L,Critical
+AST (SGOT),52.54,8.0,40.0,U/L,Critical
+AST (SGOT),52.86,8.0,40.0,U/L,Critical
+AST (SGOT),0.35,8.0,40.0,U/L,Critical
+AST (SGOT),1.25,8.0,40.0,U/L,Critical
+AST (SGOT),54.18,8.0,40.0,U/L,Critical
+AST (SGOT),53.25,8.0,40.0,U/L,Critical
+AST (SGOT),61.93,8.0,40.0,U/L,Critical
+TSH,3.65,0.4,4.0,mIU/L,Normal
+TSH,1.88,0.4,4.0,mIU/L,Normal
+TSH,3.12,0.4,4.0,mIU/L,Normal
+TSH,1.44,0.4,4.0,mIU/L,Normal
+TSH,3.79,0.4,4.0,mIU/L,Normal
+TSH,0.66,0.4,4.0,mIU/L,Normal
+TSH,2.54,0.4,4.0,mIU/L,Normal
+TSH,2.72,0.4,4.0,mIU/L,Normal
+TSH,2.81,0.4,4.0,mIU/L,Normal
+TSH,0.97,0.4,4.0,mIU/L,Normal
+TSH,3.62,0.4,4.0,mIU/L,Normal
+TSH,1.17,0.4,4.0,mIU/L,Normal
+TSH,2.6,0.4,4.0,mIU/L,Normal
+TSH,1.3,0.4,4.0,mIU/L,Normal
+TSH,1.58,0.4,4.0,mIU/L,Normal
+TSH,2.35,0.4,4.0,mIU/L,Normal
+TSH,1.93,0.4,4.0,mIU/L,Normal
+TSH,1.1,0.4,4.0,mIU/L,Normal
+TSH,1.13,0.4,4.0,mIU/L,Normal
+TSH,1.93,0.4,4.0,mIU/L,Normal
+TSH,3.03,0.4,4.0,mIU/L,Normal
+TSH,3.49,0.4,4.0,mIU/L,Normal
+TSH,0.85,0.4,4.0,mIU/L,Normal
+TSH,1.85,0.4,4.0,mIU/L,Normal
+TSH,0.9,0.4,4.0,mIU/L,Normal
+TSH,0.63,0.4,4.0,mIU/L,Normal
+TSH,2.72,0.4,4.0,mIU/L,Normal
+TSH,2.53,0.4,4.0,mIU/L,Normal
+TSH,1.11,0.4,4.0,mIU/L,Normal
+TSH,1.34,0.4,4.0,mIU/L,Normal
+TSH,0.66,0.4,4.0,mIU/L,Normal
+TSH,3.29,0.4,4.0,mIU/L,Normal
+TSH,3.74,0.4,4.0,mIU/L,Normal
+TSH,1.02,0.4,4.0,mIU/L,Normal
+TSH,1.33,0.4,4.0,mIU/L,Normal
+TSH,3.39,0.4,4.0,mIU/L,Normal
+TSH,3.58,0.4,4.0,mIU/L,Normal
+TSH,1.94,0.4,4.0,mIU/L,Normal
+TSH,0.74,0.4,4.0,mIU/L,Normal
+TSH,0.71,0.4,4.0,mIU/L,Normal
+TSH,2.44,0.4,4.0,mIU/L,Normal
+TSH,1.85,0.4,4.0,mIU/L,Normal
+TSH,0.67,0.4,4.0,mIU/L,Normal
+TSH,2.47,0.4,4.0,mIU/L,Normal
+TSH,0.62,0.4,4.0,mIU/L,Normal
+TSH,3.13,0.4,4.0,mIU/L,Normal
+TSH,1.57,0.4,4.0,mIU/L,Normal
+TSH,0.71,0.4,4.0,mIU/L,Normal
+TSH,2.49,0.4,4.0,mIU/L,Normal
+TSH,1.87,0.4,4.0,mIU/L,Normal
+TSH,3.74,0.4,4.0,mIU/L,Normal
+TSH,2.34,0.4,4.0,mIU/L,Normal
+TSH,1.47,0.4,4.0,mIU/L,Normal
+TSH,2.88,0.4,4.0,mIU/L,Normal
+TSH,1.46,0.4,4.0,mIU/L,Normal
+TSH,3.51,0.4,4.0,mIU/L,Normal
+TSH,1.79,0.4,4.0,mIU/L,Normal
+TSH,2.36,0.4,4.0,mIU/L,Normal
+TSH,0.74,0.4,4.0,mIU/L,Normal
+TSH,1.96,0.4,4.0,mIU/L,Normal
+TSH,3.28,0.4,4.0,mIU/L,Normal
+TSH,3.19,0.4,4.0,mIU/L,Normal
+TSH,1.31,0.4,4.0,mIU/L,Normal
+TSH,1.31,0.4,4.0,mIU/L,Normal
+TSH,3.23,0.4,4.0,mIU/L,Normal
+TSH,3.59,0.4,4.0,mIU/L,Normal
+TSH,0.89,0.4,4.0,mIU/L,Normal
+TSH,2.04,0.4,4.0,mIU/L,Normal
+TSH,1.67,0.4,4.0,mIU/L,Normal
+TSH,3.4,0.4,4.0,mIU/L,Normal
+TSH,0.85,0.4,4.0,mIU/L,Normal
+TSH,1.26,0.4,4.0,mIU/L,Normal
+TSH,3.02,0.4,4.0,mIU/L,Normal
+TSH,0.75,0.4,4.0,mIU/L,Normal
+TSH,2.18,0.4,4.0,mIU/L,Normal
+TSH,2.01,0.4,4.0,mIU/L,Normal
+TSH,1.66,0.4,4.0,mIU/L,Normal
+TSH,1.86,0.4,4.0,mIU/L,Normal
+TSH,2.3,0.4,4.0,mIU/L,Normal
+TSH,1.1,0.4,4.0,mIU/L,Normal
+TSH,2.43,0.4,4.0,mIU/L,Normal
+TSH,3.19,0.4,4.0,mIU/L,Normal
+TSH,3.04,0.4,4.0,mIU/L,Normal
+TSH,1.08,0.4,4.0,mIU/L,Normal
+TSH,1.06,0.4,4.0,mIU/L,Normal
+TSH,1.45,0.4,4.0,mIU/L,Normal
+TSH,1.75,0.4,4.0,mIU/L,Normal
+TSH,1.9,0.4,4.0,mIU/L,Normal
+TSH,2.78,0.4,4.0,mIU/L,Normal
+TSH,0.76,0.4,4.0,mIU/L,Normal
+TSH,0.69,0.4,4.0,mIU/L,Normal
+TSH,1.85,0.4,4.0,mIU/L,Normal
+TSH,2.84,0.4,4.0,mIU/L,Normal
+TSH,1.21,0.4,4.0,mIU/L,Normal
+TSH,2.66,0.4,4.0,mIU/L,Normal
+TSH,1.42,0.4,4.0,mIU/L,Normal
+TSH,3.45,0.4,4.0,mIU/L,Normal
+TSH,3.48,0.4,4.0,mIU/L,Normal
+TSH,1.54,0.4,4.0,mIU/L,Normal
+TSH,1.33,0.4,4.0,mIU/L,Normal
+TSH,1.91,0.4,4.0,mIU/L,Normal
+TSH,1.36,0.4,4.0,mIU/L,Normal
+TSH,2.76,0.4,4.0,mIU/L,Normal
+TSH,3.26,0.4,4.0,mIU/L,Normal
+TSH,2.76,0.4,4.0,mIU/L,Normal
+TSH,3.25,0.4,4.0,mIU/L,Normal
+TSH,1.87,0.4,4.0,mIU/L,Normal
+TSH,1.09,0.4,4.0,mIU/L,Normal
+TSH,2.97,0.4,4.0,mIU/L,Normal
+TSH,1.75,0.4,4.0,mIU/L,Normal
+TSH,2.75,0.4,4.0,mIU/L,Normal
+TSH,1.46,0.4,4.0,mIU/L,Normal
+TSH,0.84,0.4,4.0,mIU/L,Normal
+TSH,3.8,0.4,4.0,mIU/L,Normal
+TSH,1.09,0.4,4.0,mIU/L,Normal
+TSH,3.78,0.4,4.0,mIU/L,Normal
+TSH,3.75,0.4,4.0,mIU/L,Normal
+TSH,3.15,0.4,4.0,mIU/L,Normal
+TSH,2.72,0.4,4.0,mIU/L,Normal
+TSH,2.45,0.4,4.0,mIU/L,Normal
+TSH,4.21,0.4,4.0,mIU/L,Borderline
+TSH,0.25,0.4,4.0,mIU/L,Borderline
+TSH,0.17,0.4,4.0,mIU/L,Borderline
+TSH,0.23,0.4,4.0,mIU/L,Borderline
+TSH,4.15,0.4,4.0,mIU/L,Borderline
+TSH,4.5,0.4,4.0,mIU/L,Borderline
+TSH,4.4,0.4,4.0,mIU/L,Borderline
+TSH,4.01,0.4,4.0,mIU/L,Borderline
+TSH,4.03,0.4,4.0,mIU/L,Borderline
+TSH,4.71,0.4,4.0,mIU/L,Borderline
+TSH,0.08,0.4,4.0,mIU/L,Borderline
+TSH,4.18,0.4,4.0,mIU/L,Borderline
+TSH,4.07,0.4,4.0,mIU/L,Borderline
+TSH,0.39,0.4,4.0,mIU/L,Borderline
+TSH,4.61,0.4,4.0,mIU/L,Borderline
+TSH,0.27,0.4,4.0,mIU/L,Borderline
+TSH,4.43,0.4,4.0,mIU/L,Borderline
+TSH,4.41,0.4,4.0,mIU/L,Borderline
+TSH,0.11,0.4,4.0,mIU/L,Borderline
+TSH,4.16,0.4,4.0,mIU/L,Borderline
+TSH,4.17,0.4,4.0,mIU/L,Borderline
+TSH,4.54,0.4,4.0,mIU/L,Borderline
+TSH,0.02,0.4,4.0,mIU/L,Borderline
+TSH,0.24,0.4,4.0,mIU/L,Borderline
+TSH,4.03,0.4,4.0,mIU/L,Borderline
+TSH,4.25,0.4,4.0,mIU/L,Borderline
+TSH,0.37,0.4,4.0,mIU/L,Borderline
+TSH,0.19,0.4,4.0,mIU/L,Borderline
+TSH,0.03,0.4,4.0,mIU/L,Borderline
+TSH,0.01,0.4,4.0,mIU/L,Borderline
+TSH,4.31,0.4,4.0,mIU/L,Borderline
+TSH,4.13,0.4,4.0,mIU/L,Borderline
+TSH,0.27,0.4,4.0,mIU/L,Borderline
+TSH,4.04,0.4,4.0,mIU/L,Borderline
+TSH,4.42,0.4,4.0,mIU/L,Borderline
+TSH,4.36,0.4,4.0,mIU/L,Borderline
+TSH,0.04,0.4,4.0,mIU/L,Borderline
+TSH,4.25,0.4,4.0,mIU/L,Borderline
+TSH,4.29,0.4,4.0,mIU/L,Borderline
+TSH,0.29,0.4,4.0,mIU/L,Borderline
+TSH,0.21,0.4,4.0,mIU/L,Borderline
+TSH,4.65,0.4,4.0,mIU/L,Borderline
+TSH,4.49,0.4,4.0,mIU/L,Borderline
+TSH,4.68,0.4,4.0,mIU/L,Borderline
+TSH,0.0,0.4,4.0,mIU/L,Borderline
+TSH,0.09,0.4,4.0,mIU/L,Borderline
+TSH,4.46,0.4,4.0,mIU/L,Borderline
+TSH,4.01,0.4,4.0,mIU/L,Borderline
+TSH,4.23,0.4,4.0,mIU/L,Borderline
+TSH,4.4,0.4,4.0,mIU/L,Borderline
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,6.14,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,6.41,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,5.51,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,6.56,0.4,4.0,mIU/L,Critical
+TSH,5.96,0.4,4.0,mIU/L,Critical
+TSH,4.94,0.4,4.0,mIU/L,Critical
+TSH,5.56,0.4,4.0,mIU/L,Critical
+TSH,5.58,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,6.87,0.4,4.0,mIU/L,Critical
+TSH,6.48,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,5.43,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,6.24,0.4,4.0,mIU/L,Critical
+TSH,6.61,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,5.15,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+TSH,0.0,0.4,4.0,mIU/L,Critical
+Vitamin D,87.05,30.0,100.0,ng/mL,Normal
+Vitamin D,45.86,30.0,100.0,ng/mL,Normal
+Vitamin D,41.41,30.0,100.0,ng/mL,Normal
+Vitamin D,94.2,30.0,100.0,ng/mL,Normal
+Vitamin D,40.31,30.0,100.0,ng/mL,Normal
+Vitamin D,63.64,30.0,100.0,ng/mL,Normal
+Vitamin D,70.39,30.0,100.0,ng/mL,Normal
+Vitamin D,67.61,30.0,100.0,ng/mL,Normal
+Vitamin D,38.92,30.0,100.0,ng/mL,Normal
+Vitamin D,37.09,30.0,100.0,ng/mL,Normal
+Vitamin D,40.15,30.0,100.0,ng/mL,Normal
+Vitamin D,70.39,30.0,100.0,ng/mL,Normal
+Vitamin D,67.79,30.0,100.0,ng/mL,Normal
+Vitamin D,48.23,30.0,100.0,ng/mL,Normal
+Vitamin D,73.68,30.0,100.0,ng/mL,Normal
+Vitamin D,85.16,30.0,100.0,ng/mL,Normal
+Vitamin D,36.12,30.0,100.0,ng/mL,Normal
+Vitamin D,64.88,30.0,100.0,ng/mL,Normal
+Vitamin D,76.93,30.0,100.0,ng/mL,Normal
+Vitamin D,49.4,30.0,100.0,ng/mL,Normal
+Vitamin D,52.89,30.0,100.0,ng/mL,Normal
+Vitamin D,72.16,30.0,100.0,ng/mL,Normal
+Vitamin D,90.07,30.0,100.0,ng/mL,Normal
+Vitamin D,84.53,30.0,100.0,ng/mL,Normal
+Vitamin D,70.24,30.0,100.0,ng/mL,Normal
+Vitamin D,79.5,30.0,100.0,ng/mL,Normal
+Vitamin D,56.48,30.0,100.0,ng/mL,Normal
+Vitamin D,73.88,30.0,100.0,ng/mL,Normal
+Vitamin D,62.87,30.0,100.0,ng/mL,Normal
+Vitamin D,45.47,30.0,100.0,ng/mL,Normal
+Vitamin D,77.71,30.0,100.0,ng/mL,Normal
+Vitamin D,68.56,30.0,100.0,ng/mL,Normal
+Vitamin D,56.09,30.0,100.0,ng/mL,Normal
+Vitamin D,90.91,30.0,100.0,ng/mL,Normal
+Vitamin D,34.82,30.0,100.0,ng/mL,Normal
+Vitamin D,53.39,30.0,100.0,ng/mL,Normal
+Vitamin D,37.08,30.0,100.0,ng/mL,Normal
+Vitamin D,81.79,30.0,100.0,ng/mL,Normal
+Vitamin D,77.73,30.0,100.0,ng/mL,Normal
+Vitamin D,54.38,30.0,100.0,ng/mL,Normal
+Vitamin D,76.07,30.0,100.0,ng/mL,Normal
+Vitamin D,58.44,30.0,100.0,ng/mL,Normal
+Vitamin D,81.14,30.0,100.0,ng/mL,Normal
+Vitamin D,62.11,30.0,100.0,ng/mL,Normal
+Vitamin D,59.47,30.0,100.0,ng/mL,Normal
+Vitamin D,92.39,30.0,100.0,ng/mL,Normal
+Vitamin D,49.31,30.0,100.0,ng/mL,Normal
+Vitamin D,41.09,30.0,100.0,ng/mL,Normal
+Vitamin D,70.33,30.0,100.0,ng/mL,Normal
+Vitamin D,94.57,30.0,100.0,ng/mL,Normal
+Vitamin D,57.3,30.0,100.0,ng/mL,Normal
+Vitamin D,37.41,30.0,100.0,ng/mL,Normal
+Vitamin D,54.88,30.0,100.0,ng/mL,Normal
+Vitamin D,65.37,30.0,100.0,ng/mL,Normal
+Vitamin D,43.7,30.0,100.0,ng/mL,Normal
+Vitamin D,74.96,30.0,100.0,ng/mL,Normal
+Vitamin D,96.36,30.0,100.0,ng/mL,Normal
+Vitamin D,61.96,30.0,100.0,ng/mL,Normal
+Vitamin D,55.85,30.0,100.0,ng/mL,Normal
+Vitamin D,58.74,30.0,100.0,ng/mL,Normal
+Vitamin D,40.75,30.0,100.0,ng/mL,Normal
+Vitamin D,89.15,30.0,100.0,ng/mL,Normal
+Vitamin D,59.63,30.0,100.0,ng/mL,Normal
+Vitamin D,57.9,30.0,100.0,ng/mL,Normal
+Vitamin D,75.06,30.0,100.0,ng/mL,Normal
+Vitamin D,61.35,30.0,100.0,ng/mL,Normal
+Vitamin D,74.34,30.0,100.0,ng/mL,Normal
+Vitamin D,37.37,30.0,100.0,ng/mL,Normal
+Vitamin D,84.76,30.0,100.0,ng/mL,Normal
+Vitamin D,92.75,30.0,100.0,ng/mL,Normal
+Vitamin D,74.37,30.0,100.0,ng/mL,Normal
+Vitamin D,93.64,30.0,100.0,ng/mL,Normal
+Vitamin D,43.04,30.0,100.0,ng/mL,Normal
+Vitamin D,63.58,30.0,100.0,ng/mL,Normal
+Vitamin D,71.41,30.0,100.0,ng/mL,Normal
+Vitamin D,70.15,30.0,100.0,ng/mL,Normal
+Vitamin D,58.79,30.0,100.0,ng/mL,Normal
+Vitamin D,54.8,30.0,100.0,ng/mL,Normal
+Vitamin D,41.49,30.0,100.0,ng/mL,Normal
+Vitamin D,58.18,30.0,100.0,ng/mL,Normal
+Vitamin D,43.75,30.0,100.0,ng/mL,Normal
+Vitamin D,79.77,30.0,100.0,ng/mL,Normal
+Vitamin D,46.66,30.0,100.0,ng/mL,Normal
+Vitamin D,37.19,30.0,100.0,ng/mL,Normal
+Vitamin D,68.3,30.0,100.0,ng/mL,Normal
+Vitamin D,71.0,30.0,100.0,ng/mL,Normal
+Vitamin D,88.43,30.0,100.0,ng/mL,Normal
+Vitamin D,69.85,30.0,100.0,ng/mL,Normal
+Vitamin D,55.27,30.0,100.0,ng/mL,Normal
+Vitamin D,84.09,30.0,100.0,ng/mL,Normal
+Vitamin D,67.54,30.0,100.0,ng/mL,Normal
+Vitamin D,38.49,30.0,100.0,ng/mL,Normal
+Vitamin D,69.15,30.0,100.0,ng/mL,Normal
+Vitamin D,90.71,30.0,100.0,ng/mL,Normal
+Vitamin D,58.47,30.0,100.0,ng/mL,Normal
+Vitamin D,52.17,30.0,100.0,ng/mL,Normal
+Vitamin D,42.54,30.0,100.0,ng/mL,Normal
+Vitamin D,43.04,30.0,100.0,ng/mL,Normal
+Vitamin D,60.76,30.0,100.0,ng/mL,Normal
+Vitamin D,71.03,30.0,100.0,ng/mL,Normal
+Vitamin D,38.58,30.0,100.0,ng/mL,Normal
+Vitamin D,92.69,30.0,100.0,ng/mL,Normal
+Vitamin D,81.07,30.0,100.0,ng/mL,Normal
+Vitamin D,70.46,30.0,100.0,ng/mL,Normal
+Vitamin D,85.69,30.0,100.0,ng/mL,Normal
+Vitamin D,38.55,30.0,100.0,ng/mL,Normal
+Vitamin D,63.54,30.0,100.0,ng/mL,Normal
+Vitamin D,73.2,30.0,100.0,ng/mL,Normal
+Vitamin D,85.71,30.0,100.0,ng/mL,Normal
+Vitamin D,82.86,30.0,100.0,ng/mL,Normal
+Vitamin D,50.96,30.0,100.0,ng/mL,Normal
+Vitamin D,92.78,30.0,100.0,ng/mL,Normal
+Vitamin D,41.33,30.0,100.0,ng/mL,Normal
+Vitamin D,88.63,30.0,100.0,ng/mL,Normal
+Vitamin D,94.67,30.0,100.0,ng/mL,Normal
+Vitamin D,44.66,30.0,100.0,ng/mL,Normal
+Vitamin D,78.99,30.0,100.0,ng/mL,Normal
+Vitamin D,36.04,30.0,100.0,ng/mL,Normal
+Vitamin D,59.04,30.0,100.0,ng/mL,Normal
+Vitamin D,66.03,30.0,100.0,ng/mL,Normal
+Vitamin D,29.1,30.0,100.0,ng/mL,Borderline
+Vitamin D,22.74,30.0,100.0,ng/mL,Borderline
+Vitamin D,29.31,30.0,100.0,ng/mL,Borderline
+Vitamin D,29.76,30.0,100.0,ng/mL,Borderline
+Vitamin D,27.4,30.0,100.0,ng/mL,Borderline
+Vitamin D,17.85,30.0,100.0,ng/mL,Borderline
+Vitamin D,25.02,30.0,100.0,ng/mL,Borderline
+Vitamin D,16.76,30.0,100.0,ng/mL,Borderline
+Vitamin D,28.63,30.0,100.0,ng/mL,Borderline
+Vitamin D,19.03,30.0,100.0,ng/mL,Borderline
+Vitamin D,16.68,30.0,100.0,ng/mL,Borderline
+Vitamin D,27.57,30.0,100.0,ng/mL,Borderline
+Vitamin D,20.94,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.77,30.0,100.0,ng/mL,Borderline
+Vitamin D,24.84,30.0,100.0,ng/mL,Borderline
+Vitamin D,24.38,30.0,100.0,ng/mL,Borderline
+Vitamin D,29.41,30.0,100.0,ng/mL,Borderline
+Vitamin D,24.47,30.0,100.0,ng/mL,Borderline
+Vitamin D,24.76,30.0,100.0,ng/mL,Borderline
+Vitamin D,18.59,30.0,100.0,ng/mL,Borderline
+Vitamin D,24.46,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.33,30.0,100.0,ng/mL,Borderline
+Vitamin D,25.33,30.0,100.0,ng/mL,Borderline
+Vitamin D,22.19,30.0,100.0,ng/mL,Borderline
+Vitamin D,18.58,30.0,100.0,ng/mL,Borderline
+Vitamin D,21.41,30.0,100.0,ng/mL,Borderline
+Vitamin D,21.57,30.0,100.0,ng/mL,Borderline
+Vitamin D,22.77,30.0,100.0,ng/mL,Borderline
+Vitamin D,27.75,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.08,30.0,100.0,ng/mL,Borderline
+Vitamin D,17.0,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.92,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.81,30.0,100.0,ng/mL,Borderline
+Vitamin D,16.68,30.0,100.0,ng/mL,Borderline
+Vitamin D,16.62,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.58,30.0,100.0,ng/mL,Borderline
+Vitamin D,16.64,30.0,100.0,ng/mL,Borderline
+Vitamin D,27.79,30.0,100.0,ng/mL,Borderline
+Vitamin D,17.08,30.0,100.0,ng/mL,Borderline
+Vitamin D,17.78,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.26,30.0,100.0,ng/mL,Borderline
+Vitamin D,21.01,30.0,100.0,ng/mL,Borderline
+Vitamin D,25.58,30.0,100.0,ng/mL,Borderline
+Vitamin D,18.0,30.0,100.0,ng/mL,Borderline
+Vitamin D,23.77,30.0,100.0,ng/mL,Borderline
+Vitamin D,16.06,30.0,100.0,ng/mL,Borderline
+Vitamin D,24.99,30.0,100.0,ng/mL,Borderline
+Vitamin D,22.86,30.0,100.0,ng/mL,Borderline
+Vitamin D,16.34,30.0,100.0,ng/mL,Borderline
+Vitamin D,18.48,30.0,100.0,ng/mL,Borderline
+Vitamin D,14.64,30.0,100.0,ng/mL,Critical
+Vitamin D,11.15,30.0,100.0,ng/mL,Critical
+Vitamin D,6.02,30.0,100.0,ng/mL,Critical
+Vitamin D,1.48,30.0,100.0,ng/mL,Critical
+Vitamin D,12.2,30.0,100.0,ng/mL,Critical
+Vitamin D,8.37,30.0,100.0,ng/mL,Critical
+Vitamin D,14.11,30.0,100.0,ng/mL,Critical
+Vitamin D,4.29,30.0,100.0,ng/mL,Critical
+Vitamin D,11.97,30.0,100.0,ng/mL,Critical
+Vitamin D,3.68,30.0,100.0,ng/mL,Critical
+Vitamin D,12.71,30.0,100.0,ng/mL,Critical
+Vitamin D,6.11,30.0,100.0,ng/mL,Critical
+Vitamin D,14.97,30.0,100.0,ng/mL,Critical
+Vitamin D,12.23,30.0,100.0,ng/mL,Critical
+Vitamin D,11.18,30.0,100.0,ng/mL,Critical
+Vitamin D,8.85,30.0,100.0,ng/mL,Critical
+Vitamin D,12.3,30.0,100.0,ng/mL,Critical
+Vitamin D,0.91,30.0,100.0,ng/mL,Critical
+Vitamin D,2.14,30.0,100.0,ng/mL,Critical
+Vitamin D,8.39,30.0,100.0,ng/mL,Critical
+Vitamin D,7.95,30.0,100.0,ng/mL,Critical
+Vitamin D,2.07,30.0,100.0,ng/mL,Critical
+Vitamin D,6.06,30.0,100.0,ng/mL,Critical
+Vitamin D,2.43,30.0,100.0,ng/mL,Critical
+Vitamin D,13.46,30.0,100.0,ng/mL,Critical
+Vitamin D,15.17,30.0,100.0,ng/mL,Critical
+Vitamin D,5.44,30.0,100.0,ng/mL,Critical
+Vitamin D,7.4,30.0,100.0,ng/mL,Critical
+Vitamin D,5.47,30.0,100.0,ng/mL,Critical
+Vitamin D,8.81,30.0,100.0,ng/mL,Critical
+Vitamin B12,336.72,200.0,900.0,pg/mL,Normal
+Vitamin B12,532.2,200.0,900.0,pg/mL,Normal
+Vitamin B12,583.69,200.0,900.0,pg/mL,Normal
+Vitamin B12,594.28,200.0,900.0,pg/mL,Normal
+Vitamin B12,367.37,200.0,900.0,pg/mL,Normal
+Vitamin B12,702.63,200.0,900.0,pg/mL,Normal
+Vitamin B12,250.88,200.0,900.0,pg/mL,Normal
+Vitamin B12,458.54,200.0,900.0,pg/mL,Normal
+Vitamin B12,726.53,200.0,900.0,pg/mL,Normal
+Vitamin B12,590.25,200.0,900.0,pg/mL,Normal
+Vitamin B12,399.53,200.0,900.0,pg/mL,Normal
+Vitamin B12,672.82,200.0,900.0,pg/mL,Normal
+Vitamin B12,592.46,200.0,900.0,pg/mL,Normal
+Vitamin B12,736.63,200.0,900.0,pg/mL,Normal
+Vitamin B12,698.07,200.0,900.0,pg/mL,Normal
+Vitamin B12,619.37,200.0,900.0,pg/mL,Normal
+Vitamin B12,542.55,200.0,900.0,pg/mL,Normal
+Vitamin B12,318.9,200.0,900.0,pg/mL,Normal
+Vitamin B12,399.64,200.0,900.0,pg/mL,Normal
+Vitamin B12,499.03,200.0,900.0,pg/mL,Normal
+Vitamin B12,612.56,200.0,900.0,pg/mL,Normal
+Vitamin B12,558.64,200.0,900.0,pg/mL,Normal
+Vitamin B12,416.56,200.0,900.0,pg/mL,Normal
+Vitamin B12,239.07,200.0,900.0,pg/mL,Normal
+Vitamin B12,547.63,200.0,900.0,pg/mL,Normal
+Vitamin B12,414.94,200.0,900.0,pg/mL,Normal
+Vitamin B12,697.8,200.0,900.0,pg/mL,Normal
+Vitamin B12,250.09,200.0,900.0,pg/mL,Normal
+Vitamin B12,603.44,200.0,900.0,pg/mL,Normal
+Vitamin B12,828.13,200.0,900.0,pg/mL,Normal
+Vitamin B12,344.88,200.0,900.0,pg/mL,Normal
+Vitamin B12,532.14,200.0,900.0,pg/mL,Normal
+Vitamin B12,292.6,200.0,900.0,pg/mL,Normal
+Vitamin B12,629.18,200.0,900.0,pg/mL,Normal
+Vitamin B12,581.83,200.0,900.0,pg/mL,Normal
+Vitamin B12,491.64,200.0,900.0,pg/mL,Normal
+Vitamin B12,563.47,200.0,900.0,pg/mL,Normal
+Vitamin B12,799.84,200.0,900.0,pg/mL,Normal
+Vitamin B12,358.67,200.0,900.0,pg/mL,Normal
+Vitamin B12,249.22,200.0,900.0,pg/mL,Normal
+Vitamin B12,777.85,200.0,900.0,pg/mL,Normal
+Vitamin B12,598.58,200.0,900.0,pg/mL,Normal
+Vitamin B12,796.11,200.0,900.0,pg/mL,Normal
+Vitamin B12,611.08,200.0,900.0,pg/mL,Normal
+Vitamin B12,745.4,200.0,900.0,pg/mL,Normal
+Vitamin B12,505.69,200.0,900.0,pg/mL,Normal
+Vitamin B12,707.41,200.0,900.0,pg/mL,Normal
+Vitamin B12,810.22,200.0,900.0,pg/mL,Normal
+Vitamin B12,595.44,200.0,900.0,pg/mL,Normal
+Vitamin B12,348.89,200.0,900.0,pg/mL,Normal
+Vitamin B12,404.34,200.0,900.0,pg/mL,Normal
+Vitamin B12,360.15,200.0,900.0,pg/mL,Normal
+Vitamin B12,390.52,200.0,900.0,pg/mL,Normal
+Vitamin B12,428.04,200.0,900.0,pg/mL,Normal
+Vitamin B12,584.73,200.0,900.0,pg/mL,Normal
+Vitamin B12,605.43,200.0,900.0,pg/mL,Normal
+Vitamin B12,503.69,200.0,900.0,pg/mL,Normal
+Vitamin B12,622.72,200.0,900.0,pg/mL,Normal
+Vitamin B12,286.39,200.0,900.0,pg/mL,Normal
+Vitamin B12,290.31,200.0,900.0,pg/mL,Normal
+Vitamin B12,343.25,200.0,900.0,pg/mL,Normal
+Vitamin B12,561.39,200.0,900.0,pg/mL,Normal
+Vitamin B12,369.82,200.0,900.0,pg/mL,Normal
+Vitamin B12,413.47,200.0,900.0,pg/mL,Normal
+Vitamin B12,487.2,200.0,900.0,pg/mL,Normal
+Vitamin B12,746.48,200.0,900.0,pg/mL,Normal
+Vitamin B12,243.73,200.0,900.0,pg/mL,Normal
+Vitamin B12,644.11,200.0,900.0,pg/mL,Normal
+Vitamin B12,656.39,200.0,900.0,pg/mL,Normal
+Vitamin B12,738.15,200.0,900.0,pg/mL,Normal
+Vitamin B12,822.63,200.0,900.0,pg/mL,Normal
+Vitamin B12,247.69,200.0,900.0,pg/mL,Normal
+Vitamin B12,331.88,200.0,900.0,pg/mL,Normal
+Vitamin B12,793.29,200.0,900.0,pg/mL,Normal
+Vitamin B12,523.87,200.0,900.0,pg/mL,Normal
+Vitamin B12,590.69,200.0,900.0,pg/mL,Normal
+Vitamin B12,652.71,200.0,900.0,pg/mL,Normal
+Vitamin B12,662.81,200.0,900.0,pg/mL,Normal
+Vitamin B12,822.0,200.0,900.0,pg/mL,Normal
+Vitamin B12,863.08,200.0,900.0,pg/mL,Normal
+Vitamin B12,688.7,200.0,900.0,pg/mL,Normal
+Vitamin B12,415.95,200.0,900.0,pg/mL,Normal
+Vitamin B12,789.24,200.0,900.0,pg/mL,Normal
+Vitamin B12,266.01,200.0,900.0,pg/mL,Normal
+Vitamin B12,380.58,200.0,900.0,pg/mL,Normal
+Vitamin B12,800.35,200.0,900.0,pg/mL,Normal
+Vitamin B12,396.4,200.0,900.0,pg/mL,Normal
+Vitamin B12,374.01,200.0,900.0,pg/mL,Normal
+Vitamin B12,322.02,200.0,900.0,pg/mL,Normal
+Vitamin B12,776.24,200.0,900.0,pg/mL,Normal
+Vitamin B12,550.04,200.0,900.0,pg/mL,Normal
+Vitamin B12,660.18,200.0,900.0,pg/mL,Normal
+Vitamin B12,385.61,200.0,900.0,pg/mL,Normal
+Vitamin B12,712.57,200.0,900.0,pg/mL,Normal
+Vitamin B12,713.8,200.0,900.0,pg/mL,Normal
+Vitamin B12,431.94,200.0,900.0,pg/mL,Normal
+Vitamin B12,493.73,200.0,900.0,pg/mL,Normal
+Vitamin B12,367.1,200.0,900.0,pg/mL,Normal
+Vitamin B12,850.23,200.0,900.0,pg/mL,Normal
+Vitamin B12,641.73,200.0,900.0,pg/mL,Normal
+Vitamin B12,823.76,200.0,900.0,pg/mL,Normal
+Vitamin B12,426.13,200.0,900.0,pg/mL,Normal
+Vitamin B12,727.59,200.0,900.0,pg/mL,Normal
+Vitamin B12,717.49,200.0,900.0,pg/mL,Normal
+Vitamin B12,670.74,200.0,900.0,pg/mL,Normal
+Vitamin B12,843.35,200.0,900.0,pg/mL,Normal
+Vitamin B12,482.94,200.0,900.0,pg/mL,Normal
+Vitamin B12,317.35,200.0,900.0,pg/mL,Normal
+Vitamin B12,658.18,200.0,900.0,pg/mL,Normal
+Vitamin B12,694.47,200.0,900.0,pg/mL,Normal
+Vitamin B12,597.29,200.0,900.0,pg/mL,Normal
+Vitamin B12,365.3,200.0,900.0,pg/mL,Normal
+Vitamin B12,552.81,200.0,900.0,pg/mL,Normal
+Vitamin B12,431.68,200.0,900.0,pg/mL,Normal
+Vitamin B12,504.3,200.0,900.0,pg/mL,Normal
+Vitamin B12,641.49,200.0,900.0,pg/mL,Normal
+Vitamin B12,704.49,200.0,900.0,pg/mL,Normal
+Vitamin B12,381.3,200.0,900.0,pg/mL,Normal
+Vitamin B12,490.35,200.0,900.0,pg/mL,Normal
+Vitamin B12,404.57,200.0,900.0,pg/mL,Normal
+Vitamin B12,169.67,200.0,900.0,pg/mL,Borderline
+Vitamin B12,111.83,200.0,900.0,pg/mL,Borderline
+Vitamin B12,185.58,200.0,900.0,pg/mL,Borderline
+Vitamin B12,85.59,200.0,900.0,pg/mL,Borderline
+Vitamin B12,112.73,200.0,900.0,pg/mL,Borderline
+Vitamin B12,68.74,200.0,900.0,pg/mL,Borderline
+Vitamin B12,75.26,200.0,900.0,pg/mL,Borderline
+Vitamin B12,104.37,200.0,900.0,pg/mL,Borderline
+Vitamin B12,182.57,200.0,900.0,pg/mL,Borderline
+Vitamin B12,180.22,200.0,900.0,pg/mL,Borderline
+Vitamin B12,167.05,200.0,900.0,pg/mL,Borderline
+Vitamin B12,156.65,200.0,900.0,pg/mL,Borderline
+Vitamin B12,155.56,200.0,900.0,pg/mL,Borderline
+Vitamin B12,130.08,200.0,900.0,pg/mL,Borderline
+Vitamin B12,131.48,200.0,900.0,pg/mL,Borderline
+Vitamin B12,103.69,200.0,900.0,pg/mL,Borderline
+Vitamin B12,180.6,200.0,900.0,pg/mL,Borderline
+Vitamin B12,193.33,200.0,900.0,pg/mL,Borderline
+Vitamin B12,152.72,200.0,900.0,pg/mL,Borderline
+Vitamin B12,173.67,200.0,900.0,pg/mL,Borderline
+Vitamin B12,103.81,200.0,900.0,pg/mL,Borderline
+Vitamin B12,78.44,200.0,900.0,pg/mL,Borderline
+Vitamin B12,163.88,200.0,900.0,pg/mL,Borderline
+Vitamin B12,95.32,200.0,900.0,pg/mL,Borderline
+Vitamin B12,83.64,200.0,900.0,pg/mL,Borderline
+Vitamin B12,160.45,200.0,900.0,pg/mL,Borderline
+Vitamin B12,178.87,200.0,900.0,pg/mL,Borderline
+Vitamin B12,83.56,200.0,900.0,pg/mL,Borderline
+Vitamin B12,136.85,200.0,900.0,pg/mL,Borderline
+Vitamin B12,160.85,200.0,900.0,pg/mL,Borderline
+Vitamin B12,144.6,200.0,900.0,pg/mL,Borderline
+Vitamin B12,176.02,200.0,900.0,pg/mL,Borderline
+Vitamin B12,159.31,200.0,900.0,pg/mL,Borderline
+Vitamin B12,177.44,200.0,900.0,pg/mL,Borderline
+Vitamin B12,157.58,200.0,900.0,pg/mL,Borderline
+Vitamin B12,183.1,200.0,900.0,pg/mL,Borderline
+Vitamin B12,75.76,200.0,900.0,pg/mL,Borderline
+Vitamin B12,184.09,200.0,900.0,pg/mL,Borderline
+Vitamin B12,194.6,200.0,900.0,pg/mL,Borderline
+Vitamin B12,148.39,200.0,900.0,pg/mL,Borderline
+Vitamin B12,94.83,200.0,900.0,pg/mL,Borderline
+Vitamin B12,101.76,200.0,900.0,pg/mL,Borderline
+Vitamin B12,115.04,200.0,900.0,pg/mL,Borderline
+Vitamin B12,61.5,200.0,900.0,pg/mL,Borderline
+Vitamin B12,196.61,200.0,900.0,pg/mL,Borderline
+Vitamin B12,110.01,200.0,900.0,pg/mL,Borderline
+Vitamin B12,132.88,200.0,900.0,pg/mL,Borderline
+Vitamin B12,183.19,200.0,900.0,pg/mL,Borderline
+Vitamin B12,131.09,200.0,900.0,pg/mL,Borderline
+Vitamin B12,197.58,200.0,900.0,pg/mL,Borderline
+Vitamin B12,3.89,200.0,900.0,pg/mL,Critical
+Vitamin B12,31.55,200.0,900.0,pg/mL,Critical
+Vitamin B12,22.38,200.0,900.0,pg/mL,Critical
+Vitamin B12,10.37,200.0,900.0,pg/mL,Critical
+Vitamin B12,34.38,200.0,900.0,pg/mL,Critical
+Vitamin B12,24.28,200.0,900.0,pg/mL,Critical
+Vitamin B12,39.86,200.0,900.0,pg/mL,Critical
+Vitamin B12,17.01,200.0,900.0,pg/mL,Critical
+Vitamin B12,52.77,200.0,900.0,pg/mL,Critical
+Vitamin B12,48.8,200.0,900.0,pg/mL,Critical
+Vitamin B12,2.9,200.0,900.0,pg/mL,Critical
+Vitamin B12,22.19,200.0,900.0,pg/mL,Critical
+Vitamin B12,0.01,200.0,900.0,pg/mL,Critical
+Vitamin B12,44.73,200.0,900.0,pg/mL,Critical
+Vitamin B12,8.89,200.0,900.0,pg/mL,Critical
+Vitamin B12,3.58,200.0,900.0,pg/mL,Critical
+Vitamin B12,49.23,200.0,900.0,pg/mL,Critical
+Vitamin B12,6.31,200.0,900.0,pg/mL,Critical
+Vitamin B12,18.49,200.0,900.0,pg/mL,Critical
+Vitamin B12,32.93,200.0,900.0,pg/mL,Critical
+Vitamin B12,5.86,200.0,900.0,pg/mL,Critical
+Vitamin B12,52.7,200.0,900.0,pg/mL,Critical
+Vitamin B12,2.85,200.0,900.0,pg/mL,Critical
+Vitamin B12,2.06,200.0,900.0,pg/mL,Critical
+Vitamin B12,42.53,200.0,900.0,pg/mL,Critical
+Vitamin B12,23.54,200.0,900.0,pg/mL,Critical
+Vitamin B12,26.97,200.0,900.0,pg/mL,Critical
+Vitamin B12,45.9,200.0,900.0,pg/mL,Critical
+Vitamin B12,41.24,200.0,900.0,pg/mL,Critical
+Vitamin B12,52.41,200.0,900.0,pg/mL,Critical
+Systolic BP,104.06,90.0,119.0,mmHg,Normal
+Systolic BP,117.21,90.0,119.0,mmHg,Normal
+Systolic BP,111.14,90.0,119.0,mmHg,Normal
+Systolic BP,97.94,90.0,119.0,mmHg,Normal
+Systolic BP,105.5,90.0,119.0,mmHg,Normal
+Systolic BP,117.34,90.0,119.0,mmHg,Normal
+Systolic BP,113.83,90.0,119.0,mmHg,Normal
+Systolic BP,93.99,90.0,119.0,mmHg,Normal
+Systolic BP,109.89,90.0,119.0,mmHg,Normal
+Systolic BP,100.47,90.0,119.0,mmHg,Normal
+Systolic BP,91.63,90.0,119.0,mmHg,Normal
+Systolic BP,101.98,90.0,119.0,mmHg,Normal
+Systolic BP,97.58,90.0,119.0,mmHg,Normal
+Systolic BP,112.82,90.0,119.0,mmHg,Normal
+Systolic BP,100.25,90.0,119.0,mmHg,Normal
+Systolic BP,113.05,90.0,119.0,mmHg,Normal
+Systolic BP,91.47,90.0,119.0,mmHg,Normal
+Systolic BP,99.48,90.0,119.0,mmHg,Normal
+Systolic BP,97.74,90.0,119.0,mmHg,Normal
+Systolic BP,97.55,90.0,119.0,mmHg,Normal
+Systolic BP,93.23,90.0,119.0,mmHg,Normal
+Systolic BP,96.33,90.0,119.0,mmHg,Normal
+Systolic BP,105.95,90.0,119.0,mmHg,Normal
+Systolic BP,99.05,90.0,119.0,mmHg,Normal
+Systolic BP,102.34,90.0,119.0,mmHg,Normal
+Systolic BP,101.29,90.0,119.0,mmHg,Normal
+Systolic BP,114.31,90.0,119.0,mmHg,Normal
+Systolic BP,115.08,90.0,119.0,mmHg,Normal
+Systolic BP,104.32,90.0,119.0,mmHg,Normal
+Systolic BP,100.07,90.0,119.0,mmHg,Normal
+Systolic BP,94.24,90.0,119.0,mmHg,Normal
+Systolic BP,116.33,90.0,119.0,mmHg,Normal
+Systolic BP,93.02,90.0,119.0,mmHg,Normal
+Systolic BP,99.22,90.0,119.0,mmHg,Normal
+Systolic BP,99.23,90.0,119.0,mmHg,Normal
+Systolic BP,99.81,90.0,119.0,mmHg,Normal
+Systolic BP,95.74,90.0,119.0,mmHg,Normal
+Systolic BP,111.89,90.0,119.0,mmHg,Normal
+Systolic BP,94.65,90.0,119.0,mmHg,Normal
+Systolic BP,108.02,90.0,119.0,mmHg,Normal
+Systolic BP,94.68,90.0,119.0,mmHg,Normal
+Systolic BP,93.29,90.0,119.0,mmHg,Normal
+Systolic BP,115.19,90.0,119.0,mmHg,Normal
+Systolic BP,96.41,90.0,119.0,mmHg,Normal
+Systolic BP,112.88,90.0,119.0,mmHg,Normal
+Systolic BP,105.66,90.0,119.0,mmHg,Normal
+Systolic BP,93.48,90.0,119.0,mmHg,Normal
+Systolic BP,116.39,90.0,119.0,mmHg,Normal
+Systolic BP,97.9,90.0,119.0,mmHg,Normal
+Systolic BP,113.89,90.0,119.0,mmHg,Normal
+Systolic BP,95.86,90.0,119.0,mmHg,Normal
+Systolic BP,113.74,90.0,119.0,mmHg,Normal
+Systolic BP,91.8,90.0,119.0,mmHg,Normal
+Systolic BP,104.81,90.0,119.0,mmHg,Normal
+Systolic BP,111.53,90.0,119.0,mmHg,Normal
+Systolic BP,115.85,90.0,119.0,mmHg,Normal
+Systolic BP,115.18,90.0,119.0,mmHg,Normal
+Systolic BP,112.84,90.0,119.0,mmHg,Normal
+Systolic BP,114.63,90.0,119.0,mmHg,Normal
+Systolic BP,96.65,90.0,119.0,mmHg,Normal
+Systolic BP,98.87,90.0,119.0,mmHg,Normal
+Systolic BP,98.99,90.0,119.0,mmHg,Normal
+Systolic BP,101.29,90.0,119.0,mmHg,Normal
+Systolic BP,101.72,90.0,119.0,mmHg,Normal
+Systolic BP,105.66,90.0,119.0,mmHg,Normal
+Systolic BP,95.62,90.0,119.0,mmHg,Normal
+Systolic BP,109.49,90.0,119.0,mmHg,Normal
+Systolic BP,95.82,90.0,119.0,mmHg,Normal
+Systolic BP,99.55,90.0,119.0,mmHg,Normal
+Systolic BP,104.59,90.0,119.0,mmHg,Normal
+Systolic BP,112.24,90.0,119.0,mmHg,Normal
+Systolic BP,110.75,90.0,119.0,mmHg,Normal
+Systolic BP,108.3,90.0,119.0,mmHg,Normal
+Systolic BP,95.52,90.0,119.0,mmHg,Normal
+Systolic BP,105.73,90.0,119.0,mmHg,Normal
+Systolic BP,93.73,90.0,119.0,mmHg,Normal
+Systolic BP,101.3,90.0,119.0,mmHg,Normal
+Systolic BP,102.24,90.0,119.0,mmHg,Normal
+Systolic BP,92.49,90.0,119.0,mmHg,Normal
+Systolic BP,98.6,90.0,119.0,mmHg,Normal
+Systolic BP,116.39,90.0,119.0,mmHg,Normal
+Systolic BP,116.34,90.0,119.0,mmHg,Normal
+Systolic BP,100.65,90.0,119.0,mmHg,Normal
+Systolic BP,92.57,90.0,119.0,mmHg,Normal
+Systolic BP,96.12,90.0,119.0,mmHg,Normal
+Systolic BP,101.69,90.0,119.0,mmHg,Normal
+Systolic BP,116.19,90.0,119.0,mmHg,Normal
+Systolic BP,95.14,90.0,119.0,mmHg,Normal
+Systolic BP,111.38,90.0,119.0,mmHg,Normal
+Systolic BP,94.29,90.0,119.0,mmHg,Normal
+Systolic BP,117.06,90.0,119.0,mmHg,Normal
+Systolic BP,101.41,90.0,119.0,mmHg,Normal
+Systolic BP,111.68,90.0,119.0,mmHg,Normal
+Systolic BP,100.39,90.0,119.0,mmHg,Normal
+Systolic BP,107.83,90.0,119.0,mmHg,Normal
+Systolic BP,96.46,90.0,119.0,mmHg,Normal
+Systolic BP,95.26,90.0,119.0,mmHg,Normal
+Systolic BP,115.93,90.0,119.0,mmHg,Normal
+Systolic BP,115.4,90.0,119.0,mmHg,Normal
+Systolic BP,114.61,90.0,119.0,mmHg,Normal
+Systolic BP,107.77,90.0,119.0,mmHg,Normal
+Systolic BP,112.55,90.0,119.0,mmHg,Normal
+Systolic BP,93.25,90.0,119.0,mmHg,Normal
+Systolic BP,100.19,90.0,119.0,mmHg,Normal
+Systolic BP,99.64,90.0,119.0,mmHg,Normal
+Systolic BP,108.04,90.0,119.0,mmHg,Normal
+Systolic BP,100.74,90.0,119.0,mmHg,Normal
+Systolic BP,95.33,90.0,119.0,mmHg,Normal
+Systolic BP,107.02,90.0,119.0,mmHg,Normal
+Systolic BP,112.71,90.0,119.0,mmHg,Normal
+Systolic BP,101.42,90.0,119.0,mmHg,Normal
+Systolic BP,94.9,90.0,119.0,mmHg,Normal
+Systolic BP,96.58,90.0,119.0,mmHg,Normal
+Systolic BP,97.65,90.0,119.0,mmHg,Normal
+Systolic BP,99.28,90.0,119.0,mmHg,Normal
+Systolic BP,108.23,90.0,119.0,mmHg,Normal
+Systolic BP,107.13,90.0,119.0,mmHg,Normal
+Systolic BP,109.62,90.0,119.0,mmHg,Normal
+Systolic BP,100.91,90.0,119.0,mmHg,Normal
+Systolic BP,112.96,90.0,119.0,mmHg,Normal
+Systolic BP,86.92,90.0,119.0,mmHg,Borderline
+Systolic BP,120.04,90.0,119.0,mmHg,Borderline
+Systolic BP,89.33,90.0,119.0,mmHg,Borderline
+Systolic BP,88.17,90.0,119.0,mmHg,Borderline
+Systolic BP,88.2,90.0,119.0,mmHg,Borderline
+Systolic BP,84.52,90.0,119.0,mmHg,Borderline
+Systolic BP,120.4,90.0,119.0,mmHg,Borderline
+Systolic BP,84.67,90.0,119.0,mmHg,Borderline
+Systolic BP,85.93,90.0,119.0,mmHg,Borderline
+Systolic BP,89.48,90.0,119.0,mmHg,Borderline
+Systolic BP,87.01,90.0,119.0,mmHg,Borderline
+Systolic BP,85.98,90.0,119.0,mmHg,Borderline
+Systolic BP,119.94,90.0,119.0,mmHg,Borderline
+Systolic BP,120.19,90.0,119.0,mmHg,Borderline
+Systolic BP,122.17,90.0,119.0,mmHg,Borderline
+Systolic BP,122.21,90.0,119.0,mmHg,Borderline
+Systolic BP,120.13,90.0,119.0,mmHg,Borderline
+Systolic BP,89.52,90.0,119.0,mmHg,Borderline
+Systolic BP,86.36,90.0,119.0,mmHg,Borderline
+Systolic BP,120.97,90.0,119.0,mmHg,Borderline
+Systolic BP,123.28,90.0,119.0,mmHg,Borderline
+Systolic BP,124.11,90.0,119.0,mmHg,Borderline
+Systolic BP,85.69,90.0,119.0,mmHg,Borderline
+Systolic BP,85.52,90.0,119.0,mmHg,Borderline
+Systolic BP,124.33,90.0,119.0,mmHg,Borderline
+Systolic BP,86.18,90.0,119.0,mmHg,Borderline
+Systolic BP,121.58,90.0,119.0,mmHg,Borderline
+Systolic BP,86.24,90.0,119.0,mmHg,Borderline
+Systolic BP,122.3,90.0,119.0,mmHg,Borderline
+Systolic BP,123.71,90.0,119.0,mmHg,Borderline
+Systolic BP,86.72,90.0,119.0,mmHg,Borderline
+Systolic BP,121.11,90.0,119.0,mmHg,Borderline
+Systolic BP,124.46,90.0,119.0,mmHg,Borderline
+Systolic BP,123.3,90.0,119.0,mmHg,Borderline
+Systolic BP,123.9,90.0,119.0,mmHg,Borderline
+Systolic BP,84.5,90.0,119.0,mmHg,Borderline
+Systolic BP,88.11,90.0,119.0,mmHg,Borderline
+Systolic BP,88.54,90.0,119.0,mmHg,Borderline
+Systolic BP,87.88,90.0,119.0,mmHg,Borderline
+Systolic BP,88.55,90.0,119.0,mmHg,Borderline
+Systolic BP,120.18,90.0,119.0,mmHg,Borderline
+Systolic BP,88.54,90.0,119.0,mmHg,Borderline
+Systolic BP,85.45,90.0,119.0,mmHg,Borderline
+Systolic BP,123.15,90.0,119.0,mmHg,Borderline
+Systolic BP,121.48,90.0,119.0,mmHg,Borderline
+Systolic BP,89.41,90.0,119.0,mmHg,Borderline
+Systolic BP,123.1,90.0,119.0,mmHg,Borderline
+Systolic BP,86.79,90.0,119.0,mmHg,Borderline
+Systolic BP,85.39,90.0,119.0,mmHg,Borderline
+Systolic BP,84.43,90.0,119.0,mmHg,Borderline
+Systolic BP,129.24,90.0,119.0,mmHg,Critical
+Systolic BP,139.45,90.0,119.0,mmHg,Critical
+Systolic BP,127.71,90.0,119.0,mmHg,Critical
+Systolic BP,135.36,90.0,119.0,mmHg,Critical
+Systolic BP,138.26,90.0,119.0,mmHg,Critical
+Systolic BP,134.9,90.0,119.0,mmHg,Critical
+Systolic BP,78.91,90.0,119.0,mmHg,Critical
+Systolic BP,82.45,90.0,119.0,mmHg,Critical
+Systolic BP,74.36,90.0,119.0,mmHg,Critical
+Systolic BP,135.31,90.0,119.0,mmHg,Critical
+Systolic BP,76.43,90.0,119.0,mmHg,Critical
+Systolic BP,130.91,90.0,119.0,mmHg,Critical
+Systolic BP,126.6,90.0,119.0,mmHg,Critical
+Systolic BP,139.59,90.0,119.0,mmHg,Critical
+Systolic BP,75.82,90.0,119.0,mmHg,Critical
+Systolic BP,79.74,90.0,119.0,mmHg,Critical
+Systolic BP,135.96,90.0,119.0,mmHg,Critical
+Systolic BP,72.71,90.0,119.0,mmHg,Critical
+Systolic BP,74.28,90.0,119.0,mmHg,Critical
+Systolic BP,139.77,90.0,119.0,mmHg,Critical
+Systolic BP,132.54,90.0,119.0,mmHg,Critical
+Systolic BP,137.4,90.0,119.0,mmHg,Critical
+Systolic BP,134.12,90.0,119.0,mmHg,Critical
+Systolic BP,70.45,90.0,119.0,mmHg,Critical
+Systolic BP,127.17,90.0,119.0,mmHg,Critical
+Systolic BP,77.27,90.0,119.0,mmHg,Critical
+Systolic BP,135.37,90.0,119.0,mmHg,Critical
+Systolic BP,75.1,90.0,119.0,mmHg,Critical
+Systolic BP,141.68,90.0,119.0,mmHg,Critical
+Systolic BP,140.88,90.0,119.0,mmHg,Critical
+Diastolic BP,73.98,60.0,79.0,mmHg,Normal
+Diastolic BP,71.07,60.0,79.0,mmHg,Normal
+Diastolic BP,64.23,60.0,79.0,mmHg,Normal
+Diastolic BP,72.35,60.0,79.0,mmHg,Normal
+Diastolic BP,71.61,60.0,79.0,mmHg,Normal
+Diastolic BP,71.25,60.0,79.0,mmHg,Normal
+Diastolic BP,69.33,60.0,79.0,mmHg,Normal
+Diastolic BP,69.99,60.0,79.0,mmHg,Normal
+Diastolic BP,66.67,60.0,79.0,mmHg,Normal
+Diastolic BP,69.83,60.0,79.0,mmHg,Normal
+Diastolic BP,64.33,60.0,79.0,mmHg,Normal
+Diastolic BP,74.72,60.0,79.0,mmHg,Normal
+Diastolic BP,64.13,60.0,79.0,mmHg,Normal
+Diastolic BP,62.4,60.0,79.0,mmHg,Normal
+Diastolic BP,68.41,60.0,79.0,mmHg,Normal
+Diastolic BP,72.21,60.0,79.0,mmHg,Normal
+Diastolic BP,68.43,60.0,79.0,mmHg,Normal
+Diastolic BP,65.68,60.0,79.0,mmHg,Normal
+Diastolic BP,70.49,60.0,79.0,mmHg,Normal
+Diastolic BP,66.88,60.0,79.0,mmHg,Normal
+Diastolic BP,76.9,60.0,79.0,mmHg,Normal
+Diastolic BP,76.73,60.0,79.0,mmHg,Normal
+Diastolic BP,69.54,60.0,79.0,mmHg,Normal
+Diastolic BP,66.56,60.0,79.0,mmHg,Normal
+Diastolic BP,73.55,60.0,79.0,mmHg,Normal
+Diastolic BP,61.58,60.0,79.0,mmHg,Normal
+Diastolic BP,69.07,60.0,79.0,mmHg,Normal
+Diastolic BP,66.7,60.0,79.0,mmHg,Normal
+Diastolic BP,76.69,60.0,79.0,mmHg,Normal
+Diastolic BP,61.16,60.0,79.0,mmHg,Normal
+Diastolic BP,70.4,60.0,79.0,mmHg,Normal
+Diastolic BP,73.62,60.0,79.0,mmHg,Normal
+Diastolic BP,69.24,60.0,79.0,mmHg,Normal
+Diastolic BP,62.41,60.0,79.0,mmHg,Normal
+Diastolic BP,77.58,60.0,79.0,mmHg,Normal
+Diastolic BP,69.81,60.0,79.0,mmHg,Normal
+Diastolic BP,71.45,60.0,79.0,mmHg,Normal
+Diastolic BP,65.0,60.0,79.0,mmHg,Normal
+Diastolic BP,69.22,60.0,79.0,mmHg,Normal
+Diastolic BP,68.29,60.0,79.0,mmHg,Normal
+Diastolic BP,62.23,60.0,79.0,mmHg,Normal
+Diastolic BP,62.77,60.0,79.0,mmHg,Normal
+Diastolic BP,75.27,60.0,79.0,mmHg,Normal
+Diastolic BP,65.05,60.0,79.0,mmHg,Normal
+Diastolic BP,64.28,60.0,79.0,mmHg,Normal
+Diastolic BP,69.58,60.0,79.0,mmHg,Normal
+Diastolic BP,74.1,60.0,79.0,mmHg,Normal
+Diastolic BP,62.01,60.0,79.0,mmHg,Normal
+Diastolic BP,70.81,60.0,79.0,mmHg,Normal
+Diastolic BP,62.99,60.0,79.0,mmHg,Normal
+Diastolic BP,61.57,60.0,79.0,mmHg,Normal
+Diastolic BP,61.85,60.0,79.0,mmHg,Normal
+Diastolic BP,75.21,60.0,79.0,mmHg,Normal
+Diastolic BP,62.97,60.0,79.0,mmHg,Normal
+Diastolic BP,61.72,60.0,79.0,mmHg,Normal
+Diastolic BP,68.44,60.0,79.0,mmHg,Normal
+Diastolic BP,75.38,60.0,79.0,mmHg,Normal
+Diastolic BP,65.44,60.0,79.0,mmHg,Normal
+Diastolic BP,68.16,60.0,79.0,mmHg,Normal
+Diastolic BP,61.63,60.0,79.0,mmHg,Normal
+Diastolic BP,68.63,60.0,79.0,mmHg,Normal
+Diastolic BP,70.83,60.0,79.0,mmHg,Normal
+Diastolic BP,70.71,60.0,79.0,mmHg,Normal
+Diastolic BP,66.63,60.0,79.0,mmHg,Normal
+Diastolic BP,66.35,60.0,79.0,mmHg,Normal
+Diastolic BP,62.77,60.0,79.0,mmHg,Normal
+Diastolic BP,67.22,60.0,79.0,mmHg,Normal
+Diastolic BP,62.65,60.0,79.0,mmHg,Normal
+Diastolic BP,74.06,60.0,79.0,mmHg,Normal
+Diastolic BP,77.47,60.0,79.0,mmHg,Normal
+Diastolic BP,77.54,60.0,79.0,mmHg,Normal
+Diastolic BP,75.74,60.0,79.0,mmHg,Normal
+Diastolic BP,71.22,60.0,79.0,mmHg,Normal
+Diastolic BP,72.93,60.0,79.0,mmHg,Normal
+Diastolic BP,65.83,60.0,79.0,mmHg,Normal
+Diastolic BP,71.74,60.0,79.0,mmHg,Normal
+Diastolic BP,68.74,60.0,79.0,mmHg,Normal
+Diastolic BP,69.19,60.0,79.0,mmHg,Normal
+Diastolic BP,73.91,60.0,79.0,mmHg,Normal
+Diastolic BP,65.77,60.0,79.0,mmHg,Normal
+Diastolic BP,66.39,60.0,79.0,mmHg,Normal
+Diastolic BP,76.76,60.0,79.0,mmHg,Normal
+Diastolic BP,61.91,60.0,79.0,mmHg,Normal
+Diastolic BP,69.25,60.0,79.0,mmHg,Normal
+Diastolic BP,76.56,60.0,79.0,mmHg,Normal
+Diastolic BP,71.39,60.0,79.0,mmHg,Normal
+Diastolic BP,70.29,60.0,79.0,mmHg,Normal
+Diastolic BP,65.22,60.0,79.0,mmHg,Normal
+Diastolic BP,66.82,60.0,79.0,mmHg,Normal
+Diastolic BP,75.52,60.0,79.0,mmHg,Normal
+Diastolic BP,70.51,60.0,79.0,mmHg,Normal
+Diastolic BP,69.75,60.0,79.0,mmHg,Normal
+Diastolic BP,62.65,60.0,79.0,mmHg,Normal
+Diastolic BP,61.22,60.0,79.0,mmHg,Normal
+Diastolic BP,77.43,60.0,79.0,mmHg,Normal
+Diastolic BP,67.4,60.0,79.0,mmHg,Normal
+Diastolic BP,71.26,60.0,79.0,mmHg,Normal
+Diastolic BP,62.31,60.0,79.0,mmHg,Normal
+Diastolic BP,72.63,60.0,79.0,mmHg,Normal
+Diastolic BP,76.9,60.0,79.0,mmHg,Normal
+Diastolic BP,70.79,60.0,79.0,mmHg,Normal
+Diastolic BP,63.11,60.0,79.0,mmHg,Normal
+Diastolic BP,70.9,60.0,79.0,mmHg,Normal
+Diastolic BP,74.05,60.0,79.0,mmHg,Normal
+Diastolic BP,67.9,60.0,79.0,mmHg,Normal
+Diastolic BP,76.0,60.0,79.0,mmHg,Normal
+Diastolic BP,72.04,60.0,79.0,mmHg,Normal
+Diastolic BP,76.33,60.0,79.0,mmHg,Normal
+Diastolic BP,71.61,60.0,79.0,mmHg,Normal
+Diastolic BP,63.2,60.0,79.0,mmHg,Normal
+Diastolic BP,66.25,60.0,79.0,mmHg,Normal
+Diastolic BP,64.4,60.0,79.0,mmHg,Normal
+Diastolic BP,76.49,60.0,79.0,mmHg,Normal
+Diastolic BP,73.95,60.0,79.0,mmHg,Normal
+Diastolic BP,72.52,60.0,79.0,mmHg,Normal
+Diastolic BP,66.1,60.0,79.0,mmHg,Normal
+Diastolic BP,64.1,60.0,79.0,mmHg,Normal
+Diastolic BP,73.89,60.0,79.0,mmHg,Normal
+Diastolic BP,69.06,60.0,79.0,mmHg,Normal
+Diastolic BP,64.81,60.0,79.0,mmHg,Normal
+Diastolic BP,79.15,60.0,79.0,mmHg,Borderline
+Diastolic BP,57.98,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.94,60.0,79.0,mmHg,Borderline
+Diastolic BP,56.7,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.12,60.0,79.0,mmHg,Borderline
+Diastolic BP,58.35,60.0,79.0,mmHg,Borderline
+Diastolic BP,56.33,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.3,60.0,79.0,mmHg,Borderline
+Diastolic BP,79.33,60.0,79.0,mmHg,Borderline
+Diastolic BP,82.47,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.35,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.75,60.0,79.0,mmHg,Borderline
+Diastolic BP,82.58,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.38,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.05,60.0,79.0,mmHg,Borderline
+Diastolic BP,58.86,60.0,79.0,mmHg,Borderline
+Diastolic BP,82.53,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.23,60.0,79.0,mmHg,Borderline
+Diastolic BP,79.24,60.0,79.0,mmHg,Borderline
+Diastolic BP,57.27,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.94,60.0,79.0,mmHg,Borderline
+Diastolic BP,81.73,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.43,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.65,60.0,79.0,mmHg,Borderline
+Diastolic BP,79.69,60.0,79.0,mmHg,Borderline
+Diastolic BP,79.83,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.07,60.0,79.0,mmHg,Borderline
+Diastolic BP,58.51,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.02,60.0,79.0,mmHg,Borderline
+Diastolic BP,56.42,60.0,79.0,mmHg,Borderline
+Diastolic BP,58.0,60.0,79.0,mmHg,Borderline
+Diastolic BP,57.55,60.0,79.0,mmHg,Borderline
+Diastolic BP,56.42,60.0,79.0,mmHg,Borderline
+Diastolic BP,82.36,60.0,79.0,mmHg,Borderline
+Diastolic BP,58.47,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.59,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.56,60.0,79.0,mmHg,Borderline
+Diastolic BP,79.03,60.0,79.0,mmHg,Borderline
+Diastolic BP,81.51,60.0,79.0,mmHg,Borderline
+Diastolic BP,57.6,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.6,60.0,79.0,mmHg,Borderline
+Diastolic BP,82.46,60.0,79.0,mmHg,Borderline
+Diastolic BP,81.21,60.0,79.0,mmHg,Borderline
+Diastolic BP,82.28,60.0,79.0,mmHg,Borderline
+Diastolic BP,58.01,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.87,60.0,79.0,mmHg,Borderline
+Diastolic BP,79.32,60.0,79.0,mmHg,Borderline
+Diastolic BP,80.83,60.0,79.0,mmHg,Borderline
+Diastolic BP,58.29,60.0,79.0,mmHg,Borderline
+Diastolic BP,59.54,60.0,79.0,mmHg,Borderline
+Diastolic BP,54.39,60.0,79.0,mmHg,Critical
+Diastolic BP,83.6,60.0,79.0,mmHg,Critical
+Diastolic BP,88.74,60.0,79.0,mmHg,Critical
+Diastolic BP,51.07,60.0,79.0,mmHg,Critical
+Diastolic BP,86.41,60.0,79.0,mmHg,Critical
+Diastolic BP,47.9,60.0,79.0,mmHg,Critical
+Diastolic BP,53.96,60.0,79.0,mmHg,Critical
+Diastolic BP,48.82,60.0,79.0,mmHg,Critical
+Diastolic BP,49.8,60.0,79.0,mmHg,Critical
+Diastolic BP,86.84,60.0,79.0,mmHg,Critical
+Diastolic BP,88.43,60.0,79.0,mmHg,Critical
+Diastolic BP,55.0,60.0,79.0,mmHg,Critical
+Diastolic BP,53.31,60.0,79.0,mmHg,Critical
+Diastolic BP,83.55,60.0,79.0,mmHg,Critical
+Diastolic BP,53.41,60.0,79.0,mmHg,Critical
+Diastolic BP,48.42,60.0,79.0,mmHg,Critical
+Diastolic BP,46.9,60.0,79.0,mmHg,Critical
+Diastolic BP,84.5,60.0,79.0,mmHg,Critical
+Diastolic BP,52.34,60.0,79.0,mmHg,Critical
+Diastolic BP,46.95,60.0,79.0,mmHg,Critical
+Diastolic BP,83.11,60.0,79.0,mmHg,Critical
+Diastolic BP,93.0,60.0,79.0,mmHg,Critical
+Diastolic BP,51.69,60.0,79.0,mmHg,Critical
+Diastolic BP,50.32,60.0,79.0,mmHg,Critical
+Diastolic BP,93.01,60.0,79.0,mmHg,Critical
+Diastolic BP,52.43,60.0,79.0,mmHg,Critical
+Diastolic BP,93.77,60.0,79.0,mmHg,Critical
+Diastolic BP,88.07,60.0,79.0,mmHg,Critical
+Diastolic BP,55.63,60.0,79.0,mmHg,Critical
+Diastolic BP,52.1,60.0,79.0,mmHg,Critical
+Calcium,9.02,8.5,10.2,mg/dL,Normal
+Calcium,9.01,8.5,10.2,mg/dL,Normal
+Calcium,9.2,8.5,10.2,mg/dL,Normal
+Calcium,10.11,8.5,10.2,mg/dL,Normal
+Calcium,8.67,8.5,10.2,mg/dL,Normal
+Calcium,9.47,8.5,10.2,mg/dL,Normal
+Calcium,8.71,8.5,10.2,mg/dL,Normal
+Calcium,8.82,8.5,10.2,mg/dL,Normal
+Calcium,9.26,8.5,10.2,mg/dL,Normal
+Calcium,9.37,8.5,10.2,mg/dL,Normal
+Calcium,8.98,8.5,10.2,mg/dL,Normal
+Calcium,9.07,8.5,10.2,mg/dL,Normal
+Calcium,8.72,8.5,10.2,mg/dL,Normal
+Calcium,9.05,8.5,10.2,mg/dL,Normal
+Calcium,10.06,8.5,10.2,mg/dL,Normal
+Calcium,10.03,8.5,10.2,mg/dL,Normal
+Calcium,9.1,8.5,10.2,mg/dL,Normal
+Calcium,9.46,8.5,10.2,mg/dL,Normal
+Calcium,9.98,8.5,10.2,mg/dL,Normal
+Calcium,8.59,8.5,10.2,mg/dL,Normal
+Calcium,9.83,8.5,10.2,mg/dL,Normal
+Calcium,10.04,8.5,10.2,mg/dL,Normal
+Calcium,8.72,8.5,10.2,mg/dL,Normal
+Calcium,8.83,8.5,10.2,mg/dL,Normal
+Calcium,10.05,8.5,10.2,mg/dL,Normal
+Calcium,9.41,8.5,10.2,mg/dL,Normal
+Calcium,8.61,8.5,10.2,mg/dL,Normal
+Calcium,8.98,8.5,10.2,mg/dL,Normal
+Calcium,9.27,8.5,10.2,mg/dL,Normal
+Calcium,9.65,8.5,10.2,mg/dL,Normal
+Calcium,9.71,8.5,10.2,mg/dL,Normal
+Calcium,10.11,8.5,10.2,mg/dL,Normal
+Calcium,9.02,8.5,10.2,mg/dL,Normal
+Calcium,9.41,8.5,10.2,mg/dL,Normal
+Calcium,9.4,8.5,10.2,mg/dL,Normal
+Calcium,9.21,8.5,10.2,mg/dL,Normal
+Calcium,8.84,8.5,10.2,mg/dL,Normal
+Calcium,10.08,8.5,10.2,mg/dL,Normal
+Calcium,9.89,8.5,10.2,mg/dL,Normal
+Calcium,9.35,8.5,10.2,mg/dL,Normal
+Calcium,9.51,8.5,10.2,mg/dL,Normal
+Calcium,8.93,8.5,10.2,mg/dL,Normal
+Calcium,9.42,8.5,10.2,mg/dL,Normal
+Calcium,9.65,8.5,10.2,mg/dL,Normal
+Calcium,9.37,8.5,10.2,mg/dL,Normal
+Calcium,10.1,8.5,10.2,mg/dL,Normal
+Calcium,9.52,8.5,10.2,mg/dL,Normal
+Calcium,9.15,8.5,10.2,mg/dL,Normal
+Calcium,9.77,8.5,10.2,mg/dL,Normal
+Calcium,8.85,8.5,10.2,mg/dL,Normal
+Calcium,9.17,8.5,10.2,mg/dL,Normal
+Calcium,9.12,8.5,10.2,mg/dL,Normal
+Calcium,9.25,8.5,10.2,mg/dL,Normal
+Calcium,9.78,8.5,10.2,mg/dL,Normal
+Calcium,9.33,8.5,10.2,mg/dL,Normal
+Calcium,9.8,8.5,10.2,mg/dL,Normal
+Calcium,9.47,8.5,10.2,mg/dL,Normal
+Calcium,9.11,8.5,10.2,mg/dL,Normal
+Calcium,9.82,8.5,10.2,mg/dL,Normal
+Calcium,8.95,8.5,10.2,mg/dL,Normal
+Calcium,8.93,8.5,10.2,mg/dL,Normal
+Calcium,9.36,8.5,10.2,mg/dL,Normal
+Calcium,8.98,8.5,10.2,mg/dL,Normal
+Calcium,8.6,8.5,10.2,mg/dL,Normal
+Calcium,9.58,8.5,10.2,mg/dL,Normal
+Calcium,9.37,8.5,10.2,mg/dL,Normal
+Calcium,9.27,8.5,10.2,mg/dL,Normal
+Calcium,10.06,8.5,10.2,mg/dL,Normal
+Calcium,9.46,8.5,10.2,mg/dL,Normal
+Calcium,9.91,8.5,10.2,mg/dL,Normal
+Calcium,8.8,8.5,10.2,mg/dL,Normal
+Calcium,9.46,8.5,10.2,mg/dL,Normal
+Calcium,9.91,8.5,10.2,mg/dL,Normal
+Calcium,9.48,8.5,10.2,mg/dL,Normal
+Calcium,9.68,8.5,10.2,mg/dL,Normal
+Calcium,9.15,8.5,10.2,mg/dL,Normal
+Calcium,8.73,8.5,10.2,mg/dL,Normal
+Calcium,9.29,8.5,10.2,mg/dL,Normal
+Calcium,9.19,8.5,10.2,mg/dL,Normal
+Calcium,9.91,8.5,10.2,mg/dL,Normal
+Calcium,8.96,8.5,10.2,mg/dL,Normal
+Calcium,10.06,8.5,10.2,mg/dL,Normal
+Calcium,10.05,8.5,10.2,mg/dL,Normal
+Calcium,8.96,8.5,10.2,mg/dL,Normal
+Calcium,9.12,8.5,10.2,mg/dL,Normal
+Calcium,9.96,8.5,10.2,mg/dL,Normal
+Calcium,10.06,8.5,10.2,mg/dL,Normal
+Calcium,9.26,8.5,10.2,mg/dL,Normal
+Calcium,9.08,8.5,10.2,mg/dL,Normal
+Calcium,9.39,8.5,10.2,mg/dL,Normal
+Calcium,9.64,8.5,10.2,mg/dL,Normal
+Calcium,9.0,8.5,10.2,mg/dL,Normal
+Calcium,9.71,8.5,10.2,mg/dL,Normal
+Calcium,8.66,8.5,10.2,mg/dL,Normal
+Calcium,8.66,8.5,10.2,mg/dL,Normal
+Calcium,9.18,8.5,10.2,mg/dL,Normal
+Calcium,9.13,8.5,10.2,mg/dL,Normal
+Calcium,9.07,8.5,10.2,mg/dL,Normal
+Calcium,9.34,8.5,10.2,mg/dL,Normal
+Calcium,9.08,8.5,10.2,mg/dL,Normal
+Calcium,8.88,8.5,10.2,mg/dL,Normal
+Calcium,9.06,8.5,10.2,mg/dL,Normal
+Calcium,10.08,8.5,10.2,mg/dL,Normal
+Calcium,9.21,8.5,10.2,mg/dL,Normal
+Calcium,9.27,8.5,10.2,mg/dL,Normal
+Calcium,9.47,8.5,10.2,mg/dL,Normal
+Calcium,10.09,8.5,10.2,mg/dL,Normal
+Calcium,8.95,8.5,10.2,mg/dL,Normal
+Calcium,9.63,8.5,10.2,mg/dL,Normal
+Calcium,9.68,8.5,10.2,mg/dL,Normal
+Calcium,9.51,8.5,10.2,mg/dL,Normal
+Calcium,8.72,8.5,10.2,mg/dL,Normal
+Calcium,9.62,8.5,10.2,mg/dL,Normal
+Calcium,8.68,8.5,10.2,mg/dL,Normal
+Calcium,9.5,8.5,10.2,mg/dL,Normal
+Calcium,9.72,8.5,10.2,mg/dL,Normal
+Calcium,8.91,8.5,10.2,mg/dL,Normal
+Calcium,9.87,8.5,10.2,mg/dL,Normal
+Calcium,8.63,8.5,10.2,mg/dL,Normal
+Calcium,9.88,8.5,10.2,mg/dL,Normal
+Calcium,8.23,8.5,10.2,mg/dL,Borderline
+Calcium,8.48,8.5,10.2,mg/dL,Borderline
+Calcium,8.23,8.5,10.2,mg/dL,Borderline
+Calcium,8.37,8.5,10.2,mg/dL,Borderline
+Calcium,10.24,8.5,10.2,mg/dL,Borderline
+Calcium,8.24,8.5,10.2,mg/dL,Borderline
+Calcium,8.3,8.5,10.2,mg/dL,Borderline
+Calcium,10.27,8.5,10.2,mg/dL,Borderline
+Calcium,8.29,8.5,10.2,mg/dL,Borderline
+Calcium,10.52,8.5,10.2,mg/dL,Borderline
+Calcium,10.28,8.5,10.2,mg/dL,Borderline
+Calcium,8.27,8.5,10.2,mg/dL,Borderline
+Calcium,8.33,8.5,10.2,mg/dL,Borderline
+Calcium,10.49,8.5,10.2,mg/dL,Borderline
+Calcium,10.32,8.5,10.2,mg/dL,Borderline
+Calcium,10.31,8.5,10.2,mg/dL,Borderline
+Calcium,8.4,8.5,10.2,mg/dL,Borderline
+Calcium,8.3,8.5,10.2,mg/dL,Borderline
+Calcium,8.4,8.5,10.2,mg/dL,Borderline
+Calcium,10.3,8.5,10.2,mg/dL,Borderline
+Calcium,10.3,8.5,10.2,mg/dL,Borderline
+Calcium,8.41,8.5,10.2,mg/dL,Borderline
+Calcium,10.54,8.5,10.2,mg/dL,Borderline
+Calcium,8.39,8.5,10.2,mg/dL,Borderline
+Calcium,10.51,8.5,10.2,mg/dL,Borderline
+Calcium,8.42,8.5,10.2,mg/dL,Borderline
+Calcium,10.29,8.5,10.2,mg/dL,Borderline
+Calcium,8.27,8.5,10.2,mg/dL,Borderline
+Calcium,10.5,8.5,10.2,mg/dL,Borderline
+Calcium,10.41,8.5,10.2,mg/dL,Borderline
+Calcium,10.22,8.5,10.2,mg/dL,Borderline
+Calcium,8.33,8.5,10.2,mg/dL,Borderline
+Calcium,8.22,8.5,10.2,mg/dL,Borderline
+Calcium,10.31,8.5,10.2,mg/dL,Borderline
+Calcium,8.32,8.5,10.2,mg/dL,Borderline
+Calcium,8.48,8.5,10.2,mg/dL,Borderline
+Calcium,10.44,8.5,10.2,mg/dL,Borderline
+Calcium,8.42,8.5,10.2,mg/dL,Borderline
+Calcium,10.46,8.5,10.2,mg/dL,Borderline
+Calcium,8.38,8.5,10.2,mg/dL,Borderline
+Calcium,10.4,8.5,10.2,mg/dL,Borderline
+Calcium,10.36,8.5,10.2,mg/dL,Borderline
+Calcium,10.21,8.5,10.2,mg/dL,Borderline
+Calcium,10.23,8.5,10.2,mg/dL,Borderline
+Calcium,8.26,8.5,10.2,mg/dL,Borderline
+Calcium,10.25,8.5,10.2,mg/dL,Borderline
+Calcium,10.47,8.5,10.2,mg/dL,Borderline
+Calcium,8.2,8.5,10.2,mg/dL,Borderline
+Calcium,8.46,8.5,10.2,mg/dL,Borderline
+Calcium,10.36,8.5,10.2,mg/dL,Borderline
+Calcium,7.85,8.5,10.2,mg/dL,Critical
+Calcium,11.39,8.5,10.2,mg/dL,Critical
+Calcium,10.63,8.5,10.2,mg/dL,Critical
+Calcium,7.35,8.5,10.2,mg/dL,Critical
+Calcium,7.42,8.5,10.2,mg/dL,Critical
+Calcium,7.63,8.5,10.2,mg/dL,Critical
+Calcium,11.17,8.5,10.2,mg/dL,Critical
+Calcium,11.27,8.5,10.2,mg/dL,Critical
+Calcium,7.92,8.5,10.2,mg/dL,Critical
+Calcium,7.84,8.5,10.2,mg/dL,Critical
+Calcium,8.14,8.5,10.2,mg/dL,Critical
+Calcium,7.54,8.5,10.2,mg/dL,Critical
+Calcium,10.58,8.5,10.2,mg/dL,Critical
+Calcium,11.28,8.5,10.2,mg/dL,Critical
+Calcium,11.53,8.5,10.2,mg/dL,Critical
+Calcium,10.62,8.5,10.2,mg/dL,Critical
+Calcium,11.21,8.5,10.2,mg/dL,Critical
+Calcium,10.69,8.5,10.2,mg/dL,Critical
+Calcium,11.54,8.5,10.2,mg/dL,Critical
+Calcium,11.0,8.5,10.2,mg/dL,Critical
+Calcium,7.61,8.5,10.2,mg/dL,Critical
+Calcium,11.26,8.5,10.2,mg/dL,Critical
+Calcium,7.36,8.5,10.2,mg/dL,Critical
+Calcium,7.7,8.5,10.2,mg/dL,Critical
+Calcium,11.2,8.5,10.2,mg/dL,Critical
+Calcium,7.75,8.5,10.2,mg/dL,Critical
+Calcium,8.12,8.5,10.2,mg/dL,Critical
+Calcium,7.71,8.5,10.2,mg/dL,Critical
+Calcium,7.88,8.5,10.2,mg/dL,Critical
+Calcium,11.27,8.5,10.2,mg/dL,Critical
+Potassium,3.97,3.5,5.1,mEq/L,Normal
+Potassium,4.03,3.5,5.1,mEq/L,Normal
+Potassium,3.76,3.5,5.1,mEq/L,Normal
+Potassium,4.52,3.5,5.1,mEq/L,Normal
+Potassium,3.64,3.5,5.1,mEq/L,Normal
+Potassium,4.44,3.5,5.1,mEq/L,Normal
+Potassium,4.83,3.5,5.1,mEq/L,Normal
+Potassium,4.86,3.5,5.1,mEq/L,Normal
+Potassium,4.23,3.5,5.1,mEq/L,Normal
+Potassium,4.24,3.5,5.1,mEq/L,Normal
+Potassium,3.69,3.5,5.1,mEq/L,Normal
+Potassium,4.55,3.5,5.1,mEq/L,Normal
+Potassium,4.76,3.5,5.1,mEq/L,Normal
+Potassium,3.93,3.5,5.1,mEq/L,Normal
+Potassium,4.19,3.5,5.1,mEq/L,Normal
+Potassium,4.79,3.5,5.1,mEq/L,Normal
+Potassium,4.84,3.5,5.1,mEq/L,Normal
+Potassium,3.93,3.5,5.1,mEq/L,Normal
+Potassium,4.37,3.5,5.1,mEq/L,Normal
+Potassium,3.86,3.5,5.1,mEq/L,Normal
+Potassium,3.73,3.5,5.1,mEq/L,Normal
+Potassium,4.89,3.5,5.1,mEq/L,Normal
+Potassium,4.76,3.5,5.1,mEq/L,Normal
+Potassium,4.67,3.5,5.1,mEq/L,Normal
+Potassium,3.65,3.5,5.1,mEq/L,Normal
+Potassium,4.79,3.5,5.1,mEq/L,Normal
+Potassium,4.21,3.5,5.1,mEq/L,Normal
+Potassium,4.07,3.5,5.1,mEq/L,Normal
+Potassium,4.37,3.5,5.1,mEq/L,Normal
+Potassium,3.71,3.5,5.1,mEq/L,Normal
+Potassium,4.67,3.5,5.1,mEq/L,Normal
+Potassium,4.42,3.5,5.1,mEq/L,Normal
+Potassium,3.85,3.5,5.1,mEq/L,Normal
+Potassium,3.85,3.5,5.1,mEq/L,Normal
+Potassium,3.85,3.5,5.1,mEq/L,Normal
+Potassium,3.66,3.5,5.1,mEq/L,Normal
+Potassium,4.43,3.5,5.1,mEq/L,Normal
+Potassium,4.79,3.5,5.1,mEq/L,Normal
+Potassium,3.61,3.5,5.1,mEq/L,Normal
+Potassium,3.65,3.5,5.1,mEq/L,Normal
+Potassium,4.4,3.5,5.1,mEq/L,Normal
+Potassium,4.76,3.5,5.1,mEq/L,Normal
+Potassium,4.05,3.5,5.1,mEq/L,Normal
+Potassium,4.08,3.5,5.1,mEq/L,Normal
+Potassium,4.44,3.5,5.1,mEq/L,Normal
+Potassium,3.97,3.5,5.1,mEq/L,Normal
+Potassium,3.62,3.5,5.1,mEq/L,Normal
+Potassium,4.64,3.5,5.1,mEq/L,Normal
+Potassium,4.48,3.5,5.1,mEq/L,Normal
+Potassium,4.42,3.5,5.1,mEq/L,Normal
+Potassium,4.65,3.5,5.1,mEq/L,Normal
+Potassium,4.55,3.5,5.1,mEq/L,Normal
+Potassium,3.88,3.5,5.1,mEq/L,Normal
+Potassium,4.09,3.5,5.1,mEq/L,Normal
+Potassium,3.76,3.5,5.1,mEq/L,Normal
+Potassium,3.77,3.5,5.1,mEq/L,Normal
+Potassium,4.55,3.5,5.1,mEq/L,Normal
+Potassium,4.82,3.5,5.1,mEq/L,Normal
+Potassium,4.97,3.5,5.1,mEq/L,Normal
+Potassium,4.48,3.5,5.1,mEq/L,Normal
+Potassium,3.85,3.5,5.1,mEq/L,Normal
+Potassium,3.73,3.5,5.1,mEq/L,Normal
+Potassium,4.75,3.5,5.1,mEq/L,Normal
+Potassium,4.41,3.5,5.1,mEq/L,Normal
+Potassium,4.47,3.5,5.1,mEq/L,Normal
+Potassium,4.71,3.5,5.1,mEq/L,Normal
+Potassium,4.59,3.5,5.1,mEq/L,Normal
+Potassium,4.78,3.5,5.1,mEq/L,Normal
+Potassium,3.66,3.5,5.1,mEq/L,Normal
+Potassium,4.66,3.5,5.1,mEq/L,Normal
+Potassium,4.81,3.5,5.1,mEq/L,Normal
+Potassium,3.99,3.5,5.1,mEq/L,Normal
+Potassium,4.5,3.5,5.1,mEq/L,Normal
+Potassium,4.03,3.5,5.1,mEq/L,Normal
+Potassium,4.96,3.5,5.1,mEq/L,Normal
+Potassium,3.63,3.5,5.1,mEq/L,Normal
+Potassium,4.41,3.5,5.1,mEq/L,Normal
+Potassium,3.82,3.5,5.1,mEq/L,Normal
+Potassium,4.61,3.5,5.1,mEq/L,Normal
+Potassium,3.83,3.5,5.1,mEq/L,Normal
+Potassium,3.92,3.5,5.1,mEq/L,Normal
+Potassium,4.29,3.5,5.1,mEq/L,Normal
+Potassium,4.9,3.5,5.1,mEq/L,Normal
+Potassium,3.88,3.5,5.1,mEq/L,Normal
+Potassium,3.79,3.5,5.1,mEq/L,Normal
+Potassium,4.67,3.5,5.1,mEq/L,Normal
+Potassium,4.3,3.5,5.1,mEq/L,Normal
+Potassium,4.89,3.5,5.1,mEq/L,Normal
+Potassium,3.79,3.5,5.1,mEq/L,Normal
+Potassium,4.51,3.5,5.1,mEq/L,Normal
+Potassium,3.92,3.5,5.1,mEq/L,Normal
+Potassium,3.81,3.5,5.1,mEq/L,Normal
+Potassium,4.56,3.5,5.1,mEq/L,Normal
+Potassium,4.43,3.5,5.1,mEq/L,Normal
+Potassium,4.67,3.5,5.1,mEq/L,Normal
+Potassium,4.03,3.5,5.1,mEq/L,Normal
+Potassium,4.23,3.5,5.1,mEq/L,Normal
+Potassium,4.16,3.5,5.1,mEq/L,Normal
+Potassium,5.0,3.5,5.1,mEq/L,Normal
+Potassium,4.0,3.5,5.1,mEq/L,Normal
+Potassium,4.0,3.5,5.1,mEq/L,Normal
+Potassium,4.09,3.5,5.1,mEq/L,Normal
+Potassium,4.39,3.5,5.1,mEq/L,Normal
+Potassium,3.94,3.5,5.1,mEq/L,Normal
+Potassium,4.9,3.5,5.1,mEq/L,Normal
+Potassium,3.96,3.5,5.1,mEq/L,Normal
+Potassium,4.87,3.5,5.1,mEq/L,Normal
+Potassium,3.73,3.5,5.1,mEq/L,Normal
+Potassium,4.53,3.5,5.1,mEq/L,Normal
+Potassium,4.89,3.5,5.1,mEq/L,Normal
+Potassium,3.82,3.5,5.1,mEq/L,Normal
+Potassium,4.97,3.5,5.1,mEq/L,Normal
+Potassium,4.23,3.5,5.1,mEq/L,Normal
+Potassium,4.94,3.5,5.1,mEq/L,Normal
+Potassium,4.55,3.5,5.1,mEq/L,Normal
+Potassium,4.01,3.5,5.1,mEq/L,Normal
+Potassium,3.85,3.5,5.1,mEq/L,Normal
+Potassium,4.02,3.5,5.1,mEq/L,Normal
+Potassium,3.71,3.5,5.1,mEq/L,Normal
+Potassium,3.79,3.5,5.1,mEq/L,Normal
+Potassium,3.32,3.5,5.1,mEq/L,Borderline
+Potassium,5.15,3.5,5.1,mEq/L,Borderline
+Potassium,3.39,3.5,5.1,mEq/L,Borderline
+Potassium,3.21,3.5,5.1,mEq/L,Borderline
+Potassium,3.48,3.5,5.1,mEq/L,Borderline
+Potassium,5.21,3.5,5.1,mEq/L,Borderline
+Potassium,5.27,3.5,5.1,mEq/L,Borderline
+Potassium,5.32,3.5,5.1,mEq/L,Borderline
+Potassium,5.19,3.5,5.1,mEq/L,Borderline
+Potassium,3.33,3.5,5.1,mEq/L,Borderline
+Potassium,5.28,3.5,5.1,mEq/L,Borderline
+Potassium,5.42,3.5,5.1,mEq/L,Borderline
+Potassium,3.4,3.5,5.1,mEq/L,Borderline
+Potassium,5.41,3.5,5.1,mEq/L,Borderline
+Potassium,5.32,3.5,5.1,mEq/L,Borderline
+Potassium,3.44,3.5,5.1,mEq/L,Borderline
+Potassium,3.43,3.5,5.1,mEq/L,Borderline
+Potassium,5.22,3.5,5.1,mEq/L,Borderline
+Potassium,5.24,3.5,5.1,mEq/L,Borderline
+Potassium,3.28,3.5,5.1,mEq/L,Borderline
+Potassium,5.4,3.5,5.1,mEq/L,Borderline
+Potassium,5.16,3.5,5.1,mEq/L,Borderline
+Potassium,5.34,3.5,5.1,mEq/L,Borderline
+Potassium,3.2,3.5,5.1,mEq/L,Borderline
+Potassium,3.47,3.5,5.1,mEq/L,Borderline
+Potassium,5.33,3.5,5.1,mEq/L,Borderline
+Potassium,3.41,3.5,5.1,mEq/L,Borderline
+Potassium,3.3,3.5,5.1,mEq/L,Borderline
+Potassium,5.15,3.5,5.1,mEq/L,Borderline
+Potassium,5.18,3.5,5.1,mEq/L,Borderline
+Potassium,5.23,3.5,5.1,mEq/L,Borderline
+Potassium,5.13,3.5,5.1,mEq/L,Borderline
+Potassium,3.47,3.5,5.1,mEq/L,Borderline
+Potassium,3.44,3.5,5.1,mEq/L,Borderline
+Potassium,5.17,3.5,5.1,mEq/L,Borderline
+Potassium,3.39,3.5,5.1,mEq/L,Borderline
+Potassium,5.39,3.5,5.1,mEq/L,Borderline
+Potassium,5.35,3.5,5.1,mEq/L,Borderline
+Potassium,3.49,3.5,5.1,mEq/L,Borderline
+Potassium,5.15,3.5,5.1,mEq/L,Borderline
+Potassium,3.21,3.5,5.1,mEq/L,Borderline
+Potassium,3.44,3.5,5.1,mEq/L,Borderline
+Potassium,3.21,3.5,5.1,mEq/L,Borderline
+Potassium,3.49,3.5,5.1,mEq/L,Borderline
+Potassium,5.23,3.5,5.1,mEq/L,Borderline
+Potassium,3.5,3.5,5.1,mEq/L,Borderline
+Potassium,5.19,3.5,5.1,mEq/L,Borderline
+Potassium,3.2,3.5,5.1,mEq/L,Borderline
+Potassium,3.37,3.5,5.1,mEq/L,Borderline
+Potassium,5.26,3.5,5.1,mEq/L,Borderline
+Potassium,5.86,3.5,5.1,mEq/L,Critical
+Potassium,6.13,3.5,5.1,mEq/L,Critical
+Potassium,2.66,3.5,5.1,mEq/L,Critical
+Potassium,5.5,3.5,5.1,mEq/L,Critical
+Potassium,2.8,3.5,5.1,mEq/L,Critical
+Potassium,5.88,3.5,5.1,mEq/L,Critical
+Potassium,5.84,3.5,5.1,mEq/L,Critical
+Potassium,6.0,3.5,5.1,mEq/L,Critical
+Potassium,5.82,3.5,5.1,mEq/L,Critical
+Potassium,6.03,3.5,5.1,mEq/L,Critical
+Potassium,2.49,3.5,5.1,mEq/L,Critical
+Potassium,2.39,3.5,5.1,mEq/L,Critical
+Potassium,5.66,3.5,5.1,mEq/L,Critical
+Potassium,2.96,3.5,5.1,mEq/L,Critical
+Potassium,2.78,3.5,5.1,mEq/L,Critical
+Potassium,3.13,3.5,5.1,mEq/L,Critical
+Potassium,6.25,3.5,5.1,mEq/L,Critical
+Potassium,2.98,3.5,5.1,mEq/L,Critical
+Potassium,2.39,3.5,5.1,mEq/L,Critical
+Potassium,2.84,3.5,5.1,mEq/L,Critical
+Potassium,2.79,3.5,5.1,mEq/L,Critical
+Potassium,2.71,3.5,5.1,mEq/L,Critical
+Potassium,5.85,3.5,5.1,mEq/L,Critical
+Potassium,5.66,3.5,5.1,mEq/L,Critical
+Potassium,5.99,3.5,5.1,mEq/L,Critical
+Potassium,2.57,3.5,5.1,mEq/L,Critical
+Potassium,6.22,3.5,5.1,mEq/L,Critical
+Potassium,2.58,3.5,5.1,mEq/L,Critical
+Potassium,6.07,3.5,5.1,mEq/L,Critical
+Potassium,2.76,3.5,5.1,mEq/L,Critical
+Sodium,137.34,135.0,145.0,mEq/L,Normal
+Sodium,141.14,135.0,145.0,mEq/L,Normal
+Sodium,138.73,135.0,145.0,mEq/L,Normal
+Sodium,144.46,135.0,145.0,mEq/L,Normal
+Sodium,139.82,135.0,145.0,mEq/L,Normal
+Sodium,139.87,135.0,145.0,mEq/L,Normal
+Sodium,140.59,135.0,145.0,mEq/L,Normal
+Sodium,143.75,135.0,145.0,mEq/L,Normal
+Sodium,142.71,135.0,145.0,mEq/L,Normal
+Sodium,139.56,135.0,145.0,mEq/L,Normal
+Sodium,141.97,135.0,145.0,mEq/L,Normal
+Sodium,140.78,135.0,145.0,mEq/L,Normal
+Sodium,139.93,135.0,145.0,mEq/L,Normal
+Sodium,137.23,135.0,145.0,mEq/L,Normal
+Sodium,139.68,135.0,145.0,mEq/L,Normal
+Sodium,137.71,135.0,145.0,mEq/L,Normal
+Sodium,143.73,135.0,145.0,mEq/L,Normal
+Sodium,138.52,135.0,145.0,mEq/L,Normal
+Sodium,144.07,135.0,145.0,mEq/L,Normal
+Sodium,140.3,135.0,145.0,mEq/L,Normal
+Sodium,141.18,135.0,145.0,mEq/L,Normal
+Sodium,140.39,135.0,145.0,mEq/L,Normal
+Sodium,136.66,135.0,145.0,mEq/L,Normal
+Sodium,138.88,135.0,145.0,mEq/L,Normal
+Sodium,136.39,135.0,145.0,mEq/L,Normal
+Sodium,141.11,135.0,145.0,mEq/L,Normal
+Sodium,139.52,135.0,145.0,mEq/L,Normal
+Sodium,142.5,135.0,145.0,mEq/L,Normal
+Sodium,137.48,135.0,145.0,mEq/L,Normal
+Sodium,136.98,135.0,145.0,mEq/L,Normal
+Sodium,139.16,135.0,145.0,mEq/L,Normal
+Sodium,143.84,135.0,145.0,mEq/L,Normal
+Sodium,141.89,135.0,145.0,mEq/L,Normal
+Sodium,139.27,135.0,145.0,mEq/L,Normal
+Sodium,140.16,135.0,145.0,mEq/L,Normal
+Sodium,136.26,135.0,145.0,mEq/L,Normal
+Sodium,144.36,135.0,145.0,mEq/L,Normal
+Sodium,141.5,135.0,145.0,mEq/L,Normal
+Sodium,138.07,135.0,145.0,mEq/L,Normal
+Sodium,140.77,135.0,145.0,mEq/L,Normal
+Sodium,136.49,135.0,145.0,mEq/L,Normal
+Sodium,144.19,135.0,145.0,mEq/L,Normal
+Sodium,137.07,135.0,145.0,mEq/L,Normal
+Sodium,141.33,135.0,145.0,mEq/L,Normal
+Sodium,137.71,135.0,145.0,mEq/L,Normal
+Sodium,141.96,135.0,145.0,mEq/L,Normal
+Sodium,142.49,135.0,145.0,mEq/L,Normal
+Sodium,141.56,135.0,145.0,mEq/L,Normal
+Sodium,141.03,135.0,145.0,mEq/L,Normal
+Sodium,143.53,135.0,145.0,mEq/L,Normal
+Sodium,136.21,135.0,145.0,mEq/L,Normal
+Sodium,138.48,135.0,145.0,mEq/L,Normal
+Sodium,137.73,135.0,145.0,mEq/L,Normal
+Sodium,144.39,135.0,145.0,mEq/L,Normal
+Sodium,139.0,135.0,145.0,mEq/L,Normal
+Sodium,142.09,135.0,145.0,mEq/L,Normal
+Sodium,141.66,135.0,145.0,mEq/L,Normal
+Sodium,137.41,135.0,145.0,mEq/L,Normal
+Sodium,137.65,135.0,145.0,mEq/L,Normal
+Sodium,138.03,135.0,145.0,mEq/L,Normal
+Sodium,139.2,135.0,145.0,mEq/L,Normal
+Sodium,137.61,135.0,145.0,mEq/L,Normal
+Sodium,135.68,135.0,145.0,mEq/L,Normal
+Sodium,143.41,135.0,145.0,mEq/L,Normal
+Sodium,144.19,135.0,145.0,mEq/L,Normal
+Sodium,138.57,135.0,145.0,mEq/L,Normal
+Sodium,138.55,135.0,145.0,mEq/L,Normal
+Sodium,135.56,135.0,145.0,mEq/L,Normal
+Sodium,141.62,135.0,145.0,mEq/L,Normal
+Sodium,142.93,135.0,145.0,mEq/L,Normal
+Sodium,136.82,135.0,145.0,mEq/L,Normal
+Sodium,136.94,135.0,145.0,mEq/L,Normal
+Sodium,142.61,135.0,145.0,mEq/L,Normal
+Sodium,141.05,135.0,145.0,mEq/L,Normal
+Sodium,135.9,135.0,145.0,mEq/L,Normal
+Sodium,141.1,135.0,145.0,mEq/L,Normal
+Sodium,138.28,135.0,145.0,mEq/L,Normal
+Sodium,138.82,135.0,145.0,mEq/L,Normal
+Sodium,142.43,135.0,145.0,mEq/L,Normal
+Sodium,142.8,135.0,145.0,mEq/L,Normal
+Sodium,139.1,135.0,145.0,mEq/L,Normal
+Sodium,144.02,135.0,145.0,mEq/L,Normal
+Sodium,139.16,135.0,145.0,mEq/L,Normal
+Sodium,142.45,135.0,145.0,mEq/L,Normal
+Sodium,139.85,135.0,145.0,mEq/L,Normal
+Sodium,143.58,135.0,145.0,mEq/L,Normal
+Sodium,143.67,135.0,145.0,mEq/L,Normal
+Sodium,136.29,135.0,145.0,mEq/L,Normal
+Sodium,143.93,135.0,145.0,mEq/L,Normal
+Sodium,142.93,135.0,145.0,mEq/L,Normal
+Sodium,142.62,135.0,145.0,mEq/L,Normal
+Sodium,137.31,135.0,145.0,mEq/L,Normal
+Sodium,142.75,135.0,145.0,mEq/L,Normal
+Sodium,143.15,135.0,145.0,mEq/L,Normal
+Sodium,138.1,135.0,145.0,mEq/L,Normal
+Sodium,144.07,135.0,145.0,mEq/L,Normal
+Sodium,135.95,135.0,145.0,mEq/L,Normal
+Sodium,136.85,135.0,145.0,mEq/L,Normal
+Sodium,140.34,135.0,145.0,mEq/L,Normal
+Sodium,140.68,135.0,145.0,mEq/L,Normal
+Sodium,141.31,135.0,145.0,mEq/L,Normal
+Sodium,135.65,135.0,145.0,mEq/L,Normal
+Sodium,144.14,135.0,145.0,mEq/L,Normal
+Sodium,135.9,135.0,145.0,mEq/L,Normal
+Sodium,136.79,135.0,145.0,mEq/L,Normal
+Sodium,135.63,135.0,145.0,mEq/L,Normal
+Sodium,140.6,135.0,145.0,mEq/L,Normal
+Sodium,143.89,135.0,145.0,mEq/L,Normal
+Sodium,141.49,135.0,145.0,mEq/L,Normal
+Sodium,142.9,135.0,145.0,mEq/L,Normal
+Sodium,135.62,135.0,145.0,mEq/L,Normal
+Sodium,140.38,135.0,145.0,mEq/L,Normal
+Sodium,139.64,135.0,145.0,mEq/L,Normal
+Sodium,139.99,135.0,145.0,mEq/L,Normal
+Sodium,136.15,135.0,145.0,mEq/L,Normal
+Sodium,141.66,135.0,145.0,mEq/L,Normal
+Sodium,140.03,135.0,145.0,mEq/L,Normal
+Sodium,142.39,135.0,145.0,mEq/L,Normal
+Sodium,139.87,135.0,145.0,mEq/L,Normal
+Sodium,136.84,135.0,145.0,mEq/L,Normal
+Sodium,145.34,135.0,145.0,mEq/L,Borderline
+Sodium,146.23,135.0,145.0,mEq/L,Borderline
+Sodium,134.92,135.0,145.0,mEq/L,Borderline
+Sodium,145.15,135.0,145.0,mEq/L,Borderline
+Sodium,145.51,135.0,145.0,mEq/L,Borderline
+Sodium,146.64,135.0,145.0,mEq/L,Borderline
+Sodium,146.0,135.0,145.0,mEq/L,Borderline
+Sodium,134.51,135.0,145.0,mEq/L,Borderline
+Sodium,134.09,135.0,145.0,mEq/L,Borderline
+Sodium,145.18,135.0,145.0,mEq/L,Borderline
+Sodium,134.71,135.0,145.0,mEq/L,Borderline
+Sodium,145.2,135.0,145.0,mEq/L,Borderline
+Sodium,133.53,135.0,145.0,mEq/L,Borderline
+Sodium,145.26,135.0,145.0,mEq/L,Borderline
+Sodium,145.2,135.0,145.0,mEq/L,Borderline
+Sodium,145.71,135.0,145.0,mEq/L,Borderline
+Sodium,145.47,135.0,145.0,mEq/L,Borderline
+Sodium,145.47,135.0,145.0,mEq/L,Borderline
+Sodium,146.75,135.0,145.0,mEq/L,Borderline
+Sodium,134.73,135.0,145.0,mEq/L,Borderline
+Sodium,145.25,135.0,145.0,mEq/L,Borderline
+Sodium,133.32,135.0,145.0,mEq/L,Borderline
+Sodium,146.52,135.0,145.0,mEq/L,Borderline
+Sodium,134.01,135.0,145.0,mEq/L,Borderline
+Sodium,146.87,135.0,145.0,mEq/L,Borderline
+Sodium,146.9,135.0,145.0,mEq/L,Borderline
+Sodium,145.79,135.0,145.0,mEq/L,Borderline
+Sodium,145.99,135.0,145.0,mEq/L,Borderline
+Sodium,133.98,135.0,145.0,mEq/L,Borderline
+Sodium,146.66,135.0,145.0,mEq/L,Borderline
+Sodium,133.67,135.0,145.0,mEq/L,Borderline
+Sodium,134.15,135.0,145.0,mEq/L,Borderline
+Sodium,134.59,135.0,145.0,mEq/L,Borderline
+Sodium,133.67,135.0,145.0,mEq/L,Borderline
+Sodium,133.48,135.0,145.0,mEq/L,Borderline
+Sodium,145.61,135.0,145.0,mEq/L,Borderline
+Sodium,133.92,135.0,145.0,mEq/L,Borderline
+Sodium,133.07,135.0,145.0,mEq/L,Borderline
+Sodium,134.09,135.0,145.0,mEq/L,Borderline
+Sodium,145.71,135.0,145.0,mEq/L,Borderline
+Sodium,134.93,135.0,145.0,mEq/L,Borderline
+Sodium,133.52,135.0,145.0,mEq/L,Borderline
+Sodium,133.92,135.0,145.0,mEq/L,Borderline
+Sodium,145.41,135.0,145.0,mEq/L,Borderline
+Sodium,145.04,135.0,145.0,mEq/L,Borderline
+Sodium,134.55,135.0,145.0,mEq/L,Borderline
+Sodium,134.13,135.0,145.0,mEq/L,Borderline
+Sodium,134.48,135.0,145.0,mEq/L,Borderline
+Sodium,134.71,135.0,145.0,mEq/L,Borderline
+Sodium,134.75,135.0,145.0,mEq/L,Borderline
+Sodium,131.54,135.0,145.0,mEq/L,Critical
+Sodium,132.44,135.0,145.0,mEq/L,Critical
+Sodium,128.87,135.0,145.0,mEq/L,Critical
+Sodium,128.4,135.0,145.0,mEq/L,Critical
+Sodium,132.62,135.0,145.0,mEq/L,Critical
+Sodium,149.32,135.0,145.0,mEq/L,Critical
+Sodium,150.31,135.0,145.0,mEq/L,Critical
+Sodium,131.44,135.0,145.0,mEq/L,Critical
+Sodium,152.94,135.0,145.0,mEq/L,Critical
+Sodium,131.29,135.0,145.0,mEq/L,Critical
+Sodium,128.56,135.0,145.0,mEq/L,Critical
+Sodium,132.9,135.0,145.0,mEq/L,Critical
+Sodium,151.74,135.0,145.0,mEq/L,Critical
+Sodium,148.87,135.0,145.0,mEq/L,Critical
+Sodium,129.39,135.0,145.0,mEq/L,Critical
+Sodium,131.71,135.0,145.0,mEq/L,Critical
+Sodium,147.56,135.0,145.0,mEq/L,Critical
+Sodium,128.5,135.0,145.0,mEq/L,Critical
+Sodium,132.57,135.0,145.0,mEq/L,Critical
+Sodium,151.83,135.0,145.0,mEq/L,Critical
+Sodium,129.77,135.0,145.0,mEq/L,Critical
+Sodium,132.29,135.0,145.0,mEq/L,Critical
+Sodium,148.09,135.0,145.0,mEq/L,Critical
+Sodium,149.98,135.0,145.0,mEq/L,Critical
+Sodium,152.68,135.0,145.0,mEq/L,Critical
+Sodium,150.29,135.0,145.0,mEq/L,Critical
+Sodium,128.31,135.0,145.0,mEq/L,Critical
+Sodium,128.16,135.0,145.0,mEq/L,Critical
+Sodium,151.37,135.0,145.0,mEq/L,Critical
+Sodium,132.1,135.0,145.0,mEq/L,Critical

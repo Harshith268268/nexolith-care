@@ -279,6 +279,7 @@ export function Assistant() {
           <form onSubmit={handleSubmit} className="flex items-center gap-3">
             <input
               type="text"
+              data-testid="assistant-chat-input"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               disabled={loading}
@@ -287,6 +288,7 @@ export function Assistant() {
             />
             <button
               type="submit"
+              data-testid="assistant-chat-submit"
               disabled={loading || !inputText.trim()}
               className="px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-medium transition-colors shadow-sm disabled:opacity-40 flex items-center justify-center shrink-0"
             >

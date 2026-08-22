@@ -177,7 +177,7 @@ export function UploadFlow() {
                     <p className="text-sm text-slate-500 mb-6">Supports PDF, JPG, PNG (Max 10MB)</p>
                     <label className="cursor-pointer inline-flex items-center justify-center px-4 py-2 bg-white border border-slate-300 text-slate-700 rounded-xl font-medium hover:bg-slate-50 transition-colors shadow-sm">
                       Browse Files
-                      <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileSelect} />
+                      <input type="file" data-testid="report-file-input" className="hidden" accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileSelect} />
                     </label>
                   </div>
                 )}
@@ -187,6 +187,7 @@ export function UploadFlow() {
                 <button
                   onClick={startProcessing}
                   disabled={!file || !selectedMemberId}
+                  data-testid="start-processing-btn"
                   className="inline-flex items-center justify-center px-6 py-2.5 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Process with AI <ArrowRight className="w-4 h-4 ml-2" />
