@@ -18,6 +18,7 @@ class Alert(models.Model):
     ]
 
     member = models.ForeignKey(FamilyMember, on_delete=models.CASCADE, related_name='alerts')
+    report = models.ForeignKey('reports.Report', on_delete=models.CASCADE, null=True, blank=True, related_name='alerts')
     title = models.CharField(max_length=200)
     description = models.TextField()
     date = models.DateField()

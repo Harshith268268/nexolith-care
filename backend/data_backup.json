@@ -1,0 +1,202 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$KRorEQjVMpzosMZO6v6ujR$9Iu1rN6P96XNKGxLXxs/57aT98tb7D4DFIvuxVh1+yc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "testfamily",
+    "first_name": "",
+    "last_name": "",
+    "email": "nedambaramharshith@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-05-14T14:59:28.931Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$BuLuz4sir3IIZnTgfsNfkv$D3XFP6NfsK2uFsNmAKsezbq7bvQJKx1PboCpQwdf0Ns=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "harshith2",
+    "first_name": "",
+    "last_name": "",
+    "email": "harshith268268@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-08-24T05:57:54.513Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rbilbutyk7k867h8c7du2zwbehfvdq6k",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnObhxjSvqcwdqPTQLIkfKpEHeHSCmgfTPzXibRtg5pW_KcRjUX05jT78Ykj1x3oHeqt8nKVNd5ZLsr9qCL7SfNz-vh_h0MtAzfGgFyJ8FRg5G7WKIXdh6IxUvbACEH5XNUH70LoA5LACwtsgsdCBbz_gDUcDdk:1wNaZa:blhbKsfGjR3H2jnTpegUHKPrNXI30ehmlVKb-nzWG6Q",
+    "expire_date": "2026-05-28T18:14:14.529Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "testfamily"
+    ],
+    "full_name": "N Harshith",
+    "phone_number": "+918341162268",
+    "profile_photo": "profile_photos/Screenshot_2026-05-18_160519.png",
+    "is_email_verified": true
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "harshith2"
+    ],
+    "full_name": null,
+    "phone_number": null,
+    "profile_photo": "",
+    "is_email_verified": true
+  }
+},
+{
+  "model": "accounts.notificationpreferences",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "testfamily"
+    ],
+    "alert_notifications": true,
+    "medication_reminders": true,
+    "email_notifications": true,
+    "ai_health_warnings": true,
+    "report_upload_confirmations": true
+  }
+},
+{
+  "model": "accounts.pendingregistration",
+  "pk": 1,
+  "fields": {
+    "username": "freshuser",
+    "email": "freshuser@example.com",
+    "password_hash": "pbkdf2_sha256$1200000$P3I68YPJoqyKVGZzGIXRKP$DDUBl2J2oST1zexWCamxxHcTEdYx4Ex4fcJRct+pwX4=",
+    "otp_hash": "pbkdf2_sha256$1200000$r6X0vpIVLhzSV4QPEeggpT$dWucpDsbqIljOvuJe38a8hFWMrBn098LwNoAfs1etY0=",
+    "created_at": "2026-08-24T05:49:54.433Z",
+    "expires_at": "2026-08-24T05:59:54.432Z",
+    "attempt_count": 0
+  }
+},
+{
+  "model": "accounts.pendingregistration",
+  "pk": 5,
+  "fields": {
+    "username": "balaji",
+    "email": "garlapatibalaji2005@gmail.com",
+    "password_hash": "pbkdf2_sha256$1200000$of28cHFjWyavhFCwF1faWn$TeKjRT3czQBz0C8ZNAcY1bSihRCPd0I10VS29VwA1H4=",
+    "otp_hash": "pbkdf2_sha256$1200000$CxtnW0cHm5XPSMnFrMyRbd$XwRbBGutmCltFhMTrqWGHUWV/kIfrghpTPw4z3DVjxY=",
+    "created_at": "2026-08-24T05:55:31.716Z",
+    "expires_at": "2026-08-24T06:05:31.715Z",
+    "attempt_count": 0
+  }
+},
+{
+  "model": "family.family",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "testfamily"
+    ],
+    "created_at": "2026-05-14T14:59:29.178Z"
+  }
+},
+{
+  "model": "family.family",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "harshith2"
+    ],
+    "created_at": "2026-08-24T05:57:54.588Z"
+  }
+},
+{
+  "model": "family.familymember",
+  "pk": 13,
+  "fields": {
+    "family": 19,
+    "name": "Balaji",
+    "age": 20,
+    "relation": "Dependent",
+    "avatar_url": "https://i.pravatar.cc/150?u=Balaji",
+    "created_at": "2026-08-24T05:59:31.665Z"
+  }
+},
+{
+  "model": "family.familymember",
+  "pk": 20,
+  "fields": {
+    "family": 2,
+    "name": "Sarah Jenkins",
+    "age": 41,
+    "relation": "Primary",
+    "avatar_url": "",
+    "created_at": "2026-08-24T06:19:38.033Z"
+  }
+},
+{
+  "model": "family.familymember",
+  "pk": 21,
+  "fields": {
+    "family": 2,
+    "name": "David Jenkinss",
+    "age": 45,
+    "relation": "Spouse",
+    "avatar_url": "",
+    "created_at": "2026-08-24T06:19:38.065Z"
+  }
+},
+{
+  "model": "family.familymember",
+  "pk": 22,
+  "fields": {
+    "family": 2,
+    "name": "Emma Jenkins",
+    "age": 18,
+    "relation": "Dependent",
+    "avatar_url": "",
+    "created_at": "2026-08-24T06:19:38.078Z"
+  }
+},
+{
+  "model": "family.familymember",
+  "pk": 23,
+  "fields": {
+    "family": 2,
+    "name": "janedoe",
+    "age": 22,
+    "relation": "Dependent",
+    "avatar_url": "",
+    "created_at": "2026-08-24T06:19:38.089Z"
+  }
+},
+{
+  "model": "family.familymember",
+  "pk": 24,
+  "fields": {
+    "family": 2,
+    "name": "john jeckins",
+    "age": 75,
+    "relation": "Parent",
+    "avatar_url": "",
+    "created_at": "2026-08-24T06:19:38.101Z"
+  }
+}
+]

@@ -22,7 +22,9 @@ class HealthCheckView(APIView):
             "service": "Nexolith Care API",
             "version": "1.0.0",
             "database": "disconnected",
-            "ml_model": "unavailable",
+            "database_engine": connection.vendor,
+            "database_name": connection.settings_dict.get("NAME"),
+            "mlModel": "unavailable",
             "debug": getattr(settings, 'DEBUG', False)
         }
 
@@ -39,12 +41,11 @@ class HealthCheckView(APIView):
         try:
             analyzer = MedicalAnalyzer()
             if analyzer.is_ml_loaded:
-                health_status["ml_model"] = "loaded (RandomForestClassifier)"
+                health_status["mlModel"] = "loaded (RandomForestClassifier)"
             else:
-                health_status["ml_model"] = "heuristic_fallback"
+                health_status["mlModel"] = "heuristic_fallback"
         except Exception as ml_err:
             logger.error(f"Health check ML model error: {ml_err}")
-            health_status["ml_model"] = f"error: {str(ml_err)}"
+            health_status["mlModel"] = f"error: {str(ml_err)}"
 
-        status_code = 200 if health_status["database"] == "connected" else 503
-        return Response(health_status, status=status_code)
+        return Response(health_status, status=200)

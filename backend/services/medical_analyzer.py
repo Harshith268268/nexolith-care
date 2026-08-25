@@ -85,11 +85,13 @@ class MedicalAnalyzer:
         logger.info(f"Local MedicalAnalyzer analyzing report. ML Model Loaded: {self.is_ml_loaded}. File: {file_path}")
 
         combined_text = ""
+        raw_tables = []
 
         # Step 1: Structured PDF Extraction
         if file_path and file_path.lower().endswith('.pdf'):
             try:
                 table_extractor = PDFTableExtractor()
+                raw_tables = table_extractor.extract_tables(file_path)
                 pdf_text = table_extractor.extract_structured_data(file_path)
                 if pdf_text:
                     combined_text += f"\n{pdf_text}"
@@ -100,13 +102,17 @@ class MedicalAnalyzer:
         if ocr_text:
             combined_text += f"\n{ocr_text}"
 
-        # Step 3: Local Parameter Extraction
-        extracted_items = self.extractor.parse_document(combined_text)
+        # Step 3: Local Parameter & Metadata Extraction
+        metadata = self.extractor.extract_metadata(combined_text)
+        report_date = metadata.get("report_date")
+
+        extracted_items = self.extractor.parse_document(combined_text, raw_tables=raw_tables)
 
         if not extracted_items:
             logger.warning("LocalMedicalExtractor found no parameters. Returning fallback structure.")
             return {
                 "title": "Medical Report",
+                "report_date": report_date,
                 "type": "Blood",
                 "abnormality": "Normal",
                 "summary": "No lab parameters could be extracted. Please check document scan quality.",
@@ -130,8 +136,11 @@ class MedicalAnalyzer:
             processed_lab_values.append({
                 "parameter": param_name,
                 "value": val_str,
+                "numeric_value": val_num,
                 "unit": unit,
                 "range": range_str,
+                "lower_bound": lower_b,
+                "upper_bound": upper_b,
                 "status": status,
                 "explanation": explanation
             })
@@ -142,6 +151,7 @@ class MedicalAnalyzer:
 
         return {
             "title": report_title,
+            "report_date": report_date,
             "type": "Blood",
             "abnormality": summary_info["abnormality"],
             "summary": summary_info["summary"],

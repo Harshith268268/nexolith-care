@@ -170,6 +170,95 @@ class MedicalKnowledgeEngine:
             return kb["recommendation"]
         return "Maintain a balanced lifestyle, eat nutrient-rich foods, and consult a physician for personalized guidance."
 
+    def get_general_educational_response(self, query: str, param_name: str = None) -> str:
+        """
+        Generates structured, plain-English health education for general questions
+        (e.g., "How can I decrease glucose?", "What is diabetes?", "What is Vitamin D?").
+        Does NOT require the user to have stored medical reports.
+        """
+        q_lower = query.lower()
+
+        if param_name == "Fasting Glucose" or "glucose" in q_lower or "blood sugar" in q_lower or "diabetes" in q_lower:
+            return (
+                "### Understanding Blood Glucose & Healthy Management\n\n"
+                "**What is Blood Glucose?**\n"
+                "Blood glucose (blood sugar) is the main sugar found in your blood and your body's primary energy source. "
+                "Fasting blood glucose normal reference ranges are typically **70 to 99 mg/dL**. Values between **100–125 mg/dL** indicate pre-diabetes, and **126 mg/dL+** suggests diabetes.\n\n"
+                "**How to Help Maintain Healthy Glucose Levels:**\n"
+                "1. **Dietary Adjustments**: Prioritize complex carbohydrates, non-starchy vegetables, and high-fiber foods (oats, legumes). Limit refined sugars and processed carbs.\n"
+                "2. **Physical Activity**: Engage in 150 minutes of moderate aerobic activity (e.g. brisk walking) per week. Muscle contraction increases insulin sensitivity.\n"
+                "3. **Weight & Hydration**: Maintain a healthy body weight and drink adequate water daily.\n"
+                "4. **Clinical Monitoring**: Schedule routine HbA1c screenings with your clinician.\n\n"
+                "*(Note: Educational health information provided by offline Local Health Knowledge Engine. Discuss any elevated glucose trends or dietary changes with a healthcare professional.)*"
+            )
+
+        if param_name in ["Total Cholesterol", "LDL Cholesterol", "HDL Cholesterol", "Triglycerides"] or "cholesterol" in q_lower or "lipid" in q_lower:
+            return (
+                "### Understanding Lipid Health & Cholesterol Management\n\n"
+                "**What is Cholesterol?**\n"
+                "Cholesterol is a waxy lipid needed to build cells and hormones. LDL ('bad') cholesterol can deposit in artery walls, while HDL ('good') cholesterol carries excess cholesterol back to the liver.\n\n"
+                "**How to Maintain Healthy Lipid Levels:**\n"
+                "1. **Heart-Healthy Fats**: Replace saturated fats (fatty meats, butter) with monounsaturated oils (olive oil, avocados, nuts).\n"
+                "2. **Soluble Fiber**: Increase intake of soluble fiber (oat bran, beans, lentils) which helps bind cholesterol in the digestive system.\n"
+                "3. **Aerobic Exercise**: Regular exercise helps elevate protective HDL cholesterol and reduce triglycerides.\n\n"
+                "*(Note: Educational health guidance. Consult a medical professional for personalized cardiovascular risk assessment.)*"
+            )
+
+        if param_name in ["Systolic BP", "Diastolic BP", "Blood Pressure"] or "blood pressure" in q_lower or "bp" in q_lower or "hypertension" in q_lower:
+            return (
+                "### Understanding Blood Pressure & Vascular Health\n\n"
+                "**What is Blood Pressure?**\n"
+                "Blood pressure measures the force of circulating blood against artery walls. Normal blood pressure is typically below **120/80 mmHg**.\n\n"
+                "**Key Lifestyle Strategies for Blood Pressure Control:**\n"
+                "1. **Sodium Reduction**: Limit dietary salt intake to under 2,000 mg/day.\n"
+                "2. **DASH Diet**: Emphasize fruits, vegetables, whole grains, and low-fat dairy.\n"
+                "3. **Stress Reduction & Exercise**: Regular physical activity and stress management help relax arterial walls.\n\n"
+                "*(Note: Educational health information provided by offline Local Health Knowledge Engine.)*"
+            )
+
+        if param_name == "Hemoglobin" or "hemoglobin" in q_lower or "iron" in q_lower or "anemia" in q_lower:
+            return (
+                "### Understanding Hemoglobin & Iron Health\n\n"
+                "**What is Hemoglobin?**\n"
+                "Hemoglobin is an iron-rich protein inside red blood cells responsible for transporting oxygen throughout your tissues. Low hemoglobin levels indicate anemia.\n\n"
+                "**Dietary & Health Recommendations:**\n"
+                "1. **Iron-Rich Foods**: Consume dark leafy greens (spinach, kale), legumes, fortified cereals, and lean meats.\n"
+                "2. **Vitamin C Synergy**: Pair iron-rich foods with Vitamin C (citrus fruits, bell peppers) to boost intestinal iron absorption.\n"
+                "3. **Consultation**: Evaluate potential underlying causes with your physician before taking high-dose iron supplements.\n\n"
+                "*(Note: Educational health information. Not a clinical diagnosis.)*"
+            )
+
+        if param_name == "Vitamin D" or "vitamin d" in q_lower:
+            return (
+                "### Understanding Vitamin D & Bone Health\n\n"
+                "**What is Vitamin D?**\n"
+                "Vitamin D is a crucial fat-soluble nutrient essential for calcium absorption, bone density, immune defense, and mood regulation. Normal levels range from **30 to 100 ng/mL**.\n\n"
+                "**How to Improve Vitamin D Status:**\n"
+                "1. **Sun Exposure**: 15–20 minutes of daily natural sunlight exposure on arms and face.\n"
+                "2. **Dietary Sources**: Fatty fish (salmon, tuna), egg yolks, and fortified dairy or plant milk.\n"
+                "3. **Supplements**: Consult a physician for Vitamin D3 supplementation if laboratory results indicate deficiency.\n\n"
+                "*(Note: Educational health information provided by offline Local Health Knowledge Engine.)*"
+            )
+
+        if param_name in ["Creatinine", "BUN"] or "creatinine" in q_lower or "kidney" in q_lower:
+            return (
+                "### Understanding Creatinine & Kidney Function\n\n"
+                "**What is Creatinine?**\n"
+                "Creatinine is a waste product from muscle breakdown filtered out of the bloodstream by healthy kidneys. Normal levels are typically **0.6 to 1.2 mg/dL**.\n\n"
+                "**Maintaining Healthy Kidney Filtration:**\n"
+                "1. **Hydration**: Drink sufficient fluids throughout the day to support renal waste clearance.\n"
+                "2. **Avoid Medication Overuse**: Limit frequent unprescribed use of NSAID pain relievers (e.g. ibuprofen).\n"
+                "3. **Control Blood Pressure & Blood Sugar**: Unmanaged hypertension and high blood sugar are leading causes of kidney strain.\n\n"
+                "*(Note: Educational health information provided by offline Local Health Knowledge Engine.)*"
+            )
+
+        # Default Educational Health Response
+        return (
+            "### General Health & Preventive Wellness Guidance\n\n"
+            "Maintaining optimal long-term health involves regular physical activity, balanced nutrition rich in whole foods and fiber, adequate daily hydration (2–3 liters), consistent sleep schedules (7–8 hours), and annual clinical health screenings.\n\n"
+            "*(Note: Educational information provided by offline Local Health Knowledge Engine. Discuss specific health queries with a qualified healthcare professional.)*"
+        )
+
     def generate_overall_summary(self, lab_values: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
         Generates overall report summary, abnormality classification, and recommendations.

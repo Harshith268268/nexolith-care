@@ -164,6 +164,19 @@ export function Settings() {
     if (!files || files.length === 0 || !auth.token) return;
 
     const file = files[0];
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("Profile photo must be 5 MB or smaller.");
+      return;
+    }
+    const fileType = file.type.toLowerCase();
+    const fileName = file.name.toLowerCase();
+    const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+    const validExts = ['.jpg', '.jpeg', '.png'];
+    if (!validTypes.includes(fileType) && !validExts.some(ext => fileName.endsWith(ext))) {
+      toast.error("Unsupported image format. Please upload PNG or JPG/JPEG.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append('profile_photo', file);
 
@@ -185,8 +198,11 @@ export function Settings() {
             ? photoPath 
             : `${API_BASE}${photoPath}`);
         }
+        await loadUserSettings();
+        await refreshFamilyData();
       } else {
-        toast.error("Failed to upload image.");
+        const errData = await res.json().catch(() => ({}));
+        toast.error(errData.error || "Failed to upload image.");
       }
     } catch (err: any) {
       toast.error(`Upload error: ${err.message}`);
@@ -884,8 +900,8 @@ export function Settings() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
                     { label: 'App Version', value: 'v1.2.0-prod', desc: 'Stable master release node', icon: Info },
-                    { label: 'Database Active', value: 'PostgreSQL / SQLite fallback', desc: 'Configured for full Railway scale', icon: Database },
-                    { label: 'Neural AI Core', value: 'Gemini 2.0 Flash Vision', desc: 'Multimodal extraction prompt core', icon: Cpu },
+                    { label: 'Database Active', value: 'PostgreSQL Database', desc: 'Configured for high performance', icon: Database },
+                    { label: 'Neural AI Core', value: 'Nexolith Local AI Medical Engine', desc: '100% offline local extraction & QA', icon: Cpu },
                     { label: 'OCR Engine', value: 'Tesseract OCR System', desc: 'Direct layout text parsing', icon: Activity }
                   ].map((stat, idx) => {
                     const Icon = stat.icon;
@@ -906,17 +922,16 @@ export function Settings() {
 
                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
                   <span>© 2026 Nexolith Care Systems. All rights reserved.</span>
-                  <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center hover:text-primary-600 font-semibold">
-                    Documentation <ExternalLink className="w-3 h-3 ml-1" />
+                  <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center space-x-1 hover:text-slate-700">
+                    <span>Source Repository</span>
                   </a>
                 </div>
               </div>
             )}
-
           </div>
         </div>
-
       </div>
     </div>
   );
 }
+

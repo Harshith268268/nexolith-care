@@ -14,8 +14,13 @@ interface AuthState {
 interface FamilyContextType {
   auth: AuthState;
   isAuthenticated: boolean;
-  login: (username: string, password: string) => Promise<void>;
-  register: (username: string, password: string) => Promise<void>;
+  login: (username: string, password: string) => Promise<any>;
+  register: (username: string, email: string, password: string, confirmPassword?: string) => Promise<any>;
+  verifyEmail: (email: string, otp: string) => Promise<any>;
+  resendVerificationOtp: (email: string) => Promise<any>;
+  requestForgotPassword: (email: string) => Promise<any>;
+  verifyResetOtp: (email: string, otp: string) => Promise<any>;
+  resetPassword: (email: string, otp: string, newPassword: string, confirmPassword?: string) => Promise<any>;
   logout: () => void;
   authError: string | null;
   authLoading: boolean;
@@ -54,7 +59,9 @@ function getStoredAuth(): AuthState {
   try {
     const raw = localStorage.getItem('healthai_auth');
     if (raw) return JSON.parse(raw);
-  } catch {}
+  } catch (err) {
+    // Ignore invalid JSON in localStorage
+  }
   return { token: null, familyId: null, username: null };
 }
 
@@ -173,8 +180,15 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ username, password })
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || 'Login failed');
+      if (!res.ok) {
+        const error: any = new Error(data.detail || 'Login failed');
+        error.data = data;
+        error.emailUnverified = data.email_unverified;
+        error.email = data.email;
+        throw error;
+      }
       persistAuth({ token: data.access, familyId: data.family_id || 1, username });
+      return data;
     } catch (err: any) {
       setAuthError(err.message);
       throw err;
@@ -183,18 +197,142 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const register = async (username: string, password: string) => {
+  const register = async (username: string, email: string, password: string, confirmPassword?: string) => {
     setAuthLoading(true);
     setAuthError(null);
     try {
-      const res = await fetch(`${API_BASE}/api/accounts/register/`, {
+      const res = await fetch(`${API_BASE}/api/auth/register/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify({
+          username,
+          email,
+          password,
+          confirm_password: confirmPassword || password
+        })
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || 'Registration failed');
-      persistAuth({ token: data.access, familyId: data.family_id || 1, username });
+      if (!res.ok) {
+        let msg = 'Registration failed';
+        if (data.username) msg = Array.isArray(data.username) ? data.username[0] : data.username;
+        else if (data.email) msg = Array.isArray(data.email) ? data.email[0] : data.email;
+        else if (data.password) msg = Array.isArray(data.password) ? data.password[0] : data.password;
+        else if (data.confirm_password) msg = Array.isArray(data.confirm_password) ? data.confirm_password[0] : data.confirm_password;
+        else if (data.detail) msg = data.detail;
+        throw new Error(msg);
+      }
+      return data;
+    } catch (err: any) {
+      setAuthError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const verifyEmail = async (email: string, otp: string) => {
+    setAuthLoading(true);
+    setAuthError(null);
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/verify-email/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Email verification failed');
+      return data;
+    } catch (err: any) {
+      setAuthError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const resendVerificationOtp = async (email: string) => {
+    setAuthLoading(true);
+    setAuthError(null);
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/resend-verification-otp/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Failed to resend OTP');
+      return data;
+    } catch (err: any) {
+      setAuthError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const requestForgotPassword = async (email: string) => {
+    setAuthLoading(true);
+    setAuthError(null);
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/forgot-password/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Failed to process request');
+      return data;
+    } catch (err: any) {
+      setAuthError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const verifyResetOtp = async (email: string, otp: string) => {
+    setAuthLoading(true);
+    setAuthError(null);
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/verify-reset-otp/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'OTP verification failed');
+      return data;
+    } catch (err: any) {
+      setAuthError(err.message);
+      throw err;
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const resetPassword = async (email: string, otp: string, newPassword: string, confirmPassword?: string) => {
+    setAuthLoading(true);
+    setAuthError(null);
+    try {
+      const res = await fetch(`${API_BASE}/api/auth/reset-password/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          otp,
+          new_password: newPassword,
+          confirm_password: confirmPassword || newPassword
+        })
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        let msg = 'Password reset failed';
+        if (data.new_password) msg = Array.isArray(data.new_password) ? data.new_password[0] : data.new_password;
+        else if (data.confirm_password) msg = Array.isArray(data.confirm_password) ? data.confirm_password[0] : data.confirm_password;
+        else if (data.detail) msg = data.detail;
+        throw new Error(msg);
+      }
+      return data;
     } catch (err: any) {
       setAuthError(err.message);
       throw err;
@@ -213,39 +351,63 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
   };
 
   const addMember = async (data: any) => {
-    // Gracefully support camelCase/snake_case mapping for avatarUrl
+    // Gracefully support camelCase/snake_case mapping for all fields
     const payload = {
       name: data.name,
+      gender: data.gender || 'Male',
       age: data.age,
+      height_cm: data.height_cm !== undefined ? data.height_cm : (data.heightCm !== undefined ? data.heightCm : null),
+      weight_kg: data.weight_kg !== undefined ? data.weight_kg : (data.weightKg !== undefined ? data.weightKg : null),
       relation: data.relation,
       avatar_url: data.avatarUrl || data.avatar_url || ''
     };
     const res = await apiFetch('/api/family/members/', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      throw new Error(err.detail || err.error || 'Failed to add member');
+      let msg = 'Failed to add member';
+      if (err.height_cm) msg = Array.isArray(err.height_cm) ? err.height_cm[0] : err.height_cm;
+      else if (err.weight_kg) msg = Array.isArray(err.weight_kg) ? err.weight_kg[0] : err.weight_kg;
+      else if (err.age) msg = Array.isArray(err.age) ? err.age[0] : err.age;
+      else if (err.name) msg = Array.isArray(err.name) ? err.name[0] : err.name;
+      else if (err.gender) msg = Array.isArray(err.gender) ? err.gender[0] : err.gender;
+      else if (err.detail) msg = err.detail;
+      throw new Error(msg);
     }
     await refreshData();
   };
 
   const updateMember = async (id: string, data: any) => {
-    // Gracefully support camelCase/snake_case mapping for avatarUrl and use PATCH for partial stability
-    const payload = {
-      name: data.name,
-      age: data.age,
-      relation: data.relation,
-      avatar_url: data.avatarUrl || data.avatar_url || ''
-    };
+    const payload: any = {};
+    if (data.name !== undefined) payload.name = data.name;
+    if (data.gender !== undefined) payload.gender = data.gender;
+    if (data.age !== undefined) payload.age = data.age;
+    if (data.height_cm !== undefined || data.heightCm !== undefined) {
+      payload.height_cm = data.height_cm !== undefined ? data.height_cm : data.heightCm;
+    }
+    if (data.weight_kg !== undefined || data.weightKg !== undefined) {
+      payload.weight_kg = data.weight_kg !== undefined ? data.weight_kg : data.weightKg;
+    }
+    if (data.relation !== undefined) payload.relation = data.relation;
+    if (data.avatarUrl || data.avatar_url) payload.avatar_url = data.avatarUrl || data.avatar_url;
+
     const res = await apiFetch(`/api/family/members/${id}/`, {
       method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
-      throw new Error(err.detail || err.error || 'Failed to update member');
+      let msg = 'Failed to update member';
+      if (err.height_cm) msg = Array.isArray(err.height_cm) ? err.height_cm[0] : err.height_cm;
+      else if (err.weight_kg) msg = Array.isArray(err.weight_kg) ? err.weight_kg[0] : err.weight_kg;
+      else if (err.age) msg = Array.isArray(err.age) ? err.age[0] : err.age;
+      else if (err.name) msg = Array.isArray(err.name) ? err.name[0] : err.name;
+      else if (err.detail) msg = err.detail;
+      throw new Error(msg);
     }
     await refreshData();
   };
@@ -352,6 +514,7 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
   return (
     <FamilyContext.Provider value={{
       auth, isAuthenticated, login, register, logout, authError, authLoading,
+      verifyEmail, resendVerificationOtp, requestForgotPassword, verifyResetOtp, resetPassword,
       members, activeMember, setActiveMember, addMember, updateMember, deleteMember,
       reports, addReport, updateReport, deleteReport,
       alerts, addAlert, updateAlert, deleteAlert, markAlertRead, rescheduleAlert,

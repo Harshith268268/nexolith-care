@@ -43,6 +43,11 @@ class ReportViewSet(viewsets.ModelViewSet):
                 # Merge AI results into the instance
                 if not instance.title or instance.title == 'Medical Report':
                     instance.title = extracted.get('title', instance.title)
+                if extracted.get('report_date'):
+                    try:
+                        instance.date = extracted['report_date']
+                    except Exception as de:
+                        logger.error(f"Failed to parse report_date {extracted.get('report_date')}: {de}")
                 if extracted.get('type'):
                     instance.type = extracted['type']
                 if extracted.get('abnormality'):
@@ -53,7 +58,8 @@ class ReportViewSet(viewsets.ModelViewSet):
                     instance.lab_values = extracted['lab_values']
 
                 instance.save()
-                logger.info(f"Report {instance.id} processed successfully.")
+                instance.sync_parameters()
+                logger.info(f"Report {instance.id} processed and parameters synced successfully.")
 
                 # Step 3: Run automatic Alert Generator
                 try:
@@ -66,4 +72,16 @@ class ReportViewSet(viewsets.ModelViewSet):
 
             except Exception as e:
                 logger.error(f"OCR/AI processing failed for report {instance.id}: {e}")
-                # Don't raise — the report is saved, just without extracted data
+                instance.sync_parameters()
+        else:
+            instance.sync_parameters()
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+        instance.sync_parameters()
+
+    def perform_destroy(self, instance):
+        # Explicitly delete parameters and instance
+        instance.parameters.all().delete()
+        instance.delete()
+

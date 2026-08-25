@@ -5,7 +5,13 @@ export type ReportType = 'Blood' | 'Imaging' | 'Prescription' | 'Discharge';
 export interface FamilyMember {
   id: string;
   name: string;
+  gender?: 'Male' | 'Female';
   age: number;
+  height_cm?: number;
+  weight_kg?: number;
+  heightCm?: number;
+  weightKg?: number;
+  bmi?: number | null;
   relation: MemberRole;
   avatarUrl?: string;
   lastReportDate: string;
@@ -66,47 +72,7 @@ export interface ChatMessage {
   citations?: {reportId: string;title: string;}[];
 }
 
-export const mockMembers: FamilyMember[] = [
-{
-  id: 'm1',
-  name: 'Sarah Jenkins',
-  age: 42,
-  relation: 'Primary',
-  avatarUrl: 'https://i.pravatar.cc/150?u=sarah',
-  lastReportDate: '2023-10-15',
-  reportCount: 12,
-  overallRisk: 'Normal'
-},
-{
-  id: 'm2',
-  name: 'David Jenkins',
-  age: 45,
-  relation: 'Spouse',
-  avatarUrl: 'https://i.pravatar.cc/150?u=david',
-  lastReportDate: '2023-09-22',
-  reportCount: 8,
-  overallRisk: 'Borderline'
-},
-{
-  id: 'm3',
-  name: 'Emma Jenkins',
-  age: 12,
-  relation: 'Dependent',
-  avatarUrl: 'https://i.pravatar.cc/150?u=emma',
-  lastReportDate: '2023-08-10',
-  reportCount: 4,
-  overallRisk: 'Normal'
-},
-{
-  id: 'm4',
-  name: 'Robert Smith',
-  age: 72,
-  relation: 'Parent',
-  avatarUrl: 'https://i.pravatar.cc/150?u=robert',
-  lastReportDate: '2023-10-01',
-  reportCount: 24,
-  overallRisk: 'Critical'
-}];
+export const mockMembers: FamilyMember[] = [];
 
 
 export const mockReports: Report[] = [

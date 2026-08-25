@@ -27,6 +27,11 @@ export function Assistant() {
   // Conversation history for backend context
   const [history, setHistory] = useState<{ role: 'user' | 'model'; content: string }[]>([]);
 
+  // Reset history state when active member changes
+  useEffect(() => {
+    setHistory([]);
+  }, [activeMember?.id, auth.token]);
+
   // Scroll to bottom whenever messages are added
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

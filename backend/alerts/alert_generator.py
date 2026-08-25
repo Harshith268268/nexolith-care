@@ -62,6 +62,7 @@ class MedicalAlertGenerator:
                 if not exists:
                     Alert.objects.create(
                         member=member,
+                        report=report,
                         title=title,
                         description=desc,
                         date=report_date,

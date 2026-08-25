@@ -44,6 +44,23 @@ class PDFTableExtractor:
             logger.error(f"pdfplumber extraction failed: {e}")
             return ""
 
+    def extract_tables(self, file_path: str) -> list:
+        """
+        Extracts raw table data structures (list of list of rows) from PDF pages.
+        """
+        raw_tables = []
+        try:
+            with pdfplumber.open(file_path) as pdf:
+                for page in pdf.pages:
+                    tables = page.extract_tables()
+                    if tables:
+                        raw_tables.extend(tables)
+            return raw_tables
+        except Exception as e:
+            logger.error(f"pdfplumber raw table extraction failed: {e}")
+            return []
+
+
     def _format_table(self, table: list) -> str:
         """Converts a raw list of lists into a readable text table."""
         if not table:

@@ -7,29 +7,42 @@ interface TopbarProps {
   onMenuClick: () => void;
 }
 export function Topbar({ onMenuClick }: TopbarProps) {
-  const { members, activeMember, setActiveMember } = useFamily();
+  const { members, activeMember, setActiveMember, auth } = useFamily();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target as Node))
-      {
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsDropdownOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
   return (
     <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 lg:px-8 shrink-0 sticky top-0 z-30">
       <div className="flex items-center flex-1">
         <button
           onClick={onMenuClick}
           className="p-2 -ml-2 mr-2 text-slate-500 hover:bg-slate-100 rounded-lg lg:hidden">
-          
           <Menu className="w-5 h-5" />
         </button>
 
@@ -113,21 +126,36 @@ export function Topbar({ onMenuClick }: TopbarProps) {
       </div>
 
       <div className="flex items-center space-x-2 sm:space-x-4">
-        <div className="hidden md:flex items-center px-3 py-1.5 bg-success-50 text-success-700 rounded-full text-xs font-medium border border-success-100">
-          <Wifi className="w-3 h-3 mr-1.5" />
-          Online & Synced
-        </div>
+        {isOnline ? (
+          <div className="hidden md:flex items-center px-3 py-1.5 bg-success-50 text-success-700 rounded-full text-xs font-medium border border-success-100">
+            <Wifi className="w-3 h-3 mr-1.5" />
+            Online & Synced
+          </div>
+        ) : (
+          <div className="hidden md:flex items-center px-3 py-1.5 bg-amber-50 text-amber-700 rounded-full text-xs font-medium border border-amber-200">
+            <Wifi className="w-3 h-3 mr-1.5" />
+            Offline Mode
+          </div>
+        )}
 
-        <div className="relative hidden sm:block">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            placeholder="Search reports, terms..."
-            className="pl-9 pr-4 py-1.5 bg-slate-100 border-transparent focus:bg-white focus:border-primary-300 focus:ring-2 focus:ring-primary-100 rounded-lg text-sm w-48 lg:w-64 transition-all" />
-          
-        </div>
+        <button 
+          onClick={() => navigate('/settings')}
+          className="flex items-center space-x-2 p-1 rounded-full hover:bg-slate-100 transition-colors"
+          title="Account Settings"
+        >
+          <Avatar name={auth.username || 'User'} size="sm" />
+          {auth.username && (
+            <span className="text-xs font-semibold text-slate-700 hidden lg:inline-block pr-1">
+              {auth.username}
+            </span>
+          )}
+        </button>
 
-        <button className="relative p-2 text-slate-500 hover:bg-slate-100 rounded-lg transition-colors">
+        <button 
+          onClick={() => navigate('/alerts')}
+          className="relative p-2 text-slate-500 hover:bg-slate-100 rounded-lg transition-colors"
+          title="Alerts"
+        >
           <Bell className="w-5 h-5" />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-critical-500 rounded-full border-2 border-white"></span>
         </button>
