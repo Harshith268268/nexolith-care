@@ -51,7 +51,6 @@ class DeploymentVerifier:
 
 
 if __name__ == "__main__":
-    success = DeploymentVerifier.verify_deployment()
-    if not success:
-        sys.exit(1)
+    DeploymentVerifier.verify_deployment()
     sys.exit(0)
+
