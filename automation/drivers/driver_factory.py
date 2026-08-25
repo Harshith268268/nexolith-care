@@ -28,8 +28,9 @@ class DriverFactory:
         options.add_argument("--ignore-certificate-errors")
         options.add_argument("--allow-running-insecure-content")
         options.add_argument("--disable-extensions")
-        options.add_argument("--remote-debugging-port=9222")
+        options.add_argument("--remote-debugging-pipe")
         options.set_capability("goog:loggingPrefs", {"browser": "ALL"})
+
 
         try:
             service = ChromeService(ChromeDriverManager().install())
