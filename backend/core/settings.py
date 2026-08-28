@@ -75,6 +75,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database Configuration (PostgreSQL Required for Local & Production)
 DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.strip().strip("'").strip('"')
+
 if not DATABASE_URL and os.environ.get('DB_NAME'):
     db_user = os.environ.get('DB_USER', 'postgres')
     db_pass = os.environ.get('DB_PASSWORD', '')
@@ -91,13 +94,33 @@ if not DATABASE_URL:
         "DATABASE_URL=postgresql://postgres:password@localhost:5432/nexolith_care"
     )
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=DATABASE_URL,
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
-}
+try:
+    DATABASES = {
+        'default': dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            conn_health_checks=True
+        )
+    }
+except Exception:
+    import urllib.parse
+    try:
+        scheme, rest = DATABASE_URL.split("://", 1)
+        if "@" in rest:
+            user_pass, host_part = rest.rsplit("@", 1)
+            if ":" in user_pass:
+                user, password = user_pass.split(":", 1)
+                encoded_pass = urllib.parse.quote_plus(urllib.parse.unquote(password))
+                DATABASE_URL = f"{scheme}://{user}:{encoded_pass}@{host_part}"
+        DATABASES = {
+            'default': dj_database_url.parse(
+                DATABASE_URL,
+                conn_max_age=600,
+                conn_health_checks=True
+            )
+        }
+    except Exception as fallback_err:
+        raise ImproperlyConfigured(f"Invalid DATABASE_URL format: {fallback_err}")
 
 if 'sqlite3' in DATABASES['default'].get('ENGINE', ''):
     raise ImproperlyConfigured(
