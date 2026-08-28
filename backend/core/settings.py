@@ -122,6 +122,9 @@ except Exception:
     except Exception as fallback_err:
         raise ImproperlyConfigured(f"Invalid DATABASE_URL format: {fallback_err}")
 
+# Disable server side cursors for PgBouncer / Supavisor connection pooler compatibility
+DATABASES['default']['DISABLE_SERVER_SIDE_CURSORS'] = True
+
 if 'sqlite3' in DATABASES['default'].get('ENGINE', ''):
     raise ImproperlyConfigured(
         "SQLite engine is not permitted. Nexolith Care requires PostgreSQL for both local and production."
