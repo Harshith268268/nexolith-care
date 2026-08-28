@@ -21,7 +21,8 @@ class ReportViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         """
-        On POST: Save the file, run OCR, run AI extraction, then persist.
+        On POST: Save the file, run OCR, run AI extraction, persist, generate alerts,
+        and dispatch automatic email notification if abnormal/critical parameters exist.
         Falls back gracefully if no file is uploaded.
         """
         instance = serializer.save()  # Save to get the file path
@@ -70,11 +71,29 @@ class ReportViewSet(viewsets.ModelViewSet):
                 except Exception as ae:
                     logger.error(f"Failed to auto-generate alerts: {ae}")
 
+                # Step 4: Dispatch automatic Email Notification for abnormal/critical alerts
+                try:
+                    from alerts.email_notifier import EmailAlertNotifier
+                    notifier = EmailAlertNotifier()
+                    sent_status = notifier.send_alert_email_for_report(instance)
+                    logger.info(f"Email alert dispatch status for report {instance.id}: {sent_status}")
+                except Exception as ee:
+                    logger.error(f"Email alert notification failed for report {instance.id}: {ee}")
+
             except Exception as e:
                 logger.error(f"OCR/AI processing failed for report {instance.id}: {e}")
                 instance.sync_parameters()
         else:
             instance.sync_parameters()
+
+            # For manually created/edited reports without files, check if alerts & emails are needed
+            try:
+                from alerts.alert_generator import MedicalAlertGenerator
+                from alerts.email_notifier import EmailAlertNotifier
+                created_alerts = MedicalAlertGenerator().generate_alerts_for_report(instance)
+                EmailAlertNotifier().send_alert_email_for_report(instance)
+            except Exception as ae:
+                logger.error(f"Failed to generate alerts/emails for manual report {instance.id}: {ae}")
 
     def perform_update(self, serializer):
         instance = serializer.save()
@@ -84,4 +103,3 @@ class ReportViewSet(viewsets.ModelViewSet):
         # Explicitly delete parameters and instance
         instance.parameters.all().delete()
         instance.delete()
-

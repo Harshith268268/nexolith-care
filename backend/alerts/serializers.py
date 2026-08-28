@@ -7,4 +7,4 @@ class AlertSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Alert
-        fields = ['id', 'member_id', 'title', 'description', 'date', 'severity', 'type', 'status', 'created_at']
+        fields = ['id', 'member_id', 'title', 'description', 'date', 'severity', 'type', 'status', 'email_sent', 'email_sent_at', 'created_at']

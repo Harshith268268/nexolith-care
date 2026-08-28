@@ -76,7 +76,6 @@ class MemberTrendsView(APIView):
                     if parameter.lower() in item.get('parameter', '').lower():
                         val_str = str(item.get('value', ''))
                         try:
-                            # Extract numeric components safely
                             num_val = float(re.findall(r'[-+]?\d*\.\d+|\d+', val_str)[0])
                             trends.append({
                                 "date": r.date,
@@ -94,8 +93,8 @@ class MemberTrendsView(APIView):
 class ChatAssistantView(APIView):
     """
     Dynamic, Question-Aware Local AI Health Assistant Endpoint.
-    100% Offline with zero external APIs, zero LLMs, zero API keys.
-    Routes queries dynamically based on question intent (Greetings, Family, Reports, Parameters, Trends, General Education).
+    Uses local Ollama (llama3.1:latest) as the primary conversational LLM.
+    Grounds LLM generations in live PostgreSQL family data and local RAG medical knowledge.
     """
     permission_classes = [permissions.IsAuthenticated]
 
@@ -111,27 +110,33 @@ class ChatAssistantView(APIView):
             from alerts.models import Alert
             from reports.models import Report
             from services.question_router import (
-                QuestionRouter, INTENT_GENERAL_GREETING, INTENT_FAMILY_MEMBERS,
-                INTENT_REPORT_LIST, INTENT_REPORT_VALUES, INTENT_PARAMETER_VALUE, INTENT_PARAMETER_TREND,
-                INTENT_ABNORMAL_RESULTS, INTENT_HEALTH_SUMMARY, INTENT_MEDICAL_GENERAL_QUESTION,
-                INTENT_PATIENT_SPECIFIC_ADVICE, INTENT_UNKNOWN
+                QuestionRouter, INTENT_GREETING, INTENT_GENERAL_CONVERSATION,
+                INTENT_FAMILY_MEMBERS, INTENT_REPORT_LIST, INTENT_REPORT_VALUES,
+                INTENT_PARAMETER_VALUE, INTENT_PARAMETER_TREND, INTENT_ABNORMAL_RESULTS,
+                INTENT_PATIENT_SPECIFIC_ADVICE, INTENT_GENERAL_MEDICAL, INTENT_UNKNOWN
             )
             from services.trend_engine import ReportTrendEngine
-            from services.medical_knowledge import MedicalKnowledgeEngine, MEDICAL_KNOWLEDGE_CATALOG
+            from services.medical_knowledge import MedicalKnowledgeEngine
+            from services.medical_knowledge_base import MedicalKnowledgeBase
+            from services.ollama_service import OllamaService
 
-            kb_engine = MedicalKnowledgeEngine()
+            kb_legacy = MedicalKnowledgeEngine()
+            kb = MedicalKnowledgeBase()
             trend_engine = ReportTrendEngine()
             router = QuestionRouter()
+            ollama = OllamaService()
 
-            # 1. Fetch current user's family members
+            # 1. Fetch current user's family members from PostgreSQL (User Isolation)
             family_members = list(FamilyMember.objects.filter(family__user=request.user))
-            known_member_names = [m.name for m in family_members]
 
-            # 2. Analyze question with QuestionRouter
-            analysis = router.analyze_question(message, known_member_names)
+            # 2. Analyze question with QuestionRouter including history context
+            analysis = router.analyze_question(message, history=history, user_family_members=family_members)
             intent = analysis["intent"]
             target_member_name = analysis["target_member_name"]
+            canonical_entity = analysis["canonical_entity"]
             parameter_name = analysis["parameter_name"]
+            aspect = analysis["aspect"]
+            raw_message = analysis["raw_message"]
 
             # Match target member object if available
             target_member = None
@@ -141,411 +146,376 @@ class ChatAssistantView(APIView):
                         target_member = m
                         break
 
-            # 3. Handle INTENT: GENERAL GREETING
-            if intent == INTENT_GENERAL_GREETING:
-                return Response({
-                    "response": "Hello! I am your Local AI Health Assistant. I can help you understand your family's stored medical reports, health trends, abnormal results, and general health questions. How can I help you today?",
-                    "data_source": "local_assistant",
-                    "has_reports": True
-                })
+            ground_truth_context = ""
+            fallback_response = ""
+            data_source = "database"
+            has_reports = True
 
-            # 4. Handle INTENT: FAMILY MEMBERS
-            if intent == INTENT_FAMILY_MEMBERS:
-                if not family_members:
-                    return Response({
-                        "response": "You currently have no family profiles created yet. Please add a family member in the Family Members section to start tracking health records.",
-                        "data_source": "database",
-                        "has_reports": False
-                    })
-                
-                parts = ["### Your Registered Family Members\n"]
-                for m in family_members:
-                    metrics = [f"{m.relation}", f"Gender: {m.gender or 'Unspecified'}", f"Age: {m.age}"]
-                    if m.height_cm:
-                        metrics.append(f"Height: {m.height_cm} cm")
-                    if m.weight_kg:
-                        metrics.append(f"Weight: {m.weight_kg} kg")
-                    if m.bmi:
-                        metrics.append(f"BMI: {m.bmi} kg/m²")
-                    parts.append(f"• **{m.name}** — {', '.join(metrics)}")
-                
-                return Response({
-                    "response": "\n".join(parts),
-                    "data_source": "database",
-                    "has_reports": True
-                })
+            # 3. Handle INTENT: GREETING
+            if intent == INTENT_GREETING:
+                ground_truth_context = "The user is greeting you. Respond warmly as the Nexolith Care Local AI Assistant."
+                fallback_response = "Hello! I am your Local AI Health Assistant. How can I help you today?"
+                data_source = "local_assistant"
 
-            # 4.5. Handle INTENT: REPORT VALUES ("what are the values in Sarah's report?")
-            if intent == INTENT_REPORT_VALUES:
-                target_m = target_member or (family_members[0] if len(family_members) == 1 else None)
-                if not target_m:
-                    if not family_members:
-                        return Response({
-                            "response": "You currently have no family members or medical reports stored in Nexolith Care.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
-                    target_m = family_members[0]
+            # 4. Handle INTENT: GENERAL CONVERSATION
+            elif intent == INTENT_GENERAL_CONVERSATION:
+                ground_truth_context = "The user is engaging in general polite conversation with the assistant."
+                fallback_response = "You're welcome! I am here to assist you with your family's medical records, health trends, and general medical queries offline."
+                data_source = "local_assistant"
 
-                reps = list(Report.objects.filter(member=target_m).order_by('-date'))
-                if not reps:
-                    return Response({
-                        "response": f"{target_m.name} currently has no medical reports stored in Nexolith Care.",
-                        "data_source": "database",
-                        "has_reports": False
-                    })
-
-                latest_r = reps[0]
-                report_date_str = str(latest_r.date)
-                report_title = latest_r.title or "Blood Test"
-
-                parts = [
-                    f"{target_m.name} — {report_title}",
-                    f"Report Date: {report_date_str}\n"
-                ]
-
-                db_params = list(latest_r.parameters.all())
-                if db_params:
-                    for p in db_params:
-                        unit_str = f" {p.unit}" if p.unit else ""
-                        ref_range = p.range if p.range else "—"
-                        parts.append(
-                            f"• **{p.parameter}**: {p.value}{unit_str}\n"
-                            f"  Reference Range: {ref_range}\n"
-                            f"  Status: {p.status}\n"
-                        )
-                elif latest_r.lab_values:
-                    for item in latest_r.lab_values:
-                        if not isinstance(item, dict):
-                            continue
-                        param = item.get("parameter", "Unknown")
-                        val = item.get("value", "—")
-                        unit = item.get("unit", "")
-                        ref_range = item.get("range", "—")
-                        status = item.get("status", "Normal")
-                        unit_str = f" {unit}" if unit else ""
-
-                        parts.append(
-                            f"• **{param}**: {val}{unit_str}\n"
-                            f"  Reference Range: {ref_range}\n"
-                            f"  Status: {status}\n"
-                        )
+            # 5. Handle INTENT: FAMILY MEMBERS
+            elif intent == INTENT_FAMILY_MEMBERS:
+                if target_member:
+                    reps_count = Report.objects.filter(member=target_member).count()
+                    metrics = [
+                        f"Relationship: {target_member.relation}",
+                        f"Age: {target_member.age} years old",
+                        f"Gender: {target_member.gender or 'Unspecified'}",
+                        f"Stored Reports: {reps_count}"
+                    ]
+                    if target_member.height_cm:
+                        metrics.append(f"Height: {target_member.height_cm} cm")
+                    if target_member.weight_kg:
+                        metrics.append(f"Weight: {target_member.weight_kg} kg")
+                    if target_member.bmi:
+                        metrics.append(f"BMI: {target_member.bmi} kg/m²")
+                    
+                    ground_truth_context = f"PostgreSQL Profile Details for {target_member.name}:\n" + "\n".join([f"• {m}" for m in metrics])
+                    if reps_count == 0:
+                        ground_truth_context += f"\nNote: {target_member.name} currently has 0 medical reports stored."
+                    fallback_response = f"### Profile Details for {target_member.name}\n" + "\n".join([f"• **{m.split(':')[0]}**: {m.split(':')[1].strip()}" for m in metrics])
+                elif not family_members:
+                    ground_truth_context = "User currently has 0 family members added to their profile in PostgreSQL."
+                    fallback_response = "There are currently no family members added to your profile."
+                    has_reports = False
                 else:
-                    parts.append("No medical lab parameters were found in this stored report.")
+                    parts = ["Registered Family Members in PostgreSQL:"]
+                    for m in family_members:
+                        m_reps = Report.objects.filter(member=m).count()
+                        m_metrics = [f"{m.relation}", f"Gender: {m.gender or 'Unspecified'}", f"Age: {m.age}", f"Reports: {m_reps}"]
+                        if m.height_cm: m_metrics.append(f"Height: {m.height_cm} cm")
+                        if m.weight_kg: m_metrics.append(f"Weight: {m.weight_kg} kg")
+                        if m.bmi: m_metrics.append(f"BMI: {m.bmi} kg/m²")
+                        parts.append(f"• {m.name} — {', '.join(m_metrics)}")
+                    ground_truth_context = "\n".join(parts)
+                    fallback_response = "### Your Registered Family Members\n" + "\n".join(parts[1:])
 
-                return Response({
-                    "response": "\n".join(parts).strip(),
-                    "data_source": "database",
-                    "has_reports": True
-                })
+            # 6. Handle INTENT: REPORT VALUES ("what are the values in Sarah's report?")
+            elif intent == INTENT_REPORT_VALUES:
+                target_m = target_member
+                if not target_m:
+                    members_with_reps = [m for m in family_members if Report.objects.filter(member=m).exists()]
+                    if len(members_with_reps) == 1:
+                        target_m = members_with_reps[0]
+                    elif len(family_members) == 1:
+                        target_m = family_members[0]
 
-            # 5. Handle INTENT: GENERAL MEDICAL QUESTION (Educational)
-            if intent == INTENT_MEDICAL_GENERAL_QUESTION:
-                edu_response = kb_engine.get_general_educational_response(message, parameter_name)
-                return Response({
-                    "response": edu_response,
-                    "data_source": "local_knowledge_engine",
-                    "has_reports": True
-                })
+                if not target_m:
+                    m_label = target_member_name or "The specified member"
+                    ground_truth_context = f"{m_label} currently has 0 medical reports stored in PostgreSQL."
+                    fallback_response = f"{m_label} currently has no stored medical reports."
+                    has_reports = False
+                else:
+                    reps = list(Report.objects.filter(member=target_m).order_by('-date'))
+                    if not reps:
+                        ground_truth_context = f"{target_m.name} currently has 0 medical reports stored in PostgreSQL."
+                        fallback_response = f"{target_m.name} currently has no stored medical reports."
+                        has_reports = False
+                    else:
+                        latest_r = reps[0]
+                        parts = [
+                            f"Report Title: '{latest_r.title or 'Blood Test'}'",
+                            f"Report Date: {latest_r.date}",
+                            f"Patient: {target_m.name}\nLab Values:"
+                        ]
+                        db_params = list(latest_r.parameters.all())
+                        if db_params:
+                            for p in db_params:
+                                unit_str = f" {p.unit}" if p.unit else ""
+                                ref_range = p.range if p.range else "N/A"
+                                parts.append(f"• {p.parameter}: {p.value}{unit_str} (Reference Range: {ref_range}, Status: {p.status})")
+                        elif latest_r.lab_values:
+                            for item in latest_r.lab_values:
+                                if isinstance(item, dict):
+                                    param = item.get("parameter", "Unknown")
+                                    val = item.get("value", "—")
+                                    unit = item.get("unit", "")
+                                    ref_range = item.get("range", "N/A")
+                                    status = item.get("status", "Normal")
+                                    unit_str = f" {unit}" if unit else ""
+                                    parts.append(f"• {param}: {val}{unit_str} (Reference Range: {ref_range}, Status: {status})")
+                        else:
+                            parts.append("No lab parameters found in this report.")
 
-            # 6. Handle INTENT: PATIENT SPECIFIC ADVICE ("How can Sarah decrease her glucose?")
-            if intent == INTENT_PATIENT_SPECIFIC_ADVICE:
-                edu_guidance = kb_engine.get_general_educational_response(message, parameter_name)
+                        ground_truth_context = f"PostgreSQL Stored Report Values for {target_m.name}:\n" + "\n".join(parts)
+                        fallback_response = f"### {target_m.name} — {latest_r.title or 'Blood Test'}\nReport Date: {latest_r.date}\n" + "\n".join(parts[3:])
+
+            # 7. Handle INTENT: PATIENT SPECIFIC ADVICE
+            elif intent == INTENT_PATIENT_SPECIFIC_ADVICE:
+                p_label = parameter_name or "Fasting Glucose"
+                edu_guidance = kb.retrieve_knowledge(canonical_entity or "glucose", aspect or "prevention", raw_message)
+                target_str = target_member.name if target_member else (target_member_name or "the specified member")
                 
                 if target_member:
                     reps = list(Report.objects.filter(member=target_member).order_by('-date'))
-                    # Search for stored parameter value
                     found_val = None
-                    if parameter_name:
+                    if parameter_name or canonical_entity:
+                        target_p_lower = (parameter_name or canonical_entity).lower()
                         for r in reps:
                             for item in (r.lab_values or []):
-                                if isinstance(item, dict) and parameter_name.lower() in item.get('parameter', '').lower():
+                                if isinstance(item, dict) and (target_p_lower in item.get('parameter', '').lower() or item.get('parameter', '').lower() in target_p_lower):
                                     found_val = item
                                     break
                             if found_val:
                                 break
 
                     if found_val:
-                        resp_str = (
-                            f"### Guidance for {target_member.name}'s {parameter_name}\n\n"
-                            f"{target_member.name}'s latest recorded {parameter_name} is **{found_val.get('value')} {found_val.get('unit', '')}** (Status: **{found_val.get('status')}**).\n\n"
+                        ground_truth_context = (
+                            f"PostgreSQL Patient Data for {target_member.name}:\n"
+                            f"Latest recorded {p_label}: {found_val.get('value')} {found_val.get('unit', '')} (Status: {found_val.get('status')})\n\n"
+                            f"Medical Guidance from Knowledge Base:\n{edu_guidance}"
+                        )
+                        fallback_response = (
+                            f"### Guidance for {target_member.name}'s {p_label}\n\n"
+                            f"{target_member.name}'s latest recorded {p_label} is **{found_val.get('value')} {found_val.get('unit', '')}** (Status: **{found_val.get('status')}**).\n\n"
                             f"{edu_guidance}"
                         )
                     else:
-                        resp_str = (
-                            f"I don't have a current {parameter_name or 'medical'} result for {target_member.name} in her stored reports. "
-                            f"I can still provide general educational information about maintaining healthy levels:\n\n{edu_guidance}"
+                        ground_truth_context = (
+                            f"PostgreSQL Status: No current {p_label} result found for {target_str} in stored reports.\n\n"
+                            f"Medical Guidance from Knowledge Base:\n{edu_guidance}"
+                        )
+                        fallback_response = (
+                            f"I don't have a current {p_label} result for {target_str} in the stored reports.\n\n"
+                            f"{edu_guidance}"
                         )
                 else:
-                    target_str = target_member_name or "the specified member"
-                    resp_str = (
-                        f"I don't have a current {parameter_name or 'medical'} result for {target_str} in the stored reports. "
-                        f"Here is general educational guidance on maintaining healthy levels:\n\n{edu_guidance}"
+                    ground_truth_context = (
+                        f"PostgreSQL Status: No current {p_label} result found for {target_str}.\n\n"
+                        f"Medical Guidance from Knowledge Base:\n{edu_guidance}"
                     )
+                    fallback_response = (
+                        f"I don't have a current {p_label} result for {target_str} in the stored reports.\n\n"
+                        f"{edu_guidance}"
+                    )
+                data_source = "local_knowledge_engine"
 
-                return Response({
-                    "response": resp_str,
-                    "data_source": "local_knowledge_engine",
-                    "has_reports": True
-                })
-
-            # 7. Handle INTENT: REPORT LIST
-            if intent == INTENT_REPORT_LIST:
+            # 8. Handle INTENT: REPORT LIST ("how many reports does Sarah have?")
+            elif intent == INTENT_REPORT_LIST:
                 if target_member_name:
                     if target_member:
                         reps = list(Report.objects.filter(member=target_member).order_by('-date'))
                         if len(reps) == 0:
-                            return Response({
-                                "response": f"{target_member.name} currently has no medical reports stored in Nexolith Care.",
-                                "data_source": "database",
-                                "has_reports": False
-                            })
-                        parts = [f"### Medical Reports for {target_member.name} ({len(reps)} stored)\n"]
-                        for r in reps:
-                            parts.append(f"• **{r.title}** ({r.date}) — Type: {r.type}, Abnormality: **{r.abnormality}**")
-                        return Response({
-                            "response": "\n".join(parts),
-                            "data_source": "database",
-                            "has_reports": True
-                        })
+                            ground_truth_context = f"PostgreSQL Record: {target_member.name} currently has 0 medical reports stored."
+                            fallback_response = f"{target_member.name} currently has 0 stored medical reports."
+                            has_reports = False
+                        else:
+                            parts = [f"PostgreSQL Stored Reports for {target_member.name} ({len(reps)} stored):"]
+                            for r in reps:
+                                parts.append(f"• '{r.title}' ({r.date}) — Type: {r.type}, Abnormality: {r.abnormality}")
+                            ground_truth_context = "\n".join(parts)
+                            fallback_response = f"{target_member.name} has {len(reps)} stored medical report{'s' if len(reps) != 1 else ''}:\n" + "\n".join([f"• **{r.title}** ({r.date}) — Type: {r.type}, Abnormality: **{r.abnormality}**" for r in reps])
                     else:
-                        return Response({
-                            "response": f"{target_member_name} currently has no medical reports stored in Nexolith Care.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
+                        ground_truth_context = f"PostgreSQL Record: {target_member_name} currently has 0 medical reports stored."
+                        fallback_response = f"{target_member_name} currently has 0 stored medical reports."
+                        has_reports = False
                 else:
                     total_reps = sum(Report.objects.filter(member=m).count() for m in family_members)
                     if total_reps == 0:
-                        return Response({
-                            "response": "You currently have no medical reports stored in Nexolith Care.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
-                    parts = ["### Stored Family Medical Reports\n"]
-                    for m in family_members:
-                        reps = list(Report.objects.filter(member=m).order_by('-date'))
-                        if reps:
-                            parts.append(f"**{m.name}** ({len(reps)} reports):")
-                            for r in reps:
-                                parts.append(f"  • **{r.title}** ({r.date}) — Status: **{r.abnormality}**")
-                        else:
-                            parts.append(f"**{m.name}**: No reports stored.")
-                    return Response({
-                        "response": "\n".join(parts),
-                        "data_source": "database",
-                        "has_reports": True
-                    })
+                        ground_truth_context = "PostgreSQL Record: User currently has 0 family medical reports stored."
+                        fallback_response = "You currently have 0 medical reports stored in Nexolith Care."
+                        has_reports = False
+                    else:
+                        parts = ["PostgreSQL Stored Family Medical Reports:"]
+                        for m in family_members:
+                            reps = list(Report.objects.filter(member=m).order_by('-date'))
+                            if reps:
+                                parts.append(f"{m.name} ({len(reps)} reports):")
+                                for r in reps:
+                                    parts.append(f"  • '{r.title}' ({r.date}) — Status: {r.abnormality}")
+                            else:
+                                parts.append(f"{m.name}: 0 reports stored.")
+                        ground_truth_context = "\n".join(parts)
+                        fallback_response = f"Your family currently has {total_reps} stored medical report{'s' if total_reps != 1 else ''}:\n" + "\n".join(parts[1:])
 
-            # 8. Handle INTENT: PARAMETER VALUE
-            if intent == INTENT_PARAMETER_VALUE:
-                target_m = target_member or (family_members[0] if len(family_members) == 1 else None)
+            # 9. Handle INTENT: PARAMETER VALUE ("what was Sarah's glucose?")
+            elif intent == INTENT_PARAMETER_VALUE:
+                target_m = target_member if target_member_name else (family_members[0] if len(family_members) == 1 else None)
                 if target_m:
                     reps = list(Report.objects.filter(member=target_m).order_by('-date'))
                     if len(reps) == 0:
-                        return Response({
-                            "response": f"{target_m.name} currently has no medical reports stored in Nexolith Care.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
+                        ground_truth_context = f"PostgreSQL Record: {target_m.name} currently has 0 medical reports stored."
+                        fallback_response = f"I don't have any stored glucose or parameter values for {target_m.name}."
+                        has_reports = False
+                    else:
+                        rep_idx = 1 if ("previous" in raw_message.lower() or "earlier" in raw_message.lower()) and len(reps) > 1 else 0
+                        r_target = reps[rep_idx]
 
-                    # Search parameter in reports
-                    found_item = None
-                    found_rep = None
-                    if parameter_name:
-                        for r in reps:
-                            for item in (r.lab_values or []):
+                        found_item = None
+                        if parameter_name or canonical_entity:
+                            target_p_lower = (parameter_name or canonical_entity).lower()
+                            for item in (r_target.lab_values or []):
                                 if isinstance(item, dict):
                                     item_p = item.get('parameter', '').strip()
-                                    p_lower = parameter_name.lower()
                                     ip_lower = item_p.lower()
-                                    if item_p and (p_lower in ip_lower or ip_lower in p_lower or ('glucose' in p_lower and 'glucose' in ip_lower) or ('cholesterol' in p_lower and 'cholesterol' in ip_lower)):
+                                    if item_p and (target_p_lower in ip_lower or ip_lower in target_p_lower or ('glucose' in target_p_lower and 'glucose' in ip_lower) or ('cholesterol' in target_p_lower and 'cholesterol' in ip_lower)):
                                         found_item = item
-                                        found_rep = r
                                         break
-                            if found_item:
-                                break
 
-                    if found_item and found_rep:
-                        p_name = found_item.get('parameter', parameter_name)
-                        p_val = found_item.get('value', 'N/A')
-                        p_unit = found_item.get('unit', '')
-                        p_range = found_item.get('range', 'N/A')
-                        p_status = found_item.get('status', 'Normal')
+                        if found_item:
+                            p_name = found_item.get('parameter', parameter_name or canonical_entity.title())
+                            p_val = found_item.get('value', 'N/A')
+                            p_unit = found_item.get('unit', '')
+                            p_range = found_item.get('range', 'N/A')
+                            p_status = found_item.get('status', 'Normal')
 
-                        parts = [
-                            f"### {target_m.name}'s {p_name} Result",
-                            f"• **Reported Value**: {p_val} {p_unit}",
-                            f"• **Reference Range**: {p_range}",
-                            f"• **Status**: **{p_status}**",
-                            f"• **Source**: '{found_rep.title}' ({found_rep.date})"
-                        ]
+                            explanation = kb_legacy.get_explanation(p_name, p_status)
+                            recommendation = kb_legacy.get_recommendation(p_name)
 
-                        explanation = kb_engine.get_explanation(parameter_name or p_name, p_status)
-                        recommendation = kb_engine.get_recommendation(parameter_name or p_name)
-                        parts.append(f"\n**Clinical Explanation:**\n{explanation}")
-                        parts.append(f"\n**Recommendation:**\n{recommendation}")
-                        parts.append("\n\n*(Note: Powered 100% locally by offline medical ML models and local health knowledge engine. No external API used.)*")
+                            ground_truth_context = (
+                                f"PostgreSQL Parameter Record for {target_m.name}:\n"
+                                f"Parameter: {p_name}\n"
+                                f"Reported Value: {p_val} {p_unit}\n"
+                                f"Reference Range: {p_range}\n"
+                                f"Status: {p_status}\n"
+                                f"Source Report: '{r_target.title}' ({r_target.date})\n"
+                                f"Clinical Explanation: {explanation}\n"
+                                f"Recommendation: {recommendation}"
+                            )
 
-                        return Response({
-                            "response": "\n".join(parts),
-                            "data_source": "database",
-                            "has_reports": True
-                        })
-                    else:
-                        param_label = parameter_name or "requested parameter"
-                        return Response({
-                            "response": f"I don't have a current {param_label} result for {target_m.name} in the stored reports.",
-                            "data_source": "database",
-                            "has_reports": True
-                        })
+                            prefix = f"### {target_m.name}'s Previous {p_name} Result" if rep_idx == 1 else f"### {target_m.name}'s {p_name} Result"
+                            fallback_response = (
+                                f"{prefix}\n"
+                                f"• **Reported Value**: {p_val} {p_unit}\n"
+                                f"• **Reference Range**: {p_range}\n"
+                                f"• **Status**: **{p_status}**\n"
+                                f"• **Source**: '{r_target.title}' ({r_target.date})\n\n"
+                                f"**Clinical Explanation:**\n{explanation}\n\n"
+                                f"**Recommendation:**\n{recommendation}"
+                            )
+                        else:
+                            param_label = parameter_name or canonical_entity or "requested parameter"
+                            ground_truth_context = f"PostgreSQL Record: No current {param_label} result found for {target_m.name} in stored reports."
+                            fallback_response = f"I don't have any stored {param_label} values for {target_m.name}."
                 else:
                     if target_member_name:
-                        return Response({
-                            "response": f"{target_member_name} currently has no medical reports stored in Nexolith Care.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
-                    param_label = parameter_name or "requested parameter"
-                    return Response({
-                        "response": f"I don't have a current {param_label} result in your family's stored reports.",
-                        "data_source": "database",
-                        "has_reports": False
-                    })
+                        ground_truth_context = f"PostgreSQL Record: {target_member_name} currently has 0 medical reports stored."
+                        fallback_response = f"I don't have any stored medical values for {target_member_name}."
+                        has_reports = False
+                    else:
+                        param_label = parameter_name or canonical_entity or "requested parameter"
+                        ground_truth_context = f"PostgreSQL Record: No current {param_label} result found in stored family reports."
+                        fallback_response = f"I don't have any stored {param_label} values in your family's reports."
+                        has_reports = False
 
-            # 9. Handle INTENT: PARAMETER TREND
-            if intent == INTENT_PARAMETER_TREND:
+            # 10. Handle INTENT: PARAMETER TREND ("how is Sarah's glucose changing?")
+            elif intent == INTENT_PARAMETER_TREND:
                 target_m = target_member or (family_members[0] if len(family_members) == 1 else None)
                 if not target_m:
                     if target_member_name:
-                        return Response({
-                            "response": f"{target_member_name} currently has no medical reports stored in Nexolith Care.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
-                    return Response({
-                        "response": "Please specify a family member name to analyze historical parameter trends (e.g. 'Analyze Sarah's glucose trend').",
-                        "data_source": "local_assistant",
-                        "has_reports": True
-                    })
+                        ground_truth_context = f"PostgreSQL Record: {target_member_name} currently has 0 medical reports stored."
+                        fallback_response = f"{target_member_name} currently has no medical reports stored."
+                        has_reports = False
+                    else:
+                        ground_truth_context = "User query requires specifying a family member to analyze parameter trends."
+                        fallback_response = "Please specify a family member name to analyze historical parameter trends (e.g. 'Analyze Sarah's glucose trend')."
+                        data_source = "local_assistant"
+                else:
+                    reps = list(Report.objects.filter(member=target_m).order_by('date'))
+                    if len(reps) == 0:
+                        ground_truth_context = f"PostgreSQL Record: {target_m.name} currently has 0 medical reports stored."
+                        fallback_response = f"{target_m.name} currently has no medical reports stored, so there isn't enough report data to assess trends yet."
+                        has_reports = False
+                    else:
+                        historical_items = []
+                        param_target = parameter_name or "Fasting Glucose"
+                        for r in reps:
+                            for item in (r.lab_values or []):
+                                if isinstance(item, dict) and param_target.lower() in item.get('parameter', '').lower():
+                                    historical_items.append({
+                                        "date": str(r.date),
+                                        "value": item.get('value'),
+                                        "unit": item.get('unit', ''),
+                                        "title": r.title,
+                                        "status": item.get('status', 'Normal')
+                                    })
+                        if not historical_items:
+                            ground_truth_context = f"PostgreSQL Record: {target_m.name} has reports, but no historical {param_target} measurements were found."
+                            fallback_response = f"There are no recorded {param_target} measurements stored for {target_m.name} to analyze trends."
+                        else:
+                            trend_result = trend_engine.analyze_parameter_trend(target_m.name, param_target, historical_items)
+                            ground_truth_context = f"PostgreSQL Historical Parameter Trend for {target_m.name} ({param_target}):\n{trend_result['response']}"
+                            fallback_response = trend_result["response"]
 
-                reps = list(Report.objects.filter(member=target_m).order_by('date')) # Chronological
-                if len(reps) == 0:
-                    return Response({
-                        "response": f"{target_m.name} currently has no medical reports stored in Nexolith Care.",
-                        "data_source": "database",
-                        "has_reports": False
-                    })
+            # 11. Handle INTENT: ABNORMAL RESULTS / ACTIVE WARNINGS / HEALTH RISKS
+            elif intent == INTENT_ABNORMAL_RESULTS:
+                active_alerts = list(Alert.objects.filter(member__family__user=request.user, status__in=['Active', 'Upcoming']))
+                if target_member:
+                    active_alerts = [a for a in active_alerts if a.member_id == target_member.id]
 
-                historical_items = []
-                param_target = parameter_name or "Fasting Glucose"
-                for r in reps:
-                    for item in (r.lab_values or []):
-                        if isinstance(item, dict) and param_target.lower() in item.get('parameter', '').lower():
-                            historical_items.append({
-                                "date": str(r.date),
-                                "value": item.get('value'),
-                                "unit": item.get('unit', ''),
-                                "title": r.title,
-                                "status": item.get('status', 'Normal')
-                            })
+                abnormal_labs = []
+                for m in family_members:
+                    if target_member and m.id != target_member.id:
+                        continue
+                    reps = list(Report.objects.filter(member=m).order_by('-date'))
+                    if reps:
+                        latest_r = reps[0]
+                        for item in (latest_r.lab_values or []):
+                            if isinstance(item, dict) and item.get('status') in ['Borderline', 'Critical']:
+                                abnormal_labs.append({
+                                    "member": m.name,
+                                    "parameter": item.get('parameter'),
+                                    "value": item.get('value'),
+                                    "unit": item.get('unit', ''),
+                                    "status": item.get('status'),
+                                    "range": item.get('range', 'N/A'),
+                                    "report": latest_r.title,
+                                    "date": str(latest_r.date)
+                                })
 
-                trend_result = trend_engine.analyze_parameter_trend(target_m.name, param_target, historical_items)
+                if not active_alerts and not abnormal_labs:
+                    ground_truth_context = "PostgreSQL Record: There are currently no active health warnings or abnormal report results stored for your family."
+                    fallback_response = "There are currently no active health warnings or abnormal report results stored for your family."
+                else:
+                    parts = ["PostgreSQL Active Health Warnings & Abnormal Parameters:"]
+                    if active_alerts:
+                        parts.append("Active Reminders / Alerts:")
+                        for a in active_alerts:
+                            m_name = a.member.name if a.member else "Family"
+                            parts.append(f"• [{a.severity}] {a.title} ({m_name}): {a.description} (Date: {a.date})")
+                    if abnormal_labs:
+                        parts.append("Abnormal Lab Results:")
+                        for item in abnormal_labs:
+                            parts.append(f"• {item['member']} — {item['parameter']}: {item['value']} {item['unit']} [{item['status']}] (Report: '{item['report']}', {item['date']})")
+                    
+                    ground_truth_context = "\n".join(parts)
+                    fallback_response = "### Active Health Warnings & Abnormal Results\n" + "\n".join(parts[1:])
+
+            # 12. Handle INTENT: GENERAL MEDICAL QUESTION (e.g. "what is haemoglobin", "what is glucose")
+            else:
+                medical_ans = kb.retrieve_knowledge(canonical_entity or "general", aspect=aspect, raw_query=raw_message)
+                ground_truth_context = f"General Medical Knowledge Context:\nQuestion: '{raw_message}'\nReference Medical Knowledge:\n{medical_ans}"
+                fallback_response = medical_ans
+                data_source = "local_knowledge_engine"
+
+            # 13. Pass Ground-Truth Context & Query to Ollama (llama3.1:latest)
+            ollama_result = ollama.generate_response(
+                user_query=raw_message,
+                system_context=ground_truth_context,
+                history=history
+            )
+
+            if ollama_result.get("success") and ollama_result.get("response"):
                 return Response({
-                    "response": trend_result["response"],
-                    "data_source": "database",
-                    "has_reports": True
+                    "response": ollama_result["response"],
+                    "data_source": "ollama_local",
+                    "has_reports": has_reports
                 })
 
-            # 10. Handle INTENT: ABNORMAL RESULTS
-            if intent == INTENT_ABNORMAL_RESULTS:
-                target_m = target_member or (family_members[0] if len(family_members) == 1 else None)
-                if target_m:
-                    reps = list(Report.objects.filter(member=target_m).order_by('-date'))
-                    if len(reps) == 0:
-                        return Response({
-                            "response": f"{target_m.name} currently has no medical reports stored in Nexolith Care.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
-
-                    latest_r = reps[0]
-                    abnormals = [item for item in (latest_r.lab_values or []) if isinstance(item, dict) and item.get('status') in ['Borderline', 'Critical']]
-
-                    if abnormals:
-                        parts = [f"### Abnormal Results for {target_m.name} (from '{latest_r.title}', {latest_r.date})\n"]
-                        for item in abnormals:
-                            parts.append(f"• **{item.get('parameter')}**: {item.get('value')} {item.get('unit')} — Status: **{item.get('status')}** (Ref: {item.get('range', 'N/A')})")
-                        return Response({
-                            "response": "\n".join(parts),
-                            "data_source": "database",
-                            "has_reports": True
-                        })
-                    else:
-                        return Response({
-                            "response": f"All stored lab parameters for {target_m.name} fall within normal reference ranges.",
-                            "data_source": "database",
-                            "has_reports": True
-                        })
-                else:
-                    parts = ["### Active Abnormal Parameters Across Family\n"]
-                    found_any = False
-                    for m in family_members:
-                        reps = list(Report.objects.filter(member=m).order_by('-date'))
-                        if reps:
-                            latest_r = reps[0]
-                            abnormals = [item for item in (latest_r.lab_values or []) if isinstance(item, dict) and item.get('status') in ['Borderline', 'Critical']]
-                            if abnormals:
-                                found_any = True
-                                parts.append(f"**{m.name}**:")
-                                for item in abnormals:
-                                    parts.append(f"  • **{item.get('parameter')}**: {item.get('value')} {item.get('unit')} [{item.get('status')}]")
-                    if not found_any:
-                        return Response({
-                            "response": "All stored lab parameters across your family fall within normal reference ranges.",
-                            "data_source": "database",
-                            "has_reports": True
-                        })
-                    return Response({
-                        "response": "\n".join(parts),
-                        "data_source": "database",
-                        "has_reports": True
-                    })
-
-            # 11. Handle INTENT: HEALTH SUMMARY
-            if intent == INTENT_HEALTH_SUMMARY:
-                target_m = target_member or (family_members[0] if len(family_members) == 1 else None)
-                if target_m:
-                    reps = list(Report.objects.filter(member=target_m).order_by('-date'))
-                    if len(reps) == 0:
-                        return Response({
-                            "response": f"{target_m.name} currently has no medical reports stored, so I don't have patient-specific results to summarize.",
-                            "data_source": "database",
-                            "has_reports": False
-                        })
-                    latest_r = reps[0]
-                    parts = [
-                        f"### Health Summary for {target_m.name}",
-                        f"• **Gender / Relation**: {target_m.gender or 'Unspecified'} ({target_m.relation})",
-                        f"• **Age**: {target_m.age} years old",
-                        f"• **Height / Weight / BMI**: Height: {target_m.height_cm or 'N/A'} cm | Weight: {target_m.weight_kg or 'N/A'} kg | Calculated BMI: {f'{target_m.bmi} kg/m²' if target_m.bmi else 'N/A'}",
-                        f"• **Total Stored Reports**: {len(reps)}",
-                        f"• **Latest Report**: '{latest_r.title}' ({latest_r.date})",
-                        f"• **Latest Abnormality Status**: **{latest_r.abnormality}**"
-                    ]
-                    if latest_r.summary:
-                        parts.append(f"• **Clinical Summary**: {latest_r.summary}")
-                    return Response({
-                        "response": "\n".join(parts),
-                        "data_source": "database",
-                        "has_reports": True
-                    })
-
-            # 12. Handle INTENT: UNKNOWN (Helpful Clarification)
             return Response({
-                "response": "I'm not sure I understood that question. You can ask me about your family's reports, health trends, abnormal results, or general health topics such as glucose, cholesterol, blood pressure, and nutrition.",
-                "data_source": "local_assistant",
-                "has_reports": True
+                "response": fallback_response,
+                "data_source": data_source,
+                "has_reports": has_reports
             })
 
         except Exception as e:
@@ -559,6 +529,7 @@ class PredictionsView(APIView):
     """
     Exposes live dynamic, person-specific AI health predictions
     and risk scores based on uploaded reports.
+    Strictly isolated to authenticated user's family members.
     """
     permission_classes = [permissions.IsAuthenticated]
 
@@ -568,8 +539,15 @@ class PredictionsView(APIView):
             return Response({"error": "member_id parameter is required"}, status=400)
         
         try:
+            from family.models import FamilyMember
+            # Account Data Isolation (Rule 10): Ensure member belongs to request.user
+            try:
+                member = FamilyMember.objects.get(id=member_id, family__user=request.user)
+            except FamilyMember.DoesNotExist:
+                return Response({"error": "Family member not found or access denied."}, status=404)
+
             engine = AIHealthPredictionEngine()
-            predictions_data = engine.analyze_predictions(member_id)
+            predictions_data = engine.analyze_predictions(member.id)
             return Response(predictions_data)
         except Exception as e:
             logger.error(f"Failed to calculate predictions: {e}")

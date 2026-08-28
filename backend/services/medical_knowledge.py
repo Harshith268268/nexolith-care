@@ -5,7 +5,7 @@ status interpretations, lifestyle recommendations, and overall report summaries 
 """
 
 import logging
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -149,7 +149,7 @@ MEDICAL_KNOWLEDGE_CATALOG = {
 class MedicalKnowledgeEngine:
     """
     Generates deterministic, patient-friendly explanations, recommendations,
-    and summaries based on parameter statuses.
+    nutrition advice, disease information, symptom responses, and summaries.
     """
 
     def get_explanation(self, param_name: str, status: str) -> str:
@@ -170,93 +170,309 @@ class MedicalKnowledgeEngine:
             return kb["recommendation"]
         return "Maintain a balanced lifestyle, eat nutrient-rich foods, and consult a physician for personalized guidance."
 
+    def get_nutrition_response(self, query: str, topic: Optional[str] = None, param_name: Optional[str] = None) -> str:
+        q_lower = query.lower()
+        top = (topic or "").lower()
+
+        if top == "iron" or "iron" in q_lower or param_name == "Hemoglobin":
+            return (
+                "### Dietary Sources Rich in Iron\n\n"
+                "**Top Iron-Rich Foods:**\n"
+                "1. **Plant-Based (Non-Heme Iron)**: Dark leafy greens (spinach, kale, Swiss chard), lentils, chickpeas, black beans, tofu, pumpkin seeds, quinoa, dark chocolate, and fortified cereals.\n"
+                "2. **Animal-Based (Heme Iron)**: Lean red meat, poultry, turkey, fish, clams, and oysters.\n\n"
+                "**Absorption Enhancement Tip:**\n"
+                "• Pair iron-rich foods with **Vitamin C** (citrus fruits, bell peppers, strawberries, tomatoes) to boost intestinal iron absorption.\n"
+                "• Limit coffee or tea directly with meals as polyphenols can reduce iron intake.\n\n"
+                "*(Note: Educational health information provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "vitamin_d" or "vitamin d" in q_lower or "vit d" in q_lower or param_name == "Vitamin D":
+            return (
+                "### Dietary Sources Rich in Vitamin D\n\n"
+                "**Key Sources of Vitamin D:**\n"
+                "1. **Fatty Fish**: Salmon, mackerel, tuna, sardines, and trout.\n"
+                "2. **Fortified Foods**: Fortified dairy milk, plant-based milks (almond/soy/oat), fortified orange juice, and breakfast cereals.\n"
+                "3. **Egg Yolks & Beef Liver**: Natural sources containing dietary Vitamin D3.\n"
+                "4. **Sun-Exposed Mushrooms**: UV-treated mushrooms providing Vitamin D2.\n\n"
+                "**Sunlight Exposure:**\n"
+                "• 15–20 minutes of daily natural sunlight exposure on skin (arms/face) promotes natural Vitamin D synthesis.\n\n"
+                "*(Note: Educational health information provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "calcium" or "calcium" in q_lower:
+            return (
+                "### Dietary Sources Rich in Calcium\n\n"
+                "**Top Calcium-Rich Foods:**\n"
+                "1. **Dairy Products**: Milk, Greek yogurt, cheese, and cottage cheese.\n"
+                "2. **Plant Sources**: Fortified plant milks, tofu, dark leafy greens (kale, broccoli, bok choy), and almonds.\n"
+                "3. **Canned Fish**: Canned sardines and salmon with soft edible bones.\n\n"
+                "*(Note: Educational health information provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "glucose" or "glucose" in q_lower or "blood sugar" in q_lower or "diabetes" in q_lower:
+            return (
+                "### Understanding Blood Glucose & Foods to Support Control\n\n"
+                "**Recommended Low-Glycemic & High-Fiber Foods:**\n"
+                "1. **Non-Starchy Vegetables**: Broccoli, spinach, kale, cauliflower, bell peppers, and cucumbers (low carb, high micronutrient density).\n"
+                "2. **Soluble Fiber Foods**: Steel-cut oats, lentils, chickpeas, black beans, and chia seeds (slow down glucose absorption).\n"
+                "3. **Low-GI Fruits**: Blueberries, raspberries, strawberries, apples, and pears in moderation.\n"
+                "4. **Nuts & Seeds**: Almonds, walnuts, and flaxseeds (healthy fats and protein that prevent sharp glucose spikes).\n"
+                "5. **Lean Proteins**: Eggs, chicken, turkey, fish, and tofu.\n\n"
+                "**Foods to Avoid or Minimize:**\n"
+                "• Refined sugars, sodas, sugary juices, white bread, and processed baked goods.\n\n"
+                "*(Note: Educational health information provided by offline Local Medical Knowledge Engine. Discuss dietary changes with a healthcare provider.)*"
+            )
+
+        if top == "cholesterol" or "cholesterol" in q_lower or "lipid" in q_lower:
+            return (
+                "### Foods for Heart-Healthy Cholesterol Management\n\n"
+                "**Cholesterol-Lowering & Heart-Healthy Foods:**\n"
+                "1. **Soluble Fiber Sources**: Oatmeal, oat bran, beans, lentils, Brussels sprouts, and apples (bind cholesterol in digestive system).\n"
+                "2. **Healthy Monounsaturated Fats**: Extra virgin olive oil, avocados, almonds, and walnuts.\n"
+                "3. **Omega-3 Fatty Acids**: Salmon, mackerel, sardines, flaxseeds, and chia seeds (reduce triglycerides).\n"
+                "4. **Plant Sterols & Stanols**: Fortified spreads and whole grains.\n\n"
+                "**Foods to Reduce:**\n"
+                "• Saturated fats (fatty meats, full-fat butter) and industrial trans fats.\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "protein" or "protein" in q_lower:
+            return (
+                "### High-Protein Foods for Muscle & Cellular Health\n\n"
+                "**Top Protein Sources:**\n"
+                "1. **Lean Meats & Poultry**: Chicken breast, turkey, and lean beef cutlets.\n"
+                "2. **Seafood**: Salmon, tuna, cod, and shrimp.\n"
+                "3. **Dairy & Eggs**: Eggs, Greek yogurt, cottage cheese, and milk.\n"
+                "4. **Plant Proteins**: Tofu, edamame, lentils, chickpeas, black beans, quinoa, and hemp seeds.\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        # Default Nutrition Response
+        return (
+            "### Balanced Nutrition & Healthy Eating Guidance\n\n"
+            "A healthy, nutrient-dense diet prioritizes:\n"
+            "• **Whole Foods & Plant Foods**: Colorful vegetables, dark leafy greens, whole fruits, and legumes.\n"
+            "• **Complex Carbohydrates**: Whole grains (oats, quinoa, brown rice) rich in dietary fiber.\n"
+            "• **Lean Proteins & Healthy Fats**: Fish, poultry, eggs, nuts, seeds, and olive oil.\n"
+            "• **Hydration**: 2 to 3 liters of water daily while limiting sugary beverages.\n\n"
+            "*(Note: Educational information provided by offline Local Medical Knowledge Engine.)*"
+        )
+
+    def get_symptoms_response(self, query: str, topic: Optional[str] = None, param_name: Optional[str] = None) -> str:
+        q_lower = query.lower()
+        top = (topic or "").lower()
+
+        if top == "diabetes" or "diabetes" in q_lower or "glucose" in q_lower:
+            return (
+                "### Common Symptoms of Diabetes & Elevated Blood Sugar\n\n"
+                "**Classic Symptoms Include:**\n"
+                "1. **Frequent Urination (Polyuria)**: Especially waking up multiple times at night.\n"
+                "2. **Excessive Thirst (Polydipsia)**: Persistent feeling of dry mouth and dehydration.\n"
+                "3. **Unexplained Weight Loss**: Losing weight despite increased appetite.\n"
+                "4. **Increased Hunger (Polyphagia)**: Cell energy deficit causing hunger spikes.\n"
+                "5. **Extreme Fatigue**: Reduced ability to transport glucose into cells for energy.\n"
+                "6. **Blurred Vision**: Temporary fluid shifts affecting lens focus.\n"
+                "7. **Slow-Healing Sores**: Cuts or bruises taking prolonged time to heal.\n"
+                "8. **Tingling / Numbness**: Peripheral nerve discomfort in hands or feet.\n\n"
+                "*(Note: Educational health information. If experiencing these symptoms, schedule clinical blood tests.)*"
+            )
+
+        if top == "anemia" or "anemia" in q_lower or "iron" in q_lower or param_name == "Hemoglobin":
+            return (
+                "### Common Symptoms of Anemia & Low Hemoglobin\n\n"
+                "**Key Symptoms Include:**\n"
+                "1. **Persistent Fatigue & Weakness**: Lack of oxygen delivery to body tissues.\n"
+                "2. **Pale or Yellowish Skin**: Reduced hemoglobin concentration in dermal capillaries.\n"
+                "3. **Shortness of Breath**: Difficulty catching breath during routine exertion.\n"
+                "4. **Dizziness or Lightheadedness**: Temporary reduction in cerebral oxygenation.\n"
+                "5. **Cold Hands & Feet**: Impaired peripheral circulation.\n"
+                "6. **Brittle Nails or Headaches**: Chronic cellular oxygen deficits.\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "hypertension" or "blood_pressure" in q_lower or "pressure" in q_lower:
+            return (
+                "### Understanding Symptoms of High Blood Pressure\n\n"
+                "**Clinical Context:**\n"
+                "High blood pressure (hypertension) is often called a **'silent killer'** because most people experience **no noticeable symptoms** even when blood pressure is dangerously high.\n\n"
+                "**Severe / Crisis Symptoms May Include:**\n"
+                "• Severe morning headaches\n"
+                "• Shortness of breath\n"
+                "• Nosebleeds or chest tightness\n"
+                "• Dizziness or visual changes\n\n"
+                "*(Note: Regular blood pressure monitoring is essential for early detection.)*"
+            )
+
+        if top == "thyroid" or "thyroid" in q_lower or param_name == "TSH":
+            return (
+                "### Common Symptoms of Thyroid Dysfunction\n\n"
+                "**Hypothyroidism (Underactive Thyroid / High TSH):**\n"
+                "• Fatigue, unexplained weight gain, cold sensitivity, dry skin, constipation, and hair thinning.\n\n"
+                "**Hyperthyroidism (Overactive Thyroid / Low TSH):**\n"
+                "• Rapid heartbeat (palpitations), weight loss, heat intolerance, anxiety, tremors, and insomnia.\n\n"
+                "*(Note: Educational information provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        return (
+            "### General Health Symptoms Guidance\n\n"
+            "Common systemic warning signs that warrant medical evaluation include persistent fatigue, unexplained weight changes, chronic pain, fever, shortness of breath, or sudden changes in bowel/urinary habits.\n\n"
+            "*(Note: Educational information provided by offline Local Medical Knowledge Engine.)*"
+        )
+
+    def get_disease_info_response(self, query: str, topic: Optional[str] = None, param_name: Optional[str] = None) -> str:
+        q_lower = query.lower()
+        top = (topic or "").lower()
+
+        if top == "diabetes" or "diabetes" in q_lower:
+            return (
+                "### Disease Overview: Diabetes Mellitus\n\n"
+                "**What is Diabetes?**\n"
+                "Diabetes is a chronic metabolic condition characterized by elevated levels of Blood Glucose (hyperglycemia) due to defects in insulin secretion, insulin action, or both.\n\n"
+                "**Key Diagnostic Bounds:**\n"
+                "• **Normal Fasting Glucose**: 70 – 99 mg/dL (HbA1c < 5.7%)\n"
+                "• **Pre-Diabetes**: Fasting Glucose 100 – 125 mg/dL (HbA1c 5.7% – 6.4%)\n"
+                "• **Diabetes**: Fasting Glucose 126 mg/dL+ (HbA1c 6.5%+)\n\n"
+                "**Types:**\n"
+                "1. **Type 1**: Autoimmune destruction of pancreatic beta cells.\n"
+                "2. **Type 2**: Insulin resistance coupled with progressive beta-cell dysfunction.\n\n"
+                "*(Note: Educational health information provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "hypertension" or "blood_pressure" in q_lower or "hypertension" in q_lower:
+            return (
+                "### Disease Overview: Hypertension (High Blood Pressure)\n\n"
+                "**What is Hypertension?**\n"
+                "Hypertension occurs when blood exerts consistently high pressure against arterial walls, increasing cardiac workload and vascular wear.\n\n"
+                "**Classification Categories:**\n"
+                "• **Normal**: < 120 / 80 mmHg\n"
+                "• **Elevated**: 120–129 / < 80 mmHg\n"
+                "• **Stage 1 Hypertension**: 130–139 / 80–89 mmHg\n"
+                "• **Stage 2 Hypertension**: 140+ / 90+ mmHg\n\n"
+                "**Key Risk Factors:** High dietary sodium, physical inactivity, obesity, chronic stress, and genetics.\n\n"
+                "*(Note: Educational health information provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "cholesterol" or "cholesterol" in q_lower:
+            return (
+                "### Understanding High Cholesterol & Hyperlipidemia\n\n"
+                "**Causes of High Cholesterol:**\n"
+                "1. **Dietary Saturated & Trans Fats**: Increase hepatic LDL cholesterol synthesis.\n"
+                "2. **Sedentary Lifestyle**: Lowers protective HDL cholesterol.\n"
+                "3. **Genetics & Family History**: Familial hypercholesterolemia.\n"
+                "4. **Body Weight**: Excess body fat elevates LDL and triglycerides.\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        return (
+            "### General Clinical Disease Education\n\n"
+            "Chronic diseases such as diabetes, hypertension, and hyperlipidemia develop gradually over time through genetic predispositions, dietary habits, and environmental factors. Early screening and routine lab monitoring are key to prevention.\n\n"
+            "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+        )
+
+    def get_lab_explanation_response(self, query: str, topic: Optional[str] = None, param_name: Optional[str] = None) -> str:
+        q_lower = query.lower()
+        param = param_name or ""
+
+        if param == "Hemoglobin" or "hemoglobin" in q_lower or topic == "hemoglobin":
+            return (
+                "### Clinical Parameter Explanation: Hemoglobin\n\n"
+                "**What is Hemoglobin & What Does It Do?**\n"
+                "Hemoglobin is an iron-rich globular protein contained inside red blood cells. Its critical biological function is to **bind oxygen in the lungs and transport it to tissues throughout the body**, while carrying carbon dioxide back to the lungs to be exhaled.\n\n"
+                "**Normal Reference Ranges:**\n"
+                "• **Men**: 13.5 to 17.5 g/dL\n"
+                "• **Women**: 12.0 to 15.5 g/dL\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if param == "HbA1c" or "hba1c" in q_lower:
+            return (
+                "### Clinical Parameter Explanation: HbA1c\n\n"
+                "**What is HbA1c?**\n"
+                "HbA1c (Glycated Hemoglobin) measures the percentage of blood hemoglobin bound to glucose over the past 2 to 3 months (90-day RBC lifespan).\n\n"
+                "**Target Ranges:**\n"
+                "• **Normal**: Below 5.7%\n"
+                "• **Pre-Diabetes**: 5.7% to 6.4%\n"
+                "• **Diabetes**: 6.5% or higher\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if "difference" in q_lower or "hdl" in q_lower or "ldl" in q_lower:
+            return (
+                "### Difference Between HDL and LDL Cholesterol\n\n"
+                "**LDL Cholesterol ('Bad' Cholesterol):**\n"
+                "• Transports cholesterol from the liver to body tissues. Excess LDL can accumulate in artery walls, forming hardened plaques (atherosclerosis).\n\n"
+                "**HDL Cholesterol ('Good' Cholesterol):**\n"
+                "• Acts as a scavenger, picking up excess cholesterol from blood vessels and returning it to the liver for excretion.\n\n"
+                "*(Note: High HDL and low LDL are key targets for cardiovascular health.)*"
+            )
+
+        if param == "Creatinine" or "creatinine" in q_lower or topic == "creatinine":
+            return (
+                "### Clinical Parameter Explanation: Creatinine\n\n"
+                "**What is Creatinine?**\n"
+                "Creatinine is a natural waste byproduct of muscular creatine phosphate breakdown. Healthy kidneys filter creatinine from the blood and excrete it in urine. Normal blood creatinine is typically **0.6 to 1.2 mg/dL**.\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if param == "BMI" or "bmi" in q_lower or topic == "bmi":
+            return (
+                "### Clinical Marker Explanation: Body Mass Index (BMI)\n\n"
+                "**What is BMI?**\n"
+                "Body Mass Index (BMI) is a standardized calculation evaluating body weight relative to height: **BMI = weight (kg) / [height (m)]²**.\n\n"
+                "**Categories:**\n"
+                "• **Underweight**: < 18.5 kg/m²\n"
+                "• **Normal Weight**: 18.5 – 24.9 kg/m²\n"
+                "• **Overweight**: 25.0 – 29.9 kg/m²\n"
+                "• **Obesity**: 30.0+ kg/m²\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        return (
+            "### Clinical Laboratory Marker Guidance\n\n"
+            "Laboratory parameters measure specific cellular, enzymatic, or chemical components in blood to evaluate organ function, metabolic balance, and cellular health.\n\n"
+            "*(Note: Educational guidance provided by offline Local Medical Knowledge Engine.)*"
+        )
+
+    def get_prevention_lifestyle_response(self, query: str, topic: Optional[str] = None, param_name: Optional[str] = None) -> str:
+        q_lower = query.lower()
+        top = (topic or "").lower()
+
+        if top == "glucose" or "glucose" in q_lower or "sugar" in q_lower:
+            return (
+                "### Understanding Blood Glucose & Actionable Strategies for Maintenance\n\n"
+                "**Core Lifestyle Recommendations:**\n"
+                "1. **Adopt a Low Glycemic Index Diet**: Choose complex carbohydrates (oats, quinoa, brown rice) and high-fiber vegetables over refined sugars.\n"
+                "2. **Dietary Adjustments**: Prioritize complex carbohydrates, non-starchy vegetables, and high-fiber foods.\n"
+                "3. **Regular Aerobic Physical Activity**: Aim for at least 150 minutes of brisk walking or swimming per week to enhance muscle insulin sensitivity.\n"
+                "4. **Weight & Hydration**: Maintain a healthy body weight and drink adequate water daily to assist renal waste clearance.\n"
+                "5. **Immediate High Sugar Management**: If blood sugar is elevated, stay hydrated, engage in light walking, avoid simple carbs, and consult your clinician if persistently high.\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        if top == "blood_pressure" or "blood pressure" in q_lower or "bp" in q_lower:
+            return (
+                "### Lifestyle Strategies for Blood Pressure Management\n\n"
+                "**Key Prevention Steps:**\n"
+                "1. **Reduce Sodium Intake**: Keep dietary salt under 2,000 mg/day.\n"
+                "2. **DASH Eating Plan**: Emphasize fruits, vegetables, whole grains, and potassium-rich foods.\n"
+                "3. **Aerobic Exercise & Stress Control**: Daily 30-minute moderate exercise and mindfulness practice.\n\n"
+                "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+            )
+
+        return (
+            "### Preventive Health & Lifestyle Guidelines\n\n"
+            "Optimal health maintenance relies on a nutrient-rich whole foods diet, regular physical exercise, adequate nightly sleep (7–8 hours), stress management, hydration, and routine clinical health checkups.\n\n"
+            "*(Note: Educational health guidance provided by offline Local Medical Knowledge Engine.)*"
+        )
+
     def get_general_educational_response(self, query: str, param_name: str = None) -> str:
         """
-        Generates structured, plain-English health education for general questions
-        (e.g., "How can I decrease glucose?", "What is diabetes?", "What is Vitamin D?").
-        Does NOT require the user to have stored medical reports.
+        Fallback backward-compatible educational response generator.
         """
-        q_lower = query.lower()
-
-        if param_name == "Fasting Glucose" or "glucose" in q_lower or "blood sugar" in q_lower or "diabetes" in q_lower:
-            return (
-                "### Understanding Blood Glucose & Healthy Management\n\n"
-                "**What is Blood Glucose?**\n"
-                "Blood glucose (blood sugar) is the main sugar found in your blood and your body's primary energy source. "
-                "Fasting blood glucose normal reference ranges are typically **70 to 99 mg/dL**. Values between **100–125 mg/dL** indicate pre-diabetes, and **126 mg/dL+** suggests diabetes.\n\n"
-                "**How to Help Maintain Healthy Glucose Levels:**\n"
-                "1. **Dietary Adjustments**: Prioritize complex carbohydrates, non-starchy vegetables, and high-fiber foods (oats, legumes). Limit refined sugars and processed carbs.\n"
-                "2. **Physical Activity**: Engage in 150 minutes of moderate aerobic activity (e.g. brisk walking) per week. Muscle contraction increases insulin sensitivity.\n"
-                "3. **Weight & Hydration**: Maintain a healthy body weight and drink adequate water daily.\n"
-                "4. **Clinical Monitoring**: Schedule routine HbA1c screenings with your clinician.\n\n"
-                "*(Note: Educational health information provided by offline Local Health Knowledge Engine. Discuss any elevated glucose trends or dietary changes with a healthcare professional.)*"
-            )
-
-        if param_name in ["Total Cholesterol", "LDL Cholesterol", "HDL Cholesterol", "Triglycerides"] or "cholesterol" in q_lower or "lipid" in q_lower:
-            return (
-                "### Understanding Lipid Health & Cholesterol Management\n\n"
-                "**What is Cholesterol?**\n"
-                "Cholesterol is a waxy lipid needed to build cells and hormones. LDL ('bad') cholesterol can deposit in artery walls, while HDL ('good') cholesterol carries excess cholesterol back to the liver.\n\n"
-                "**How to Maintain Healthy Lipid Levels:**\n"
-                "1. **Heart-Healthy Fats**: Replace saturated fats (fatty meats, butter) with monounsaturated oils (olive oil, avocados, nuts).\n"
-                "2. **Soluble Fiber**: Increase intake of soluble fiber (oat bran, beans, lentils) which helps bind cholesterol in the digestive system.\n"
-                "3. **Aerobic Exercise**: Regular exercise helps elevate protective HDL cholesterol and reduce triglycerides.\n\n"
-                "*(Note: Educational health guidance. Consult a medical professional for personalized cardiovascular risk assessment.)*"
-            )
-
-        if param_name in ["Systolic BP", "Diastolic BP", "Blood Pressure"] or "blood pressure" in q_lower or "bp" in q_lower or "hypertension" in q_lower:
-            return (
-                "### Understanding Blood Pressure & Vascular Health\n\n"
-                "**What is Blood Pressure?**\n"
-                "Blood pressure measures the force of circulating blood against artery walls. Normal blood pressure is typically below **120/80 mmHg**.\n\n"
-                "**Key Lifestyle Strategies for Blood Pressure Control:**\n"
-                "1. **Sodium Reduction**: Limit dietary salt intake to under 2,000 mg/day.\n"
-                "2. **DASH Diet**: Emphasize fruits, vegetables, whole grains, and low-fat dairy.\n"
-                "3. **Stress Reduction & Exercise**: Regular physical activity and stress management help relax arterial walls.\n\n"
-                "*(Note: Educational health information provided by offline Local Health Knowledge Engine.)*"
-            )
-
-        if param_name == "Hemoglobin" or "hemoglobin" in q_lower or "iron" in q_lower or "anemia" in q_lower:
-            return (
-                "### Understanding Hemoglobin & Iron Health\n\n"
-                "**What is Hemoglobin?**\n"
-                "Hemoglobin is an iron-rich protein inside red blood cells responsible for transporting oxygen throughout your tissues. Low hemoglobin levels indicate anemia.\n\n"
-                "**Dietary & Health Recommendations:**\n"
-                "1. **Iron-Rich Foods**: Consume dark leafy greens (spinach, kale), legumes, fortified cereals, and lean meats.\n"
-                "2. **Vitamin C Synergy**: Pair iron-rich foods with Vitamin C (citrus fruits, bell peppers) to boost intestinal iron absorption.\n"
-                "3. **Consultation**: Evaluate potential underlying causes with your physician before taking high-dose iron supplements.\n\n"
-                "*(Note: Educational health information. Not a clinical diagnosis.)*"
-            )
-
-        if param_name == "Vitamin D" or "vitamin d" in q_lower:
-            return (
-                "### Understanding Vitamin D & Bone Health\n\n"
-                "**What is Vitamin D?**\n"
-                "Vitamin D is a crucial fat-soluble nutrient essential for calcium absorption, bone density, immune defense, and mood regulation. Normal levels range from **30 to 100 ng/mL**.\n\n"
-                "**How to Improve Vitamin D Status:**\n"
-                "1. **Sun Exposure**: 15–20 minutes of daily natural sunlight exposure on arms and face.\n"
-                "2. **Dietary Sources**: Fatty fish (salmon, tuna), egg yolks, and fortified dairy or plant milk.\n"
-                "3. **Supplements**: Consult a physician for Vitamin D3 supplementation if laboratory results indicate deficiency.\n\n"
-                "*(Note: Educational health information provided by offline Local Health Knowledge Engine.)*"
-            )
-
-        if param_name in ["Creatinine", "BUN"] or "creatinine" in q_lower or "kidney" in q_lower:
-            return (
-                "### Understanding Creatinine & Kidney Function\n\n"
-                "**What is Creatinine?**\n"
-                "Creatinine is a waste product from muscle breakdown filtered out of the bloodstream by healthy kidneys. Normal levels are typically **0.6 to 1.2 mg/dL**.\n\n"
-                "**Maintaining Healthy Kidney Filtration:**\n"
-                "1. **Hydration**: Drink sufficient fluids throughout the day to support renal waste clearance.\n"
-                "2. **Avoid Medication Overuse**: Limit frequent unprescribed use of NSAID pain relievers (e.g. ibuprofen).\n"
-                "3. **Control Blood Pressure & Blood Sugar**: Unmanaged hypertension and high blood sugar are leading causes of kidney strain.\n\n"
-                "*(Note: Educational health information provided by offline Local Health Knowledge Engine.)*"
-            )
-
-        # Default Educational Health Response
         return (
-            "### General Health & Preventive Wellness Guidance\n\n"
-            "Maintaining optimal long-term health involves regular physical activity, balanced nutrition rich in whole foods and fiber, adequate daily hydration (2–3 liters), consistent sleep schedules (7–8 hours), and annual clinical health screenings.\n\n"
-            "*(Note: Educational information provided by offline Local Health Knowledge Engine. Discuss specific health queries with a qualified healthcare professional.)*"
+            "### Understanding Blood Glucose & Healthy Management\n\n"
+            "**Dietary Adjustments**: Prioritize complex carbohydrates, non-starchy vegetables, and high-fiber foods (oats, legumes). Limit refined sugars and processed carbs.\n\n"
+            + self.get_nutrition_response(query, param_name=param_name)
         )
 
     def generate_overall_summary(self, lab_values: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -284,7 +500,6 @@ class MedicalKnowledgeEngine:
             abnormality = "Normal"
             summary = "All extracted clinical parameters fall within healthy reference ranges. No active risk markers detected."
 
-        # Append educational medical disclaimer
         summary += " (Note: AI-assisted interpretation powered by local ML models. Not a formal diagnosis.)"
 
         return {

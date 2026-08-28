@@ -1,22 +1,24 @@
 import logging
 import re
-import math
 from datetime import datetime
 from reports.models import Report
 from family.models import FamilyMember
+from services.local_medical_extractor import LocalMedicalExtractor
 
 logger = logging.getLogger(__name__)
 
 class AIHealthPredictionEngine:
     """
     AI Health Prediction Engine.
-    Analyzes historical lab values, alert history, and trend progression
-    to calculate disease risks (Diabetes, Cardiovascular, Hypertension, Anemia,
-    Vitamin Deficiency, Kidney Filtration, and Liver Function).
+    Dynamically analyzes stored PostgreSQL report parameters for a family member
+    to calculate disease projections, real historical parameter trends, model confidence,
+    and overall health score.
+    Guarantees 100% metadata term isolation (Age, Gender, UHID, Date are strictly ignored).
     """
 
     def analyze_predictions(self, member_id) -> dict:
         logger.info(f"AIHealthPredictionEngine analyzing member {member_id}...")
+        extractor = LocalMedicalExtractor()
 
         # 1. Fetch member details
         try:
@@ -28,17 +30,18 @@ class AIHealthPredictionEngine:
         # 2. Query reports sorted by date ascending
         reports = list(Report.objects.filter(member_id=member_id).order_by('date'))
         
-        if len(reports) < 2:
+        # Rule 2: No Reports = No Predictions
+        if not reports:
             return {
                 "member": member_name,
-                "overallRisk": "Normal",
+                "overallRisk": "No data",
                 "predictions": [],
-                "healthScore": 95,
-                "summary": "Upload at least 2 reports for accurate AI prediction analysis."
+                "healthScore": None,
+                "summary": "No AI Predictions Yet. Upload a medical report to generate personalized health projections based on your actual medical data."
             }
 
-        # 3. Compile parameter history
-        param_history = {}  # parameter_name_normalized -> list of {"value": float, "date": date, "unit": str, "status": str}
+        # 3. Compile parameter history from stored lab_values
+        param_history = {} # normalized_name -> list of {"original_name": str, "date": date, "value": float, "unit": str, "status": str}
         
         for r in reports:
             lab_vals = r.lab_values or []
@@ -48,7 +51,10 @@ class AIHealthPredictionEngine:
                 unit = item.get('unit', '')
                 status = item.get('status', 'Normal')
 
-                # Extract first floating or integer number
+                # Filter out metadata terms like 'Age', 'Gender', 'UHID', 'Date'
+                if not param or extractor.is_metadata_term(param):
+                    continue
+
                 try:
                     num_val = float(re.findall(r'[-+]?\d*\.\d+|\d+', val_str)[0])
                 except (IndexError, ValueError):
@@ -67,12 +73,9 @@ class AIHealthPredictionEngine:
                 })
 
         predictions = []
-        abnormal_scores = []
-        overall_severity_weight = 0
 
-        # Helper to analyze parameter trends and calculate risk
+        # Helper to analyze parameter trends and calculate dynamic risk
         def check_risk(disease_title, target_keywords, borderline_threshold, critical_threshold, is_lower_better=True, recommendation_text=""):
-            # Find history matching keywords
             history = None
             original_param_name = ""
             for norm_name, hist in param_history.items():
@@ -88,221 +91,125 @@ class AIHealthPredictionEngine:
             latest_val = latest["value"]
             latest_unit = latest["unit"]
             
-            # Severity mapping
             severity = "Low"
-            severity_weight = 0
             if is_lower_better:
                 if latest_val >= critical_threshold:
                     severity = "High"
-                    severity_weight = 3
                 elif latest_val >= borderline_threshold:
-                    severity = "Borderline"
-                    severity_weight = 2
+                    severity = "Moderate"
                 else:
                     severity = "Low"
-                    severity_weight = 1
             else:
                 if latest_val <= critical_threshold:
                     severity = "High"
-                    severity_weight = 3
                 elif latest_val <= borderline_threshold:
-                    severity = "Borderline"
-                    severity_weight = 2
+                    severity = "Moderate"
                 else:
                     severity = "Low"
-                    severity_weight = 1
 
-            # Trend calculations if we have at least 2 reports
-            trend_str = ""
-            pct_change = 0
+            # Observed Trend calculation
             if len(history) >= 2:
                 prev = history[-2]
                 prev_val = prev["value"]
                 
-                # Calculate months between reports
                 try:
                     d1 = datetime.strptime(str(prev["date"]), "%Y-%m-%d")
                     d2 = datetime.strptime(str(latest["date"]), "%Y-%m-%d")
                     months = abs((d2.year - d1.year) * 12 + d2.month - d1.month)
-                    if months == 0:
-                        months = 1
-                    time_frame = f"over {months} month{'s' if months > 1 else ''}"
+                    time_frame = f"over {months} month{'s' if months > 1 else ''}" if months >= 1 else "recently"
                 except Exception:
-                    time_frame = "recently"
+                    time_frame = "across stored measurements"
 
                 if prev_val > 0:
                     pct_change = round(((latest_val - prev_val) / prev_val) * 100)
+                else:
+                    pct_change = 0
                 
                 if pct_change != 0:
                     direction = "increased" if pct_change > 0 else "decreased"
-                    trend_str = f"{original_param_name} {direction} by {abs(pct_change)}% {time_frame} (from {prev_val} to {latest_val} {latest_unit})."
+                    unit_str = f" {latest_unit}" if latest_unit else ""
+                    trend_str = f"{original_param_name} has {direction} by {abs(pct_change)}% {time_frame} (from {prev_val} to {latest_val}{unit_str})."
                 else:
-                    trend_str = f"{original_param_name} remained stable at {latest_val} {latest_unit}."
+                    unit_str = f" {latest_unit}" if latest_unit else ""
+                    trend_str = f"{original_param_name} remained stable at {latest_val}{unit_str} across stored reports."
             else:
-                trend_str = f"Latest measured {original_param_name} is {latest_val} {latest_unit}."
+                unit_str = f" {latest_unit}" if latest_unit else ""
+                trend_str = f"Only one measurement is currently available for this parameter (latest: {latest_val}{unit_str})."
 
-            # Calculate confidence score based on severity and historical changes
+            # Confidence Calculation
             base_confidence = 65
             if severity == "High":
+                base_confidence += 10
+            elif severity == "Moderate":
+                base_confidence += 5
+            
+            if len(history) >= 2:
                 base_confidence += 15
-            elif severity == "Borderline":
-                base_confidence += 8
             
-            # Boost confidence if the parameter is actively worsening
-            worsening = (pct_change > 0 and is_lower_better) or (pct_change < 0 and not is_lower_better)
-            if worsening:
-                base_confidence += min(15, abs(pct_change) // 3)
-            
-            confidence = min(98, max(50, base_confidence))
+            confidence = min(92, max(60, base_confidence))
 
-            # Compose reasoning
-            worsening_adverb = "elevated" if worsening else "stable"
-            reason = f"{trend_str} Currently at {latest_val} {latest_unit} indicating {worsening_adverb} {disease_title.lower()} trajectory."
+            unit_label = f" — {latest_val} {latest_unit}".strip() if latest_unit else f" — {latest_val}"
 
             return {
                 "title": disease_title,
                 "severity": severity,
                 "confidence": confidence,
-                "reason": reason,
-                "recommendation": recommendation_text,
-                "weight": severity_weight
+                "indicator": f"Primary metric: {original_param_name}{unit_label}",
+                "trend": trend_str,
+                "recommendation": recommendation_text
             }
 
-        # 4. Run Risk Checks for standard health indicators
-        
-        # Diabetes
-        diabetes = check_risk(
-            disease_title="Diabetes Risk",
-            target_keywords=["glucose", "fastingglucose", "hba1c"],
-            borderline_threshold=100.0,
-            critical_threshold=126.0,
-            is_lower_better=True,
-            recommendation_text="Minimize simple sugars and carbs, increase fiber, and schedule an HbA1c test."
-        )
-        if diabetes: predictions.append(diabetes)
+        # Dynamic Disease Projection Evaluators
+        p1 = check_risk("Type 2 Diabetes Projection", ["glucose", "hba1c"], 100.0, 126.0, True, "Limit simple sugars, incorporate 30-min daily walks, and track fasting blood glucose periodically.")
+        if p1: predictions.append(p1)
 
-        # Heart Disease / Cardiovascular
-        cardio = check_risk(
-            disease_title="Cardiovascular Risk",
-            target_keywords=["cholesterol", "ldl", "triglycerides"],
-            borderline_threshold=200.0,
-            critical_threshold=240.0,
-            is_lower_better=True,
-            recommendation_text="Reduce trans-fats, introduce omega-3 fatty acids, and aim for 30 minutes of daily cardio."
-        )
-        if cardio: predictions.append(cardio)
+        p2 = check_risk("Cardiovascular Risk Projection", ["cholesterol", "ldl"], 200.0, 240.0, True, "Adopt a Mediterranean diet rich in omega-3 fatty acids and soluble fiber. Limit saturated fats.")
+        if p2: predictions.append(p2)
 
-        # Hypertension
-        hypertension = check_risk(
-            disease_title="Hypertension Risk",
-            target_keywords=["systolic", "bloodpressure", "bp"],
-            borderline_threshold=120.0,
-            critical_threshold=140.0,
-            is_lower_better=True,
-            recommendation_text="Adopt a low-sodium DASH diet, practice mindfulness stress reduction, and monitor blood pressure."
-        )
-        if hypertension: predictions.append(hypertension)
+        p3 = check_risk("Hypertension & Vascular Health", ["bp", "systolic"], 120.0, 140.0, True, "Reduce dietary sodium intake to under 2,000mg/day and engage in regular aerobic exercise.")
+        if p3: predictions.append(p3)
 
-        # Anemia
-        anemia = check_risk(
-            disease_title="Anemia Risk",
-            target_keywords=["hemoglobin", "hb", "rbc"],
-            borderline_threshold=13.0,  # Below 13.0 starts mild deficiency
-            critical_threshold=11.5,  # Below 11.5 critical
-            is_lower_better=False,    # Lower is worse!
-            recommendation_text="Boost intake of iron-rich foods (spinach, lean beef) combined with Vitamin C, and consult a physician."
-        )
-        if anemia: predictions.append(anemia)
+        p4 = check_risk("Iron Deficiency Anemia", ["hemoglobin", "rbc", "pcv", "mcv", "mch"], 12.0, 10.0, False, "Increase consumption of iron-rich foods such as spinach, legumes, and lean protein paired with Vitamin C.")
+        if p4: predictions.append(p4)
 
-        # Vitamin Deficiency
-        vitamins = check_risk(
-            disease_title="Vitamin Deficiency Risk",
-            target_keywords=["vitamind", "vitaminb12", "b12"],
-            borderline_threshold=30.0,  # Below 30 borderline
-            critical_threshold=20.0,  # Below 20 deficiency
-            is_lower_better=False,    # Lower is worse!
-            recommendation_text="Integrate appropriate supplementation under advice, and increase sun exposure or fortified foods."
-        )
-        if vitamins: predictions.append(vitamins)
+        p5 = check_risk("Vitamin D & Bone Density", ["vitamind"], 30.0, 20.0, False, "Consider safe sun exposure (15 mins/day) and Vitamin D3 supplementation as recommended by your physician.")
+        if p5: predictions.append(p5)
 
-        # Kidney Health
-        kidney = check_risk(
-            disease_title="Kidney Health Risk",
-            target_keywords=["creatinine", "egfr", "bun"],
-            borderline_threshold=1.0,
-            critical_threshold=1.3,
-            is_lower_better=True,
-            recommendation_text="Maintain healthy hydration levels, avoid over-using NSAID pain relievers, and control blood pressure."
-        )
-        if kidney: predictions.append(kidney)
+        p6 = check_risk("Renal Filtration & Kidney Health", ["creatinine"], 1.2, 1.5, True, "Ensure adequate daily hydration (2.5L water) and monitor protein intake balance.")
+        if p6: predictions.append(p6)
 
-        # Liver Health
-        liver = check_risk(
-            disease_title="Liver Health Risk",
-            target_keywords=["alt", "ast", "sgpt", "sgot"],
-            borderline_threshold=35.0,
-            critical_threshold=50.0,
-            is_lower_better=True,
-            recommendation_text="Limit alcohol intake, minimize processed foods, and maintain a healthy weight to avoid hepatic fat loading."
-        )
-        if liver: predictions.append(liver)
-
-        # 5. Fallback if no relevant clinical parameters are present
+        # Insufficient Data check
         if not predictions:
-            predictions.append({
-                "title": "General Wellness Risk",
-                "severity": "Low",
-                "confidence": 90,
-                "reason": "All core clinical parameter markers are within optimal ranges.",
-                "recommendation": "Maintain a healthy balanced lifestyle and schedule regular annual screenings.",
-                "weight": 1
-            })
+            return {
+                "member": member_name,
+                "overallRisk": "Normal",
+                "predictions": [],
+                "healthScore": None,
+                "summary": "Insufficient Data. More medical measurements are needed to generate a reliable health projection."
+            }
 
-        # Calculate dynamic health score
-        # 100 base, subtract points for borderline (-10) and critical (-25) risks
-        base_score = 100
-        overall_severity = "Low"
-        highest_weight = max([p["weight"] for p in predictions]) if predictions else 1
+        # Dynamic Health Score calculation from actual predictions
+        high_count = sum(1 for p in predictions if p["severity"] == "High")
+        moderate_count = sum(1 for p in predictions if p["severity"] in ["Moderate", "Borderline"])
 
-        for p in predictions:
-            if p["severity"] == "High":
-                base_score -= 18
-            elif p["severity"] == "Borderline":
-                base_score -= 8
-
-        health_score = max(35, min(100, base_score))
-
-        if highest_weight == 3:
-            overall_severity = "Critical"
-        elif highest_weight == 2:
-            overall_severity = "Borderline"
-
-        # Dynamically formulate summary text based on predictions
-        criticals = [p["title"] for p in predictions if p["severity"] == "High"]
-        borderlines = [p["title"] for p in predictions if p["severity"] == "Borderline"]
-        
-        if criticals:
-            summary = f"Critical risk markers detected for {', '.join(criticals)}. Immediate physician consultation and lifestyle adjustments recommended."
-        elif borderlines:
-            summary = f"Borderline levels detected for {', '.join(borderlines)}. Periodic monitoring and wellness interventions advised."
+        if high_count > 0:
+            overall_risk = "High"
+            health_score = max(50, 100 - (high_count * 20 + moderate_count * 10))
+        elif moderate_count > 0:
+            overall_risk = "Moderate"
+            health_score = max(70, 100 - (moderate_count * 10))
         else:
-            summary = f"All vital parameter trends are stable and within healthy ranges. No active risk markers detected."
+            overall_risk = "Low"
+            health_score = 95
 
-        # Clean predictions response (remove auxiliary fields)
-        cleaned_predictions = []
-        for p in predictions:
-            cleaned_predictions.append({
-                "title": p["title"],
-                "severity": p["severity"],
-                "confidence": p["confidence"],
-                "reason": p["reason"],
-                "recommendation": p["recommendation"]
-            })
+        summary = f"Based on {len(reports)} lab report{'s' if len(reports) != 1 else ''}, {len(predictions)} health indicator{'s were' if len(predictions) != 1 else ' was'} evaluated for {member_name}."
+        if high_count > 0:
+            summary += f" Attention recommended for {high_count} elevated metric(s)."
 
         return {
             "member": member_name,
-            "overallRisk": overall_severity,
-            "predictions": cleaned_predictions,
+            "overallRisk": overall_risk,
+            "predictions": predictions,
             "healthScore": health_score,
             "summary": summary
         }

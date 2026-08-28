@@ -25,6 +25,8 @@ class Alert(models.Model):
     severity = models.CharField(max_length=50, choices=SEVERITY_LEVELS, default='Normal')
     type = models.CharField(max_length=50, choices=ALERT_TYPES)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Active')
+    email_sent = models.BooleanField(default=False)
+    email_sent_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

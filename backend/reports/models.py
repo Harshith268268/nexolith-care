@@ -41,19 +41,19 @@ class Report(models.Model):
         if not self.lab_values or not isinstance(self.lab_values, list):
             return
 
-        METADATA_BLACK_LIST = {
-            "date", "report date", "patient", "patient name", "patient id", "name",
-            "age", "gender", "sex", "doctor", "dr", "ref by", "hospital", "lab",
-            "laboratory", "sample", "sample id", "collected date", "result date"
-        }
+        from services.local_medical_extractor import LocalMedicalExtractor
+        extractor = LocalMedicalExtractor()
 
+        clean_lab_values = []
         for item in self.lab_values:
             if not isinstance(item, dict):
                 continue
             param_name = str(item.get('parameter', '')).strip()
-            if not param_name or param_name.lower() in METADATA_BLACK_LIST:
+            if not param_name or extractor.is_metadata_term(param_name):
                 continue
             
+            clean_lab_values.append(item)
+
             val_str = str(item.get('value', '')).strip()
             unit_str = str(item.get('unit', '')).strip()
             range_str = str(item.get('range', '')).strip()
@@ -86,6 +86,11 @@ class Report(models.Model):
                 explanation=explanation_str
             )
 
+        # Update lab_values in JSON list if clean_lab_values differs
+        if len(clean_lab_values) != len(self.lab_values):
+            self.lab_values = clean_lab_values
+            Report.objects.filter(id=self.id).update(lab_values=clean_lab_values)
+
 
 class ReportParameter(models.Model):
     """
@@ -106,4 +111,3 @@ class ReportParameter(models.Model):
 
     def __str__(self):
         return f"{self.parameter}: {self.value} {self.unit or ''} (Ref: {self.range or 'N/A'}) [{self.status}]"
-

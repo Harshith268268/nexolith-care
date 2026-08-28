@@ -121,25 +121,51 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = []
 
-# Enable WhiteNoise compression and caching support under production mode
-if not DEBUG:
-    STORAGES = {
-        "default": {
-            "BACKEND": "django.core.files.storage.FileSystemStorage",
-        },
-        "staticfiles": {
-            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-        },
-    }
+# Configurable Default File Storage (Local FileSystem or Cloud Object Storage like S3 / Cloudinary)
+DEFAULT_FILE_STORAGE = os.getenv(
+    "DEFAULT_FILE_STORAGE",
+    "django.core.files.storage.FileSystemStorage"
+)
+
+STORAGES = {
+    "default": {
+        "BACKEND": DEFAULT_FILE_STORAGE,
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage" if not DEBUG else "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
+
+# AWS S3 / Cloud Object Storage Configuration (populates automatically when env vars are present)
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID", "")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY", "")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME", "")
+AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME", "us-east-1")
+AWS_S3_CUSTOM_DOMAIN = os.getenv("AWS_S3_CUSTOM_DOMAIN", "")
 
 # Media files (user uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Tesseract OCR binary path (Windows)
-TESSERACT_CMD = os.environ.get('TESSERACT_CMD', r'C:\Program Files\Tesseract-OCR\tesseract.exe')
+# Dynamic Cross-Platform Tesseract OCR binary path
+import shutil
+system_tesseract = shutil.which("tesseract")
+if system_tesseract:
+    TESSERACT_CMD = system_tesseract
+elif os.environ.get('TESSERACT_CMD'):
+    TESSERACT_CMD = os.environ.get('TESSERACT_CMD')
+elif os.path.exists('/usr/bin/tesseract'):
+    TESSERACT_CMD = '/usr/bin/tesseract'
+else:
+    TESSERACT_CMD = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Security headers for production SSL proxy environments
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 # CORS Config
 if DEBUG:
@@ -147,24 +173,17 @@ if DEBUG:
 else:
     CORS_ALLOW_ALL_ORIGINS = False
     cors_origins = os.getenv("CORS_ALLOWED_ORIGINS", "https://*.vercel.app,http://localhost:5173").split(",")
-    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins if origin.strip()]
-    CORS_ALLOWED_ORIGINS.extend([
-        "https://localhost",
-        "http://localhost",
-        "capacitor://localhost",
-    ])
+    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_origins if origin.strip() and not origin.strip().startswith('https://*.')]
     CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^https://.*\.vercel\.app$",
+        r"^https://.*\.railway\.app$",
+        r"^https://.*\.render\.com$",
     ]
 
 # CSRF Trusted Origins
 csrf_origins = os.getenv("CSRF_TRUSTED_ORIGINS", "https://*.railway.app,https://*.vercel.app,http://localhost:5173").split(",")
-CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins if origin.strip()]
-CSRF_TRUSTED_ORIGINS.extend([
-    "https://localhost",
-    "http://localhost",
-    "capacitor://localhost",
-])
+CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_origins if origin.strip() and not origin.strip().startswith('https://*.')]
+
 
 # Django REST Framework
 REST_FRAMEWORK = {

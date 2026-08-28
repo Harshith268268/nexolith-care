@@ -30,8 +30,26 @@ __pycache__/
 # Django static/media
 staticfiles/
 
-# Environment variables
+# Environment variables & secrets
 .env
+*.env
+*.pem
+*.key
+
+# Sensitive Database Backups & Exports
+production_data_*.json
+*_backup.json
+*_manifest.json
+data_exports/
+*.backup
+*.dump
+*.sql
+backend/db.sqlite3
+backend/data_backup.json
+backend/db.json
+backend/production_data_backup.json
+backend/production_data_manifest.json
+backend/data_exports/
 
 # Python cache
 .pytest_cache/

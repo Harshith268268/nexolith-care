@@ -30,6 +30,7 @@ class FamilyMember(models.Model):
     weight_kg = models.FloatField(blank=True, null=True, help_text="Weight in kilograms")
     relation = models.CharField(max_length=50, choices=MEMBER_ROLES)
     avatar_url = models.CharField(max_length=2000, blank=True, null=True)
+    profile_image = models.ImageField(upload_to="family_members/", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     @property

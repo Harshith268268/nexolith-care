@@ -1,218 +1,229 @@
 """
-Question Router & Intent Classifier Service
-100% Local NLP intent router and entity extractor for Nexolith Care Local AI Assistant.
-Extracts user intent, target family member, parameter name, and query mode without any external APIs.
+Question Router & Intent Classifier with Concept Normalization & Context Resolution
+Analyzes natural-language user queries, normalizes medical terms/synonyms (e.g., haemoglobin -> hemoglobin),
+resolves multi-turn conversation history context, and determines exact query intent.
 """
 
 import re
 import logging
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, List, Optional
+from family.models import FamilyMember
+from services.medical_knowledge_base import MedicalKnowledgeBase
 
 logger = logging.getLogger(__name__)
 
-# Supported Intents
-INTENT_GENERAL_GREETING = "GENERAL_GREETING"
+# Intent Constants
+INTENT_GREETING = "GREETING"
+INTENT_GENERAL_CONVERSATION = "GENERAL_CONVERSATION"
 INTENT_FAMILY_MEMBERS = "FAMILY_MEMBERS"
-INTENT_PROFILE_INFORMATION = "PROFILE_INFORMATION"
 INTENT_REPORT_LIST = "REPORT_LIST"
-INTENT_REPORT_ANALYSIS = "REPORT_ANALYSIS"
 INTENT_REPORT_VALUES = "REPORT_VALUES"
 INTENT_PARAMETER_VALUE = "PARAMETER_VALUE"
 INTENT_PARAMETER_TREND = "PARAMETER_TREND"
 INTENT_ABNORMAL_RESULTS = "ABNORMAL_RESULTS"
-INTENT_HEALTH_SUMMARY = "HEALTH_SUMMARY"
-INTENT_MEDICAL_GENERAL_QUESTION = "MEDICAL_GENERAL_QUESTION"
 INTENT_PATIENT_SPECIFIC_ADVICE = "PATIENT_SPECIFIC_ADVICE"
+INTENT_GENERAL_MEDICAL = "GENERAL_MEDICAL"
 INTENT_UNKNOWN = "UNKNOWN"
 
-# Parameter catalog regex mappings
-CANONICAL_PARAMETERS = {
-    "Fasting Glucose": [r"\bfasting\s*glucose\b", r"\bfbs\b", r"\bglucose\b", r"\bblood\s*sugar\b"],
-    "HbA1c": [r"\bhba1c\b", r"\ba1c\b", r"\bglycated\s*hemoglobin\b"],
-    "Total Cholesterol": [r"\btotal\s*cholesterol\b", r"\bcholesterol\b"],
-    "LDL Cholesterol": [r"\bldl\b", r"\bldl\s*cholesterol\b", r"\bbad\s*cholesterol\b"],
-    "HDL Cholesterol": [r"\bhdl\b", r"\bhdl\s*cholesterol\b", r"\bgood\s*cholesterol\b"],
-    "Triglycerides": [r"\btriglycerides?\b", r"\btrig\b"],
-    "Hemoglobin": [r"\bhemoglobin\b", r"\bhgb\b", r"\biron\b"],
-    "WBC Count": [r"\bwbc\b", r"\bwhite\s*blood\s*cells?\b", r"\bleukocytes?\b"],
-    "Platelets": [r"\bplatelets?\b", r"\bplt\b"],
-    "RBC Count": [r"\brbc\b", r"\bred\s*blood\s*cells?\b"],
-    "Creatinine": [r"\bcreatinine\b", r"\bkidney\s*function\b"],
-    "BUN": [r"\bbun\b", r"\bblood\s*urea\s*nitrogen\b"],
-    "ALT (SGPT)": [r"\balt\b", r"\bsgpt\b", r"\bliver\s*enzyme\b"],
-    "AST (SGOT)": [r"\bast\b", r"\bsgot\b"],
-    "TSH": [r"\btsh\b", r"\bthyroid\b"],
-    "Vitamin D": [r"\bvitamin\s*d\b", r"\bvit\s*d\b", r"\b25-oh\s*vitamin\s*d\b"],
-    "Vitamin B12": [r"\bvitamin\s*b12\b", r"\bvit\s*b12\b", r"\bb12\b"],
-    "Systolic BP": [r"\bsystolic\b"],
-    "Diastolic BP": [r"\bdiastolic\b"],
-    "Blood Pressure": [r"\bblood\s*pressure\b", r"\bbp\b", r"\bhypertension\b"]
+# Display Label Mapping for Parameters
+PARAMETER_DISPLAY_LABELS = {
+    "hemoglobin": "Hemoglobin",
+    "glucose": "Fasting Glucose",
+    "hba1c": "HbA1c",
+    "cholesterol": "Total Cholesterol",
+    "ldl": "LDL Cholesterol",
+    "hdl": "HDL Cholesterol",
+    "triglycerides": "Triglycerides",
+    "platelets": "Platelets",
+    "wbc": "WBC Count",
+    "rbc": "RBC Count",
+    "creatinine": "Creatinine",
+    "bun": "Urea / BUN",
+    "alt": "ALT (SGPT)",
+    "ast": "AST (SGOT)",
+    "tsh": "TSH",
+    "vitamin_d": "Vitamin D",
+    "vitamin_b12": "Vitamin B12",
+    "iron": "Iron",
+    "blood_pressure": "Blood Pressure",
+    "bmi": "BMI"
 }
 
 
 class QuestionRouter:
     """
-    Local Question Router for intent classification and entity extraction.
-    Analyzes message structure to direct queries to appropriate local handlers.
+    Analyzes queries, normalizes medical terminology, resolves follow-up context,
+    and maps questions to specific intent handlers.
     """
 
-    def analyze_question(self, message: str, known_member_names: List[str] = None) -> Dict[str, Any]:
-        msg = message.strip()
-        msg_lower = msg.lower()
-        known_member_names = known_member_names or []
+    def __init__(self):
+        self.kb = MedicalKnowledgeBase()
 
-        # 1. Extract Target Member Entity
-        target_member_name = self._extract_target_member(msg_lower, known_member_names)
+    def analyze_question(self, message: str, history: List[Dict[str, Any]] = None, user_family_members: List[FamilyMember] = None) -> Dict[str, Any]:
+        raw_msg = (message or "").strip()
+        msg_lower = raw_msg.lower()
 
-        # 2. Extract Parameter Entity
-        parameter_name = self._extract_parameter_name(msg_lower)
+        # Step 1: Detect explicit target family member from query
+        target_member_name = self._extract_target_member(msg_lower, user_family_members)
 
-        # 3. Classify Intent
-        intent = self._classify_intent(msg_lower, target_member_name, parameter_name)
+        # Step 2: Extract medical concept / entity (e.g., haemoglobin -> hemoglobin)
+        canonical_entity = self.kb.normalize_term(msg_lower)
+
+        # Step 3: Determine Query Aspect
+        aspect = self._extract_aspect(msg_lower)
+
+        # Step 4: Resolve History Context for follow-up turns
+        context = self._resolve_history_context(msg_lower, history, target_member_name, canonical_entity, aspect)
+        target_member_name = context.get("target_member_name")
+        canonical_entity = context.get("canonical_entity")
+        aspect = context.get("aspect") or aspect
+
+        # Step 5: Classify Intent
+        intent = self._classify_intent(msg_lower, target_member_name, canonical_entity, aspect)
+
+        display_param_name = PARAMETER_DISPLAY_LABELS.get(canonical_entity) if canonical_entity else None
 
         return {
             "intent": intent,
             "target_member_name": target_member_name,
-            "parameter_name": parameter_name,
-            "raw_message": msg,
-            "msg_lower": msg_lower
+            "canonical_entity": canonical_entity,
+            "parameter_name": display_param_name,
+            "aspect": aspect,
+            "raw_message": raw_msg
         }
 
-    def _extract_target_member(self, msg_lower: str, known_member_names: List[str]) -> Optional[str]:
-        # First match against actual user family members
-        for name in known_member_names:
-            full_name = name.lower().strip()
-            first_name = full_name.split()[0]
-            if re.search(r'\b' + re.escape(full_name) + r"(?:'s)?\b", msg_lower) or \
-               (len(first_name) >= 2 and re.search(r'\b' + re.escape(first_name) + r"(?:'s)?\b", msg_lower)):
-                return name
+    def _extract_target_member(self, msg_lower: str, user_family_members: List[FamilyMember] = None) -> Optional[str]:
+        if user_family_members:
+            for member in user_family_members:
+                m_name = member.name.strip()
+                first_name = m_name.split()[0].lower()
+                if re.search(r'\b' + re.escape(first_name) + r"('s|\b)", msg_lower):
+                    return m_name
 
-        # Match name patterns in prompt e.g. "for Sarah", "Sarah's", "about David"
-        name_match = re.search(r'\b(?:for|about|is|does|has|of|on|how\s+can|in)\s+([a-zA-Z]{3,})\b', msg_lower)
-        if name_match:
-            candidate = name_match.group(1).title()
-            stop_words = {
-                "Any", "The", "Our", "All", "My", "Your", "Reports", "Report", "Lab", "Labs",
-                "Document", "Documents", "Glucose", "Blood", "Vitamin", "Thyroid", "Lipid",
-                "What", "Show", "List", "Decrease", "Lower", "Improve", "Increase", "Reduce",
-                "Help", "Have", "Exist", "Stored", "High", "Low", "Normal", "Diabetes"
-            }
-            if candidate not in stop_words:
-                return candidate
+        names = ["sarah", "david", "john", "jane", "alex", "mary", "emily", "michael", "tom"]
+        for name in names:
+            if re.search(r'\b' + name + r"('s|\b)", msg_lower):
+                return name.capitalize()
 
         return None
 
-    def _extract_parameter_name(self, msg_lower: str) -> Optional[str]:
-        for canonical, patterns in CANONICAL_PARAMETERS.items():
-            for pat in patterns:
-                if re.search(pat, msg_lower):
-                    return canonical
-        return None
+    def _extract_aspect(self, msg_lower: str) -> str:
+        if any(w in msg_lower for w in ["symptom", "symptoms", "signs"]):
+            return "symptoms"
+        if any(w in msg_lower for w in ["food", "foods", "eat", "eating", "diet", "nutrition", "rich in", "source"]):
+            return "nutrition"
+        if any(w in msg_lower for w in ["happen if", "low", "deficiency", "decreased"]):
+            return "low"
+        if any(w in msg_lower for w in ["cause", "causes", "why is", "reason"]):
+            return "causes"
+        if any(w in msg_lower for w in ["maintain", "lower", "reduce", "decrease", "improve", "control", "manage", "what should i do", "should i do", "what to do"]):
+            return "prevention"
+        if any(w in msg_lower for w in ["do", "function", "role", "important"]):
+            return "function"
+        return "general"
 
-    def _classify_intent(self, msg_lower: str, target_member: Optional[str], parameter: Optional[str]) -> str:
-        # Check Greetings
-        greetings_patterns = [
-            r"^(hi|hello|hey|greetings|good\s+morning|good\s+afternoon|good\s+evening)\b",
-            r"^(hi|hello|hey|greetings)\s*[!.]*$"
-        ]
-        if any(re.search(pat, msg_lower) for pat in greetings_patterns):
-            return INTENT_GENERAL_GREETING
+    def _resolve_history_context(self, msg_lower: str, history: List[Dict[str, Any]], target_member_name: Optional[str], canonical_entity: Optional[str], aspect: str) -> Dict[str, Any]:
+        res_member = target_member_name
+        res_entity = canonical_entity
+        res_aspect = aspect
 
-        # Check Family Members Query
-        family_patterns = [
-            r"\bwho\s+are\s+(my|our)\s+family\b",
-            r"\blist\s+(my|our)\s+family\b",
-            r"\bshow\s+(my|our)\s+family\b",
-            r"\bfamily\s+members?\b",
-            r"\bwho\s+is\s+in\s+my\s+family\b"
-        ]
-        if any(re.search(pat, msg_lower) for pat in family_patterns):
-            return INTENT_FAMILY_MEMBERS
+        has_pronoun = any(re.search(pat, msg_lower) for pat in [
+            r"\bit\b", r"\bshe\b", r"\bhe\b", r"\bher\b", r"\bhis\b", r"\bthis\b", r"\bthat\b",
+            r"\bthe values\b", r"\bvalues\b", r"\bthe report\b", r"\bthe results\b", r"\bwhat foods\b",
+            r"\bwhat happens\b", r"\bhow to help\b"
+        ])
 
-        # Check General Educational Medical Questions
-        general_edu_patterns = [
-            r"\bwhat\s+is\s+(diabetes|glucose|cholesterol|hypertension|hemoglobin|vitamin\s*d|creatinine|tsh|blood\s*pressure|anemia)\b",
-            r"\bhow\s+can\s+(i|we|one)\s+(decrease|lower|reduce|improve|manage|increase)\s+(glucose|blood\s*sugar|cholesterol|blood\s*pressure|bp|creatinine|weight)\b",
-            r"\bhow\s+to\s+(decrease|lower|reduce|improve|manage|increase)\s+(glucose|blood\s*sugar|cholesterol|blood\s*pressure|bp|creatinine|weight)\b",
-            r"\bwhat\s+causes\s+(high|low)\s+(glucose|blood\s*sugar|cholesterol|blood\s*pressure|creatinine)\b",
-            r"\bwhat\s+foods\s+are\s+high\s+in\s+(iron|vitamin\s*d|calcium|protein|fiber)\b",
-            r"\bwhy\s+is\s+(hemoglobin|vitamin\s*d|glucose|blood\s*pressure)\s+important\b"
-        ]
-        if not target_member and any(re.search(pat, msg_lower) for pat in general_edu_patterns):
-            return INTENT_MEDICAL_GENERAL_QUESTION
+        if has_pronoun and history and len(history) > 0:
+            for turn in reversed(history):
+                content = turn.get("content", "").lower()
+                if not res_member:
+                    res_member = self._extract_target_member(content)
+                if not res_entity:
+                    res_entity = self.kb.normalize_term(content)
+                if res_member or res_entity:
+                    break
 
-        # Check Patient-Specific Advice Query ("how can Sarah decrease her glucose?")
-        patient_advice_patterns = [
-            r"\bhow\s+can\s+[a-zA-Z]+\s+(decrease|lower|reduce|improve|manage)\s+",
-            r"\bwhat\s+can\s+[a-zA-Z]+\s+do\s+",
-            r"\bhow\s+to\s+help\s+[a-zA-Z]+\s+"
-        ]
-        if target_member and any(re.search(pat, msg_lower) for pat in patient_advice_patterns):
-            return INTENT_PATIENT_SPECIFIC_ADVICE
+        return {
+            "target_member_name": res_member,
+            "canonical_entity": res_entity,
+            "aspect": res_aspect
+        }
 
-        # Check Parameter Trend Query
-        trend_patterns = [
-            r"\btrend\b", r"\banalyze\s+.*trend\b", r"\bhow\s+is\s+.*changing\b",
-            r"\bover\s+(past|historical|her|his)\s+reports\b", r"\bprogression\b", r"\bhistory\b"
-        ]
-        if parameter and any(re.search(pat, msg_lower) for pat in trend_patterns):
-            return INTENT_PARAMETER_TREND
+    def _classify_intent(self, msg_lower: str, target_member_name: Optional[str], canonical_entity: Optional[str], aspect: str) -> str:
+        # 1. Greetings
+        if msg_lower in ["hi", "hello", "hey", "greetings", "good morning", "good evening", "good afternoon"]:
+            return INTENT_GREETING
 
-        # Check Report Values Query ("what are values in it", "can you mention the values in Sarah's report", "list Sarah's report values", "blood test results")
-        report_values_patterns = [
-            r"\bvalues\b",
-            r"\bresults\b",
-            r"\bparameters\b",
-            r"\bmention\s+.*values\b",
-            r"\bwhat\s+(are|were)\s+.*(values|results|parameters|numbers)\b",
-            r"\b(list|show|get|give|mention)\s+.*(values|results|parameters|numbers)\b",
-            r"\b(all|stored)\s+(values|results|parameters)\b",
-            r"\bblood\s+test\s+results\b",
-            r"\bshow\s+.*(latest|recent)\s+blood\s+test\b",
-            r"\bwhat\s+parameters\b",
-            r"\bvalues\s+in\s+it\b"
-        ]
-        if any(re.search(pat, msg_lower) for pat in report_values_patterns):
-            return INTENT_REPORT_VALUES
+        # 2. General Conversation / Capabilities
+        if any(re.search(pat, msg_lower) for pat in [
+            r"\bwho\s+are\s+you\b", r"\bwho\s+built\s+you\b", r"\bthank\s+you\b", r"\bthanks\b",
+            r"\bwhat\s+can\s+you\s+do\b", r"\bwhat\s+questions\s+can\s+you\s+answer\b"
+        ]):
+            return INTENT_GENERAL_CONVERSATION
 
-        # Check Parameter Value Query
-        value_patterns = [
-            r"\bwhat\s+is\b", r"\bshow\s+.*level\b", r"\bvalue\b", r"\bresult\b", r"\blevel\b"
+        # 3. Active Health Warnings / Alerts / Risks / Abnormal Results Queries
+        alert_risk_pats = [
+            r"\bactive\s+warnings\b", r"\bhealth\s+risks\b", r"\brisk\s+warnings\b",
+            r"\bactive\s+alerts\b", r"\bany\s+warnings\b", r"\bany\s+alerts\b",
+            r"\babnormal\b", r"\bcritical\b", r"\bflagged\b", r"\bwarning\b", r"\bwarnings\b",
+            r"\balert\b", r"\balerts\b", r"\brisk\b", r"\brisks\b", r"\bneeds?\s+attention\b",
+            r"\bconcerns?\b", r"\bhealth\s+warnings\b"
         ]
-        if parameter and (target_member or any(re.search(pat, msg_lower) for pat in value_patterns)):
-            return INTENT_PARAMETER_VALUE
-
-        # Check Report Existence / List Query
-        report_list_patterns = [
-            r"\bdo\s+i\s+have\s+any\s+reports\b",
-            r"\bwhat\s+reports\b",
-            r"\bshow\s+.*reports\b",
-            r"\blist\s+.*reports\b",
-            r"\bhow\s+many\s+reports\b",
-            r"\bwhen\s+was\s+.*latest\s+report\b",
-            r"\breport\s+exists?\b"
-        ]
-        if any(re.search(pat, msg_lower) for pat in report_list_patterns) or \
-           (target_member and any(w in msg_lower for w in ["report", "reports", "document", "documents"])):
-            return INTENT_REPORT_LIST
-
-        # Check Abnormal Results Query
-        abnormal_patterns = [
-            r"\babnormal\b", r"\bcritical\b", r"\bborderline\b", r"\bhigh\s+or\s+low\b", r"\bwarning\b", r"\balert\b"
-        ]
-        if any(re.search(pat, msg_lower) for pat in abnormal_patterns):
+        if any(re.search(pat, msg_lower) for pat in alert_risk_pats):
             return INTENT_ABNORMAL_RESULTS
 
-        # Check Health Summary Query
-        summary_patterns = [
-            r"\bsummary\b", r"\boverall\b", r"\bhealth\s+profile\b", r"\boverview\b"
+        # 4. Family Members / Profiles Queries
+        family_pats = [
+            r"\bwho\s+are\s+my\s+family\b", r"\bfamily\s+members\b", r"\blist\s+family\b",
+            r"\bhow\s+many\s+family\s+members\b", r"\bwho\s+is\s+.*\b",
+            r"\bwho\s+are\s+.*members\b", r"\bmembers\s+in\s+.*family\b", r"\bwho\s+are\s+the\s+family\b",
+            r"\bwhat\s+is\s+.*\s+age\b", r"\bis\s+.*\s+male\s+or\s+female\b", r"\bwhat\s+is\s+.*\s+bmi\b",
+            r"\bhow\s+is\s+.*\s+health\b"
         ]
-        if any(re.search(pat, msg_lower) for pat in summary_patterns):
-            return INTENT_HEALTH_SUMMARY
+        if (any(re.search(pat, msg_lower) for pat in family_pats) or 
+            (target_member_name and any(w in msg_lower for w in ["age", "height", "weight", "bmi", "gender", "relation", "who is", "health status", "how is"]) and not canonical_entity and not any(w in msg_lower for w in ["report", "reports", "test", "glucose", "cholesterol", "hemoglobin"]))):
+            return INTENT_FAMILY_MEMBERS
 
-        # Fallback General Education if question contains common health keywords
-        if any(k in msg_lower for k in ["diabetes", "glucose", "cholesterol", "blood pressure", "hypertension", "hemoglobin", "vitamin d", "iron", "creatinine", "kidney", "liver"]):
-            return INTENT_MEDICAL_GENERAL_QUESTION
+        # 5. Report Values Queries ("values in Sarah's latest report", "what are the values")
+        report_values_pats = [
+            r"\bvalues\s+in\b", r"\bparameters\s+in\b", r"\bresults\s+in\b",
+            r"\bwhat\s+are\s+the\s+values\b", r"\blist\s+all\s+parameters\b",
+            r"\bblood\s+test\s+results\b"
+        ]
+        if any(re.search(pat, msg_lower) for pat in report_values_pats) or (target_member_name and any(w in msg_lower for w in ["value", "values", "result", "results", "parameters"]) and not canonical_entity):
+            return INTENT_REPORT_VALUES
+
+        # 6. Report List Queries ("how many reports does Sarah have?", "show Sarah's reports", "reports in Sarah profile")
+        report_list_pats = [
+            r"\bhow\s+many\s+reports\b", r"\bhow\s+many\s+medical\s+reports\b",
+            r"\bdo\s+i\s+have\s+any\s+reports\b", r"\bdo\s+we\s+have\s+any\s+reports\b",
+            r"\bdoes\s+.*\s+have\s+any\s+reports\b", r"\bwhat\s+reports\s+do\s+i\s+have\b",
+            r"\bshow\s+.*reports\b", r"\blatest\s+report\b", r"\blist\s+reports\b",
+            r"\bany\s+reports\b", r"\breports?\s+in\s+.*\s+profile\b", r"\breports?\s+does\s+.*\s+have\b",
+            r"\bcount\s+reports\b"
+        ]
+        if any(re.search(pat, msg_lower) for pat in report_list_pats) or (target_member_name and any(w in msg_lower for w in ["report", "reports", "document", "documents"]) and not any(w in msg_lower for w in ["value", "values"])):
+            return INTENT_REPORT_LIST
+
+        # 7. Parameter Trend Queries ("how is Sarah's glucose changing?", "has her cholesterol increased?")
+        if any(re.search(pat, msg_lower) for pat in [
+            r"\btrend\b", r"\bhow\s+is\s+.*\s+changing\b", r"\bhow\s+has\s+.*\s+changed\b",
+            r"\bhas\s+.*\s+increased\b", r"\bhas\s+.*\s+decreased\b", r"\bcompare\s+.*across\b"
+        ]):
+            return INTENT_PARAMETER_TREND
+
+        # 8. Patient-Specific Parameter Value query ("what is Sarah's glucose?")
+        if target_member_name and canonical_entity and aspect not in ["prevention", "nutrition"]:
+            return INTENT_PARAMETER_VALUE
+
+        # 9. Patient-Specific Advice query ("how can Sarah decrease her glucose?")
+        if target_member_name and (aspect in ["prevention", "nutrition"] or "how to" in msg_lower or "how can" in msg_lower):
+            return INTENT_PATIENT_SPECIFIC_ADVICE
+
+        # 10. General Medical Question (e.g. "what is haemoglobin", "what is glucose", "how to decrease glucose")
+        if not target_member_name and (canonical_entity or aspect in ["symptoms", "nutrition", "low", "causes", "prevention", "function"] or any(w in msg_lower for w in [
+            "what", "how", "why", "food", "diet", "symptom", "cause", "reduce", "maintain", "increase", "meaning"
+        ])):
+            return INTENT_GENERAL_MEDICAL
 
         return INTENT_UNKNOWN
-

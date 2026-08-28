@@ -279,3 +279,137 @@ class MedicalExtractionAndAssistantTestCase(TestCase):
 
         self.assertNotIn("Date", param_dict)
         self.assertNotIn("Report Date", param_dict)
+
+    def test_16_all_20_required_questions(self):
+        """16. Test all 20 required questions from user specification."""
+        test_cases = [
+            ("hi", ["Hello"]),
+            ("who are my family members?", ["Sarah Jenkins", "David Jenkins"]),
+            ("what is Sarah's age?", ["32 years old"]),
+            ("does Sarah have any reports?", ["Sarah Jenkins currently has no medical reports stored"]),
+            ("what is Sarah's latest report?", ["Sarah Jenkins currently has no medical reports stored"]),
+            ("what are the values in Sarah's latest report?", ["Sarah Jenkins currently has no medical reports stored"]),
+            ("what is Sarah's glucose?", ["Sarah Jenkins currently has no medical reports stored"]),
+            ("how has Sarah's glucose changed?", ["Sarah Jenkins currently has no medical reports stored"]),
+            ("what is hemoglobin?", ["Hemoglobin", "oxygen"]),
+            ("what is diabetes?", ["Diabetes", "insulin"]),
+            ("what are symptoms of diabetes?", ["Symptoms", "Urination", "Thirst"]),
+            ("foods rich in iron", ["Spinach", "Lentils", "Iron"]),
+            ("foods rich in vitamin D", ["Salmon", "Egg", "Vitamin D"]),
+            ("how can I maintain healthy glucose?", ["Glucose", "Fiber", "Activity"]),
+            ("what is HbA1c?", ["HbA1c", "90-day"]),
+            ("what causes high cholesterol?", ["Cholesterol", "Saturated"]),
+            ("what is hypertension?", ["Hypertension", "Blood Pressure"]),
+            ("what is BMI?", ["Body Mass Index", "BMI"]),
+            ("how can I improve my diet?", ["Balanced", "Whole Foods"]),
+            ("what should I do if my blood sugar is high?", ["Hydrated", "Glucose"])
+        ]
+
+        for query, expected_keywords in test_cases:
+            response = self.client.post("/api/analytics/assistant/", {"message": query}, format="json")
+            self.assertEqual(response.status_code, 200, f"HTTP failure for query: {query}")
+            content = response.data.get("response", "")
+            for kw in expected_keywords:
+                self.assertIn(kw.lower(), content.lower(), f"Expected keyword '{kw}' missing in response for query '{query}'. Response: {content}")
+
+    def test_17_acceptance_test_sequence(self):
+        """17. Acceptance test sequence (Requirement 21)."""
+        # Step 1: "rich food for glucose"
+        res1 = self.client.post("/api/analytics/assistant/", {"message": "rich food for glucose"}, format="json")
+        c1 = res1.data.get("response", "")
+        self.assertIn("non-starchy vegetables", c1.lower())
+        self.assertNotIn("fasting blood glucose normal reference ranges are typically 70 to 99", c1.lower())
+
+        # Step 2: "what is hemoglobin?"
+        res2 = self.client.post("/api/analytics/assistant/", {"message": "what is hemoglobin?"}, format="json")
+        c2 = res2.data.get("response", "")
+        self.assertIn("oxygen", c2.lower())
+        self.assertNotIn("fasting blood glucose", c2.lower())
+
+        # Seed Sarah's report
+        rep = Report.objects.create(
+            member=self.sarah,
+            title="Sarah_Jenkins_Blood_Test",
+            date=date(2026, 1, 12),
+            type="Blood",
+            abnormality="Normal",
+            summary="All normal.",
+            lab_values=[
+                {"parameter": "Hemoglobin", "value": "13.9", "unit": "g/dL", "range": "12-16", "status": "Normal"},
+                {"parameter": "Glucose", "value": "92", "unit": "mg/dL", "range": "70-99", "status": "Normal"},
+                {"parameter": "Cholesterol", "value": "180", "unit": "mg/dL", "range": "<200", "status": "Normal"},
+                {"parameter": "Platelets", "value": "2.9", "unit": "Lakhs/µL", "range": "1.5-4.5", "status": "Normal"}
+            ]
+        )
+        rep.sync_parameters()
+
+        # Step 3: "what is Sarah's latest report?"
+        res3 = self.client.post("/api/analytics/assistant/", {"message": "what is Sarah's latest report?"}, format="json")
+        c3 = res3.data.get("response", "")
+        self.assertIn("Sarah_Jenkins_Blood_Test", c3)
+
+        # Step 4: "what are the values?" (using history)
+        history = [
+            {"role": "user", "content": "what is Sarah's latest report?"},
+            {"role": "model", "content": c3}
+        ]
+        res4 = self.client.post("/api/analytics/assistant/", {"message": "what are the values?", "history": history}, format="json")
+        c4 = res4.data.get("response", "")
+        self.assertIn("13.9 g/dL", c4)
+        self.assertIn("92 mg/dL", c4)
+        self.assertIn("180 mg/dL", c4)
+        self.assertIn("2.9 Lakhs/µL", c4)
+
+        # Step 5: "who are my family members?"
+        res5 = self.client.post("/api/analytics/assistant/", {"message": "who are my family members?"}, format="json")
+        c5 = res5.data.get("response", "")
+        self.assertIn("Sarah Jenkins", c5)
+        self.assertIn("David Jenkins", c5)
+
+        # Step 6: "hi"
+        res6 = self.client.post("/api/analytics/assistant/", {"message": "hi"}, format="json")
+        c6 = res6.data.get("response", "")
+        self.assertIn("hello", c6.lower())
+
+        # Step 7: Delete Sarah's report from PostgreSQL and ask "does Sarah have any reports?"
+        rep.parameters.all().delete()
+        rep.delete()
+
+        res7 = self.client.post("/api/analytics/assistant/", {"message": "does Sarah have any reports?"}, format="json")
+        c7 = res7.data.get("response", "")
+        self.assertEqual(c7, "Sarah Jenkins currently has no medical reports stored.")
+
+    def test_18_multiturn_concept_and_synonyms(self):
+        """18. Verify British/Indian spelling normalization ('haemoglobin') and multi-turn conversation context."""
+        # Turn 1: "what is haemoglobin?"
+        res1 = self.client.post("/api/analytics/assistant/", {"message": "what is haemoglobin?"}, format="json")
+        self.assertEqual(res1.status_code, 200)
+        c1 = res1.data.get("response", "")
+        self.assertIn("hemoglobin", c1.lower())
+        self.assertIn("oxygen", c1.lower())
+        self.assertNotIn("not sure i understood", c1.lower())
+
+        # Turn 2: "what happens if it is low?"
+        history1 = [
+            {"role": "user", "content": "what is haemoglobin?"},
+            {"role": "model", "content": c1}
+        ]
+        res2 = self.client.post("/api/analytics/assistant/", {"message": "what happens if it is low?", "history": history1}, format="json")
+        self.assertEqual(res2.status_code, 200)
+        c2 = res2.data.get("response", "")
+        self.assertIn("anemia", c2.lower())
+
+        # Turn 3: "what foods can help?"
+        history2 = [
+            {"role": "user", "content": "what is haemoglobin?"},
+            {"role": "model", "content": c1},
+            {"role": "user", "content": "what happens if it is low?"},
+            {"role": "model", "content": c2}
+        ]
+        res3 = self.client.post("/api/analytics/assistant/", {"message": "what foods can help?", "history": history2}, format="json")
+        self.assertEqual(res3.status_code, 200)
+        c3 = res3.data.get("response", "")
+        self.assertIn("iron", c3.lower())
+        self.assertIn("spinach", c3.lower())
+
+

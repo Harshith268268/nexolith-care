@@ -10,6 +10,7 @@ class FamilySerializer(serializers.ModelSerializer):
 class FamilyMemberSerializer(serializers.ModelSerializer):
     family_id = serializers.PrimaryKeyRelatedField(read_only=True, source='family')
     avatar_url = serializers.CharField(required=False, allow_blank=True, allow_null=True)
+    profile_image = serializers.ImageField(required=False, allow_null=True)
     bmi = serializers.ReadOnlyField()
 
     class Meta:
@@ -17,13 +18,31 @@ class FamilyMemberSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'family_id', 'name', 'gender', 'age',
             'height_cm', 'weight_kg', 'bmi', 'relation',
-            'avatar_url', 'created_at'
+            'avatar_url', 'profile_image', 'created_at'
         ]
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        request = self.context.get('request')
+        image_url = None
+        if instance.profile_image:
+            if request:
+                image_url = request.build_absolute_uri(instance.profile_image.url)
+            else:
+                image_url = instance.profile_image.url
+        elif instance.avatar_url and str(instance.avatar_url).strip() and str(instance.avatar_url).lower() not in ['null', 'none']:
+            image_url = instance.avatar_url
+
+        representation['profile_image'] = image_url
+        representation['avatar_url'] = image_url
+        return representation
 
     def to_internal_value(self, data):
         # Gracefully map camelCase fields to snake_case
         if 'avatarUrl' in data and 'avatar_url' not in data:
             data['avatar_url'] = data['avatarUrl']
+        if 'profileImage' in data and 'profile_image' not in data:
+            data['profile_image'] = data['profileImage']
         if 'heightCm' in data and 'height_cm' not in data:
             data['height_cm'] = data['heightCm']
         if 'weightKg' in data and 'weight_kg' not in data:
@@ -38,11 +57,19 @@ class FamilyMemberSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
-        # If avatar_url is explicitly set to empty or null, set instance.avatar_url = None (NULL in DB)
+        # Handle clear profile_image if passed as null or empty
+        if 'profile_image' in validated_data and validated_data['profile_image'] is None:
+            if instance.profile_image:
+                instance.profile_image.delete(save=False)
+            instance.profile_image = None
+
         if 'avatar_url' in validated_data:
             avatar = validated_data.get('avatar_url')
             if not avatar or not str(avatar).strip() or str(avatar).lower() in ['null', 'none']:
                 validated_data['avatar_url'] = None
+                if instance.profile_image:
+                    instance.profile_image.delete(save=False)
+                    instance.profile_image = None
         return super().update(instance, validated_data)
 
     def validate_name(self, value):

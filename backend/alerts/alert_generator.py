@@ -2,6 +2,7 @@ import logging
 from datetime import date
 from family.models import FamilyMember
 from .models import Alert
+from services.local_medical_extractor import LocalMedicalExtractor
 
 logger = logging.getLogger(__name__)
 
@@ -9,6 +10,7 @@ class MedicalAlertGenerator:
     """
     Scans lab parameters for critical or borderline values
     and automatically generates persistent, actionable alerts in the database.
+    Strictly filters out patient/report metadata terms.
     """
 
     def generate_alerts_for_report(self, report) -> int:
@@ -18,12 +20,16 @@ class MedicalAlertGenerator:
         member = report.member
         report_date = report.date or date.today()
         created_count = 0
+        extractor = LocalMedicalExtractor()
 
         for item in lab_values:
             param = item.get('parameter', '').strip()
             val = item.get('value', '')
             unit = item.get('unit', '')
             status = item.get('status', 'Normal')
+
+            if not param or extractor.is_metadata_term(param):
+                continue
 
             if status not in ['Borderline', 'Critical']:
                 continue
@@ -40,9 +46,9 @@ class MedicalAlertGenerator:
             elif 'ldl' in param_lower or 'cholesterol' in param_lower:
                 title = "Cardiovascular Risk Alert"
                 desc = f"High lipid profile levels detected ({val} {unit}) in report '{report.title}'. Elevated LDL/Cholesterol increases cardiovascular risk. The AI recommends increasing aerobic exercise and soluble fiber intake."
-            elif 'hemoglobin' in param_lower or 'rbc' in param_lower:
-                title = "Possible Anemia Alert"
-                desc = f"Low blood count parameters detected ({val} {unit}) in report '{report.title}'. Low hemoglobin levels can trigger anemia, weakness, and fatigue. Ensure adequate dietary iron intake."
+            elif 'hemoglobin' in param_lower or 'rbc' in param_lower or 'pcv' in param_lower or 'mcv' in param_lower or 'mch' in param_lower:
+                title = "Blood Parameter Warning"
+                desc = f"Abnormal blood count parameter detected ({param}: {val} {unit}) in report '{report.title}'. We recommend reviewing complete blood count parameters with your physician."
             elif 'bp' in param_lower or 'systolic' in param_lower or 'diastolic' in param_lower or 'pressure' in param_lower:
                 title = "Hypertension Warning"
                 desc = f"Abnormal blood pressure levels detected ({val} {unit}) in report '{report.title}'. High blood pressure strains your cardiovascular system. Limit sodium consumption and consult a cardiologist."
