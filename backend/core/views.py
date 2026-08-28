@@ -1,5 +1,6 @@
 import logging
-from rest_framework.views import APIView
+import traceback
+from rest_framework.views import APIView, exception_handler
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from django.db import connection
@@ -7,6 +8,23 @@ from django.conf import settings
 from services.medical_analyzer import MedicalAnalyzer
 
 logger = logging.getLogger(__name__)
+
+
+def custom_exception_handler(exc, context):
+    """
+    Global exception handler for DRF API views.
+    Catches unhandled exceptions and logs details without crashing with unformatted HTML.
+    """
+    response = exception_handler(exc, context)
+    if response is None:
+        tb = traceback.format_exc()
+        logger.error(f"Unhandled API Exception [{type(exc).__name__}]: {exc}\n{tb}")
+        return Response({
+            "error": "Internal Server Error",
+            "detail": str(exc),
+            "type": type(exc).__name__
+        }, status=500)
+    return response
 
 
 class HealthCheckView(APIView):
