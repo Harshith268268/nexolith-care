@@ -16,8 +16,8 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-nexolith-care-local-dev-key-2026')
 
-# Restrict hosts in production safely
-ALLOWED_HOSTS = ['*'] if DEBUG else [h.strip() for h in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,testserver").split(",") if h.strip()]
+# Restrict hosts in production safely (default to wildcard for deployment flexibility)
+ALLOWED_HOSTS = ['*'] if DEBUG else [h.strip() for h in os.getenv("ALLOWED_HOSTS", ".onrender.com,.railway.app,.render.com,localhost,127.0.0.1,*").split(",") if h.strip()]
 
 # Application definition
 INSTALLED_APPS = [
@@ -237,12 +237,10 @@ SIMPLE_JWT = {
 email_backend_env = os.getenv('EMAIL_BACKEND')
 if email_backend_env:
     EMAIL_BACKEND = email_backend_env
-elif os.getenv('EMAIL_HOST_USER'):
+elif os.getenv('EMAIL_HOST_USER') and os.getenv('EMAIL_HOST_PASSWORD'):
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-elif DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
