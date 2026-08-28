@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env', override=True)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "True") == "True"
+DEBUG = True
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-nexolith-care-local-dev-key-2026')
 
