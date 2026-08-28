@@ -46,11 +46,13 @@ jobs:
       - name: 📱 Stage 3 - Setup Android SDK Tools
         uses: android-actions/setup-android@v3
 
-      # Stage 4: Setup Node.js & Appium Ecosystem
-      - name: ⚙️ Stage 4 - Setup Node.js & Install Appium
+      # Stage 4: Setup Node.js & Install Appium
+      - name: ⚙️ Stage 4a - Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: ⚙️ Stage 4b - Install Appium & UiAutomator2 Driver
         run: |
           npm install -g appium
           appium driver install uiautomator2
