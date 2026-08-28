@@ -10,11 +10,10 @@ import {
   ResponsiveContainer,
   ReferenceArea,
 } from 'recharts';
-import { Activity, Calendar, TrendingUp, AlertCircle } from 'lucide-react';
+import { Calendar, TrendingUp, AlertCircle, FileText } from 'lucide-react';
 import { AbnormalityBadge } from '../components/AbnormalityBadge';
 import { Link } from 'react-router-dom';
 
-// Known reference ranges for common medical parameters
 const KNOWN_RANGES: Record<string, { min: number; max: number; unit: string }> = {
   'Glucose': { min: 70, max: 99, unit: 'mg/dL' },
   'Fasting Glucose': { min: 70, max: 99, unit: 'mg/dL' },
@@ -35,9 +34,7 @@ const KNOWN_RANGES: Record<string, { min: number; max: number; unit: string }> =
 };
 
 function getRange(param: string): { min: number; max: number; unit: string } {
-  // Exact match first
   if (KNOWN_RANGES[param]) return KNOWN_RANGES[param];
-  // Fuzzy match
   const lower = param.toLowerCase();
   for (const [key, val] of Object.entries(KNOWN_RANGES)) {
     if (lower.includes(key.toLowerCase()) || key.toLowerCase().includes(lower)) {
@@ -59,7 +56,6 @@ export function Trends() {
   const [selectedParam, setSelectedParam] = useState<string | null>(null);
   const [timeRange, setTimeRange] = useState('All');
 
-  // Dynamically aggregate all parameters from all reports for the active member
   const { parameters, parameterData } = useMemo(() => {
     const memberReports = activeMember
       ? reports.filter((r) => {
@@ -86,7 +82,6 @@ export function Trends() {
       }
     }
 
-    // Sort each parameter's data by date
     for (const param of Object.keys(paramMap)) {
       paramMap[param].sort((a, b) => new Date(a.fullDate).getTime() - new Date(b.fullDate).getTime());
     }
@@ -95,12 +90,10 @@ export function Trends() {
     return { parameters: params, parameterData: paramMap };
   }, [reports, activeMember]);
 
-  // Auto-select first parameter if none selected
   const activeParam = selectedParam && parameterData[selectedParam] ? selectedParam : parameters[0] || null;
   const data = activeParam ? parameterData[activeParam] : [];
   const range = activeParam ? getRange(activeParam) : { min: 0, max: 100, unit: 'units' };
 
-  // Time filtering
   const filteredData = useMemo(() => {
     if (timeRange === 'All' || !data.length) return data;
     const now = new Date();
@@ -114,22 +107,21 @@ export function Trends() {
 
   if (!parameters.length) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 animate-fade-in-up pb-12">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Health Trends</h1>
-          <p className="text-slate-500">Track vital parameters over time.</p>
+          <h1 className="text-2xl font-bold text-[#18313A]">Health Trends</h1>
+          <p className="text-[#64777C] text-xs sm:text-sm mt-0.5">Track vital parameters over time.</p>
         </div>
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-12 flex flex-col items-center justify-center text-center">
-          <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
-            <TrendingUp className="w-8 h-8 text-slate-300" />
+        <div className="bg-white rounded-3xl border border-[#E3EEEE] shadow-2xs p-12 flex flex-col items-center justify-center text-center">
+          <div className="w-14 h-14 bg-[#DDF2F1] text-[#3AAFA9] rounded-2xl flex items-center justify-center mb-3">
+            <TrendingUp className="w-7 h-7" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900 mb-2">No Trend Data Yet</h3>
-          <p className="text-slate-500 max-w-sm">
-            Upload medical reports with lab values to automatically generate health trend charts.
-            Every parameter found in your reports will appear here.
+          <h3 className="text-base font-bold text-[#18313A] mb-1">No health trend data available</h3>
+          <p className="text-[#64777C] text-xs max-w-sm">
+            Upload a report containing medical measurements to view trends.
           </p>
-          <Link to="/reports/upload" className="mt-6 px-5 py-2.5 bg-primary-600 text-white rounded-xl font-medium hover:bg-primary-700 transition-colors">
-            Upload First Report
+          <Link to="/reports/upload" className="mt-5 inline-flex items-center px-4 py-2.5 bg-[#55BFC2] text-white rounded-xl font-bold text-xs hover:bg-[#3AAFA9] transition-colors shadow-2xs">
+            Upload Report
           </Link>
         </div>
       </div>
@@ -137,53 +129,50 @@ export function Trends() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade-in-up pb-12">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">Health Trends</h1>
-          <p className="text-slate-500">
+          <h1 className="text-2xl font-bold text-[#18313A]">Health Trends</h1>
+          <p className="text-[#64777C] text-xs sm:text-sm mt-0.5">
             {parameters.length} parameter{parameters.length !== 1 ? 's' : ''} tracked
-            {activeMember ? ` for ${activeMember.name}` : ' across all members'}.
+            {activeMember ? ` for ${activeMember.name}` : ' across all family members'}.
           </p>
         </div>
         {!activeMember && (
-          <div className="bg-warning-50 text-warning-700 px-4 py-2 rounded-xl text-sm font-medium border border-warning-100">
-            Showing all members. Select one for individual trends.
+          <div className="bg-[#FDF8ED] text-[#D4A050] px-4 py-2 rounded-2xl text-xs font-semibold border border-[#FBF0D8]">
+            Showing all members. Select one for individual curves.
           </div>
         )}
       </div>
 
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6">
-        {/* Parameter Selector */}
+      <div className="bg-white rounded-3xl border border-[#E3EEEE] shadow-2xs p-6 sm:p-8">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8">
-          <div className="flex-1 overflow-x-auto scrollbar-hide pb-2 lg:pb-0">
-            <div className="flex space-x-2">
-              {parameters.map((p) => {
-                const pData = parameterData[p];
-                const latest = pData[pData.length - 1]?.value;
-                const pRange = getRange(p);
-                const pStatus = latest !== undefined ? getStatus(latest, pRange.min, pRange.max) : 'Normal';
-                return (
-                  <button
-                    key={p}
-                    onClick={() => setSelectedParam(p)}
-                    className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${activeParam === p ? 'bg-primary-600 text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
-                  >
-                    <span>{p}</span>
-                    {pStatus !== 'Normal' && (
-                      <span className={`inline-block w-2 h-2 rounded-full ${pStatus === 'Critical' ? 'bg-critical-400' : 'bg-warning-400'}`} />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
+            {parameters.map((param) => (
+              <button
+                key={param}
+                onClick={() => setSelectedParam(param)}
+                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+                  activeParam === param
+                    ? 'bg-[#55BFC2] text-white shadow-2xs'
+                    : 'bg-[#F5F8F8] text-[#64777C] hover:text-[#18313A] border border-[#E3EEEE]'
+                }`}
+              >
+                {param}
+              </button>
+            ))}
           </div>
-          <div className="flex items-center space-x-2 shrink-0 bg-slate-100 p-1 rounded-xl">
-            {['3M', '6M', '1Y', 'All'].map((tr) => (
+
+          <div className="flex items-center gap-1 bg-[#F5F8F8] p-1 rounded-xl border border-[#E3EEEE] shrink-0">
+            {['All', '3M', '6M', '1Y'].map((tr) => (
               <button
                 key={tr}
                 onClick={() => setTimeRange(tr)}
-                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${timeRange === tr ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                  timeRange === tr
+                    ? 'bg-white text-[#18313A] shadow-2xs font-bold'
+                    : 'text-[#64777C] hover:text-[#18313A]'
+                }`}
               >
                 {tr}
               </button>
@@ -192,104 +181,51 @@ export function Trends() {
         </div>
 
         {activeParam && (
-          <>
-            {/* Chart header */}
-            <div className="mb-6 flex items-end justify-between">
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-[#F5F8F8] rounded-2xl border border-[#E3EEEE] gap-4">
               <div>
-                <h2 className="text-xl font-bold text-slate-900">{activeParam}</h2>
-                <p className="text-sm text-slate-500">
-                  Normal range: {range.min}–{range.max} {range.unit}
-                </p>
+                <span className="text-[11px] text-[#64777C] font-semibold uppercase block">Parameter Selected</span>
+                <span className="text-lg font-bold text-[#18313A]">{activeParam}</span>
               </div>
-              {latestValue !== null && (
-                <div className="text-right">
-                  <p className="text-sm text-slate-500 mb-1">Latest Reading</p>
-                  <div className="flex items-center space-x-2">
-                    <span className="text-2xl font-bold text-slate-900">{latestValue}</span>
-                    <span className="text-slate-500">{range.unit}</span>
-                    <AbnormalityBadge level={latestStatus} />
-                  </div>
+              <div className="flex items-center gap-6">
+                <div>
+                  <span className="text-[11px] text-[#64777C] font-semibold uppercase block">Reference Range</span>
+                  <span className="text-xs font-bold text-[#18313A]">{range.min} - {range.max} {range.unit}</span>
+                </div>
+                <div>
+                  <span className="text-[11px] text-[#64777C] font-semibold uppercase block">Latest Reading</span>
+                  <span className="text-xs font-bold text-[#18313A]">{latestValue !== null ? `${latestValue} ${range.unit}` : 'No data'}</span>
+                </div>
+                <div>
+                  <span className="text-[11px] text-[#64777C] font-semibold uppercase block">Status</span>
+                  <AbnormalityBadge level={latestStatus as any} />
+                </div>
+              </div>
+            </div>
+
+            <div className="h-72 w-full pt-4">
+              {filteredData.length > 0 ? (
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={filteredData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#E3EEEE" vertical={false} />
+                    <XAxis dataKey="date" stroke="#64777C" fontSize={11} tickLine={false} />
+                    <YAxis stroke="#64777C" fontSize={11} tickLine={false} domain={['auto', 'auto']} />
+                    <Tooltip
+                      contentStyle={{ backgroundColor: '#FFFFFF', borderRadius: '16px', border: '1px solid #E3EEEE', color: '#18313A', fontSize: '12px', fontWeight: 'bold' }}
+                      itemStyle={{ color: '#3AAFA9' }}
+                    />
+                    <ReferenceArea y1={range.min} y2={range.max} fill="#DDF2F1" fillOpacity={0.4} />
+                    <Line type="monotone" dataKey="value" stroke="#55BFC2" strokeWidth={3} dot={{ fill: '#3AAFA9', r: 5 }} activeDot={{ r: 7 }} />
+                  </LineChart>
+                </ResponsiveContainer>
+              ) : (
+                <div className="h-full w-full flex flex-col items-center justify-center text-center p-6 bg-[#F5F8F8] rounded-2xl border border-dashed border-[#E3EEEE]">
+                  <TrendingUp className="w-8 h-8 text-[#64777C] mb-2" />
+                  <p className="text-xs font-bold text-[#18313A]">No data points for this timeframe</p>
                 </div>
               )}
             </div>
-
-            {filteredData.length >= 2 ? (
-              <div className="h-[300px] sm:h-[400px] w-full mb-8">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={filteredData} margin={{ top: 20, right: 20, left: -20, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-                    <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fill: '#64748b', fontSize: 12 }} dy={10} />
-                    <YAxis axisLine={false} tickLine={false} tick={{ fill: '#64748b', fontSize: 12 }} domain={['dataMin - 10', 'dataMax + 10']} />
-                    <Tooltip
-                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                      labelStyle={{ color: '#64748b', marginBottom: '4px' }}
-                      formatter={(val: any) => [`${val} ${range.unit}`, activeParam]}
-                    />
-                    <ReferenceArea y1={range.min} y2={range.max} fill="#10b981" fillOpacity={0.06} />
-                    <Line
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#0ea5e9"
-                      strokeWidth={3}
-                      dot={{ r: 4, fill: '#0ea5e9', strokeWidth: 2, stroke: '#fff' }}
-                      activeDot={{ r: 6, fill: '#0ea5e9', strokeWidth: 2, stroke: '#fff' }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            ) : (
-              <div className="h-[200px] flex flex-col items-center justify-center bg-slate-50 rounded-xl mb-8 border border-dashed border-slate-200">
-                <AlertCircle className="w-8 h-8 text-slate-300 mb-2" />
-                <p className="text-sm text-slate-500">Upload at least 2 reports to generate a trend chart.</p>
-              </div>
-            )}
-
-            {/* History Table */}
-            <div>
-              <h3 className="text-base font-bold text-slate-900 mb-4">Reading History</h3>
-              <div className="border border-slate-200 rounded-xl overflow-hidden">
-                <table className="w-full text-left text-sm">
-                  <thead className="bg-slate-50 border-b border-slate-200 text-slate-500">
-                    <tr>
-                      <th className="px-4 py-3 font-medium">Date</th>
-                      <th className="px-4 py-3 font-medium">Value</th>
-                      <th className="px-4 py-3 font-medium">Status</th>
-                      <th className="px-4 py-3 font-medium">Source Report</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {[...filteredData].reverse().map((row, i) => {
-                      const rowStatus = getStatus(row.value, range.min, range.max);
-                      return (
-                        <tr key={i} className="hover:bg-slate-50">
-                          <td className="px-4 py-3 text-slate-900 flex items-center">
-                            <Calendar className="w-4 h-4 mr-2 text-slate-400" />
-                            {row.fullDate}
-                          </td>
-                          <td className="px-4 py-3 font-medium text-slate-900">
-                            {row.value} <span className="text-slate-500 font-normal">{range.unit}</span>
-                          </td>
-                          <td className="px-4 py-3">
-                            <AbnormalityBadge level={rowStatus} />
-                          </td>
-                          <td className="px-4 py-3">
-                            {row.reportId ? (
-                              <Link to={`/reports/${row.reportId}`} className="text-primary-600 hover:text-primary-700 font-medium flex items-center">
-                                <Activity className="w-4 h-4 mr-1.5" />
-                                View Report
-                              </Link>
-                            ) : (
-                              <span className="text-slate-400">—</span>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </>
+          </div>
         )}
       </div>
     </div>

@@ -7,8 +7,8 @@ module.exports = {
   BACKEND_URL: process.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000',
   HEALTH_URL: 'http://127.0.0.1:8000/api/health/',
   
-  TEST_USER: `e2e_user_${Date.now().toString().slice(-5)}`,
-  TEST_PASS: 'NexolithPass2026!',
+  TEST_USER: 'testfamily',
+  TEST_PASS: 'Password123!',
 
   DEFAULT_TIMEOUT: 15000,
   HEADLESS: process.env.HEADLESS !== 'false', // Default to true unless explicitly overridden

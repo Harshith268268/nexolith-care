@@ -10,7 +10,7 @@
 
 @layer base {
   body {
-    @apply font-sans antialiased bg-slate-50 text-slate-900;
+    @apply font-sans antialiased bg-[#F5F8F8] text-[#18313A];
   }
 }
 @layer utilities {
@@ -21,4 +21,58 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .bg-medical-light {
+    background-color: #F5F8F8;
+  }
+
+  .bg-mint-soft {
+    background-color: #DDF2F1;
+  }
+
+  .card-medical {
+    background-color: #FFFFFF;
+    border: 1px solid #E3EEEE;
+    box-shadow: 0 4px 20px -2px rgba(24, 49, 58, 0.04), 0 2px 6px -1px rgba(24, 49, 58, 0.02);
+    border-radius: 1rem;
+  }
+
+  .medical-card-hover {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .medical-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -6px rgba(85, 191, 194, 0.12), 0 4px 12px -2px rgba(24, 49, 58, 0.04);
+  }
 }
+
+@keyframes soft-float-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes soft-float-2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0px); }
+}
+
+.animate-soft-float-1 { animation: soft-float-1 5s ease-in-out infinite; }
+.animate-soft-float-2 { animation: soft-float-2 6.5s ease-in-out 1.2s infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.35s ease-out forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-soft-float-1,
+  .animate-soft-float-2,
+  .animate-fade-in-up {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+

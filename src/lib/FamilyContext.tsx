@@ -5,6 +5,8 @@ import { FamilyMember, Report, Alert, Prediction } from './mockData';
 // Pointing to Django backend
 export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
+const strValid = (val: any) => Boolean(val && typeof val === 'string' && val.trim() && val.toLowerCase() !== 'null' && val.toLowerCase() !== 'none');
+
 interface AuthState {
   token: string | null;
   familyId: number | null;
@@ -28,9 +30,11 @@ interface FamilyContextType {
   members: FamilyMember[];
   activeMember: FamilyMember | null;
   setActiveMember: (member: FamilyMember | null) => void;
-  addMember: (data: any) => Promise<void>;
-  updateMember: (id: string, data: any) => Promise<void>;
+  addMember: (data: any) => Promise<any>;
+  updateMember: (id: string, data: any) => Promise<any>;
   deleteMember: (id: string) => Promise<void>;
+  uploadMemberPhoto: (id: string, file: File) => Promise<any>;
+  removeMemberPhoto: (id: string) => Promise<any>;
   
   reports: Report[];
   addReport: (data: any) => Promise<Report>;
@@ -125,8 +129,13 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
             return worst;
           }, 'Normal');
 
+          const photoPath = member.profile_image || member.profile_image_url || member.avatar_url || member.avatarUrl || null;
+          const fullPhotoUrl = photoPath && strValid(photoPath) ? (photoPath.startsWith('http') ? photoPath : `${API_BASE}${photoPath}`) : null;
+
           return {
             ...member,
+            avatarUrl: fullPhotoUrl,
+            profile_image: fullPhotoUrl,
             reportCount: memberReports.length,
             overallRisk: worstAbnormality,
             lastReportDate: memberReports.length > 0 ? memberReports[0].date : null
@@ -377,7 +386,14 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
       else if (err.detail) msg = err.detail;
       throw new Error(msg);
     }
-    await refreshData();
+    const createdMember = await res.json();
+    const photoFile = data.photoFile || data.profile_image_file || data.file;
+    if (photoFile && photoFile instanceof File) {
+      await uploadMemberPhoto(createdMember.id, photoFile);
+    } else {
+      await refreshData();
+    }
+    return createdMember;
   };
 
   const updateMember = async (id: string, data: any) => {
@@ -409,7 +425,15 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
       else if (err.detail) msg = err.detail;
       throw new Error(msg);
     }
-    await refreshData();
+
+    const photoFile = data.photoFile || data.profile_image_file || data.file;
+    if (photoFile && photoFile instanceof File) {
+      await uploadMemberPhoto(id, photoFile);
+    } else if (data.removePhoto) {
+      await removeMemberPhoto(id);
+    } else {
+      await refreshData();
+    }
   };
 
   const deleteMember = async (id: string) => {
@@ -506,16 +530,63 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const fetchPredictions = async (force = false) => {
-    // Placeholder until AI backend is fully integrated
-    console.log("Fetching predictions...");
+  const uploadMemberPhoto = async (id: string, file: File) => {
+    const formData = new FormData();
+    formData.append('profile_image', file);
+    const res = await apiFetch(`/api/family/members/${id}/photo/`, {
+      method: 'POST',
+      body: formData
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || err.detail || 'Failed to upload profile photo');
+    }
+    const updated = await res.json();
+    await refreshData();
+    return updated;
   };
+
+  const removeMemberPhoto = async (id: string) => {
+    const res = await apiFetch(`/api/family/members/${id}/photo/`, {
+      method: 'DELETE'
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || err.detail || 'Failed to remove profile photo');
+    }
+    const updated = await res.json();
+    await refreshData();
+    return updated;
+  };
+
+  const fetchPredictions = useCallback(async (force: boolean = false) => {
+    if (!auth.token) return;
+    const memberId = activeMember ? activeMember.id : (members[0]?.id || null);
+    if (!memberId) return;
+
+    if (predictionsFetched && !force) return;
+
+    setPredictionsLoading(true);
+    try {
+      const res = await apiFetch(`/api/analytics/predictions/?member_id=${memberId}`);
+      if (res.ok) {
+        const data = await res.json();
+        setPredictions(data.predictions || []);
+        setPredictionsFetched(true);
+      }
+    } catch (err) {
+      console.error("Failed to fetch predictions", err);
+    } finally {
+      setPredictionsLoading(false);
+    }
+  }, [auth.token, activeMember, members, predictionsFetched, apiFetch]);
 
   return (
     <FamilyContext.Provider value={{
       auth, isAuthenticated, login, register, logout, authError, authLoading,
       verifyEmail, resendVerificationOtp, requestForgotPassword, verifyResetOtp, resetPassword,
       members, activeMember, setActiveMember, addMember, updateMember, deleteMember,
+      uploadMemberPhoto, removeMemberPhoto,
       reports, addReport, updateReport, deleteReport,
       alerts, addAlert, updateAlert, deleteAlert, markAlertRead, rescheduleAlert,
       dataLoading, refreshData, refreshFamilyData: refreshData,
@@ -524,6 +595,7 @@ export function FamilyProvider({ children }: { children: ReactNode }) {
       {children}
     </FamilyContext.Provider>
   );
+
 }
 
 export function useFamily() {
