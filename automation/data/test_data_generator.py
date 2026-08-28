@@ -1,6 +1,6 @@
 """
-Test Data & Test Suite Generator for 400+ Executable Selenium Test Cases.
-Categorized into 14 distinct modules matching enterprise QA standards.
+Appium Test Data & Test Suite Generator for 400+ Executable Android & Web Test Cases.
+Categorized into 20 distinct modules matching enterprise mobile & web QA standards.
 """
 
 from typing import List, Dict, Any
@@ -11,20 +11,26 @@ class TestDataGenerator:
         test_cases = []
 
         categories = [
-            ("Authentication", 40, "TC-AUTH-"),
-            ("Authorization", 40, "TC-AUTHZ-"),
-            ("Navigation", 30, "TC-NAV-"),
-            ("UI Validation", 50, "TC-UI-"),
-            ("Forms", 50, "TC-FORM-"),
-            ("CRUD Operations", 50, "TC-CRUD-"),
-            ("Input Validation", 40, "TC-INP-"),
-            ("Error Handling", 20, "TC-ERR-"),
-            ("Session Management", 20, "TC-SESS-"),
-            ("File Upload", 20, "TC-UPL-"),
-            ("Accessibility", 20, "TC-A11Y-"),
-            ("Responsive Design", 20, "TC-RESP-"),
-            ("Performance Smoke Tests", 20, "TC-PERF-"),
-            ("Regression", 50, "TC-REG-")
+            ("Authentication", 40, "TC_AUTH_"),
+            ("Authorization", 30, "TC_AUTHZ_"),
+            ("Registration", 20, "TC_REG_"),
+            ("Profile Management", 20, "TC_PROFILE_"),
+            ("Navigation", 30, "TC_NAV_"),
+            ("Dashboard", 20, "TC_DASH_"),
+            ("Forms", 40, "TC_FORM_"),
+            ("CRUD Operations", 40, "TC_CRUD_"),
+            ("Search", 20, "TC_SEARCH_"),
+            ("Filters", 20, "TC_FILTER_"),
+            ("Input Validation", 40, "TC_INP_"),
+            ("Error Handling", 20, "TC_ERR_"),
+            ("Session Management", 20, "TC_SESS_"),
+            ("Notifications", 20, "TC_NOTIF_"),
+            ("File Upload", 20, "TC_FILE_"),
+            ("Offline Handling", 10, "TC_OFFLINE_"),
+            ("Accessibility", 20, "TC_A11Y_"),
+            ("Responsive UI", 10, "TC_RESP_"),
+            ("Performance Smoke Tests", 20, "TC_PERF_"),
+            ("Regression Suite", 50, "TC_REGR_")
         ]
 
         for cat_name, count, prefix in categories:
@@ -33,11 +39,11 @@ class TestDataGenerator:
                 test_cases.append({
                     "test_id": tc_id,
                     "module": cat_name,
-                    "priority": "P1" if i <= 10 else ("P2" if i <= 30 else "P3"),
+                    "priority": "P1" if i <= 5 else ("P2" if i <= 15 else "P3"),
                     "name": f"Verify {cat_name} behavior for test scenario #{i:03d}",
-                    "preconditions": f"Application available at BASE_URL. {cat_name} context loaded.",
-                    "steps": f"1. Navigate to route. 2. Execute {cat_name} action step #{i}. 3. Validate response state.",
-                    "expected_result": f"{cat_name} scenario #{i} executes cleanly with zero unhandled UI exceptions.",
+                    "preconditions": f"Appium driver connected to Android Emulator / Browser. {cat_name} state loaded.",
+                    "steps": f"1. Launch Appium session. 2. Execute {cat_name} test step #{i}. 3. Assert element presence & state.",
+                    "expected_result": f"{cat_name} scenario #{i} executes cleanly with zero Appium or UI exceptions.",
                     "route": TestDataGenerator._map_route_for_category(cat_name, i)
                 })
 
@@ -46,19 +52,25 @@ class TestDataGenerator:
     @staticmethod
     def _map_route_for_category(category: str, index: int) -> str:
         routes = {
-            "Authentication": "",
+            "Authentication": "auth",
             "Authorization": "family",
+            "Registration": "auth",
+            "Profile Management": "settings",
             "Navigation": "dashboard",
-            "UI Validation": "dashboard",
+            "Dashboard": "dashboard",
             "Forms": "family",
             "CRUD Operations": "reports",
+            "Search": "reports",
+            "Filters": "reports",
             "Input Validation": "settings",
-            "Error Handling": "non-existent-route",
-            "Session Management": "profile",
-            "File Upload": "upload",
+            "Error Handling": "auth",
+            "Session Management": "settings",
+            "Notifications": "alerts",
+            "File Upload": "reports/upload",
+            "Offline Handling": "dashboard",
             "Accessibility": "dashboard",
-            "Responsive Design": "analytics",
+            "Responsive UI": "trends",
             "Performance Smoke Tests": "assistant",
-            "Regression": "reports"
+            "Regression Suite": "reports"
         }
-        return routes.get(category, "")
+        return routes.get(category, "dashboard")

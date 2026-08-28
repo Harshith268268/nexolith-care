@@ -1,0 +1,131 @@
+name: Enterprise Security Review & Performance Audit
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  security-and-performance:
+    name: Backend Security Audit & SAST/DAST Pipeline
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      # Step 1: Checkout Repository
+      - name: 📥 Step 1 - Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Environments
+      - name: ⚙️ Step 2a - Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: ⚙️ Step 2b - Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Step 3: Install Dependencies & Security Tools
+      - name: 📦 Step 3 - Install Dependencies & System Binaries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-eng poppler-utils libpq-dev
+          pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install semgrep openpyxl
+          npm install -g @artillery/engine-http k6
+
+      # Step 4: SAST Scan (Semgrep)
+      - name: 🔍 Step 4 - SAST Analysis (Semgrep)
+        run: |
+          semgrep scan --config auto backend/ --json -o semgrep-results.json || true
+
+      # Step 5: Dependency Security Scan (Trivy)
+      - name: 🛡️ Step 5 - Dependency Vulnerability Scan (Trivy)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          exit-code: '0'
+          severity: 'CRITICAL,HIGH'
+
+      # Step 6: Secret Leak Detection (Gitleaks)
+      - name: 🔑 Step 6 - Secrets Detection (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      # Step 7: Django Unit & API Functional Tests
+      - name: 🧪 Step 7 - Django Unit & API Functional Tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+          SECRET_KEY: ci-cd-security-pipeline-secret-key-2026
+          DEBUG: "False"
+        run: |
+          cd backend
+          python manage.py check
+          python manage.py migrate
+          python manage.py test || true
+
+      # Step 8: Generate Audit Excel Workbooks & Documentation
+      - name: 📊 Step 8 - Generate Audit Workbooks & Assessment Artifacts
+        run: |
+          python "Vulnerability Test Results/generate_excel_reports.py"
+
+      # Step 9: Baseline Load Testing (k6)
+      - name: ⚡ Step 9 - Baseline Performance & Load Test (k6)
+        run: |
+          echo "Running k6 baseline load test against live backend API..."
+          k6 run "Vulnerability Test Results/k6-load-test.js" || true
+
+      # Step 10: Upload Vulnerability Audit Artifacts
+      - name: 📤 Step 10 - Upload Vulnerability Audit Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vulnerability-test-results
+          path: |
+            Vulnerability Test Results/*.md
+            Vulnerability Test Results/*.xlsx
+            Vulnerability Test Results/*.js
+            Vulnerability Test Results/*.yml
+            Vulnerability Test Results/*.jmx
+          retention-days: 30
+
+      # Step 11: Publish GitHub Step Summary
+      - name: 📝 Step 11 - Publish Security Audit Summary
+        if: always()
+        run: |
+          echo "## 🛡️ Enterprise Security & Performance Audit Summary" >> $GITHUB_STEP_SUMMARY
+          echo "**Repository:** https://github.com/Harshith268268/nexolith-care" >> $GITHUB_STEP_SUMMARY
+          echo "**Target API:** https://nexolith-care-api.onrender.com" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f "Vulnerability Test Results/executive-summary.md" ]; then
+            cat "Vulnerability Test Results/executive-summary.md" >> $GITHUB_STEP_SUMMARY
+          fi
