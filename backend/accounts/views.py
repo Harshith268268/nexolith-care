@@ -4,6 +4,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework_simplejwt.views import TokenObtainPairView
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from .serializers import (
     RegisterSerializer,
@@ -37,11 +39,13 @@ def resolve_user_by_email_or_username(identifier: str) -> User | None:
     ).first()
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CustomTokenObtainPairView(TokenObtainPairView):
     """Custom JWT login view verifying email verification status."""
     serializer_class = CustomTokenObtainPairSerializer
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(generics.CreateAPIView):
     permission_classes = [permissions.AllowAny]
     serializer_class = RegisterSerializer
@@ -76,6 +80,7 @@ class RegisterView(generics.CreateAPIView):
         return Response(resp_data, status=status.HTTP_201_CREATED)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class VerifyEmailOTPView(APIView):
     permission_classes = [permissions.AllowAny]
 
@@ -126,6 +131,7 @@ class VerifyEmailOTPView(APIView):
         }, status=status.HTTP_200_OK)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ResendVerificationOTPView(APIView):
     permission_classes = [permissions.AllowAny]
 
@@ -154,6 +160,7 @@ class ResendVerificationOTPView(APIView):
         }, status=status.HTTP_200_OK)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ForgotPasswordView(APIView):
     """
     Account Enumeration Protected Forgot Password Request.
@@ -181,6 +188,7 @@ class ForgotPasswordView(APIView):
         }, status=status.HTTP_200_OK)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class VerifyResetOTPView(APIView):
     permission_classes = [permissions.AllowAny]
 
@@ -209,6 +217,7 @@ class VerifyResetOTPView(APIView):
         }, status=status.HTTP_200_OK)
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ResetPasswordView(APIView):
     permission_classes = [permissions.AllowAny]
 
