@@ -29,4 +29,4 @@ RUN python manage.py collectstatic --noinput || true
 EXPOSE 8000
 
 # Launch Gunicorn server
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "core.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "1", "--threads", "4", "core.wsgi:application"]
