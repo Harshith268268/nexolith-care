@@ -57,7 +57,6 @@ jobs:
           pip install --upgrade pip
           pip install -r backend/requirements.txt
           pip install semgrep openpyxl
-          npm install -g @artillery/engine-http k6
 
       # Step 4: SAST Scan (Semgrep)
       - name: 🔍 Step 4 - SAST Analysis (Semgrep)
@@ -100,9 +99,9 @@ jobs:
 
       # Step 9: Baseline Load Testing (k6)
       - name: ⚡ Step 9 - Baseline Performance & Load Test (k6)
-        run: |
-          echo "Running k6 baseline load test against live backend API..."
-          k6 run "Vulnerability Test Results/k6-load-test.js" || true
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: "Vulnerability Test Results/k6-load-test.js"
 
       # Step 10: Upload Vulnerability Audit Artifacts
       - name: 📤 Step 10 - Upload Vulnerability Audit Artifacts
